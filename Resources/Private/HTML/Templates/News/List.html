@@ -1,0 +1,43 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'GP:tx_academy_categories|selectedCategories')}">
+	<p><f:cObject typoscriptObjectPath="lib.getCategoryTitles" /></p>
+</f:if>
+
+<f:if condition="{news}">
+	<f:then>
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1301">
+			<f:then>
+				<h1 class="csc-firstHeader">
+					<f:translate key="news.homepageHeader" extensionName="Academy" />
+					<span>
+						<f:link.page class="button" pageUid="1789">
+							<f:translate key="general.showAll" extensionName="Academy" />
+						</f:link.page>
+					</span>
+				</h1>
+				<f:for each="{news}" as="newsItem" iteration="iterator">
+					<f:if condition="{iterator.isFirst}">
+						<f:then>
+							<f:render partial="News/ItemHome" arguments="{newsItem : newsItem, settings : settings, class : 'alpha'}" />
+						</f:then>
+						<f:else>
+							<f:render partial="News/ItemHome" arguments="{newsItem : newsItem, settings : settings, class : 'omega'}" />
+						</f:else>
+					</f:if>
+				</f:for>
+			</f:then>
+			<f:else>
+				<f:widget.paginate objects="{news}" as="paginatedNews" configuration="{itemsPerPage: 10, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+					<f:for each="{paginatedNews}" as="newsItem">
+						<f:render partial="News/Item" arguments="{newsItem: newsItem, settings:settings}" />
+					</f:for>
+				</f:widget.paginate>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<p><f:translate key="list_nonewsfound" /></p>
+	</f:else>
+</f:if>

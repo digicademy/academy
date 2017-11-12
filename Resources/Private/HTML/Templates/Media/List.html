@@ -1,0 +1,21 @@
+<f:if condition="{selectedCategories}">
+	<f:render partial="Categories/SelectedCategories" arguments="{selectedCategories : selectedCategories}" />
+</f:if>
+
+<p>
+	<f:link.page pageUid="2142" class="button">
+		<f:translate key="media.listGroups" />
+	</f:link.page>
+</p>
+
+<f:widget.paginate objects="{media}" as="paginatedMedia" configuration="{itemsPerPage: 10, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+	<f:for each="{paginatedMedia}" as="medium" iteration="iterator">
+		<f:render partial="Media/Item" arguments="{medium : medium}" />
+	</f:for>
+</f:widget.paginate>
+
+<p>
+	<f:link.page pageUid="2142" class="button">
+		<f:translate key="media.listGroups" />
+	</f:link.page>
+</p>

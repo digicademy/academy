@@ -1,0 +1,101 @@
+lib.mediaicon = CASE
+lib.mediaicon {
+	key.field = type
+	10 = TEXT
+	10.value = sound
+	20 = TEXT
+	20.value = gallery
+	30 = TEXT
+	30.value = download
+	40 = TEXT
+	40.value = movie
+	default = TEXT
+	default.value = media
+}
+
+lib.media.typeCount = TEXT
+lib.media.typeCount {
+	numRows {
+		table = tx_academy_domain_model_media
+		select {
+			pidInList = 1300
+			recursive = 4
+			selectFields = COUNT(*)
+			where.dataWrap = type={field:type} AND deleted = 0 AND hidden = 0
+		}
+	}
+}
+
+lib.media.image < lib.image
+lib.media.image {
+	references >
+	references.field = files
+}
+
+lib.media.document = FILES
+lib.media.document {
+
+	references.field = files
+
+	renderObj = COA
+	renderObj {
+
+		10 = TEXT
+		10 {
+			data = file:current:title
+			typolink.parameter.data = file:current:publicUrl
+		}
+
+		20 = TEXT
+		20 {
+			noTrimWrap = | (|)|
+			data = file:current:size
+			bytes = 1
+		}
+	}
+
+}
+
+lib.media.video = FILES
+lib.media.video {
+
+	references.field = files
+
+	# generate <source> or <track> depending on type
+	renderObj = CASE
+	renderObj {
+
+		key.data = file:current:extension
+
+		mp4 = TEXT
+		mp4.dataWrap = <source src="{file:current:publicUrl}" type="video/mp4" />
+
+		webm < .mp4
+		webm.dataWrap = <source src="{file:current:publicUrl}" type="video/webm" />
+
+		ogv < .mp4
+		ogv.dataWrap = <source src="{file:current:publicUrl}" type="video/ogg" />
+
+		vtt < .mp4
+		vtt.dataWrap = <track kind="captions" src="{file:current:publicUrl}" srclang="de" label="Deutsch" />
+
+	}
+
+}
+
+lib.media.audio = FILES
+lib.media.audio {
+
+	references.field = files
+
+	renderObj = COA
+	renderObj {
+
+		10 = TEXT
+		10 {
+			dataWrap = <audio src="{file:current:publicUrl}" type="audio/mp3" controls="controls" preload="auto"></audio>
+		}
+
+	}
+
+}

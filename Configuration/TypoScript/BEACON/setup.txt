@@ -1,0 +1,11 @@
+plugin.tx_beaconizer_generator {
+	persistence {
+		classes {
+			Digicademy\Beaconizer\Domain\Model\GenericGnd {
+				mapping {
+					tableName = tx_academy_domain_model_persons
+				}
+			}
+		}
+	}
+}

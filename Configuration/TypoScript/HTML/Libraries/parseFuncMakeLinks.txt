@@ -1,0 +1,6 @@
+lib.parseFuncMakeLinks = TEXT
+lib.parseFuncMakeLinks {
+	current = 1
+	parseFunc.makelinks < lib.parseFunc.makelinks
+	parseFunc.tags.link < lib.parseFunc.tags.link
+}

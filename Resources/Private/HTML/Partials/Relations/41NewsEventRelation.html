@@ -1,0 +1,28 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1790">
+	<f:then>
+		<h4 class="icon dates"><f:translate key="events" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<li class="row">
+					<f:link.action extensionName="News" pluginName="pi1" controller="News" action="detail" arguments="{news : relation.event.uid}" pageUid="2121">
+						{relation.event.title} – <f:format.date format="d.m.Y">{relation.event.eventStartdate}</f:format.date>
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:then>
+	<f:else>
+		<h4 class="icon news"><f:translate key="news" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<li class="row">
+					<f:link.action extensionName="News" pluginName="pi1" controller="News" action="detail" arguments="{news : relation.news.uid}" pageUid="1790">
+						{relation.news.title} – (<f:format.date format="d.m.Y">{relation.news.datetime}</f:format.date>)
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:else>
+</f:if>

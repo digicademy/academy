@@ -1,0 +1,35 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}<f:cObject typoscriptObjectPath="lib.removeEmptyLines">BEGIN:VCARD
+VERSION:3.0
+N;CHARSET=utf-8:{person.familyName};{person.givenName};{person.additionalNames};{person.honorificPrefix};{person.honorificSuffix}
+FN;CHARSET=utf-8:{person.honorificPrefix} {person.givenName} {person.additionalNames} {person.familyName} {person.honorificSuffix}
+<f:if condition="{person.gender} == 1">
+	<f:then>
+GENDER:F
+	</f:then>
+	<f:else>
+GENDER:M
+	</f:else>
+</f:if>
+<f:if condition="{person.expertise}">
+NOTE;CHARSET=utf-8:{person.expertise}
+</f:if>
+<f:for each="{person.relations}" as="relation">
+	<f:if condition="{relation.type} == 10">
+		<f:for each="{relation.hcard.adr}" as="adr">
+		<f:if condition="{adr.type} == 4">
+ORG;CHARSET=utf-8:{adr.org}
+		</f:if>
+ADR;CHARSET=utf-8;TYPE={f:translate(key:'hcards.address.type.I.{adr.type}')}:{adw:formatAdrComponents(components : adr.adrcomponents)}
+		</f:for>
+		<f:for each="{relation.hcard.tel}" as="tel">
+TEL;TYPE={adw:formatTelTypeComponent(type : tel.type)}:{tel.value}
+		</f:for>
+		<f:for each="{relation.hcard.email}" as="email">
+EMAIL:{email.value}
+		</f:for>
+		<f:for each="{relation.hcard.url}" as="url">
+URL:{url.value}
+		</f:for>
+	</f:if>
+</f:for>
+END:VCARD</f:cObject>

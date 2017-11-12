@@ -1,0 +1,110 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:plugin.sheet.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.list</numIndex>
+										<numIndex index="1">Persons->list;Persons->show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.listBySelection</numIndex>
+										<numIndex index="1">Persons->listBySelection;Persons->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.listByCategories</numIndex>
+										<numIndex index="1">Persons->listByCategories;Persons->show</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.listByRoles</numIndex>
+										<numIndex index="1">Persons->listByRoles;Persons->show</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.show</numIndex>
+										<numIndex index="1">Persons->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+							<onChange>reload</onChange>
+						</TCEforms>
+					</switchableControllerActions>
+
+					<settings.selectedPersons>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.selectedPersons</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_persons</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Persons->listBySelection;Persons->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedPersons>
+
+					<settings.selectedCategories>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.selectedCategories</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>sys_category</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Persons->listByCategories;Persons->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedCategories>
+
+					<settings.selectedRoles>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.selectedRoles</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_roles</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Persons->listByRoles;Persons->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedRoles>
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure> 

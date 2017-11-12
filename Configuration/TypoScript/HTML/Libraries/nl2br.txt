@@ -1,0 +1,5 @@
+lib.tx_academy.nl2br = TEXT
+lib.tx_academy.nl2br {
+	current = 1
+	br = 1
+}

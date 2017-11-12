@@ -1,0 +1,36 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1328">
+	<f:cObject typoscriptObjectPath="lib.testAndTrimContent">
+		<f:for each="{relations}" as="relation">
+			<f:if condition="{relation.type} == 12">
+				<f:if condition="{arguments.multipleRelations}">
+					<f:then>, <f:render partial="Units/UnitTitle" arguments="{unit : relation.unit}" /></f:then>
+					<f:else><f:render partial="Units/UnitTitle" arguments="{unit : relation.unit}" /></f:else>
+				</f:if>
+				<adw:MergeVariable array1="{arguments : arguments}" array2="{multipleRelations : 1}" />
+			</f:if>
+		</f:for>
+	</f:cObject>
+</f:if>
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1825">
+	<f:cObject typoscriptObjectPath="lib.testAndTrimContent">
+		<f:for each="{relations}" as="relation">
+			<f:if condition="{relation.type} == 11">
+				<f:if condition="{arguments.multipleRelations}">
+					<f:then>, <f:render partial="Projects/ProjectTitle" arguments="{project : relation.project}" /></f:then>
+					<f:else><f:render partial="Projects/ProjectTitle" arguments="{project : relation.project}" /></f:else>
+				</f:if>
+				<adw:MergeVariable array1="{arguments : arguments}" array2="{multipleRelations : 1}" />
+			</f:if>
+			<f:if condition="{relation.type} == 12">
+				<f:if condition="{arguments.multipleRelations}">
+					<f:then>, <f:render partial="Units/UnitTitle" arguments="{unit : relation.unit}" /></f:then>
+					<f:else><f:render partial="Units/UnitTitle" arguments="{unit : relation.unit}" /></f:else>
+				</f:if>
+				<adw:MergeVariable array1="{arguments : arguments}" array2="{multipleRelations : 1}" />
+			</f:if>
+		</f:for>
+	</f:cObject>
+</f:if>

@@ -1,0 +1,7 @@
+lib.testAndTrimContent = TEXT
+lib.testAndTrimContent {
+	data = current : 1
+	trim = 1
+	outerWrap = (|)
+	outerWrap.if.isTrue.data = current : 1
+}

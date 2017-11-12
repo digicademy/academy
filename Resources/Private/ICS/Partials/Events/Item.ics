@@ -1,0 +1,72 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace e=Tx_RoqNewsevent_ViewHelpers}
+
+BEGIN:VEVENT
+SUMMARY:<n:format.striptags>{newsItem.title}</n:format.striptags>
+DESCRIPTION:<n:format.striptags>{newsItem.teaser}</n:format.striptags>
+DTSTAMP:<e:format.date format="%Y%m%dT%H%I%SZ" strftime="1">{newsItem.datetime}</e:format.date>
+
+<e:if condition="'<f:format.date>{newsItem.eventEnddate}</f:format.date>' != ''">
+    <!-- Multiple day event -->
+    <f:then>
+        <f:if condition="{newsItem.eventStarttime}">
+            <!-- Multiple day event with time -->
+            <f:then>
+
+                DTSTART:<f:format.date format="Ymd">{newsItem.eventStartdate}</f:format.date>T<e:format.time format="His">{newsItem.eventStarttime}</e:format.time>Z
+
+                <f:if condition="{newsItem.eventEndtime}">
+                    <f:then>
+
+                        DTEND:<f:format.date format="Ymd">{newsItem.eventEnddate}</f:format.date>T<e:format.time format="His">{newsItem.eventEndtime}</e:format.time>Z
+
+                    </f:then>
+                    <f:else>
+
+                        DTEND:<f:format.date format="Ymd">{newsItem.eventEnddate}</f:format.date>T000000Z
+
+                    </f:else>
+                </f:if>
+            </f:then>
+            <!-- Multiple day event without time -->
+            <f:else>
+
+                DTSTART:<f:format.date format="Ymd">{newsItem.eventStartdate}</f:format.date>T000000Z
+                DTEND:<f:format.date format="Ymd">{newsItem.eventEnddate}</f:format.date>T000000Z
+
+            </f:else>
+        </f:if>
+    </f:then>
+    <!-- One day event -->
+    <f:else>
+        <f:if condition="{newsItem.eventStarttime}">
+            <!-- One day event with time -->
+            <f:then>
+
+                DTSTART:<f:format.date format="Ymd">{newsItem.eventStartdate}</f:format.date>T<e:format.time format="His">{newsItem.eventStarttime}</e:format.time>Z
+
+                <f:if condition="{newsItem.eventEndtime}">
+                    <f:then>
+
+                        DTEND:<f:format.date format="Ymd">{newsItem.eventStartdate}</f:format.date>T<e:format.time format="His">{newsItem.eventEndtime}</e:format.time>Z
+
+                    </f:then>
+                </f:if>
+            </f:then>
+            <!-- One day event without time -->
+            <f:else>
+
+                DTSTART:<f:format.date format="Ymd">{newsItem.eventStartdate}</f:format.date>T000000Z
+
+            </f:else>
+        </f:if>
+    </f:else>
+</e:if>
+
+<f:if condition="{newsItem.eventLocation}">
+
+    LOCATION:{newsItem.eventLocation}
+
+</f:if>
+
+END:VEVENT

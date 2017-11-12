@@ -1,0 +1,8 @@
+# @see: http://tools.ietf.org/html/rfc6350#page-29
+# index.php?id=###ID###&type=1122&tx_academy_persons[person]=###ID###&tx_academy_persons[action]=show&tx_academy_persons[controller]=Persons&tx_academy_persons[format]=vcf
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/VCF/Libraries/removeEmptyLines.txt">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/VCF/Page/page.txt">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/VCF/Plugins/setup.txt">

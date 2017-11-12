@@ -1,0 +1,45 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<adw:groupRelations relations="{project.relations}" />
+
+<dl>
+	<f:for each="{project.relations}" as="relation" iteration="iterator">
+
+		<!-- Project - Person -->
+		<f:if condition="{relation.type} == 11">
+			<f:render partial="Hcards/Listitem" arguments="{relation : relation}" />
+		</f:if>
+
+		<!-- Project - Freetext -->
+		<f:if condition="{relation.type} == 25">
+			<f:if condition="{relation.roleFreetext}">
+				<dt>{relation.roleFreetext}</dt>
+			</f:if>
+			<dd><f:cObject typoscriptObjectPath="lib.parseFuncMakeLinks">{relation.freeText}</f:cObject></dd>
+		</f:if>
+
+		<!-- Project - Hcard -->
+		<f:if condition="{relation.type} == 20">
+			<f:render partial="Hcards/Listitem" arguments="{relation : relation}" />
+		</f:if>
+
+	</f:for>
+</dl>
+
+<f:if condition="{adw:TestIfRelationsExist(relationNumbers : '22,23,24', groupedRelations : groupedRelations)}">
+
+	<h2><f:translate key="general.furtherInformation" /></h2>
+
+	<f:if condition="{groupedRelations.22}">
+		<f:render partial="Relations/22ProjectNewsRelation" arguments="{controller : 'Projects', relations : groupedRelations.22}" />
+	</f:if>
+
+	<f:if condition="{groupedRelations.23}">
+		<f:render partial="Relations/23ProjectEventRelation" arguments="{controller : 'Projects', relations : groupedRelations.23}" />
+	</f:if>
+
+	<f:if condition="{groupedRelations.24}">
+		<f:render partial="Relations/24ProjectMediumRelation" arguments="{controller : 'Projects', relations : groupedRelations.24}" />
+	</f:if>
+
+</f:if>

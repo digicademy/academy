@@ -1,0 +1,39 @@
+<f:for each="{hcard.adr}" as="address">
+
+	<span class="adr">
+		<f:if condition="{type} == 'person'">
+			<f:if condition="{address.type} == 4">
+				<span class="org">
+					<f:cObject typoscriptObjectPath="lib.tx_academy.formatOrg" data="{org : address.org}" />
+				</span>
+			</f:if>
+			<f:if condition="{address.type} == 3">
+				<span class="label"><f:translate key="hcards.address.type.3" />:</span><br/>
+			</f:if>
+			<f:if condition="{address.type} == 6">
+				<span class="label"><f:translate key="hcards.address.type.6" />:</span><br/>
+			</f:if>
+		</f:if>
+		<f:for each="{address.adrcomponents}" as="component">
+			<f:if condition="{component.type} == 1">
+				<span class="street-address">{component.value}</span><br/>
+			</f:if>
+			<f:if condition="{component.type} == 2">
+				<span class="postal-code">{component.value}</span>
+			</f:if>
+			<f:if condition="{component.type} == 3">
+				<span class="locality">{component.value}</span><br/>
+			</f:if>
+			<f:if condition="{component.type} == 4">
+				<span class="country-name">{component.value}</span>
+			</f:if>
+			<f:if condition="{component.type} == 5">
+				<span class="post-office-box"><f:translate key="hcards.address.pobox" /> {component.value}</span><br/>
+			</f:if>
+			<f:if condition="{component.type} == 6">
+				<span class="extended-address">{component.value}</span><br/>
+			</f:if>
+		</f:for>
+	</span><br/>
+
+</f:for>

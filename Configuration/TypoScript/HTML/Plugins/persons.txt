@@ -1,0 +1,38 @@
+page.20.40 = TEXT
+page.20.40.if {
+	value = 1827,1826
+	isInList.data = TSFE:id
+}
+
+# the .tel and .fax / .type styles are redundant due to iPhone inconsistencies (only labels and no numbers shown)
+# the br tags are removed with JS since they are unstylable in IEs and create wide gaps in this browser family
+page.20.40.value (
+
+	<script type="text/javascript">
+		$('.contactinformation span, .contactinformation a').hide();
+		$('.contactinformation br').remove();
+		$('.org:first, .org:first .organization-name, .org:first .organization-unit').show();
+		$('.label:first, .adr:first, .extended-address:first, .street-address:first, .post-office-box:first, .postal-code:first, .locality:first, .country-name:first').show();
+		$('.tel:first, .fax:first, .tel:first *, .fax:first *').show();
+		$('.tel:first .type, .fax:first .type').hide();
+		$('.url:first, .email:first, .spmicon:first').show();
+		$('.expand').click(function(event) {
+			event.preventDefault();
+			$('.label, .org, .adr, .extended-address, .street-address, .post-office-box, .postal-code, .locality, .country-name, .tel, .tel *, .value, .url, .email, .label').slideDown('normal');
+			$('.tel .type').hide();
+		});
+	</script>
+
+)
+
+#[globalVar = TSFE:id = 1827]
+#tt_content.list.20.academy_persons {
+#	switchableControllerActions {
+#		Persons {
+#			1 = show
+#			2 = list
+#			3 = listByRole
+#		}
+#	}
+#}
+#[global]

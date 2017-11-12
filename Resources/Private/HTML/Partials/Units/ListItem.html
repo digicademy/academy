@@ -1,0 +1,25 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:da="http://typo3.org/ns/Digicademy/Academy/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="list item unit" id="unit-{unit.uid}">
+    <h2>
+        <f:link.action action="show" arguments="{unit : unit}">
+            {unit.title}
+            <f:if condition="{unit.acronym}">({unit.acronym})</f:if>
+        </f:link.action>
+    </h2>
+    <f:if condition="{unit.categories}">
+        <f:render partial="Categories/SelectedCategories" arguments="{selectedCategories : unit.categories}"/>
+    </f:if>
+    <f:if condition="{unit.description}">
+        {unit.description -> f:format.crop(maxCharacters: '200', respectWordBoundaries:'1') -> f:format.html()}
+    </f:if>
+    <p>
+        <f:link.action action="show" arguments="{unit : unit}">
+            <f:translate key="general.details"/>
+        </f:link.action>
+    </p>
+</div>
+
+</html>

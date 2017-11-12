@@ -1,0 +1,148 @@
+config.tx_extbase.objects {
+	Tx_News_Controller_NewsController {
+		className = Tx_Academy_Controller_EventsController
+	}
+	Tx_News_Domain_Repository_NewsRepository {
+		className = Tx_Academy_Domain_Repository_NewsRepository
+	}
+}
+
+###
+
+plugin.tx_news {
+	settings {
+		cssFile >
+		displayDummyIfNoMedia = 0
+		dateField = datetime
+	}
+	persistence {
+		classes {
+
+			# Addresses
+			Digicademy\Academy\Domain\Model\HcardsAdr {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_adr
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsAdrcomponents {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_adrcomponents
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsTel {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_tel
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsEmail {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_email
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsUrl {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_url
+				}
+			}
+
+			# Categories
+			Digicademy\Academy\Domain\Model\Categories {
+				mapping {
+					tableName = sys_category
+				}
+			}
+
+			# Events
+			Tx_RoqNewsevent_Domain_Model_Event {
+				mapping {
+					tableName = tx_news_domain_model_news
+				}
+			}
+
+			Tx_Academy_Domain_Model_Events {
+				mapping {
+					tableName = tx_news_domain_model_news
+				}
+			}
+
+			# News
+			Tx_Academy_Domain_Model_News {
+				mapping {
+					tableName = tx_news_domain_model_news
+				}
+			}
+
+		}
+	}
+	view {
+		templateRootPaths.100 >
+		partialRootPaths.100 >
+		layoutRootPaths.100 >
+		layoutRootPaths.100 = EXT:academy/Resources/Private/HTML/Layouts/
+		partialRootPaths.100 = EXT:academy/Resources/Private/HTML/Partials/
+		templateRootPaths.100 = EXT:academy/Resources/Private/HTML/Templates/
+		widget.TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = EXT:academy/Resources/Private/HTML/Templates/
+	}
+}
+
+###
+
+lib.newsimage = COA
+lib.newsimage {
+
+	10 = LOAD_REGISTER
+	10 {
+		lastImageInfoTrigger.cObject = IMAGE
+		lastImageInfoTrigger.cObject.file.import.dataWrap = uploads/tx_news/{field : image}
+# lastImageInfoTrigger.debugFunc = 1
+	}
+
+	20 < lib.image.renderObj
+	20 {
+		file {
+			import.data >
+			import.dataWrap = uploads/tx_news/{field : image}
+			width.cObject.10.currentWidth.cObject.data = TSFE:lastImageInfo|0
+			width.cObject.10.currentWidth.cObject.override.if.isGreaterThan.data = TSFE:lastImageInfo|0
+#width.debugFunc = 1
+			height.cObject.10.currentHeight.cObject.data = TSFE:lastImageInfo|1
+			height.cObject.10.currentHeight.cObject.override.if.isGreaterThan.data = TSFE:lastImageInfo|1
+			height.cObject.20.1.value = 366
+			# hack to enable offset for news home template without extending the domain model
+			height.cObject.20.stdWrap.override {
+				cObject.replacement {
+					10.search = (
+					10.replace = {
+					20.search = )
+					20.replace = }
+				}
+			}
+			height.insertData = 1
+#height.debugFunc = 1
+		}
+
+		altText.data = field : alt
+
+		imageLinkWrap {
+			enable.if.isTrue.field = image_zoom
+			typolink.parameter.data = uploads/tx_news/{field : image}
+			linkParams.ATagParams.cObject.20 >
+		}
+
+		stdWrap.preCObject {
+
+			caption >
+
+			magnificPopup.cObject = TEXT
+			magnificPopup.cObject.value = 1
+			magnificPopup.cObject.if.isTrue.field = image_zoom
+		}
+	}
+}
+
+###
+
+# for some reason f:format.html produces inconsistent HTML in tx_news; therefore pipe stuff through own parseFunc
+lib.tx_news.parseFunc = TEXT
+lib.tx_news.parseFunc.current = 1
+lib.tx_news.parseFunc.parseFunc < lib.parseFunc_RTE

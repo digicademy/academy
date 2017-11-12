@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:da="http://typo3.org/ns/Digicademy/Academy/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:layout name="Default"/>
+
+<f:section name="content">
+
+    <f:if condition="{unit}">
+        <f:then>
+            <f:render partial="Units/SingleItem" arguments="{arguments : arguments, settings : settings, unit : unit}" />
+        </f:then>
+        <f:else>
+            <p>
+                <f:translate key="general.noData"/>
+            </p>
+        </f:else>
+    </f:if>
+
+</f:section>
+
+</html>

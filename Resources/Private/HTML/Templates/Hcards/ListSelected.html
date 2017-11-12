@@ -1,0 +1,28 @@
+<f:if condition="{selectedHcards}">
+	<f:then>
+		<dl class="contactlist">
+		<dt>{settings.label}</dt>
+		<f:for each="{selectedHcards}" as="hcard">
+			<f:if condition="{hcard.type} == 1">
+				<f:then>
+					<dd class="vcard person standard">
+						<span class="fn">{hcard.label}</span><br/>
+						<f:render partial="Hcards/Adr" arguments="{hcard : hcard, type : 'person'}" />
+						<f:render partial="Hcards/Tel" arguments="{hcard : hcard}" />
+						<f:render partial="Hcards/Email" arguments="{hcard : hcard, classes : 'email'}" />
+						<f:render partial="Hcards/Url" arguments="{hcard : hcard}" />
+					</dd>
+				</f:then>
+				<f:else>
+					<dd class="vcard organisation minimal">
+						<f:render partial="Hcards/VcardOrganization" arguments="{hcard : hcard}" />
+					</dd>
+				</f:else>
+			</f:if>
+		</f:for>
+		</dl>
+	</f:then>
+	<f:else>
+		<p><f:translate key="general.pleaseSelectRecords" /></p>
+	</f:else>
+</f:if>

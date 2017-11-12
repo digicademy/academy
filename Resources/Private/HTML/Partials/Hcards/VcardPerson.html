@@ -1,0 +1,19 @@
+<f:if condition="{nameWrap}">
+	<f:then>
+		<{nameWrap}>
+			<f:render partial="Hcards/Name" arguments="{record : person, type : 'person', familyNameFirst : familyNameFirst}" />
+		</{nameWrap}>
+	</f:then>
+	<f:else>
+		<f:render partial="Hcards/Name" arguments="{record : person, type : 'person', familyNameFirst : familyNameFirst}" />
+	</f:else>
+</f:if>
+
+<f:for each="{person.relations}" as="personrelation">
+	<f:if condition="{personrelation.type} == 10">
+		<f:render partial="Hcards/Adr" arguments="{hcard : personrelation.hcard, type : 'person'}" />
+		<f:render partial="Hcards/Tel" arguments="{hcard : personrelation.hcard}" />
+		<f:render partial="Hcards/Email" arguments="{hcard : personrelation.hcard, classes : 'email icononly'}" />
+		<f:render partial="Hcards/Url" arguments="{hcard : personrelation.hcard}" />
+	</f:if>
+</f:for>

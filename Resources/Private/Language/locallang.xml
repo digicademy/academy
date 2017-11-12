@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for the The Academy extension in the FRONTEND</description>
+	</meta>
+	<data type="array">
+
+		<languageKey index="default" type="array">
+
+			<label index="general.backToList">Back to list</label>
+			<label index="general.backLink">Back</label>
+			<label index="general.furtherInformation">Further information</label>
+			<label index="general.showAll">Show all</label>
+			<label index="general.currentSelection">Current Selection</label>
+			<label index="general.details">Details</label>
+			<label index="general.more">More</label>
+			<label index="general.readOn">Continue reading</label>
+			<label index="general.pleaseSelectRecords">Please select a record</label>
+			<label index="general.onlyOrgs">Currently only ORG addresses are supported</label>
+
+			<label index="projects">Projects</label>
+			<label index="project">Project</label>
+
+			<label index="persons">Persons</label>
+			<label index="person">Person</label>
+			<label index="persons.contact">Contact</label>
+			<label index="persons.allContactDetails">All contact data</label>
+			<label index="persons.news4person">News about this person</label>
+			<label index="persons.events4person">Events with this person</label>
+			<label index="persons.media4person">Media content about this person</label>
+			<label index="persons.expertise">Disciplines</label>
+			<label index="persons.cv">Biography</label>
+			<label index="persons.awards">Awards</label>
+			<label index="persons.publications">Publications</label>
+			<label index="persons.profileLink">Profile</label>
+			<label index="persons.vcardLink">Vcard</label>
+			<label index="persons.units">In the academy</label>
+			<label index="persons.projects">In projects</label>
+			<label index="persons.seeAlso">More about this person</label>
+
+			<label index="hcards">Contact information</label>
+			<label index="hcard">Contact</label>
+			<label index="hcards.address.type.3">Parcel post</label>
+			<label index="hcards.address.type.6">Private</label>
+			<label index="hcards.address.type.I.1">INTL</label>
+			<label index="hcards.address.type.I.2">POSTAL</label>
+			<label index="hcards.address.type.I.3">PARCEL</label>
+			<label index="hcards.address.type.I.4">WORK</label>
+			<label index="hcards.address.type.I.5">dom</label>
+			<label index="hcards.address.type.I.6">home</label>
+			<label index="hcards.address.type.I.7">pref</label>
+			<label index="hcards.address.pobox">PO Box</label>
+
+			<label index="units">Organisational units</label>
+			<label index="unit">Organisational unit</label>
+			<label index="units.basicInformation">Basic Information</label>
+			<label index="units.relatedProjects">Related projects</label>
+
+			<label index="categories.selectedCategories.label">Current selection</label>
+			<label index="categories.clearSelection">Discard selection</label>
+			<label index="categories.nothingFoundForSelection">No objects match your selection</label>
+
+			<label index="roles">Roles</label>
+			<label index="role">Role</label>
+
+			<label index="news">News</label>
+			<label index="news.homepageHeader">Academy news</label>
+			<label index="news.nothingFound">No news found</label>
+
+			<label index="events">Events</label>
+			<label index="event">Event</label>
+			<label index="events.detail">Event details</label>
+			<label index="events.time">Time</label>
+			<label index="events.place">Location</label>
+			<label index="events.export">Export</label>
+			<label index="events.nothingFound">No events found</label>
+
+			<label index="media">Media</label>
+			<label index="media.documents">Documents</label>
+			<label index="media.audios">Audios</label>
+			<label index="media.videos">Videos</label>
+			<label index="media.galleries">Galleries</label>
+			<label index="media.newest">Newest</label>
+			<label index="media.total">total</label>
+			<label index="medium">Medium</label>
+			<label index="media.listGroups">Media overview</label>
+			<label index="media.noVideoSupport">Your browser is not supported by the media player</label>
+			<label index="media.showAllDocuments">Show all documents</label>
+			<label index="media.showAllGalleries">Show all galleries</label>
+			<label index="media.showAllAudios">Show all audio files</label>
+			<label index="media.showAllVideos">Show all videos</label>
+			<label index="media.crdate">Created</label>
+
+			<label index="categories">Categories</label>
+			<label index="category">Category</label>
+
+			<label index="pages">Pages</label>
+			<label index="page">Page</label>
+
+			<label index="search">Search</label>
+			<label index="search.media">Find media</label>
+			<label index="search.persons">Find persons</label>
+			<label index="search.projects">Find projects</label>
+			<label index="search.keywords">Keywords</label>
+			<label index="search.search">Search</label>
+			<label index="search.website">Website search</label>
+			<label index="search.thisWebsite">Search this website</label>
+			<label index="search.find">find</label>
+			<label index="search.noMatches">No results</label>
+			<label index="search.matches">Result</label>
+			<label index="search.searchedFor">You searched for</label>
+			<label index="search.AND">AND</label>
+			<label index="search.personSearch">Person search</label>
+			<label index="search.projectsSearch">Project search</label>
+			<label index="search.newsSearch">News search</label>
+			<label index="search.eventsSearch">Event search</label>
+			<label index="search.pagesSearch">Pages search</label>
+			<label index="search.mediaSearch">Media search</label>
+			<label index="search.noPersonsFound">No persons found</label>
+			<label index="search.noProjectsFound">No projects found</label>
+			<label index="search.noNewsFound">No news found</label>
+			<label index="search.noEventsFound">No events found</label>
+			<label index="search.noPagesFound">No pages found</label>
+			<label index="search.noMediaFound">No media found</label>
+
+		</languageKey>
+
+		<languageKey index="de" type="array">
+
+			<label index="general.backToList">Zurück zur Übersicht</label>
+			<label index="general.backLink">Zurück</label>
+			<label index="general.furtherInformation">Weiterführende Informationen</label>
+			<label index="general.showAll">Alle anzeigen</label>
+			<label index="general.currentSelection">Aktuelle Auswahl</label>
+			<label index="general.details">Details</label>
+			<label index="general.more">Mehr</label>
+			<label index="general.readOn">Weiterlesen</label>
+			<label index="general.pleaseSelectRecords">Bitte wählen Sie Datensätze aus</label>
+			<label index="general.onlyOrgs">Momentan werden nur Institutionsadressen und keine Personenadressen unterstützt</label>
+			<label index="general.noData">Keine Datensätze gefunden</label>
+
+			<label index="projects">Projekte</label>
+			<label index="project">Projekt</label>
+
+			<label index="persons">Personen</label>
+			<label index="person">Person</label>
+			<label index="persons.contact">Kontakt</label>
+			<label index="persons.allContactDetails">Alle Kontaktdaten</label>
+			<label index="persons.news4person">Pressemeldungen zu dieser Person</label>
+			<label index="persons.events4person">Termine mit dieser Person</label>
+			<label index="persons.media4person">Inhalte in der Mediathek zu dieser Person</label>
+			<label index="persons.expertise">Fachgebiet</label>
+			<label index="persons.cv">Biographie</label>
+			<label index="persons.awards">Preise</label>
+			<label index="persons.publications">Publikationen</label>
+			<label index="persons.profileLink">Profil</label>
+			<label index="persons.vcardLink">Visitenkarte</label>
+			<label index="persons.units">In der Akademie</label>
+			<label index="persons.projects">In Projekten</label>
+			<label index="persons.seeAlso">Mehr zur Person</label>
+
+			<label index="hcards">Kontaktinformationen</label>
+			<label index="hcard">Kontakt</label>
+			<label index="hcards.address.type.3">Paketpost</label>
+			<label index="hcards.address.type.6">Privat</label>
+			<label index="hcards.address.type.I.1">INTL</label>
+			<label index="hcards.address.type.I.2">POSTAL</label>
+			<label index="hcards.address.type.I.3">PARCEL</label>
+			<label index="hcards.address.type.I.4">WORK</label>
+			<label index="hcards.address.type.I.5">dom</label>
+			<label index="hcards.address.type.I.6">home</label>
+			<label index="hcards.address.type.I.7">pref</label>
+			<label index="hcards.address.pobox">Postfach</label>
+
+			<label index="units">Organisationseinheiten</label>
+			<label index="unit">Organisationseinheit</label>
+			<label index="units.basicInformation">Basisinformationen</label>
+			<label index="units.relatedProjects">Zugehörige Projekte</label>
+
+			<label index="categories.selectedCategories.label">Aktuelle Auswahl</label>
+			<label index="categories.clearSelection">Auswahl aufheben</label>
+			<label index="categories.nothingFoundForSelection">Keine Objekte entsprechen Ihren Auswahlkriterien</label>
+
+			<label index="roles">Funktionen</label>
+			<label index="role">Funktion</label>
+
+			<label index="news">Nachrichten</label>
+			<label index="news.homepageHeader">Nachrichten aus der Akademie</label>
+			<label index="news.nothingFound">Keine Nachrichten gefunden</label>
+
+			<label index="events">Termine</label>
+			<label index="event">Termin</label>
+			<label index="events.homepageHeader">Aktuelle Termine</label>
+			<label index="events.detail">Veranstaltungsdetails</label>
+			<label index="events.time">Zeit</label>
+			<label index="events.place">Ort</label>
+			<label index="events.export">Exportieren</label>
+			<label index="events.nothingFound">Keine Termine gefunden</label>
+
+			<label index="media">Medien</label>
+			<label index="media.documents">Dokumente</label>
+			<label index="media.audios">Audios</label>
+			<label index="media.videos">Videos</label>
+			<label index="media.galleries">Bildergalerien</label>
+			<label index="media.crdate">Eingestellt am</label>
+			<label index="media.newest">Neueste</label>
+			<label index="media.total">insgesamt</label>
+			<label index="medium">Medium</label>
+			<label index="media.listGroups">Übersicht nach Medientypen</label>
+			<label index="media.noVideoSupport">Leider unterstützt Ihr Browser die Videodarstellung nicht</label>
+			<label index="media.showAllDocuments">Alle Dokumente anzeigen</label>
+			<label index="media.showAllGalleries">Alle Galerien anzeigen</label>
+			<label index="media.showAllAudios">Alle Audiodateien anzeigen</label>
+			<label index="media.showAllVideos">Alle Videos anzeigen</label>
+
+			<label index="categories">Rubriken</label>
+			<label index="category">Rubrik</label>
+
+			<label index="pages">Seiten</label>
+			<label index="page">Seite</label>
+
+			<label index="search">Suche</label>
+			<label index="search.media">Medien finden</label>
+			<label index="search.persons">Personen finden</label>
+			<label index="search.projects">Projekte finden</label>
+			<label index="search.keywords">Suchbegriffe</label>
+			<label index="search.search">Suchen</label>
+			<label index="search.website">Website durchsuchen</label>
+			<label index="search.thisWebsite">Diese Website durchsuchen</label>
+			<label index="search.find">finden</label>
+			<label index="search.noMatches">Keine Treffer gefunden</label>
+			<label index="search.matches">Treffer</label>
+			<label index="search.searchedFor">Sie suchten nach</label>
+			<label index="search.AND">UND</label>
+			<label index="search.personSearch">Personensuche</label>
+			<label index="search.projectsSearch">Projektsuche</label>
+			<label index="search.newsSearch">Nachrichtensuche</label>
+			<label index="search.eventsSearch">Veranstaltungssuche</label>
+			<label index="search.pagesSearch">Seitensuche</label>
+			<label index="search.mediaSearch">Mediensuche</label>
+			<label index="search.noPersonsFound">Keine Personen gefunden</label>
+			<label index="search.noProjectsFound">Keine Projekte gefunden</label>
+			<label index="search.noNewsFound">Keine Nachrichten gefunden</label>
+			<label index="search.noEventsFound">Keine Events gefunden</label>
+			<label index="search.noPagesFound">Keine Seiten gefunden</label>
+			<label index="search.noMediaFound">Keine Medien gefunden</label>
+
+		</languageKey>
+
+		<languageKey index="es" type="array">
+
+			<label index="general.backToList">Back to list</label>
+			<label index="general.backLink">Back</label>
+			<label index="general.furtherInformation">Further information</label>
+			<label index="general.showAll">Show all</label>
+			<label index="general.currentSelection">Current Selection</label>
+			<label index="general.details">Details</label>
+			<label index="general.more">More</label>
+			<label index="general.readOn">Read on</label>
+			<label index="general.pleaseSelectRecords">Please select a record</label>
+			<label index="general.onlyOrgs">Currently only ORG addresses are supported</label>
+
+			<label index="projects">Projects</label>
+			<label index="project">Project</label>
+
+			<label index="persons">Persons</label>
+			<label index="person">Person</label>
+			<label index="persons.contact">Contact</label>
+			<label index="persons.allContactDetails">All contact data</label>
+			<label index="persons.news4person">News about this person</label>
+			<label index="persons.events4person">Events with this person</label>
+			<label index="persons.media4person">Media content about this person</label>
+			<label index="persons.expertise">Disciplines</label>
+			<label index="persons.cv">Biography</label>
+			<label index="persons.awards">Awards</label>
+			<label index="persons.publications">Publications</label>
+			<label index="persons.profileLink">Profile</label>
+			<label index="persons.vcardLink">Vcard</label>
+			<label index="persons.units">In the academy</label>
+			<label index="persons.projects">In projects</label>
+			<label index="persons.seeAlso">More about this person</label>
+
+			<label index="hcards">Contact information</label>
+			<label index="hcard">Contact</label>
+			<label index="hcards.address.type.3">Parcel post</label>
+			<label index="hcards.address.type.6">Private</label>
+			<label index="hcards.address.type.I.1">INTL</label>
+			<label index="hcards.address.type.I.2">POSTAL</label>
+			<label index="hcards.address.type.I.3">PARCEL</label>
+			<label index="hcards.address.type.I.4">WORK</label>
+			<label index="hcards.address.type.I.5">dom</label>
+			<label index="hcards.address.type.I.6">home</label>
+			<label index="hcards.address.type.I.7">pref</label>
+			<label index="hcards.address.pobox">PO Box</label>
+
+			<label index="units">Organisational units</label>
+			<label index="unit">Organisational unit</label>
+			<label index="units.basicInformation">Basic Information</label>
+			<label index="units.relatedProjects">Related projects</label>
+
+			<label index="categories.selectedCategories.label">Current selection</label>
+			<label index="categories.clearSelection">Discard selection</label>
+			<label index="categories.nothingFoundForSelection">No objects match your selection</label>
+
+			<label index="roles">Roles</label>
+			<label index="role">Role</label>
+
+			<label index="news">News</label>
+			<label index="news.homepageHeader">Academy news</label>
+			<label index="news.nothingFound">No news found</label>
+
+			<label index="events">Events</label>
+			<label index="event">Event</label>
+			<label index="events.detail">Event details</label>
+			<label index="events.time">Time</label>
+			<label index="events.place">Location</label>
+			<label index="events.export">Export</label>
+			<label index="events.nothingFound">No events found</label>
+
+			<label index="media">Media</label>
+			<label index="media.documents">Documents</label>
+			<label index="media.audios">Audios</label>
+			<label index="media.videos">Videos</label>
+			<label index="media.galleries">Galleries</label>
+			<label index="media.crdate">Created</label>
+			<label index="media.newest">Newest</label>
+			<label index="media.total">total</label>
+			<label index="medium">Medium</label>
+			<label index="media.listGroups">Media overview</label>
+			<label index="media.noVideoSupport">Your browser is not supported by the media player</label>
+			<label index="media.showAllDocuments">Show all documents</label>
+			<label index="media.showAllGalleries">Show all galleries</label>
+			<label index="media.showAllAudios">Show all audio files</label>
+			<label index="media.showAllVideos">Show all videos</label>
+
+			<label index="categories">Categories</label>
+			<label index="category">Category</label>
+
+			<label index="pages">Pages</label>
+			<label index="page">Page</label>
+
+			<label index="search">Search</label>
+			<label index="search.media">Find media</label>
+			<label index="search.persons">Find persons</label>
+			<label index="search.projects">Find projects</label>
+			<label index="search.keywords">Keywords</label>
+			<label index="search.search">Search</label>
+			<label index="search.website">Website search</label>
+			<label index="search.thisWebsite">Search this website</label>
+			<label index="search.find">find</label>
+			<label index="search.noMatches">No results</label>
+			<label index="search.matches">Result</label>
+			<label index="search.searchedFor">You searched for</label>
+			<label index="search.AND">AND</label>
+			<label index="search.personSearch">Person search</label>
+			<label index="search.projectsSearch">Project search</label>
+			<label index="search.newsSearch">News search</label>
+			<label index="search.eventsSearch">Event search</label>
+			<label index="search.pagesSearch">Pages search</label>
+			<label index="search.mediaSearch">Media search</label>
+			<label index="search.noPersonsFound">No persons found</label>
+			<label index="search.noProjectsFound">No projects found</label>
+			<label index="search.noNewsFound">No news found</label>
+			<label index="search.noEventsFound">No events found</label>
+			<label index="search.noPagesFound">No pages found</label>
+			<label index="search.noMediaFound">No media found</label>
+
+		</languageKey>
+
+	</data>
+</T3locallang>

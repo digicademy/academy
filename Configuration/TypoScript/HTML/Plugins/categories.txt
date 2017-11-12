@@ -1,0 +1,177 @@
+page.20.30 = TEXT
+page.20.30.if {
+	value = 1850,1845,1846,1847,1848,1303,1825,1328,1789,1790,1305,1306,2140,2142,2131,2148
+	isInList.data = TSFE:id
+}
+page.20.30.value (
+	<script type="text/javascript">
+
+		$('.filteroptions').addClass('hide');
+
+		$('.filteroptions').each(function() {
+			var $listId = $(this).attr('id');
+			$('#' + $listId + ' li').each(function() {
+				if ($(this).hasClass('selected')) {
+					$('#' + $listId).removeClass('hide');
+					$('#' + $listId).addClass('active');
+					return false;
+				}
+			});
+		});
+
+		$('.filteroptions.hide').hide();
+
+		$('.label').click(function(event) {
+			event.preventDefault();
+			var $id = '#' + $(this).attr('id');
+			if ($($id + '+ ul.active').length) {
+				$($id).removeClass('active');
+				$($id + '+ ul').slideUp('slow').removeClass('active');
+			} else {
+				$($id).addClass('active');
+				$($id + '+ ul').slideDown('slow').addClass('active');
+			}
+		});
+	</script>
+)
+
+lib.categories.objectCount = CASE
+lib.categories.objectCount {
+
+#	stdWrap.debugData = 1
+
+	key.field = type
+
+	news = TEXT
+	news.numRows {
+		table = tx_news_domain_model_news
+		select {
+			pidInList = 2102
+			recursive = 2
+			leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_news_domain_model_news.uid
+			where.dataWrap = sys_category_record_mm.tablenames = 'tx_news_domain_model_news' AND sys_category_record_mm.uid_local = {field:category}
+		}
+	}
+
+	persons = CASE
+	persons {
+
+		key.data = TSFE:id
+
+		default = TEXT
+		default.numRows {
+			table = tx_academy_domain_model_persons
+			select {
+				pidInList = 1828
+				recursive = 2
+				leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_academy_domain_model_persons.uid
+				where.dataWrap (
+					sys_category_record_mm.tablenames = 'tx_academy_domain_model_persons' AND sys_category_record_mm.uid_local = {field:category}
+				)
+			}
+		}
+
+		1303 < .default
+		1303.numRows.select.pidInList = 1836
+
+		1825 < .default
+		1825.numRows.select.pidInList = 1837,2022
+
+	}
+
+	projects = CASE
+	projects {
+
+		key.data = TSFE:id
+
+		default = TEXT
+		default.numRows {
+			table = tx_academy_domain_model_projects
+			select {
+				pidInList = 2015
+				recursive = 1
+				leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_academy_domain_model_projects.uid
+				where.dataWrap (
+					sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects' AND sys_category_record_mm.uid_local = {field:category}
+				)
+			}
+		}
+
+		1845 < .default
+		1845.numRows.select.where.dataWrap (
+			sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects' AND sys_category_record_mm.uid_local = {field:category}
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 3 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 41 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+		)
+
+		1846 < .default
+		1846.numRows.select.where.dataWrap (
+			sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects' AND sys_category_record_mm.uid_local = {field:category}
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 1 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 41 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+		)
+
+		1847 < .default
+		1847.numRows.select.where.dataWrap (
+			sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects' AND sys_category_record_mm.uid_local = {field:category}
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 37 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 41 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+		)
+
+		1848 < .default
+		1848.numRows.select.where.dataWrap (
+			sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects' AND sys_category_record_mm.uid_local = {field:category}
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 108 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+			AND 1 = (SELECT count(*) FROM sys_category_record_mm WHERE uid_foreign = tx_academy_domain_model_projects.uid AND uid_local = 41 AND sys_category_record_mm.tablenames = 'tx_academy_domain_model_projects')
+		)
+
+	}
+
+	events = COA
+	events {
+		10 = TEXT
+		10 {
+			if {
+				value = 1305
+				equals.data = TSFE:id
+			}
+			numRows {
+				table = tx_news_domain_model_news
+				select {
+					pidInList = 2103
+					recursive = 4
+					leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_news_domain_model_news.uid
+					where.dataWrap = sys_category_record_mm.tablenames = 'tx_news_domain_model_news' AND sys_category_record_mm.uid_local = {field:category} AND tx_news_domain_model_news.tx_roqnewsevent_startdate > {date:U}
+				}
+			}
+		}
+		20 = TEXT
+		20 {
+			if {
+				value = 2131
+				equals.data = TSFE:id
+			}
+			numRows {
+				table = tx_news_domain_model_news
+				select {
+					pidInList = 2103
+					recursive = 4
+					leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_news_domain_model_news.uid
+					where.dataWrap = sys_category_record_mm.tablenames = 'tx_news_domain_model_news' AND sys_category_record_mm.uid_local = {field:category}
+				}
+			}
+		}
+	}
+
+	media = TEXT
+	media.numRows {
+		table = tx_academy_domain_model_media
+		select {
+			pidInList = 1300
+			recursive = 4
+			leftjoin = sys_category_record_mm ON sys_category_record_mm.uid_foreign = tx_academy_domain_model_media.uid
+			where.dataWrap = sys_category_record_mm.tablenames = 'tx_academy_domain_model_media' AND sys_category_record_mm.uid_local = {field:category}
+		}
+	}
+
+}

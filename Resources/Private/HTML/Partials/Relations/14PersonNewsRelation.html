@@ -1,0 +1,24 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{controller} == 'Persons'">
+	<f:then>
+		<h4 class="icon news"><f:translate key="news" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<li class="row">
+					<f:link.action extensionName="News" pluginName="pi1" controller="News" action="detail" arguments="{news : relation.news.uid}" pageUid="1790">
+						{relation.news.title} – <f:format.date format="d.m.Y">{relation.news.datetime}</f:format.date>
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:then>
+	<f:else>
+		<h4 class="icon person-icon"><f:translate key="persons" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<f:render partial="Hcards/Vcards" arguments="{wrapper : 'li', type : 'minimal row', relation : relation}" />
+			</f:for>
+		</ul>
+	</f:else>
+</f:if>

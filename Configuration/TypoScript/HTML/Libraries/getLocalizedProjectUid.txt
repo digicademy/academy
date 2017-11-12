@@ -1,0 +1,30 @@
+lib.getLocalizedProjectUid = COA
+lib.getLocalizedProjectUid {
+
+	10 = LOAD_REGISTER
+	10.currentLanguage.cObject = CASE
+	10.currentLanguage.cObject {
+		key.data = GP : L
+		1 = TEXT
+		1.value = 1
+		3 = TEXT
+		3.value = 3
+		default = TEXT
+		default.value = 0
+	}
+	10.localizedUid.cObject = CONTENT
+	10.localizedUid.cObject {
+		table = tx_academy_domain_model_projects
+		select {
+			pidInList = 2015
+			where.dataWrap = l10n_parent={current : 1} AND sys_language_uid = {register : currentLanguage}
+			selectFields = uid
+		}
+		renderObj = TEXT
+		renderObj.field = uid
+	}
+
+	20 = TEXT
+	20.data = register : localizedUid
+	20.ifEmpty.data = current : 1
+}

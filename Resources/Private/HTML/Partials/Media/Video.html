@@ -1,0 +1,29 @@
+<article class="mediacontent">
+
+	<h1 class="csc-firstHeader">{medium.title}</h1>
+
+	<f:render partial="Media/Articleinfo" arguments="{medium : medium}" />
+
+	<f:if condition="{medium.files}">
+
+		<video id="videoplayer" class="video-js vjs-default-skin"
+			controls preload="none"
+			poster="<f:if condition='{medium.image}'><f:then>{medium.image.originalResource.originalFile.publicUrl}</f:then><f:else>http://www.adwmainz.de/typo3conf/ext/website/Resources/Public/Images/adwlogo.png</f:else></f:if>"
+			data-setup='{}'>
+			<f:for each="{medium.files}" as="file" iteration="iterator">
+				<f:cObject typoscriptObjectPath="lib.media.video" data="{
+					files : file.uid
+				}" />
+			</f:for>
+			<f:translate key="media.videoNotSupported" />
+		</video>
+
+	</f:if>
+
+	<f:if condition="{medium.description}">
+		<div class="grid_16 alpha clearfix">
+			<f:format.html>{medium.description}</f:format.html>
+		</div>
+	</f:if>
+
+</article>

@@ -1,0 +1,18 @@
+<p class="articleinfo icon {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">
+	<time datetime="{medium.crdate -> f:format.date()}">
+		<f:format.date format="d.m.Y">{medium.crdate}</f:format.date>
+	</time>
+	<f:translate key="categories" />:
+	<f:if condition="{medium.categories}">
+		<f:for each="{medium.categories}" as="category" iteration="iterator">
+			<f:if condition="{iterator.isLast}">
+				<f:then>
+					<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="2140">{category.title}</f:link.action>
+				</f:then>
+				<f:else>
+					<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="2140">{category.title}</f:link.action>,
+				</f:else>
+			</f:if>
+		</f:for>
+	</f:if>
+</p>

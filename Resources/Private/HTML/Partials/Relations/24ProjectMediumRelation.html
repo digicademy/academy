@@ -1,0 +1,26 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{controller} == 'Projects'">
+	<f:then>
+		<h4 class="icon media"><f:translate key="media" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<li class="row">
+					<f:link.action action="Show" controller="Media" pluginName="media" arguments="{medium : relation.medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : relation.medium.type})}">
+						{relation.medium.title}
+					</f:link.action>
+				</li>
+			</f:for>
+		</ul>
+	</f:then>
+	<f:else>
+		<h4 class="icon project"><f:translate key="projects" extensionName="Academy" /></h4>
+		<ul class="rows">
+			<f:for each="{relations}" as="relation">
+				<li class="row">
+					<f:render partial="Projects/ProjectTitle" arguments="{project : relation.project}" />
+				</li>
+			</f:for>
+		</ul>
+	</f:else>
+</f:if>

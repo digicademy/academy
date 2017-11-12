@@ -1,0 +1,38 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{selectedCategories}">
+	<f:render partial="Categories/SelectedCategories" arguments="{selectedCategories : selectedCategories}" />
+</f:if>
+
+<f:if condition="{projects}">
+	<f:then>
+
+		<f:render partial="Search/Searchbox" arguments="{type : 'projects', objectname: 'Projekte'}" />
+
+		<f:for each="{projects}" as="project">
+			<div class="listing clearfix">
+				<figure class="grid_4 alpha">
+					<f:link.page pageUid="{project.page}">
+						<f:cObject typoscriptObjectPath="lib.image" data="{
+							table : 'tx_academy_domain_model_projects',
+							uid : project.uid,
+							image_frames : 2,
+							imageColumnWidth : 3,
+							placeholder : 1
+						}" />
+					</f:link.page>
+				</figure>
+				<div class="grid_12 omega">
+					<h2><f:link.page pageUid="{project.page}">{project.title}</f:link.page></h2>
+					<f:format.crop maxCharacters="100" respectWordBoundaries="TRUE" respectHtml="TRUE">
+						<f:format.html>{project.description}</f:format.html>
+					</f:format.crop>
+					<p><f:link.page pageUid="{project.page}" class="box icon more"><f:translate key="general.more" /></f:link.page></p>
+				</div>
+			</div>
+		</f:for>
+	</f:then>
+	<f:else>
+		<p><f:translate key="categories.nothingFoundForSelection" />.</p>
+	</f:else>
+</f:if>

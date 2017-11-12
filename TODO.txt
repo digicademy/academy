@@ -1,0 +1,12 @@
+NEXT
+
+- generalize Fluid templates
+
+- generate complete test data and template output
+
+- low priority:
+-- check/test the complete news / eventnews setup
+
+NOTES
+
+- don't forget to implement Eurocris/CERIF

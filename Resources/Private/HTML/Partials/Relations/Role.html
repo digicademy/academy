@@ -1,0 +1,22 @@
+<f:if condition="{relation.roleFreetext}">
+	<f:then>
+		<f:if condition="{roleWrap}">
+			<strong>
+		</f:if>
+		{relation.roleFreetext}
+		<f:if condition="{roleWrap}">
+			:</strong>
+		</f:if>
+	</f:then>
+	<f:else>
+		<f:if condition="{relation.role}">
+			<f:if condition="{roleWrap}">
+				<strong>
+			</f:if>
+			{relation.role.title}
+			<f:if condition="{roleWrap}">
+				:</strong>
+			</f:if>
+		</f:if>
+	</f:else>
+</f:if>

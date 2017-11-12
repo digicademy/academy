@@ -1,0 +1,30 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<div class="listing clearfix">
+	<figure class="grid_4 alpha">
+		<f:link.action controller="Persons" action="show" pageUid="1827" arguments="{person : person.uid}">
+			<f:cObject typoscriptObjectPath="lib.image" data="{
+				table : 'tx_academy_domain_model_persons',
+				uid : person.uid,
+				image_frames : 2,
+				imageColumnWidth : 3,
+				image_effects : 10,
+				placeholder : 1
+			}" />
+		</f:link.action>
+	</figure>
+	<div class="grid_12 omega vcard person minimal">
+		<f:render section="Item" arguments="{_all}" />
+	</div>
+</div>
+
+<f:section name="Item">
+	<f:render partial="Hcards/VcardPerson" arguments="{person : person, nameWrap : 'h2'}" />
+	<p><strong><f:translate key="persons.expertise" />:</strong> {person.expertise}</p>
+	<p>
+		<f:link.action class="box icon more" controller="Persons" action="show" pageUid="1827" arguments="{person : person.uid}">
+			<f:translate key="persons.profileLink" />
+		</f:link.action>
+		<f:link.action class="box icon card" action="show" format="vcf" arguments="{person : person}" additionalParams="{type : 1122}"><f:translate key="persons.vcardLink" /></f:link.action>
+	</p>
+</f:section>

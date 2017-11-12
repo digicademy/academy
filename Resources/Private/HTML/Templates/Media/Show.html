@@ -1,0 +1,55 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<section id="maincontent" class="grid_11 alpha clearfix">
+
+	<f:if condition="{medium.type} == 10">
+		<f:render partial="Media/Audio" arguments="{medium : medium}" />
+	</f:if>
+
+	<f:if condition="{medium.type} == 20">
+		<f:render partial="Media/Gallery" arguments="{medium : medium}" />
+	</f:if>
+
+	<f:if condition="{medium.type} == 30">
+		<f:render partial="Media/Document" arguments="{medium : medium}" />
+	</f:if>
+
+	<f:if condition="{medium.type} == 40">
+		<f:render partial="Media/Video" arguments="{medium : medium}" />
+	</f:if>
+
+	<p class="grid_16 alpha">
+		<f:link.page class="button" pageUid="2142">
+			<f:translate key="general.backToList" />
+		</f:link.page>
+	</p>
+
+</section>
+
+<f:if condition="{medium.relations}">
+
+	<adw:groupRelations relations="{medium.relations}" />
+
+	<section id="additionalcontent" class="grid_4 prefix_1 omega">
+		<h3 class="rowheader csc-firstHeader">
+			<f:translate key="general.furtherInformation" extensionName="Academy" />
+		</h3>
+
+		<f:if condition="{groupedRelations.15}">
+			<f:render partial="Relations/15PersonMediumRelation" arguments="{relations : groupedRelations.15}" />
+		</f:if>
+
+		<f:if condition="{groupedRelations.24}">
+			<f:render partial="Relations/24ProjectMediumRelation" arguments="{relations : groupedRelations.24}" />
+		</f:if>
+
+		<f:if condition="{groupedRelations.42}">
+			<f:render partial="Relations/42NewsMediumRelation" arguments="{relations : groupedRelations.42}" />
+		</f:if>
+
+		<f:if condition="{groupedRelations.51}">
+			<f:render partial="Relations/51EventMediumRelation" arguments="{relations : groupedRelations.51}" />
+		</f:if>
+	</section>
+
+</f:if>

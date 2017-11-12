@@ -1,0 +1,23 @@
+<article class="mediacontent">
+
+	<h1 class="csc-firstHeader">{medium.title}</h1>
+
+	<f:render partial="Media/Articleinfo" arguments="{medium : medium}" />
+
+	<f:if condition="{medium.files}">
+		<f:for each="{medium.files}" as="file" iteration="iterator">
+			<f:if condition="{iterator.isFirst}">
+			<f:cObject typoscriptObjectPath="lib.media.audio" data="{
+					files : file.uid
+				}" />
+			</f:if>
+		</f:for>
+	</f:if>
+
+	<f:if condition="{medium.description}">
+		<div class="grid_16 alpha clearfix">
+			<f:format.html>{medium.description}</f:format.html>
+		</div>
+	</f:if>
+
+</article>

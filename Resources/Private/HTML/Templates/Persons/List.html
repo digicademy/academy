@@ -1,0 +1,106 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{selectedCategories}">
+	<f:render partial="Categories/SelectedCategories" arguments="{selectedCategories : selectedCategories}" />
+</f:if>
+
+<f:if condition="{persons}">
+
+	<f:then>
+
+		<f:render partial="Search/Searchbox" arguments="{type : 'persons', objectname: 'Personen'}" />
+
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1303">
+			<f:then>
+
+				<f:widget.paginate objects="{persons}" as="paginatedPersons" configuration="{itemsPerPage: 10, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+					<f:for each="{paginatedPersons}" as="person" iteration="iterator">
+
+						<adw:alphabet string="{person.familyName}" length="1" />
+
+						<f:if condition="{iterator.isFirst}">
+							<h2>{initialLetter}</h2>
+							<f:render partial="Persons/MemberListItem" arguments="{_all}" />
+						</f:if>
+						<f:if condition="{iterator.isLast}">
+							<f:then>
+								<f:if condition="{newBlock}">
+									<h2>{initialLetter}</h2>
+								</f:if>
+								<f:if condition="{iterator.total} > 1">
+									<f:render partial="Persons/MemberListItem" arguments="{_all}" />
+								</f:if>
+							</f:then>
+							<f:else>
+								<f:if condition="{iterator.index} > 0">
+									<f:if condition="{newBlock}">
+										<h2>{initialLetter}</h2>
+									</f:if>
+									<f:render partial="Persons/MemberListItem" arguments="{_all}" />
+								</f:if>
+							</f:else>
+						</f:if>
+
+					</f:for>
+				</f:widget.paginate>
+
+			</f:then>
+
+				<f:else>
+
+					<f:widget.paginate objects="{persons}" as="paginatedPersons" configuration="{itemsPerPage: 50, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+						<f:for each="{paginatedPersons}" as="person" iteration="iterator">
+
+							<adw:alphabet string="{person.familyName}" length="1" />
+
+							<f:if condition="{iterator.isFirst}">
+								<dl class="layout-1">
+								<dt>{initialLetter}</dt>
+								<dd class="vcard person minimal">
+									<span class="nameColumn"><f:render partial="Hcards/VcardPerson" arguments="{person : person, familyNameFirst : 1}" /></span>
+									<span class="infoColumn"><f:render partial="Persons/DisplayUnitsAndProjects" arguments="{relations : person.relations, arguments : arguments}" /></span>
+								</dd>
+							</f:if>
+							<f:if condition="{iterator.isLast}">
+								<f:then>
+									<f:if condition="{newBlock}">
+										</dl>
+										<dl class="layout-1">
+										<dt>{initialLetter}</dt>
+									</f:if>
+									<f:if condition="{iterator.total} > 1">
+										<dd class="vcard person minimal">
+											<span class="nameColumn"><f:render partial="Hcards/VcardPerson" arguments="{person : person, familyNameFirst : 1}" /></span>
+											<span class="infoColumn"><f:render partial="Persons/DisplayUnitsAndProjects" arguments="{relations : person.relations, arguments : arguments}" /></span>
+										</dd>
+									</f:if>
+									</dl>
+								</f:then>
+								<f:else>
+									<f:if condition="{iterator.index} > 0">
+										<f:if condition="{newBlock}">
+											</dl>
+											<dl class="layout-1">
+											<dt>{initialLetter}</dt>
+										</f:if>
+										<dd class="vcard person minimal">
+											<span class="nameColumn"><f:render partial="Hcards/VcardPerson" arguments="{person : person, familyNameFirst : 1}" /></span>
+											<span class="infoColumn"><f:render partial="Persons/DisplayUnitsAndProjects" arguments="{relations : person.relations, arguments : arguments}" /></span>
+										</dd>
+									</f:if>
+								</f:else>
+							</f:if>
+
+						</f:for>
+					</f:widget.paginate>
+
+				</f:else>
+			</f:if>
+
+	</f:then>
+
+	<f:else>
+		<p><f:translate key="categories.nothingFoundForSelection" />.</p>
+	</f:else>
+
+</f:if>

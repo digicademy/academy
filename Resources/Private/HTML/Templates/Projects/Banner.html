@@ -1,0 +1,36 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<h1 class="csc-firstHeader">{project.title}</h1>
+<f:if condition="{project.image}">
+	<f:then>
+		<div class="description grid_6 alpha">
+			<f:format.crop maxCharacters="350" respectWordBoundaries="TRUE" respectHtml="TRUE">
+				<f:format.html>{project.description}</f:format.html>
+			</f:format.crop>
+			<f:if condition="{settings.teaserTargetPage}">
+				<p><f:link.page pageUid="{settings.teaserTargetPage}" class="invert icon more"><f:translate key="general.readOn" /></f:link.page></p>
+			</f:if>
+		</div>
+		<figure class="grid_10 omega clearfix">
+			<f:cObject typoscriptObjectPath="lib.image" data="{
+				table : 'tx_academy_domain_model_projects',
+				uid : '{project.uid -> f:cObject(typoscriptObjectPath : \'lib.getLocalizedProjectUid\')}',
+				image_frames : 1,
+				fixedWidth : '600'
+				fixedHeight : '220c{settings.teaserImageOffset}',
+				placeholder : 0,
+				appendCaption : 1
+			}" />
+		</figure>
+	</f:then>
+	<f:else>
+		<div class="description">
+			<f:format.crop maxCharacters="350" respectWordBoundaries="TRUE" respectHtml="TRUE">
+				<f:format.html>{project.description}</f:format.html>
+			</f:format.crop>
+			<f:if condition="{settings.teaserTargetPage}">
+				<p><f:link.page pageUid="{settings.teaserTargetPage}" class="invert icon more"><f:translate key="general.readOn" /></f:link.page></p>
+			</f:if>
+		</div>
+	</f:else>
+</f:if>

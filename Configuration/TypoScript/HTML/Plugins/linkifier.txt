@@ -1,0 +1,164 @@
+plugin.tx_linkifier.linkhandlers {
+
+	person {
+
+		# name of a table from $TCA
+		table = tx_academy_domain_model_persons
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed (here: literature search)
+					parameter.cObject = CASE
+					parameter.cObject {
+						key.field = pid
+						1836 = TEXT
+						1836.value = 1827
+						1837 = TEXT
+						1837.value = 1826
+						default = TEXT
+						default.value = 1826
+					}
+
+					# given reference (= pid, link attribute); name of called Action and Controller
+					additionalParams.dataWrap = &tx_academy_persons[person]={field : linkifier_linkHandlerValue}&tx_academy_persons[action]=show&tx_academy_persons[controller]=Person
+				}
+			}
+		}
+	}
+
+	project {
+
+		# name of a table from $TCA
+		table = tx_academy_domain_model_projects
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed
+					parameter.field = page
+				}
+			}
+		}
+	}
+
+	unit {
+
+		# name of a table from $TCA
+		table = tx_academy_domain_model_units
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed
+					parameter.field = page
+
+					additionalParams.dataWrap = &tx_academy_units[unit]={field : linkifier_linkHandlerValue}&tx_academy_units[action]=show&tx_academy_units[controller]=Units
+				}
+			}
+		}
+	}
+
+	medium {
+
+		# name of a table from $TCA
+		table = tx_academy_domain_model_media
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed (here: literature search)
+					parameter = 2141
+
+					# given reference (= pid, link attribute); name of called Action and Controller
+					additionalParams.dataWrap = &tx_academy_media[medium]={field : linkifier_linkHandlerValue}&tx_academy_media[action]=show&tx_academy_media[controller]=Media
+				}
+			}
+		}
+	}
+
+	event {
+
+		# name of a table from $TCA
+		table = tx_news_domain_model_news
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed (here: literature search)
+					parameter = 2121
+
+					# given reference (= pid, link attribute); name of called Action and Controller
+					additionalParams.dataWrap = &tx_news_pi1[news]={field : linkifier_linkHandlerValue}&tx_news_pi1[action]=show&tx_news_pi1[controller]=News
+				}
+			}
+		}
+	}
+
+	news {
+
+		# name of a table from $TCA
+		table = tx_news_domain_model_news
+
+		# name of the field that contains the record identifier
+		recordIdentifier = uid
+
+		# rendering configuration for the link to the record
+		recordConfiguration {
+			10 = TEXT
+			10 {
+				field = linkifier_linkText
+				typolink {
+					useCacheHash = 1
+
+					# pid of site where content is displayed (here: literature search)
+					parameter = 1790
+
+					# given reference (= pid, link attribute); name of called Action and Controller
+					additionalParams.dataWrap = &tx_news_pi1[news]={field : linkifier_linkHandlerValue}&tx_news_pi1[action]=show&tx_news_pi1[controller]=News
+				}
+			}
+		}
+	}
+
+}

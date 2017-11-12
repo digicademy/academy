@@ -1,0 +1,100 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<article class="grid_8 {class}" role="article">
+
+	<h2>
+		<n:link newsItem="{newsItem}" settings="{settings}">
+			{newsItem.title}
+		</n:link>
+	</h2>
+
+	<p class="articleinfo">
+		<time datetime="{f:format.date(date: newsItem.datetime, format: 'Y-m-d')}">{f:format.date(date: newsItem.datetime, format: 'd.m.Y')}</time>
+		<f:if condition="{newsItem.sysCategories}">
+			<span class="skip">, </span> <f:translate key="news" extensionName="Academy" />:
+			<f:for each="{newsItem.sysCategories}" as="category" iteration="iterator">
+				<f:if condition="{iterator.isLast}">
+					<f:then>
+						<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1789">{category.title}</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1789">{category.title}</f:link.action>,
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:if>
+	</p>
+
+	<f:if condition="{newsItem.media}">
+
+		<f:then>
+			<f:if condition="{newsItem.media -> f:count()} < 2">
+				<f:then>
+					<f:for each="{newsItem.media}" as="image">
+						<figure class="grid_16 mfp-textpic alpha">
+							<n:link newsItem="{newsItem}" settings="{settings}">
+								<f:cObject typoscriptObjectPath="lib.newsimage" data="{
+									image : image.image,
+									title : image.title,
+									alt : image.alt,
+									image_zoom : 0,
+									image_frames : 1,
+									fixedWidth: '460',
+									fixedHeight: '200c(DB:tx_news_domain_model_media:{image.uid}:offset)',
+									offset: ''
+								}" />
+							</n:link>
+						</figure>
+					</f:for>
+				</f:then>
+				<f:else>
+					<f:for each="{newsItem.media}" as="image" iteration="iterator">
+						<f:if condition="{iterator.isFirst}">
+							<f:then>
+								<figure class="grid_8 mfp-textpic alpha">
+							</f:then>
+							<f:else>
+								<figure class="grid_8 mfp-textpic omega">
+							</f:else>
+						</f:if>
+								<n:link newsItem="{newsItem}" settings="{settings}">
+									<f:cObject typoscriptObjectPath="lib.newsimage" data="{
+										image : image.image,
+										title : image.title,
+										alt : image.alt,
+										image_zoom : 0,
+										fixedWidth : '192c',
+										fixedHeight : '192c'
+									}" />
+								</n:link>
+								</figure>
+					</f:for>
+				</f:else>
+			</f:if>
+
+			<p>
+				<f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">
+					<f:cObject typoscriptObjectPath="lib.stripHtml">{newsItem.bodytext}</f:cObject>
+				</f:format.crop>
+			</p>
+			<p>
+				<n:link newsItem="{newsItem}" settings="{settings}" class="icon box more">
+					<f:translate key="general.more" extensionName="Academy" />
+				</n:link>
+			</p>
+		</f:then>
+
+		<f:else>
+				<f:format.crop maxCharacters="680" respectWordBoundaries="1">
+					<f:cObject typoscriptObjectPath="lib.tx_news.parseFunc">{newsItem.bodytext}</f:cObject>
+				</f:format.crop>
+			<p>
+				<n:link newsItem="{newsItem}" settings="{settings}" class="icon box more">
+					<f:translate key="general.more" extensionName="Academy" />
+				</n:link>
+			</p>
+		</f:else>
+
+	</f:if>
+
+</article>

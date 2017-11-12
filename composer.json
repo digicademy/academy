@@ -1,0 +1,34 @@
+{
+  "name": "digicademy/academy",
+  "type": "typo3-cms-extension",
+  "description": "Framework for creating research portals: Projects, Persons, Organizational Units, News, Events, and Media",
+  "homepage": "http://www.digitale-akademie.de",
+  "authors": [
+    {
+      "name": "Torsten Schrade",
+      "email": "Torsten.Schrade@adwmainz.de",
+      "role": "Developer",
+      "homepage": "http://www.adwmainz.de"
+    }
+  ],
+  "license": ["GPL-2.0+"],
+  "keywords": ["TYPO3", "Research Portal", "Digital Humanities"],
+  "support": {
+    "issues": "https://github.com/digicademy/academy/issues"
+  },
+  "version": "2.0.0",
+  "require": {
+    "typo3/cms-core": ">=7.6.0 || <=8.7.99",
+    "georgringer/news": "^6.1",
+    "georgringer/eventnews": "^2.0"
+  },
+  "replace": {
+    "academy": "self.version",
+    "typo3-ter/academy": "self.version"
+  },
+  "autoload": {
+    "psr-4": {
+      "Digicademy\\Academy\\": "Classes/"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+vcf = PAGE
+vcf {
+
+	typeNum = 1122
+
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type: text/x-vcard; charset=utf-8|Content-Disposition: attachment; filename="vcard.vcf"
+#		additionalHeaders = Content-Type:text/html
+		admPanel = 0
+		xhtml_cleaning = 0
+		disablePrefixComment = 1
+		renderCharset = utf-8
+		metaCharset = utf-8
+		language = de
+		locale_all = de_DE.utf8
+	}
+
+	10 =< tt_content.list.20.academy_persons
+	10.switchableControllerActions {
+		Persons {
+			1 = show
+		}
+	}
+
+}

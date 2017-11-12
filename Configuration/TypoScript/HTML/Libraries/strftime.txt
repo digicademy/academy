@@ -1,0 +1,12 @@
+lib.strftime.gmttime = TEXT
+lib.strftime.gmttime {
+	data = field:timestamp
+	strftime = %H:%M
+	strftime.GMT = 1
+}
+
+lib.strftime.datetime = TEXT
+lib.strftime.datetime {
+	data = field:timestamp
+	strftime = %d. %B %Y
+}

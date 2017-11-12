@@ -1,0 +1,42 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'GP:tx_academy_categories|selectedCategories')}">
+	<h3><f:cObject typoscriptObjectPath="lib.getCategoryTitles" /></h3>
+</f:if>
+
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'GP:tx_news_pi1|overwriteDemand|month')}">
+	<h3><f:cObject typoscriptObjectPath="lib.getMonthAndYear" /></h3>
+</f:if>
+
+<f:if condition="{news}">
+	<f:then>
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1301">
+			<f:then>
+				<h1>
+					<f:translate key="events.homepageHeader" extensionName="Academy" />
+					<span>
+						<f:link.page class="button" pageUid="1305">
+							<f:translate key="general.showAll" extensionName="Academy" />
+						</f:link.page>
+					</span>
+				</h1>
+				<f:widget.paginate objects="{news}" as="paginatedNews" configuration="{itemsPerPage: 2, insertAbove: 0, insertBelow: 0, maximumNumberOfLinks: 0}">
+					<f:for each="{paginatedNews}" as="newsItem">
+						<f:render partial="Events/ListItem" arguments="{newsItem: newsItem, settings:settings}" />
+					</f:for>
+				</f:widget.paginate>
+			</f:then>
+			<f:else>
+				<f:widget.paginate objects="{news}" as="paginatedNews" configuration="{itemsPerPage: 5, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+					<f:for each="{paginatedNews}" as="newsItem">
+						<f:render partial="Events/ListItem" arguments="{newsItem: newsItem, settings:settings}" />
+					</f:for>
+				</f:widget.paginate>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<p><f:translate key="events.nothingFound" extensionName="Academy" /></p>
+	</f:else>
+</f:if>

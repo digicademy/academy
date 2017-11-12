@@ -1,0 +1,90 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace e=Tx_RoqNewsevent_ViewHelpers}
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{newsItem}">
+	<f:then>
+
+		<f:if condition="{newsItem.eventsRelations}">
+			<adw:groupRelations relations="{newsItem.eventsRelations}" />
+		</f:if>
+
+		<article class="detail vevent">
+			<h1 class="csc-firstHeader">
+				{newsItem.title}
+			</h1>
+
+			<p class="articleinfo">
+				<f:if condition="{newsItem.sysCategories}">
+					<f:translate key="categories" extensionName="Academy" />:
+					<f:for each="{newsItem.sysCategories}" as="category" iteration="iterator">
+						<f:if condition="{iterator.isLast}">
+							<f:then>
+								<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1305">{category.title}</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1305">{category.title}</f:link.action>,
+							</f:else>
+						</f:if>
+					</f:for>
+				</f:if>
+			</p>
+
+			<h2><f:translate key="events.detail" extensionName="Academy" /></h2>
+
+			<dl>
+				<f:if condition="{newsItem.eventStartdate}">
+					<dt><f:translate key="events.time" extensionName="Academy" /></dt>
+					<dd><f:render partial="Events/TimeInformation" arguments="{newsItem: newsItem, settings:settings}" /></dd>
+				</f:if>
+				<f:if condition="{newsItem.eventLocation}">
+					<dt><f:translate key="events.place" extensionName="Academy" /></dt>
+					<dd class="location">{newsItem.eventLocation}</dd>
+				</f:if>
+				<f:if condition="{groupedRelations.50}">
+					<f:for each="{groupedRelations.50}" as="relation">
+						<dt><f:translate key="hcard" extensionName="Academy" /></dt>
+						<f:render partial="Hcards/Vcards" arguments="{relation : relation, wrapper : 'dd', type : 'minimal'}" />
+					</f:for>
+				</f:if>
+			</dl>
+
+			<div class="summary"><f:format.html>{newsItem.bodytext}</f:format.html></div>
+
+			<f:if condition="{newsItem.eventsRelations}">
+
+				<h3 class="rowheader"><f:translate key="general.furtherInformation" extensionName="Academy" /></h3>
+
+				<f:if condition="{groupedRelations.13}">
+					<f:render partial="Relations/13PersonEventRelation" arguments="{controller : 'News', relations : groupedRelations.13}" />
+				</f:if>
+
+				<f:if condition="{groupedRelations.23}">
+					<f:render partial="Relations/23ProjectEventRelation" arguments="{controller : 'News', relations : groupedRelations.23}" />
+				</f:if>
+
+				<f:if condition="{groupedRelations.41}">
+					<f:render partial="Relations/41NewsEventRelation" arguments="{controller : 'News', relations : groupedRelations.41}" />
+				</f:if>
+
+				<f:if condition="{groupedRelations.51}">
+					<f:render partial="Relations/51EventMediumRelation" arguments="{controller : 'News', relations : groupedRelations.51}" />
+				</f:if>
+
+			</f:if>
+
+		</article>
+
+		<p>
+			<f:link.action class="button" controller="News" action="list" pageUid="1305">
+				<f:translate key="general.backToList" extensionName="Academy" />
+			</f:link.action>
+		</p>
+
+	</f:then>
+
+	<f:else>
+		<p><f:translate key="list_nonewsfound" /></p>
+	</f:else>
+
+</f:if>

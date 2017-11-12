@@ -1,0 +1,20 @@
+<f:if condition="{match.attrs.honorific_prefix}">
+	{match.attrs.honorific_prefix}
+</f:if>
+
+<f:if condition="{match.attrs.given_name}">
+	{match.attrs.given_name}
+</f:if>
+
+<f:if condition="{match.attrs.additional_name}">
+	{match.attrs.additional_name}
+</f:if>
+
+<f:if condition="{match.attrs.honorific_suffix}">
+	<f:then>
+		{match.attrs.family_name}, {match.attrs.honorific_suffix}
+	</f:then>
+	<f:else>
+		{match.attrs.family_name}
+	</f:else>
+</f:if>

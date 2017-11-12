@@ -1,0 +1,9 @@
+lib.tx_academy.replacement = TEXT
+lib.tx_academy.replacement {
+	field = haystack
+	replacement.10 {
+		search.data = field:search
+		replace.data = field:replace
+#		useRegExp = 1
+	}
+}

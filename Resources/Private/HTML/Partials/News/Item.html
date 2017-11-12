@@ -1,0 +1,73 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<article class="clearfix articletype-{newsItem.type}">
+
+	<h2>
+		<n:link newsItem="{newsItem}" settings="{settings}">
+			{newsItem.title}
+		</n:link>
+	</h2>
+
+	<p class="articleinfo">
+		<time datetime="{f:format.date(date: newsItem.datetime, format: 'Y-m-d')}">{f:format.date(date: newsItem.datetime, format: 'd.m.Y')}</time>
+		<f:if condition="{newsItem.sysCategories}">
+			<span class="skip">, </span> <f:translate key="news" extensionName="Academy" />:
+			<f:for each="{newsItem.sysCategories}" as="category" iteration="iterator">
+				<f:if condition="{iterator.isLast}">
+					<f:then>
+						<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1789">{category.title}</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1789">{category.title}</f:link.action>,
+					</f:else>
+				</f:if>
+			</f:for>
+		</f:if>
+	</p>
+
+	<f:if condition="{newsItem.media}">
+		<f:then>
+			<figure class="grid_7 mfp-textpic alpha">
+				<f:for each="{newsItem.media}" as="image" iteration="iterator">
+					<f:if condition="{iterator.isFirst}">
+						<n:link newsItem="{newsItem}" settings="{settings}">
+							<f:cObject typoscriptObjectPath="lib.newsimage" data="{
+								image : image.image,
+								title : image.title,
+								alt : image.alt,
+								image_zoom : 0,
+								fixedWidth : '460c',
+								fixedHeight : '460c'
+							}" />
+						</n:link>
+					</f:if>
+				</f:for>
+			</figure>
+			<div class="grid_9 omega">
+				<p>
+					<f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">
+						<f:cObject typoscriptObjectPath="lib.stripHtml">{newsItem.bodytext}</f:cObject>
+					</f:format.crop>
+				</p>
+				<p>
+					<n:link newsItem="{newsItem}" settings="{settings}" class="icon box more">
+						<f:translate key="more-link" />
+					</n:link>
+				</p>
+			</div>
+		</f:then>
+		<f:else>
+			<p>
+				<f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">
+					<f:cObject typoscriptObjectPath="lib.stripHtml">{newsItem.bodytext}</f:cObject>
+				</f:format.crop>
+			</p>
+			<p>
+				<n:link newsItem="{newsItem}" settings="{settings}" class="icon box more">
+					<f:translate key="general.more" extensionName="Academy" />
+				</n:link>
+			</p>
+		</f:else>
+	</f:if>
+
+</article>

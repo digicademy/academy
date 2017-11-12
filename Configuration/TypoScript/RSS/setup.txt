@@ -1,0 +1,58 @@
+rss = PAGE
+rss {
+	typeNum = 9818
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = none
+		admPanel = 0
+		metaCharset = utf-8
+		locale_all = de_DE.utf-8
+		additionalHeaders = Content-Type:text/xml;charset=utf-8
+		disablePrefixComment = 1
+		baseURL = http://www.adwmainz.de/
+		absRefPrefix = http://www.adwmainz.de/
+	}
+
+	10 < tt_content.list.20.news_pi1
+	10 {
+		switchableControllerActions {
+			News {
+				1 = list
+			}
+		}
+		settings < plugin.tx_news.settings
+		settings {
+			limit = 30
+			detailPid = 1790
+			startingpoint = 2102
+			recursive = 1
+			orderBy = datetime
+			orderDirection = desc
+			format = xml
+		}
+		settings.list.rss.channel {
+			title = Akademienachrichten
+			description = Neuigkeiten aus der Akademie der Wissenschaften und der Literatur | Mainz
+			link = http://www.adwmainz.de
+			language = de_DE
+			copyright = Akademie der Wissenschaften und der Literatur | Mainz
+			category = Wissenschaften, Literatur, Musik
+			generator = TYPO3 EXT:news
+		}
+		view {
+			templateRootPath = EXT:academy/Resources/Private/RSS/Templates/
+			layoutRootPath = EXT:academy/Resources/Private/RSS/Layouts/
+			partialRootPath = EXT:academy/Resources/Private/RSS/Partials/
+		}
+	}
+}
+
+[globalVar = TSFE:type = 9818]
+
+	lib.stdheader >
+	tt_content.stdWrap.innerWrap >
+	tt_content.stdWrap.wrap >
+	styles.content.get.stdWrap >
+
+[global]

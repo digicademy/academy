@@ -1,0 +1,5 @@
+<f:for each="{hcard.url}" as="url" iteration="iterator">
+	<f:link.external class="url item{iterator.cycle}" uri="{url.value}">{url.value}</f:link.external>
+	<f:if condition="{url.freetext}"><span class="freetext">({url.freetext})</span></f:if>
+	<br/>
+</f:for>

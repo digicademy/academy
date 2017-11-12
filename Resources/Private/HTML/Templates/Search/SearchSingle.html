@@ -1,0 +1,236 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<h1 class="csc-firstHeader">
+	<f:if condition="{type} == 'persons'"><f:translate key="search.personsSearch" /></f:if>
+	<f:if condition="{type} == 'news'"><f:translate key="search.newsSearch" /></f:if>
+	<f:if condition="{type} == 'events'"><f:translate key="search.eventsSearch" /></f:if>
+	<f:if condition="{type} == 'projects'"><f:translate key="search.projectsSearch" /></f:if>
+	<f:if condition="{type} == 'pages'"><f:translate key="search.pagesSearch" /></f:if>
+	<f:if condition="{type} == 'media'"><f:translate key="search.mediaSearch" /></f:if>
+</h1>
+
+<h2>
+	<f:translate key="search.searchedFor" />
+	<f:for each="{keywords}" as="keyword" iteration="iterator">
+		<f:if condition="{iterator.isLast}">
+			<f:then>
+				<span class="keyword">'{keyword}'</span>
+			</f:then>
+			<f:else>
+				<span class="keyword">'{keyword}'</span> <f:translate key="search.AND" />
+			</f:else>
+		</f:if>
+	</f:for>
+</h2>
+
+<f:if condition="{type} == 'persons'">
+	<f:if condition="{personsResult}">
+		<f:then>
+		<h4 class="rowheader"><f:translate key="persons" /> ({f:if(then: '{personsResult.total_found}', else: '0', condition: '{personsResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+		<ul>
+			<f:for each="{personsResult.matches}" as="match" iteration="iterator">
+				<li class="row"> {iterator.cycle})
+					<f:if condition="{match.attrs.pid} == 1836">
+						<f:then>
+							<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1827" arguments="{
+							person : match.attrs.uid
+						}">
+								<f:render partial="Search/Name" arguments="{match : match}" />
+							</f:link.action>
+						</f:then>
+						<f:else>
+							<f:if condition="{match.attrs.pid} == 1837">
+								<f:then>
+									<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1826" arguments="{
+									person : match.attrs.uid
+								}">
+										<f:render partial="Search/Name" arguments="{match : match}" />
+									</f:link.action>
+								</f:then>
+								<f:else>
+									<f:render partial="Search/Name" arguments="{match : match}" />
+								</f:else>
+							</f:if>
+						</f:else>
+					</f:if>
+					<f:if condition="{match.attrs.expertise}">
+						<br/>
+						<span>
+							<f:translate key="persons.expertise" />: <f:format.crop maxCharacters="160">{match.attrs.expertise}</f:format.crop>
+						</span>
+					</f:if>
+				</li>
+			</f:for>
+		</ul>
+		<p>
+			<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+				<f:translate key="general.backLink" />
+			</f:link.action>
+		</p>
+		</f:then>
+		<f:else>
+			<h3><f:translate key="search.noPersonsFound" />.</h3>
+		</f:else>
+	</f:if>
+</f:if>
+
+<f:if condition="{type} == 'events'">
+<f:if condition="{eventsResult}">
+	<f:then>
+	<h4 class="rowheader"><f:translate key="events" /> ({f:if(then: '{eventsResult.total_found}', else: '0', condition: '{eventsResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+	<ul>
+		<f:for each="{eventsResult.matches}" as="match" iteration="iterator">
+			<li class="row"> {iterator.cycle})
+				<f:link.action extensionName="News" pluginName="pi1" controller="News" action="detail" arguments="{news : match.attrs.uid}" pageUid="2121">
+					<f:cObject typoscriptObjectPath="lib.strftime.datetime" data="{timestamp : '{f:format.date(date: match.attrs.tx_roqnewsevent_startdate, format: \'U\')}'}" />: {match.attrs.title}
+				</f:link.action>
+				<f:if condition="{match.attrs.bodytext}">
+					<br/>
+					<span>
+						<f:cObject typoscriptObjectPath="lib.stripHtml">
+							<f:format.crop maxCharacters="160">{match.attrs.bodytext}</f:format.crop>
+						</f:cObject>
+					</span>
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+	<p>
+		<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+			<f:translate key="general.backLink" />
+		</f:link.action>
+	</p>
+	</f:then>
+	<f:else>
+		<h3><f:translate key="search.noEventsFound" />.</h3>
+	</f:else>
+</f:if>
+</f:if>
+
+<f:if condition="{type} == 'projects'">
+<f:if condition="{projectsResult}">
+	<f:then>
+	<h4 class="rowheader"><f:translate key="projects" /> ({f:if(then: '{projectsResult.total_found}', else: '0', condition: '{projectsResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+	<ul>
+		<f:for each="{projectsResult.matches}" as="match" iteration="iterator">
+			<li class="row"> {iterator.cycle})
+				<f:link.page pageUid="{match.attrs.page}">
+					{match.attrs.title}
+				</f:link.page>
+				<f:if condition="{match.attrs.description}">
+					<br/>
+					<span>
+						<f:cObject typoscriptObjectPath="lib.stripHtml">
+							<f:format.crop maxCharacters="160">{match.attrs.description}</f:format.crop>
+						</f:cObject>
+					</span>
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+	<p>
+		<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+			<f:translate key="general.backLink" />
+		</f:link.action>
+	</p>
+	</f:then>
+	<f:else>
+		<h3><f:translate key="search.noProjectsFound" />.</h3>
+	</f:else>
+</f:if>
+</f:if>
+
+<f:if condition="{type} == 'news'">
+<f:if condition="{newsResult}">
+	<f:then>
+	<h4 class="rowheader"><f:translate key="news" /> ({f:if(then: '{newsResult.total_found}', else: '0', condition: '{newsResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+	<ul>
+		<f:for each="{newsResult.matches}" as="match" iteration="iterator">
+			<li class="row"> {iterator.cycle})
+				<f:link.action extensionName="News" pluginName="pi1" controller="News" action="detail" arguments="{news : match.attrs.uid}" pageUid="1790">
+					<f:cObject typoscriptObjectPath="lib.strftime.datetime" data="{timestamp : '{f:format.date(date: match.attrs.datetime, format: \'U\')}'}" />: {match.attrs.title}
+				</f:link.action>
+				<f:if condition="{match.attrs.bodytext}">
+					<br/>
+					<span>
+						<f:cObject typoscriptObjectPath="lib.stripHtml">
+							<f:format.crop maxCharacters="160">{match.attrs.bodytext}</f:format.crop>
+						</f:cObject>
+					</span>
+				</f:if>
+			</li>
+		</f:for>
+	</ul>
+	<p>
+		<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+			<f:translate key="general.backLink" />
+		</f:link.action>
+	</p>
+	</f:then>
+	<f:else>
+		<h3><f:translate key="search.noNewsFound" />.</h3>
+	</f:else>
+</f:if>
+</f:if>
+
+<f:if condition="{type} == 'pages'">
+<f:if condition="{pagesResult}">
+	<f:then>
+	<h4 class="rowheader"><f:translate key="pages" /> ({f:if(then: '{pagesResult.total_found}', else: '0', condition: '{pagesResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+	<ul>
+		<f:for each="{pagesResult.matches}" as="match" iteration="iterator">
+			<li class="row"> {iterator.cycle})
+
+				<f:if condition="{match.attrs.page}">
+					<f:then>
+						<f:link.action extensionName="Academy" pluginName="Units" controller="Units" action="show" pageUid="{match.attrs.page}" arguments="{
+							unit : match.attrs.uid}">
+							{match.attrs.title}
+						</f:link.action>
+					</f:then>
+					<f:else>
+						<f:link.page pageUid="{match.attrs.uid}">
+							{match.attrs.title}
+						</f:link.page>
+					</f:else>
+				</f:if>
+
+			</li>
+		</f:for>
+	</ul>
+	<p>
+		<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+			<f:translate key="general.backLink" />
+		</f:link.action>
+	</p>
+	</f:then>
+	<f:else>
+		<h3><f:translate key="search.noPagesFound" />.</h3>
+	</f:else>
+</f:if>
+</f:if>
+
+<f:if condition="{type} == 'media'">
+<f:if condition="{mediaResult}">
+	<f:then>
+	<h4 class="rowheader"><f:translate key="media" /> ({f:if(then: '{mediaResult.total_found}', else: '0', condition: '{mediaResult.total_found}')} {f:translate(key: 'search.matches')})</h4>
+	<ul>
+		<f:for each="{mediaResult.matches}" as="match" iteration="iterator">
+			<li class="row"> {iterator.cycle})
+				<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : match.attrs.uid}" pageUid="2141" class="icon after {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : match.attrs.type})}">
+					{match.attrs.title}
+				</f:link.action>
+			</li>
+		</f:for>
+	</ul>
+	<p>
+		<f:link.action action="searchAll" arguments="{keywords: '{adw:implode(glue : \'+\', pieces: keywords)}'}" class="button">
+			<f:translate key="general.backLink" />
+		</f:link.action>
+	</p>
+	</f:then>
+	<f:else>
+		<h3><f:translate key="search.noMediaFound" />.</h3>
+	</f:else>
+</f:if>
+</f:if>

@@ -1,0 +1,27 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<nav class="contentnavigation filter">
+	<ul>
+	<adw:groupedFor each="{events}" as="newsByYear" groupBy="yearOf{dateField}" groupKey="year" iteration="iterator">
+		<li><a class="label" id="d{iterator.cycle}" href="#l{iterator.cycle}">{year}</a>
+			<ul class="filteroptions" id="e{iterator.cycle}">
+			<adw:groupedFor each="{newsByYear}" as="newsByMonth" groupBy="monthOf{dateField}" groupKey="month">
+					<f:if condition="{0:year, 1:month} == {0:overwriteDemand.year, 1:overwriteDemand.month}">
+						<f:then>
+							<li class="selected">
+						</f:then>
+						<f:else>
+							<li>
+						</f:else>
+					</f:if>
+					<f:link.action pageUid="{settings.listPid}" arguments="{overwriteDemand:{year: year, month: month}}">
+						<f:translate key="month.{month}" /> (<f:count subject="{newsByMonth}" />)
+					</f:link.action>
+				</li>
+			</adw:groupedFor>
+			</ul>
+		</li>
+	</adw:groupedFor>
+	</ul>
+</nav>

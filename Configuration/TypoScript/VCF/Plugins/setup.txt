@@ -1,0 +1,14 @@
+[globalVar = GP : type = 1122]
+
+# set the view directories
+plugin.tx_academy.view {
+	layoutRootPath = EXT:academy/Resources/Private/VCF/Layouts/
+	partialRootPath = EXT:academy/Resources/Private/VCF/Partials/
+	templateRootPath = EXT:academy/Resources/Private/VCF/Templates/
+}
+
+# disable outer wraps for tt_content
+tt_content.stdWrap >
+lib.stdheader >
+
+[global]

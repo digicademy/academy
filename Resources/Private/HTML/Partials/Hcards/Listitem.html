@@ -1,0 +1,21 @@
+<f:if condition="{f:cObject(typoscriptObjectPath : 'lib.tx_academy.compareRoleValues', data : {roleTitle : relation.role.title, roleTitleFreetext : relation.roleFreetext})}">
+
+	<f:then>
+		<f:render partial="Hcards/Vcards" arguments="{relation : relation, wrapper : 'dd', type : 'minimal'}" />
+	</f:then>
+
+	<f:else>
+
+		<f:if condition="{relation.roleFreetext}">
+			<f:then>
+				<dt>{relation.roleFreetext}</dt>
+			</f:then>
+			<f:else>
+				<dt>{relation.role.title}</dt>
+			</f:else>
+		</f:if>
+
+		<f:render partial="Hcards/Vcards" arguments="{relation : relation, wrapper : 'dd', type : 'minimal'}" />
+
+	</f:else>
+</f:if>

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'academy'</description>
+	</meta>
+	<data type="array">
+
+		<languageKey index="default" type="array">
+		</languageKey>
+
+		<languageKey index="de" type="array">
+
+			<label index="general.language">Sprache</label>
+
+			<label index="plugin.sheet.general">Allgemein</label>
+
+			<label index="projectsPlugin.switchableControllerActions">Anzeige</label>
+			<label index="projectsPlugin.switchableControllerActions.show">Detailansicht von Projekten</label>
+			<label index="projectsPlugin.switchableControllerActions.list">Liste aller Projekte</label>
+			<label index="projectsPlugin.switchableControllerActions.listByCategories">Liste von Projekten mit bestimmten Kategorien</label>
+			<label index="projectsPlugin.switchableControllerActions.listByRoles">Liste von Projekten mit bestimmten Rollen</label>
+			<label index="projectsPlugin.switchableControllerActions.listBySelection">Liste mit ausgewählten Projekten</label>
+			<label index="projectsPlugin.selectedProjects">Projekte für die Anzeige auswählen</label>
+			<label index="projectsPlugin.selectedCategories">Kategorien für die Anzeige auswählen</label>
+			<label index="projectsPlugin.selectedRoles">Rollen für die Anzeige auswählen</label>
+
+			<label index="unitsPlugin.switchableControllerActions">Anzeige</label>
+			<label index="unitsPlugin.switchableControllerActions.show">Detailansicht von Organisationseinheiten</label>
+			<label index="unitsPlugin.switchableControllerActions.list">Liste aller Organisationseinheiten</label>
+			<label index="unitsPlugin.switchableControllerActions.listByCategories">Liste von Organisationseinheiten mit bestimmten Kategorien</label>
+			<label index="unitsPlugin.switchableControllerActions.listByRoles">Liste von Organisationseinheiten mit bestimmten Rollen</label>
+			<label index="unitsPlugin.switchableControllerActions.listBySelection">Liste mit ausgewählten Organisationseinheiten</label>
+			<label index="unitsPlugin.selectedUnits">Organisationseinheiten für die Anzeige auswählen</label>
+			<label index="unitsPlugin.selectedCategories">Kategorien für die Anzeige auswählen</label>
+			<label index="unitsPlugin.selectedRoles">Rollen für die Anzeige auswählen</label>
+
+			<label index="personsPlugin.switchableControllerActions">Anzeige</label>
+			<label index="personsPlugin.switchableControllerActions.show">Profilseite einer Person</label>
+			<label index="personsPlugin.switchableControllerActions.list">Liste aller Personen</label>
+			<label index="personsPlugin.switchableControllerActions.listByCategories">Liste von Personen mit bestimmten Kategorien</label>
+			<label index="personsPlugin.switchableControllerActions.listByRoles">Liste von Personen mit bestimmten Rollen</label>
+			<label index="personsPlugin.switchableControllerActions.listBySelection">Liste mit ausgewählten Personen</label>
+			<label index="personsPlugin.selectedProjects">Personen für die Anzeige auswählen</label>
+			<label index="personsPlugin.selectedCategories">Kategorien für die Anzeige auswählen</label>
+			<label index="personsPlugin.selectedRoles">Rollen für die Anzeige auswählen</label>
+
+			<label index="mediaPlugin.switchableControllerActions">Anzeige</label>
+			<label index="mediaPlugin.switchableControllerActions.list">Liste aller Medien</label>
+			<label index="mediaPlugin.switchableControllerActions.listByCategories">Liste von Medien mit bestimmten Kategorien</label>
+			<label index="mediaPlugin.switchableControllerActions.listByRoles">Liste von Medien mit bestimmten Rollen</label>
+			<label index="mediaPlugin.switchableControllerActions.listBySelection">Liste mit ausgewählten Medien</label>
+			<label index="mediaPlugin.switchableControllerActions.listByGroups">Liste nach Mediengruppen</label>
+			<label index="mediaPlugin.switchableControllerActions.listByRecent">Liste der neuesten Medien</label>
+			<label index="mediaPlugin.switchableControllerActions.show">Detailansicht eines Mediums</label>
+
+			<label index="mediaviewerPlugin.medium">Ausgewähltes Medium zur Anzeige</label>
+
+			<label index="hcardsPlugin.switchableControllerActions">Anzeige</label>
+			<label index="hcardsPlugin.switchableControllerActions.list">Liste aller Kontakte</label>
+			<label index="hcardsPlugin.switchableControllerActions.listBySelection">Anzeige ausgewählter Kontakte</label>
+			<label index="hcardsPlugin.selectedHcards">Kontakte für die Anzeige auswählen</label>
+
+			<label index="tx_academy_domain_model_projects">Projekte</label>
+			<label index="tx_academy_domain_model_projects.div1">Allgemein</label>
+			<label index="tx_academy_domain_model_projects.div2">Beschreibung</label>
+			<label index="tx_academy_domain_model_projects.div3">Verknüpfungen</label>
+			<label index="tx_academy_domain_model_projects.div4">Metadaten</label>
+			<label index="tx_academy_domain_model_projects.div5">Kategorien</label>
+			<label index="tx_academy_domain_model_projects.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_projects.identifier">Identifikator</label>
+			<label index="tx_academy_domain_model_projects.title">Projektname</label>
+			<label index="tx_academy_domain_model_projects.sorting">Sortierung (intern)</label>
+			<label index="tx_academy_domain_model_projects.acronym">Akronym</label>
+			<label index="tx_academy_domain_model_projects.date_range">Laufzeit</label>
+			<label index="tx_academy_domain_model_projects.page">Seite mit Projektinformationen</label>
+			<label index="tx_academy_domain_model_projects.image">Bild</label>
+			<label index="tx_academy_domain_model_projects.description">Beschreibung</label>
+			<label index="tx_academy_domain_model_projects.relations">Verknüpfungen (Projekt)</label>
+			<label index="tx_academy_domain_model_projects.statements">Metadaten (LOD Statements)</label>
+
+			<label index="tx_academy_domain_model_persons">Personen</label>
+			<label index="tx_academy_domain_model_persons.div1">Allgemein</label>
+			<label index="tx_academy_domain_model_persons.div2">Verknüpfungen</label>
+			<label index="tx_academy_domain_model_persons.div3">Biographie</label>
+			<label index="tx_academy_domain_model_persons.div4">Preise</label>
+			<label index="tx_academy_domain_model_persons.div5">Veröffentlichungen</label>
+			<label index="tx_academy_domain_model_persons.div6">Metadaten</label>
+			<label index="tx_academy_domain_model_persons.div7">Kategorien</label>
+			<label index="tx_academy_domain_model_persons.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_persons.given_name">Vornamen</label>
+			<label index="tx_academy_domain_model_persons.additional_name">Mittelnamen</label>
+			<label index="tx_academy_domain_model_persons.family_name">Nachname</label>
+			<label index="tx_academy_domain_model_persons.honorific_prefix">Vorangestellte Titel</label>
+			<label index="tx_academy_domain_model_persons.honorific_suffix">Nachgestellte Titel</label>
+			<label index="tx_academy_domain_model_persons.gender">Geschlecht</label>
+			<label index="tx_academy_domain_model_persons.gender.type.I.0">männlich</label>
+			<label index="tx_academy_domain_model_persons.gender.type.I.1">weiblich</label>
+			<label index="tx_academy_domain_model_persons.gender.type.I.2">nicht binär</label>
+			<label index="tx_academy_domain_model_persons.sorting">Sortierung (intern)</label>
+			<label index="tx_academy_domain_model_persons.date_range">Lebensdaten</label>
+			<label index="tx_academy_domain_model_persons.page">Seite mit Personeninformationen</label>
+			<label index="tx_academy_domain_model_persons.cv">Biographie</label>
+			<label index="tx_academy_domain_model_persons.expertise">Expertise</label>
+			<label index="tx_academy_domain_model_persons.awards">Preise</label>
+			<label index="tx_academy_domain_model_persons.publications">Veröffentlichungen</label>
+			<label index="tx_academy_domain_model_persons.relations">Verknüpfungen (Person)</label>
+			<label index="tx_academy_domain_model_persons.image">Foto</label>
+			<label index="tx_academy_domain_model_persons.statements">Metadaten (LOD Statements)</label>
+
+			<label index="tx_academy_domain_model_hcards">Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_hcards.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_hcards.type">Art des Kontaktdatensatzes</label>
+			<label index="tx_academy_domain_model_hcards.type.I.1">Person</label>
+			<label index="tx_academy_domain_model_hcards.type.I.2">Organization</label>
+			<label index="tx_academy_domain_model_hcards.label">Bezeichnung (intern, wird nicht angezeigt)</label>
+			<label index="tx_academy_domain_model_hcards.adr">Postadressen</label>
+			<label index="tx_academy_domain_model_hcards.tel">Telefon &amp; Faxnummern</label>
+			<label index="tx_academy_domain_model_hcards.email">E-Mail Adressen</label>
+			<label index="tx_academy_domain_model_hcards.url">Webadressen</label>
+			<label index="tx_academy_domain_model_hcards.geo">Geokoordinaten (Breite; Länge)</label>
+
+			<label index="tx_academy_domain_model_hcards_adr">Postanschriften</label>
+			<label index="tx_academy_domain_model_hcards_adr.type">Art der Anschrift</label>
+			<label index="tx_academy_domain_model_hcards_adr.label">Bezeichnung (intern, wird nicht angezeigt)</label>
+			<label index="tx_academy_domain_model_hcards_adr.org">Organisationsname (mehrzeilig; Reihenfolge: Projekt - Abteilung - Institut - Universität - etc.)</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.1">International</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.2">Postalisch</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.3">Paketanschrift</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.4">Arbeit</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.5">dom</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.6">Privat</label>
+			<label index="tx_academy_domain_model_hcards_adr.type.I.7">Bevorzugte Anschrift</label>
+			<label index="tx_academy_domain_model_hcards_adr.adrcomponents">Adressbestandteile</label>
+
+			<label index="tx_academy_domain_model_hcards_adrcomponents">Adressbestandteile</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type">Typ</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.1">Straße</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.2">PLZ</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.3">Stadt</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.4">Land</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.5">Postfach</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.6">Zusatz</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.7">Lokalität</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.type.I.8">Region</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.value">Wert</label>
+			<label index="tx_academy_domain_model_hcards_adrcomponents.parent">Elterndatensatz</label>
+
+			<label index="tx_academy_domain_model_hcards_tel">Telefonnummern</label>
+			<label index="tx_academy_domain_model_hcards_tel.type">Typ der Telefonnummer</label>
+			<label index="tx_academy_domain_model_hcards_tel.type.I.21">Arbeit</label>
+			<label index="tx_academy_domain_model_hcards_tel.type.I.22">Mobil</label>
+			<label index="tx_academy_domain_model_hcards_tel.type.I.23">Fax</label>
+			<label index="tx_academy_domain_model_hcards_tel.type.I.24">Privat</label>
+			<label index="tx_academy_domain_model_hcards_tel.value">Wert</label>
+			<label index="tx_academy_domain_model_hcards_tel.freetext">Zusatzinformationen</label>
+			<label index="tx_academy_domain_model_hcards_tel.parent">Elterndatensatz</label>
+
+			<label index="tx_academy_domain_model_hcards_email">E-Mail Adressen</label>
+			<label index="tx_academy_domain_model_hcards_email.type">Typ</label>
+			<label index="tx_academy_domain_model_hcards_email.type.I.31">E-Mail</label>
+			<label index="tx_academy_domain_model_hcards_email.value">Wert</label>
+			<label index="tx_academy_domain_model_hcards_email.freetext">Zusatzinformationen</label>
+			<label index="tx_academy_domain_model_hcards_email.parent">Elterndatensatz</label>
+
+			<label index="tx_academy_domain_model_hcards_url">Webadressen</label>
+			<label index="tx_academy_domain_model_hcards_url.type">Typ</label>
+			<label index="tx_academy_domain_model_hcards_url.type.I.41">URL</label>
+			<label index="tx_academy_domain_model_hcards_url.value">Wert</label>
+			<label index="tx_academy_domain_model_hcards_url.freetext">Zusatzinformationen</label>
+			<label index="tx_academy_domain_model_hcards_url.parent">Elterndatensatz</label>
+
+			<label index="tx_academy_domain_model_relations">Verknüpfungen</label>
+			<label index="tx_academy_domain_model_relations.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_relations.type">Typ der Verknüpfung</label>
+			<label index="tx_academy_domain_model_relations.type.I.10">Person &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.11">Person &lt;&gt; Projekt</label>
+			<label index="tx_academy_domain_model_relations.type.I.12">Person &lt;&gt; Organisationseinheit</label>
+			<label index="tx_academy_domain_model_relations.type.I.13">Person &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.14">Person &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.15">Person &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.16">Person &lt;&gt; Person</label>
+			<label index="tx_academy_domain_model_relations.type.I.20">Projekt &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.21">Projekt &lt;&gt; Organisationseinheit</label>
+			<label index="tx_academy_domain_model_relations.type.I.22">Projekt &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.23">Projekt &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.24">Projekt &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.25">Projekt &lt;&gt; Freitext</label>
+			<label index="tx_academy_domain_model_relations.type.I.26">Projekt &lt;&gt; Projekt</label>
+			<label index="tx_academy_domain_model_relations.type.I.30">Organisationseinheit &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.31">Organisationseinheit &lt;&gt; Freitext</label>
+			<label index="tx_academy_domain_model_relations.type.I.32">Organisationseinheit &lt;&gt; Organisationseinheit</label>
+			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.50">Termin &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.51">Termin &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.role">Rolle</label>
+			<label index="tx_academy_domain_model_relations.role_freetext">Rolle (Freitext)</label>
+			<label index="tx_academy_domain_model_relations.project">Projekt</label>
+			<label index="tx_academy_domain_model_relations.event">Termin</label>
+			<label index="tx_academy_domain_model_relations.person">Person</label>
+			<label index="tx_academy_domain_model_relations.medium">Medium</label>
+			<label index="tx_academy_domain_model_relations.news">News</label>
+			<label index="tx_academy_domain_model_relations.unit">Organisationseinheit</label>
+			<label index="tx_academy_domain_model_relations.hcard">Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.freetext">Freitext</label>
+
+			<label index="tx_academy_domain_model_roles">Rolle</label>
+			<label index="tx_academy_domain_model_roles.div1">Allgemein</label>
+			<label index="tx_academy_domain_model_roles.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_roles.title">Bezeichnung</label>
+
+			<label index="tx_academy_domain_model_units">Organisationseinheiten</label>
+			<label index="tx_academy_domain_model_units.div1">Allgemein</label>
+			<label index="tx_academy_domain_model_units.div2">Beschreibung</label>
+			<label index="tx_academy_domain_model_units.div3">Verknüpfungen</label>
+			<label index="tx_academy_domain_model_units.div4">Metadaten</label>
+			<label index="tx_academy_domain_model_units.div5">Kategorien</label>
+			<label index="tx_academy_domain_model_units.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_units.title">Bezeichnung</label>
+			<label index="tx_academy_domain_model_units.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_units.sorting">Sortierung (intern)</label>
+			<label index="tx_academy_domain_model_units.page">Seite mit Informationen zur Organisationseinheit</label>
+			<label index="tx_academy_domain_model_units.image">Bild</label>
+			<label index="tx_academy_domain_model_units.description">Beschreibung</label>
+			<label index="tx_academy_domain_model_units.relations">Verknüpfungen (Organisationseinheit)</label>
+			<label index="tx_academy_domain_model_units.categories">Kategorien</label>
+			<label index="tx_academy_domain_model_units.statements">Metadaten (LOD Statements)</label>
+
+			<label index="tx_academy_domain_model_events">Termine</label>
+
+			<label index="tx_academy_domain_model_news">Nachrichten</label>
+			<label index="tx_academy_domain_model_news.news_relations">Verknüpfungen (Nachricht)</label>
+			<label index="tx_academy_domain_model_news.event_relations">Verknüpfungen (Termin)</label>
+			<label index="tx_academy_domain_model_news.offset">Bildversatz (Homepage)</label>
+
+			<label index="tx_academy_domain_model_media">Medien</label>
+			<label index="tx_academy_domain_model_media.div1">Allgemein</label>
+			<label index="tx_academy_domain_model_media.div2">Datei(en)</label>
+			<label index="tx_academy_domain_model_media.div3">Verknüpfungen</label>
+			<label index="tx_academy_domain_model_media.div4">Metadaten</label>
+			<label index="tx_academy_domain_model_media.persistent_identifier">Persistenter Identifikator</label>
+			<label index="tx_academy_domain_model_media.type">Typ</label>
+			<label index="tx_academy_domain_model_media.type.I.0">Bitte auswählen...</label>
+			<label index="tx_academy_domain_model_media.type.I.10">Audio</label>
+			<label index="tx_academy_domain_model_media.type.I.20">Bilder</label>
+			<label index="tx_academy_domain_model_media.type.I.30">Dokumente</label>
+			<label index="tx_academy_domain_model_media.type.I.40">Video</label>
+			<label index="tx_academy_domain_model_media.title">Titel</label>
+			<label index="tx_academy_domain_model_media.description">Beschreibung</label>
+			<label index="tx_academy_domain_model_media.image">Teaserbild</label>
+			<label index="tx_academy_domain_model_media.view_count">Wie oft angesehen</label>
+			<label index="tx_academy_domain_model_media.files">Einzelne Dateien</label>
+			<label index="tx_academy_domain_model_media.collections">Sammlungen</label>
+			<label index="tx_academy_domain_model_media.relations">Verknüpfungen (Medium)</label>
+			<label index="tx_academy_domain_model_media.statements">Metadaten (LOD Statements)</label>
+
+		</languageKey>
+	</data>
+</T3locallang>

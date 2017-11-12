@@ -1,0 +1,6 @@
+lib.formatAndCrop = TEXT
+lib.formatAndCrop {
+	current = 1
+	crop = 200 | ...
+	parseFunc =< lib.parseFunc
+}

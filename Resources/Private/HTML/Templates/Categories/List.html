@@ -1,0 +1,62 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{selectedCategories}">
+	<p>
+		<f:link.page class="icon more" pageUid="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')}"><f:translate key="categories.clearSelection" /></f:link.page>
+	</p>
+</f:if>
+<nav class="contentnavigation filter">
+	<ul>
+		<f:for each="{categoryTree}" as="parentCategories" key="label" iteration="iterator">
+			<li>
+				<f:if condition="{label} == 'Alphabetisch'">
+					<f:then>
+						<a class="label" id="alphabetical" href="#l{iterator.cycle}">{label}</a>
+					</f:then>
+					<f:else>
+						<a class="label" id="s{iterator.cycle}" href="#l{iterator.cycle}">{label}</a>
+					</f:else>
+				</f:if>
+				<ul class="filteroptions" id="l{iterator.cycle}">
+				<f:for each="{parentCategories}" as="childCategory">
+
+					<f:if condition="{childCategory.count} > 0">
+
+						<f:if condition="{adw:InArray(needle : childCategory.uid, haystack : selectedCategoriesArray)}">
+							<f:then>
+								<li id="c{childCategory.uid}" class="selected">
+							</f:then>
+							<f:else>
+								<li id="c{childCategory.uid}">
+							</f:else>
+						</f:if>
+							<f:if condition="{selectedCategories}">
+								<f:then>
+									<f:link.action action="select" arguments="{category : childCategory.uid, selectedCategories : selectedCategories}" pageUid="{settings.targetPid}">
+										{childCategory.title}
+										<f:if condition="{childCategory.parent.uid} == 5">
+											<f:then></f:then>
+											<f:else>({childCategory.count})</f:else>
+										</f:if>
+									</f:link.action>
+								</f:then>
+								<f:else>
+									<f:link.action action="select" arguments="{category : childCategory.uid}" pageUid="{settings.targetPid}">
+										{childCategory.title}
+										<f:if condition="{childCategory.parent.uid} == 5">
+											<f:then></f:then>
+											<f:else>({childCategory.count})</f:else>
+										</f:if>
+									</f:link.action>
+								</f:else>
+							</f:if>
+						</li>
+
+					</f:if>
+
+				</f:for>
+				</ul>
+			</li>
+		</f:for>
+	</ul>
+</nav>

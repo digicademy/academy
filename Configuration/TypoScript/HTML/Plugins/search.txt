@@ -1,0 +1,9 @@
+lib.keywords = TEXT
+lib.keywords {
+	data = GP:tx_academy_search|keywords
+	htmlSpecialChars = 1
+	replacement {
+		10.search = +
+		10.replace.char = 32
+	}
+}

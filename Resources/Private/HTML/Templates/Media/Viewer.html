@@ -1,0 +1,17 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{medium.type} == 10">
+	<f:render partial="Media/Audio" arguments="{medium : medium}" />
+</f:if>
+
+<f:if condition="{medium.type} == 20">
+	<f:render partial="Media/Gallery" arguments="{medium : medium}" />
+</f:if>
+
+<f:if condition="{medium.type} == 30">
+	<f:render partial="Media/Document" arguments="{medium : medium}" />
+</f:if>
+
+<f:if condition="{medium.type} == 40">
+	<f:render partial="Media/Video" arguments="{medium : medium}" />
+</f:if>

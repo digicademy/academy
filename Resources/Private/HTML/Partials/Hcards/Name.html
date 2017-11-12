@@ -1,0 +1,122 @@
+<f:if condition="{type} == 'person'">
+	<f:then>
+		<!-- Mitglied -->
+		<f:if condition="{record.pid} == 1836">
+			<f:then>
+				<f:if condition="{arguments.action} == 'show'">
+					<f:then>
+						<f:render section="Name" arguments="{_all}" />
+					</f:then>
+					<f:else>
+						<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1827" arguments="{
+							person : record.uid
+						}">
+						<f:render section="Name" arguments="{_all}" />
+						</f:link.action><br/>
+					</f:else>
+				</f:if>
+			</f:then>
+			<f:else>
+				<!-- Mitarbeiter -->
+				<f:if condition="{record.pid} == 1837">
+					<f:then>
+						<f:if condition="{arguments.action} == 'show'">
+							<f:then>
+								<f:render section="Name" arguments="{_all}" />
+							</f:then>
+							<f:else>
+								<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1826" arguments="{
+									person : record.uid
+								}">
+								<f:render section="Name" arguments="{_all}" />
+								</f:link.action><br/>
+							</f:else>
+						</f:if>
+					</f:then>
+					<!-- Sonstige -->
+					<f:else>
+						<f:render section="Name" arguments="{_all}" />
+					</f:else>
+				</f:if>
+			</f:else>
+		</f:if>
+	</f:then>
+	<!-- Organisation -->
+	<f:else>
+		<f:render section="Name" arguments="{_all}" />
+	</f:else>
+</f:if>
+
+
+<f:section name="Name">
+
+		<f:if condition="{type} == 'person'">
+
+			<f:then>
+				<span class="fn n">
+					<f:if condition="{arguments.action} == 'show'">
+						<f:then></f:then>
+						<f:else><f:if condition="{record.dateOfDeath}">✝</f:if></f:else>
+					</f:if>
+					<f:if condition="{familyNameFirst}">
+						<f:then>
+
+							<span class="family-name">{record.familyName}</span>,
+
+							<f:if condition="{record.honorificPrefix}">
+								<span class="honorific-prefix">{record.honorificPrefix}</span>
+							</f:if>
+
+							<f:if condition="{record.honorificSuffix}">
+								<f:then>
+									<span class="given-name">{record.givenName}</span>{f:if(condition: '{record.additionalName}', then: '{record.additionalName}, ', else: ', ')}<span class="honorific-suffix">{record.honorificSuffix}</span>
+								</f:then>
+								<f:else>
+									<span class="given-name">{record.givenName}</span>
+									<f:if condition="{record.additionalName}"><span class="additional-name">{record.additionalName}</span></f:if>
+									<span class="honorific-suffix">{record.honorificSuffix}</span>
+								</f:else>
+							</f:if>
+
+						</f:then>
+						<f:else>
+
+							<f:if condition="{record.honorificPrefix}">
+								<span class="honorific-prefix">{record.honorificPrefix}</span>
+							</f:if>
+
+							<span class="given-name">{record.givenName}</span>
+
+							<f:if condition="{record.additionalName}">
+								<span class="additional-name">{record.additionalName}</span>
+							</f:if>
+
+							<f:if condition="{record.honorificSuffix}">
+								<f:then>
+									<span class="family-name">{record.familyName}</span>, <span class="honorific-suffix">{record.honorificSuffix}</span>
+								</f:then>
+								<f:else>
+									<span class="family-name">{record.familyName}</span>
+								</f:else>
+							</f:if>
+
+						</f:else>
+					</f:if>
+				</span>
+			</f:then>
+
+			<f:else>
+				<f:if condition="{record.adr}">
+					<f:for each="{record.adr}" as="address" iteration="iterator">
+						<f:if condition="{iterator.isFirst}">
+							<span class="fn org">
+								<f:cObject typoscriptObjectPath="lib.tx_academy.formatOrg" data="{org : address.org}" />
+							</span><br/>
+						</f:if>
+					</f:for>
+				</f:if>
+			</f:else>
+
+		</f:if>
+
+</f:section>

@@ -1,0 +1,92 @@
+config.tx_extbase {
+	objects {
+		TYPO3\CMS\Extbase\Domain\Model\Category {
+			className = Digicademy\Academy\Domain\Model\Categories
+		}
+	}
+}
+
+plugin.tx_academy {
+	persistence {
+		classes {
+
+			# hcard academy classes need to be mapped to hcard academy tables since they contain an additional '_xyz'
+			Digicademy\Academy\Domain\Model\HcardsAdr {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_adr
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsAdrcomponents {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_adrcomponents
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsTel {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_tel
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsEmail {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_email
+				}
+			}
+			Digicademy\Academy\Domain\Model\HcardsUrl {
+				mapping {
+					tableName = tx_academy_domain_model_hcards_url
+				}
+			}
+
+			# map the sys_file_collection table
+			Digicademy\Academy\Domain\Model\FileCollection {
+				mapping {
+					tableName = sys_file_collection
+				}
+			}
+
+			# map the sys_category table
+			Digicademy\Academy\Domain\Model\Categories {
+				mapping {
+					tableName = sys_category
+				}
+			}
+
+			# map news table
+			Digicademy\Academy\Domain\Model\News {
+				mapping {
+					tableName = tx_news_domain_model_news
+				}
+			}
+
+			# map events table
+			Digicademy\Academy\Domain\Model\Events {
+				mapping {
+					tableName = tx_news_domain_model_news
+				}
+			}
+
+		}
+	}
+
+	# paths for HTML views
+	view {
+		layoutRootPaths.10 = EXT:academy/Resources/Private/HTML/Layouts/
+		partialRootPaths.10 = EXT:academy/Resources/Private/HTML/Partials/
+		templateRootPaths.10 = EXT:academy/Resources/Private/HTML/Templates/
+		widget {
+			TYPO3\CMS\Fluid\ViewHelpers\Widget\PaginateViewHelper.templateRootPath = EXT:academy/Resources/Private/HTML/Templates/
+		}
+	}
+}
+
+# special settings for each plugin
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/projects.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/categories.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/units.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/persons.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/news.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/events.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/media.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/linkifier.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/search.txt">

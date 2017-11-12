@@ -1,0 +1,56 @@
+<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 2121">
+	<f:then>
+		<f:if condition="{f:format.date(date: newsItem.eventEnddate, format: 'Y')} > 2000">
+			<f:then>
+				<time class="dtstart" datetime="{f:format.date(date: newsItem.eventStartdate, format: 'Y-m-d')}">
+					<f:cObject typoscriptObjectPath="lib.strftime.datetime" data="{timestamp : '{f:format.date(date: newsItem.eventStartdate, format: \'U\')}'}" />
+					<f:if condition="{newsItem.eventStarttime}">
+						(<span>
+							<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventStarttime, format: \'U\')}'}" />
+						</span>)
+					</f:if>
+				</time>
+				-
+				<time class="dtend" datetime="{f:format.date(date: newsItem.eventEnddate, format: 'Y-m-d')}">
+					<f:cObject typoscriptObjectPath="lib.strftime.datetime" data="{timestamp : '{f:format.date(date: newsItem.eventEnddate, format: \'U\')}'}" />
+					<f:if condition="{newsItem.eventEndtime}">
+						(<span>
+							<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventEndtime, format: \'U\')}'}" />
+						</span>)
+					</f:if>
+				</time>
+			</f:then>
+			<f:else>
+				<time class="dtstart" datetime="{f:format.date(date: newsItem.eventStartdate, format: 'Y-m-d')}">
+					<f:cObject typoscriptObjectPath="lib.strftime.datetime" data="{timestamp : '{f:format.date(date: newsItem.eventStartdate, format: \'U\')}'}" />
+					<f:if condition="{newsItem.eventEndtime}">
+						<f:then>
+							(<span>
+								<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventStarttime, format: \'U\')}'}" />
+								-
+								<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventEndtime, format: \'U\')}'}" />
+							</span>)
+						</f:then>
+						<f:else>
+							<f:if condition="{newsItem.eventStarttime}">
+							(<span>
+								<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventStarttime, format: \'U\')}'}" />
+							</span>)
+							</f:if>
+						</f:else>
+					</f:if>
+				</time>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		<time class="dtstart" datetime="{f:format.date(date: newsItem.eventStartdate, format: 'Y-m-d')}">
+			<span class="daymonth">{f:format.date(date: newsItem.eventStartdate, format: 'd.m.')}</span><span class="year">{f:format.date(date: newsItem.eventStartdate, format: 'Y')}</span>
+			<f:if condition="{newsItem.eventStarttime}">
+				<span class="hours">
+					<f:cObject typoscriptObjectPath="lib.strftime.gmttime" data="{timestamp : '{f:format.date(date: newsItem.eventStarttime, format: \'U\')}'}" />
+				</span>
+			</f:if>
+		</time>
+	</f:else>
+</f:if>

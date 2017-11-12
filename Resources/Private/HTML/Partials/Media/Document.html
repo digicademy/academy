@@ -1,0 +1,36 @@
+<article class="mediacontent">
+
+	<h1 class="csc-firstHeader">{medium.title}</h1>
+
+	<f:render partial="Media/Articleinfo" arguments="{medium : medium}" />
+
+	<ul class="rows">
+		<f:for each="{medium.files}" as="file" iteration="iterator">
+			<li class="row">
+				<f:cObject typoscriptObjectPath="lib.media.document" data="{
+					files : file.uid
+				}" />
+			</li>
+		</f:for>
+	</ul>
+
+<f:comment>
+	<f:if condition="{medium.image}">
+	<figure class="grid_16 alpha">
+		<f:cObject typoscriptObjectPath="lib.image" data="{
+			table : 'tx_academy_domain_model_media',
+			uid : medium.uid,
+			image_frames : 1,
+			imageColumnWidth : columnWidth
+		}" />
+	</figure>
+	</f:if>
+</f:comment>
+
+	<f:if condition="{medium.description}">
+		<div class="grid_16 alpha clearfix">
+			<f:format.html>{medium.description}</f:format.html>
+		</div>
+	</f:if>
+
+</article>

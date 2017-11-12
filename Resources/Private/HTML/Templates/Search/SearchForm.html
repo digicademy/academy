@@ -1,0 +1,13 @@
+<f:form extensionName="Academy" pluginName="search" action="searchAll" name="search" id="search" enctype="multipart/form-data" method="post" noCacheHash="true" pageUid="1833">
+
+	<fieldset>
+		<legend class="skip"><f:translate key="search.thisWebsite" /></legend>
+
+		<label for="searchfield" class="skip"><f:translate key="search.keywords" /></label>
+		<f:form.textfield name="keywords" id="searchfield" placeholder="{f:translate(key:'search.website')}" value="{f:cObject(typoscriptObjectPath: 'lib.keywords')}" />
+
+		<f:form.submit name="submit" id="searchbutton" value="{f:translate(key:'search.search')}" />
+
+	</fieldset>
+
+</f:form>

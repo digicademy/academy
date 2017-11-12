@@ -1,0 +1,30 @@
+# compares role values while looping through the projects > show view for grouping labels (dt)
+
+lib.tx_academy.compareRoleValues = COA
+lib.tx_academy.compareRoleValues {
+
+	10 = LOAD_REGISTER
+	10 {
+		currentRole.cObject = TEXT
+		currentRole.cObject {
+			field = roleTitle
+			override.field = roleTitleFreetext
+			override.if.isTrue.field = roleTitleFreetext
+		}
+	}
+
+	20 = TEXT
+	20 {
+		value = 0
+		override = 1
+		override.if {
+			value.data = register : currentRole
+			equals.data = register : lastRole
+		}
+	}
+
+	30 = LOAD_REGISTER
+	30 {
+		lastRole < lib.tx_academy.compareRoleValues.10.currentRole
+	}
+}

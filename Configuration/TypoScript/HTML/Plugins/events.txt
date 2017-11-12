@@ -1,0 +1,21 @@
+config.tx_extbase.objects {
+	Tx_RoqNewsevent_Domain_Repository_EventRepository {
+		className = Tx_Academy_Domain_Repository_EventsRepository
+	}
+}
+
+plugin.tx_news {
+	view.event {
+		layoutRootPath = EXT:academy/Resources/Private/HTML/Layouts/
+		partialRootPath = EXT:academy/Resources/Private/HTML/Partials/
+		templateRootPath = EXT:academy/Resources/Private/HTML/Templates/
+	}
+}
+
+[PIDinRootline = 1305]
+plugin.tx_news {
+	settings {
+		dateField = tx_roqnewsevent_startdate
+	}
+}
+[global]

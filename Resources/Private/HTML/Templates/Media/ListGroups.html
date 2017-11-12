@@ -1,0 +1,77 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:render partial="Search/Searchbox" arguments="{type : 'media', objectname: 'Medien'}" />
+
+<h4 class="rowheader mediagroup">
+	<f:link.action action="listType" arguments="{type : 30}">
+		<f:translate key="media.newest" /> <f:translate key="media.documents" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 30})} <f:translate key="media.total" />)
+	</f:link.action>
+</h4>
+<ul>
+<f:for each="{media.30}" as="medium" iteration="iterator">
+	<li class="row">
+		<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action> <span class="crdate">(<f:translate key="media.crdate" /> <f:format.date format="d.m.Y">{medium.crdate}</f:format.date>)</span>
+	</li>
+</f:for>
+</ul>
+<p>
+	<f:link.action action="listType" arguments="{type : 30}" class="button">
+		<f:translate key="media.showAllDocuments" />
+	</f:link.action>
+</p>
+
+
+<h4 class="rowheader mediagroup">
+	<f:link.action action="listType" arguments="{type : 20}">
+		<f:translate key="media.newest" /> <f:translate key="media.galleries" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 20})} <f:translate key="media.total" />)
+	</f:link.action>
+</h4>
+<ul>
+	<f:for each="{media.20}" as="medium" iteration="iterator">
+		<li class="row">
+			<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action> <span class="crdate">(<f:translate key="media.crdate" /> <f:format.date format="d.m.Y">{medium.crdate}</f:format.date>)</span>
+		</li>
+	</f:for>
+</ul>
+<p>
+	<f:link.action action="listType" arguments="{type : 20}" class="button">
+		<f:translate key="media.showAllGalleries" />
+	</f:link.action>
+</p>
+
+<h4 class="rowheader mediagroup">
+	<f:link.action action="listType" arguments="{type : 10}">
+		<f:translate key="media.newest" /> <f:translate key="media.audios" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 10})} <f:translate key="media.total" />)
+	</f:link.action>
+</h4>
+<ul>
+	<f:for each="{media.10}" as="medium" iteration="iterator">
+		<li class="row">
+			<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action> <span class="crdate">(<f:translate key="media.crdate" /> <f:format.date format="d.m.Y">{medium.crdate}</f:format.date>)</span>
+		</li>
+	</f:for>
+</ul>
+<p>
+	<f:link.action action="listType" arguments="{type : 10}" class="button">
+		<f:translate key="media.showAllAudios" />
+	</f:link.action>
+</p>
+
+
+<h4 class="rowheader mediagroup">
+	<f:link.action action="listType" arguments="{type : 40}">
+		<f:translate key="media.newest" /> <f:translate key="media.videos" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 40})} <f:translate key="media.total" />)
+	</f:link.action>
+</h4>
+<ul>
+	<f:for each="{media.40}" as="medium" iteration="iterator">
+		<li class="row">
+			<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action> <span class="crdate">(<f:translate key="media.crdate" /> <f:format.date format="d.m.Y">{medium.crdate}</f:format.date>)</span>
+		</li>
+	</f:for>
+</ul>
+<p>
+	<f:link.action action="listType" arguments="{type : 40}" class="button">
+		<f:translate key="media.showAllVideos" />
+	</f:link.action>
+</p>

@@ -1,0 +1,16 @@
+lib.getCategoryTitles = RECORDS
+lib.getCategoryTitles {
+	source.data = GP:tx_academy_categories|selectedCategories
+	tables = sys_category
+	dontCheckPid = 1
+	conf.sys_category = TEXT
+	conf.sys_category {
+		field = title
+		noTrimWrap = ||, |
+	}
+	stdWrap {
+		noTrimWrap = |<strong>{LLL:EXT:academy/Resources/Private/Language/locallang.xml:categories.selectedCategories.label}:</strong> ||
+		substring = 0,-2
+		insertData = 1
+	}
+}

@@ -1,0 +1,16 @@
+<f:for each="{hcard.email}" as="email" iteration="iterator">
+	<f:if condition="{iterator.isFirst}">
+		<f:then>
+			<f:link.email class="{classes} item1" email="{email.value}">
+				<f:cObject typoscriptObjectPath="lib.tx_academy.replacement" data="{haystack: '{email.value}', search: '@', replace: '<span class=\"icononly spmicon subscribe\">at</span>'}" />
+			</f:link.email>
+			<f:if condition="{email.freetext}"><span class="freetext">({email.freetext})</span></f:if><br/>
+		</f:then>
+		<f:else>
+			<f:link.email class="{classes} additional item{iterator.cycle}" email="{email.value}">
+				<f:cObject typoscriptObjectPath="lib.tx_academy.replacement" data="{haystack: '{email.value}', search: '@', replace: '<span class=\"icononly spmicon subscribe\">at</span>'}" />
+			</f:link.email>
+			<f:if condition="{email.freetext}"><span class="freetext">({email.freetext})</span></f:if><br/>
+		</f:else>
+	</f:if>
+</f:for>

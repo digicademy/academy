@@ -1,0 +1,171 @@
+adrCorrectionView = PAGE
+adrCorrectionView {
+
+	typeNum = 1313
+
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:text/plain; charset=utf8
+		admPanel = 0
+		xhtml_cleaning = 0
+		disablePrefixComment = 1
+	}
+
+	10 = COA_INT
+
+	10.5 = LOAD_REGISTER
+	10.5 {
+		adrType.cObject = TEXT
+		adrType.cObject {
+			data = GP : adrType
+			prioriCalc = intval
+		}
+	}
+
+	10.10 = CASE
+	10.10 {
+		key.data = register : adrType
+		default = TEXT
+		default.value = KEINE DATEN
+		3 < .default
+		3.value = PAKETPOST
+		4 < .default
+		4.value = ARBEITSADRESSEN
+		6 < .default
+		6.value = PRIVATADRESSEN
+	}
+	10.10.stdWrap.postCObject = TEXT
+	10.10.stdWrap.postCObject.char = 10
+
+	10.11 = TEXT
+	10.11.value (
+-------------------------------------------------------------------------------------------------------------------
+
+)
+
+	10.15 = CONTENT
+	10.15 {
+
+		table = tx_academy_domain_model_hcards_adr
+
+		select {
+			pidInList = 2397
+			where.dataWrap = type={register:adrType}
+			orderBy = label ASC
+		}
+
+		renderObj = COA
+		renderObj {
+
+			10 = TEXT
+			10.char = 10
+
+			20 = TEXT
+			20 {
+				field = uid
+				noTrimWrap = |uid:                    ||
+				postCObject = TEXT
+				postCObject.char = 10
+			}
+
+			30 < .20
+			30 {
+				field = label
+				noTrimWrap = |label:                  ||
+			}
+
+			40 = TEXT
+			40 {
+				postCObject = TEXT
+				postCObject.char = 10
+				field = org
+				split {
+					token.char = 10
+					cObjNum = 1||2
+					1 = TEXT
+					1.current = 1
+					1.noTrimWrap = |org:                    ||
+					2 = TEXT
+					2.current = 1
+					2.noTrimWrap = |                        ||
+				}
+
+			}
+
+			50 = CONTENT
+			50 {
+				table = tx_academy_domain_model_hcards_adrcomponents
+				select {
+					pidInList = 2397
+					where.dataWrap = parent={field:uid}
+					orderBy = sorting
+				}
+				renderObj = COA
+				renderObj {
+
+					10 = TEXT
+					10 {
+						field = value
+						noTrimWrap = |street-address:         ||
+						insertData = 1
+						if.value = 1
+						if.equals.field = type
+						postCObject = TEXT
+						postCObject.char = 10
+					}
+
+					20 < .10
+					20 {
+						noTrimWrap = |zip:                    ||
+						if.value = 2
+						if.equals.field = type
+					}
+
+					30 < .10
+					30 {
+						noTrimWrap = |city:                   ||
+						if.value = 3
+						if.equals.field = type
+					}
+
+					40 < .10
+					40 {
+						noTrimWrap = |country:                ||
+						if.value = 4
+						if.equals.field = type
+					}
+
+					50 < .10
+					50 {
+						noTrimWrap = |postbox:                ||
+						if.value = 5
+						if.equals.field = type
+					}
+
+					60 < .10
+					60 {
+						noTrimWrap = |extended-address:       ||
+						if.value = 6
+						if.equals.field = type
+					}
+
+					70 < .10
+					70 {
+						noTrimWrap = |region:                 ||
+						if.value = 7
+						if.equals.field = type
+					}
+
+				}
+			}
+
+			99 = TEXT
+			99.value (
+
+-------------------------------------------------------------------------------------------------------------------
+)
+
+			100 < .10
+		}
+	}
+}

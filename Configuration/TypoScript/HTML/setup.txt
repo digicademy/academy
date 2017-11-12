@@ -1,0 +1,16 @@
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/compareRoleValues.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/getData.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/getLocalizedProjectUid.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/if.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/replacement.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/testAndTrimContent.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/getCategoryTitles.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/getMonthAndYear.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/strftime.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/stripHtml.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/formatAndCrop.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/nl2br.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/formatOrg.txt">
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Libraries/parseFuncMakeLinks.txt">
+
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/setup.txt">

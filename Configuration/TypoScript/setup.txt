@@ -1,0 +1,14 @@
+# HTML libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/setup.txt">
+
+# VCF libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/VCF/setup.txt">
+
+# RSS libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/RSS/setup.txt">
+
+# ICS libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/ICS/setup.txt">
+
+# BEACON libraries
+<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/BEACON/setup.txt">

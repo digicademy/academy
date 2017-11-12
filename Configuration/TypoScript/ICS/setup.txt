@@ -1,0 +1,53 @@
+ics = PAGE
+ics {
+	typeNum = 9828
+
+	config {
+		disableAllHeaderCode = 1
+		xhtml_cleaning = none
+		admPanel = 0
+		metaCharset = utf-8
+		locale_all = de_DE.utf-8
+		additionalHeaders = Content-Type:text/calendar;charset=utf-8
+#		additionalHeaders = Content-Type:text/html
+		disablePrefixComment = 1
+		baseURL = http://www.adwmainz.de/
+		absRefPrefix = http://www.adwmainz.de/
+	}
+
+	10 < tt_content.list.20.news_pi1
+	10 {
+		switchableControllerActions {
+			News {
+				1 = eventList
+			}
+		}
+		settings < plugin.tx_news.settings
+		settings {
+			startingpoint = 2103
+			recursive = 1
+			archiveRestriction = active
+			format = ics
+		}
+		view.event {
+			templateRootPath = EXT:academy/Resources/Private/ICS/Templates/
+			layoutRootPath = EXT:academy/Resources/Private/ICS/Layouts/
+			partialRootPath = EXT:academy/Resources/Private/ICS/Partials/
+		}
+	}
+}
+
+[globalVar = TSFE:type = 9828]
+
+	lib.stdheader >
+	tt_content.stdWrap.innerWrap >
+	tt_content.stdWrap.wrap >
+	styles.content.get.stdWrap >
+
+[global]
+
+[globalVar = TSFE:id = 2121]
+
+ics.10.switchableControllerActions.News.1 = eventDetail
+
+[global]

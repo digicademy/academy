@@ -1,0 +1,110 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:plugin.sheet.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions</label>
+							<config>
+								<type>select</type>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.list</numIndex>
+										<numIndex index="1">Units->list;Units->show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.listBySelection</numIndex>
+										<numIndex index="1">Units->listBySelection;Units->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.listByCategories</numIndex>
+										<numIndex index="1">Units->listByCategories;Units->show</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.listByRoles</numIndex>
+										<numIndex index="1">Units->listByRoles;Units->show</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.show</numIndex>
+										<numIndex index="1">Units->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+							<onChange>reload</onChange>
+						</TCEforms>
+					</switchableControllerActions>
+
+					<settings.selectedUnits>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.selectedUnits</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_units</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Units->listBySelection;Units->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedUnits>
+
+					<settings.selectedCategories>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.selectedCategories</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>sys_category</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Units->listByCategories;Units->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedCategories>
+
+					<settings.selectedRoles>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.selectedRoles</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_roles</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Units->listByRoles;Units->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedRoles>
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure> 

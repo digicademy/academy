@@ -1,0 +1,71 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:da="http://typo3.org/ns/Digicademy/Academy/ViewHelpers"
+      xmlns:ag="http://typo3.org/ns/Digicademy/Agate/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<div class="single item unit" id="unit-{unit.uid}">
+
+    <f:if condition="{unit.statements}">
+
+        <f:for each="{unit.statements}" as="statement">
+
+            <f:if condition="{statement.subject.type} == 3">
+                <script type="application/ld+json">
+                    <ag:JsonLd statement="{statement}" />
+                </script>
+            </f:if>
+
+        </f:for>
+
+    </f:if>
+
+    <h2>{unit.title} <f:if condition="{unit.acronym}">({unit.acronym})</f:if></h2>
+
+    <f:if condition="{unit.categories}">
+        <f:render partial="Categories/SelectedCategories" arguments="{selectedCategories : unit.categories}"/>
+    </f:if>
+
+    <f:if condition="{unit.image}">
+        <f:for each="{unit.image}" as="image">
+            <f:image src="{image.uid}" treatIdAsReference="1" alt="{image.originalResource.properties.alternative}" />
+        </f:for>
+    </f:if>
+
+    <f:if condition="{unit.description}">
+        <f:format.html>{unit.description}</f:format.html>
+    </f:if>
+
+<!-- relations -->
+
+    <f:if condition="{unit.relations}">
+
+        <dl>
+            <f:for each="{unit.relations}" as="relation" iteration="iterator">
+                <!-- Unit - Person -->
+                <f:if condition="{relation.type} == 12">
+                    <f:render partial="Hcards/Listitem" arguments="{relation : relation}"/>
+                </f:if>
+
+                <!-- Unit - Hcard -->
+                <f:if condition="{relation.type} == 30">
+                    <f:render partial="Hcards/Listitem" arguments="{relation : relation}"/>
+                </f:if>
+
+                <!-- Unit - Freetext -->
+                <f:if condition="{relation.type} == 31">
+                    <f:render partial="Hcards/Listitem" arguments="{relation : relation}"/>
+                </f:if>
+            </f:for>
+        </dl>
+
+    </f:if>
+
+    <f:if condition="{unit.page}">
+        <f:link.page pageUid="{unit.page}">
+            <f:translate key="general.furtherInformation" />
+        </f:link.page>
+    </f:if>
+
+</div>
+
+</html>

@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:da="http://typo3.org/ns/Digicademy/Academy/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<h3>
+    <f:for each="{selectedCategories}" as="selectedCategory" iteration="iterator">
+        <f:if condition="{iterator.isLast}">
+            <f:then>
+                {selectedCategory.title}
+            </f:then>
+            <f:else>
+                {selectedCategory.title},
+            </f:else>
+        </f:if>
+    </f:for>
+</h3>
+
+</html>

@@ -1,0 +1,175 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:if condition="{person.relations}">
+	<adw:groupRelations relations="{person.relations}" />
+</f:if>
+
+<section id="maincontent" class="grid_11 alpha clearfix">
+
+	<div class="vcard person standard">
+
+		<h1 class="csc-firstHeader">
+			<f:render partial="Hcards/Name" arguments="{record : person, type : 'person', arguments : arguments}" />
+		</h1>
+
+		<f:if condition="{person.dateOfDeath}">
+			<p>* <f:format.date format="d.m.Y">{person.dateOfBirth}</f:format.date>, ✝ <f:format.date format="d.m.Y">{person.dateOfDeath}</f:format.date></p>
+		</f:if>
+
+		<f:if condition="{person.expertise}">
+			<p><f:render partial="Hcards/Note" arguments="{label : '{f:translate(key : \'persons.expertise\')}', note : '{person.expertise}'}" /></p>
+		</f:if>
+
+		<f:if condition="{person.image}">
+			<f:then>
+				<figure class="grid_6 alpha">
+					<f:cObject typoscriptObjectPath="lib.image" data="{
+						table : 'tx_academy_domain_model_persons',
+						uid : person.uid,
+						image_frames : 0,
+						imageColumnWidth : 3,
+						image_effects : 10
+					}" />
+				</figure>
+				<div class="grid_10 omega">
+			</f:then>
+			<f:else>
+				<div class="grid_10 alpha clearfix">
+			</f:else>
+		</f:if>
+			<h2><f:translate key="persons.contact" /></h2>
+			<p class="contactinformation">
+				<f:for each="{person.relations}" as="personrelation">
+					<f:if condition="{personrelation.type} == 10">
+						<f:render partial="Hcards/Adr" arguments="{hcard : personrelation.hcard, type : 'person'}" />
+						<f:render partial="Hcards/Tel" arguments="{hcard : personrelation.hcard}" />
+						<f:render partial="Hcards/Email" arguments="{hcard : personrelation.hcard, classes : 'email'}" />
+						<f:render partial="Hcards/Url" arguments="{hcard : personrelation.hcard}" />
+					</f:if>
+				</f:for>
+			</p>
+			<p>
+				<f:if condition="{groupedRelations.10.0.hcard.adr -> f:count()} > 1">
+					<a class="box icon more expand" href="#"><f:translate key="persons.allContactDetails" /></a>
+				</f:if>
+				<f:link.action class="box icon card" action="show" format="vcf" arguments="{person : person}" additionalParams="{type : 1122}"><f:translate key="persons.vcardLink" /></f:link.action>
+			</p>
+		</div>
+
+		<f:if condition="{person.cv}">
+			<h2><f:translate key="persons.cv" /></h2>
+			<f:format.html>{person.cv}</f:format.html>
+		</f:if>
+
+		<f:if condition="{person.awards}">
+			<h2><f:translate key="persons.awards" /></h2>
+			<f:format.html>{person.awards}</f:format.html>
+		</f:if>
+
+		<f:if condition="{person.publications}">
+			<h2><f:translate key="persons.publications" /></h2>
+			<f:format.html>{person.publications}</f:format.html>
+		</f:if>
+
+		<f:if condition="{adw:TestIfRelationsExist(relationNumbers : '13,14,15', groupedRelations : groupedRelations)} == 1">
+
+			<h3 class="rowheader"><f:translate key="general.furtherInformation" /></h3>
+
+			<f:if condition="{groupedRelations.14}">
+				<f:render partial="Relations/14PersonNewsRelation" arguments="{controller : 'Persons', relations : groupedRelations.14}" />
+			</f:if>
+
+			<f:if condition="{groupedRelations.13}">
+				<f:render partial="Relations/13PersonEventRelation" arguments="{controller : 'Persons', relations : groupedRelations.13}" />
+			</f:if>
+
+			<f:if condition="{groupedRelations.15}">
+				<f:render partial="Relations/15PersonMediumRelation" arguments="{controller : 'Persons', relations : groupedRelations.15}" />
+			</f:if>
+
+		</f:if>
+
+	</div>
+
+	<p class="simpleclear">
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.getData', data: 'TSFE:id')} == 1827">
+			<f:then>
+				<f:link.action class="button" controller="Persons" action="list" pageUid="1303">
+					<f:translate key="general.backToList" />
+				</f:link.action>
+			</f:then>
+			<f:else>
+				<f:link.action class="button" controller="Persons" action="list" pageUid="1825">
+					<f:translate key="general.backLink" />
+				</f:link.action>
+			</f:else>
+		</f:if>
+	</p>
+
+</section>
+
+<section id="additionalcontent" class="grid_4 prefix_1 omega">
+
+	<f:if condition="{groupedRelations.12}">
+		<h2 class="csc-firstHeader"><f:translate key="persons.units" /></h2>
+		<ul>
+			<f:for each="{adw:fuseRelations(relations : groupedRelations.12, type: 'unit')}" as="unitRelation" iteration="iterator">
+				<li class="row">
+					<span class="unittitle">
+						<f:render partial="Units/UnitTitle" arguments="{unit : unitRelation.unit}" />
+					</span>
+					<span class="unitrole">
+					<f:if condition="{unitRelation.unit.roles}">
+						<f:then>
+							<adw:implode glue=", " pieces="{unitRelation.unit.roles}" />
+						</f:then>
+						<f:else>
+							<f:render partial="Relations/Role" arguments="{relation : unitRelation}" />
+						</f:else>
+					</f:if>
+					</span>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{groupedRelations.11}">
+		<h2 class="csc-firstHeader"><f:translate key="persons.projects" /></h2>
+		<ul>
+			<f:for each="{adw:fuseRelations(relations : groupedRelations.11, type: 'project')}" as="projectRelation" iteration="iterator">
+				<li class="row">
+					<span class="unittitle">
+						<f:render partial="Projects/ProjectTitle" arguments="{project : projectRelation.project}" />
+					</span>
+					<span class="unitrole">
+						<f:if condition="{projectRelation.project.roles}">
+							<f:then>
+								<adw:implode glue=", " pieces="{projectRelation.project.roles}" />
+							</f:then>
+							<f:else>
+								<f:render partial="Relations/Role" arguments="{relation : projectRelation}" />
+							</f:else>
+						</f:if>
+					</span>
+				</li>
+			</f:for>
+		</ul>
+	</f:if>
+
+	<f:if condition="{person.gnd}">
+	<h2><f:translate key="persons.seeAlso" /></h2>
+		<ul>
+			<li class="row">
+				<f:link.external uri="http://d-nb.info/gnd/{person.gnd}">Deutsche Nationalbibliothek</f:link.external>
+			</li>
+			<f:if condition="{beaconLinks}">
+				<f:for each="{beaconLinks}" as="beaconLink">
+					<li class="row">
+						<f:link.external uri="{beaconLink.link}">{beaconLink.provider.title}</f:link.external>
+					</li>
+				</f:for>
+			</f:if>
+		</ul>
+	</f:if>
+
+</section>

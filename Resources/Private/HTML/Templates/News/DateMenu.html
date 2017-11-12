@@ -1,0 +1,31 @@
+{namespace n=Tx_News_ViewHelpers}
+
+<nav class="contentnavigation filter">
+	<ul>
+		<f:for each="{data.single}" key="year" as="months" iteration="iterator">
+
+			<li>
+				<a class="label" id="d{iterator.cycle}" href="#l{iterator.cycle}">{year}</a>
+
+				<ul class="filteroptions" id="e{iterator.cycle}">
+					<f:for each="{months}" key="month" as="count">
+						<f:if condition="{0:year, 1:month} == {0:overwriteDemand.year, 1:overwriteDemand.month}">
+							<f:then>
+								<li class="selected">
+							</f:then>
+							<f:else>
+								<li>
+							</f:else>
+						</f:if>
+						<f:link.action pageUid="{settings.listPid}" arguments="{overwriteDemand:{year: year, month: month}}">
+							<f:translate key="month.{month}" /> ({count})
+						</f:link.action>
+						</li>
+					</f:for>
+				</ul>
+
+			</li>
+
+		</f:for>
+	</ul>
+</nav>

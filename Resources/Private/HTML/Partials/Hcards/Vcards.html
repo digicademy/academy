@@ -1,0 +1,17 @@
+<f:if condition="{relation.person}">
+	<{wrapper} class="vcard person {type}">
+		<f:render partial="Hcards/VcardPerson" arguments="{person : relation.person}" />
+	</{wrapper}>
+</f:if>
+
+<f:if condition="{relation.hcard}">
+	<{wrapper} class="vcard organisation {type}">
+		<f:render partial="Hcards/VcardOrganization" arguments="{hcard : relation.hcard}" />
+	</{wrapper}>
+</f:if>
+
+<f:if condition="{relation.freetext}">
+	<{wrapper}>
+		{relation.freetext}
+	</{wrapper}>
+</f:if>

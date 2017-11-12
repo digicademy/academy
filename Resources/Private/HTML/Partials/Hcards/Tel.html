@@ -1,0 +1,36 @@
+<f:for each="{hcard.tel}" as="number" iteration="iterator">
+
+	<f:if condition="{number.type} == 21">
+		<span class="tel phone work item{iterator.cycle}">
+			<span class="type">work</span>
+			<span class="value">{number.value}</span>
+			<f:if condition="{number.freetext}"><span class="freetext">({number.freetext})</span></f:if>
+		</span>
+	</f:if>
+
+	<f:if condition="{number.type} == 22">
+		<span class="tel mobile item{iterator.cycle}">
+			<span class="type">cell</span>
+			<span class="value">{number.value}</span>
+			<f:if condition="{number.freetext}"><span class="freetext">({number.freetext})</span></f:if>
+		</span>
+	</f:if>
+
+	<f:if condition="{number.type} == 23">
+		<span class="tel fax item{iterator.cycle}">
+			<span class="type">fax</span>
+			<span class="value">{number.value}</span>
+			<f:if condition="{number.freetext}"><span class="freetext">({number.freetext})</span></f:if>
+		</span>
+	</f:if>
+
+	<f:if condition="{number.type} == 24">
+		<span class="tel phone home item{iterator.cycle}">
+			<span class="type">home</span>
+			<span class="value">{number.value}</span>
+			<f:if condition="{number.freetext}"><span class="freetext">({number.freetext})</span></f:if>
+		</span>
+	</f:if>
+
+	<br/>
+</f:for>

@@ -1,0 +1,8 @@
+lib.if.isInList = TEXT
+lib.if.isInList {
+	value = 1
+	if {
+		value.data = field:list
+		isInList.data = field:value
+	}
+}

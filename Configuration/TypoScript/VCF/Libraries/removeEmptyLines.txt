@@ -1,0 +1,11 @@
+lib.removeEmptyLines = TEXT
+lib.removeEmptyLines {
+	current = 1
+	replacement {
+		10 {
+			search = /^\n+|^[\t\s]*\n+/m
+			replace = 
+			useRegExp = 1
+		}
+	}
+}

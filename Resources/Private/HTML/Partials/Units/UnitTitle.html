@@ -1,0 +1,15 @@
+<f:if condition="{unit.page}">
+	<f:then>
+		<f:if condition="{f:cObject(typoscriptObjectPath: 'lib.if.isInList', data: '{value : \'{unit.page}\', list : \'2018,2019,2020,2021\'}')} == 1">
+			<f:then>
+				<f:link.action action="show" controller="Units" pageUid="{unit.page}" arguments="{unit : unit.uid}">{unit.title}</f:link.action>
+			</f:then>
+			<f:else>
+				<f:link.page pageUid="{unit.page}">{unit.title}</f:link.page>
+			</f:else>
+		</f:if>
+	</f:then>
+	<f:else>
+		{unit.title}
+	</f:else>
+</f:if>

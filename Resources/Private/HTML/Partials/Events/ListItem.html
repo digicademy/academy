@@ -1,0 +1,56 @@
+{namespace n=Tx_News_ViewHelpers}
+{namespace e=Tx_RoqNewsevent_ViewHelpers}
+
+<article class="vevent event articletype-{newsItem.type} clearfix">
+	<div class="grid_3 alpha">
+		<p>
+			<n:link newsItem="{newsItem}" settings="{settings}" class="">
+				<f:render partial="Events/TimeInformation" arguments="{newsItem: newsItem, settings:settings}" />
+			</n:link>
+		</p>
+	</div>
+	<div class="grid_13 omega">
+		<h2>
+			<n:link newsItem="{newsItem}" settings="{settings}" class="url">
+				{newsItem.title}
+			</n:link>
+		</h2>
+
+		<f:if condition="{newsItem.sysCategories}">
+			<p class="category">
+				<f:for each="{newsItem.sysCategories}" as="category" iteration="iterator">
+					<f:if condition="{iterator.isLast}">
+						<f:then>
+							<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1305">{category.title}</f:link.action>
+						</f:then>
+						<f:else>
+							<f:link.action extensionName="Academy" pluginName="Categories" controller="Categories" action="list" arguments="{selectedCategories : category.uid}" pageUid="1305">{category.title}</f:link.action>,
+						</f:else>
+					</f:if>
+				</f:for>
+			</p>
+		</f:if>
+
+		<p class="summary">
+			<f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="1">
+				<f:cObject typoscriptObjectPath="lib.stripHtml">{newsItem.bodytext}</f:cObject>
+			</f:format.crop>
+		</p>
+
+		<f:if condition="{newsItem.eventLocation}">
+			<p class="location">
+				<span><e:translate key="event_location" /></span>: {newsItem.eventLocation}
+			</p>
+		</f:if>
+
+		<p>
+			<n:link newsItem="{newsItem}" settings="{settings}" class="icon box more">
+				<f:translate key="general.more" extensionName="Academy" />
+			</n:link>
+			<f:link.action arguments="{news : newsItem}" format="ics" pageUid="2121" pageType="9828" class="icon box dates">
+				<f:translate key="events.export" extensionName="Academy" />
+			</f:link.action>
+		</p>
+
+	</div>
+</article>

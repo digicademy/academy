@@ -1,0 +1,19 @@
+# formats the org field in hcard_adr records with name and units
+lib.tx_academy.formatOrg = TEXT
+lib.tx_academy.formatOrg {
+	field = org
+	split {
+		token.char = 10
+		cObjNum = 1||2
+		1 = TEXT
+		1 {
+			current = 1
+			dataWrap = <span class="organization-name extended-address">|</span><br/>
+		}
+		2 = TEXT
+		2 {
+			current = 1
+			dataWrap = <span class="organization-unit extended-address">|</span><br/>
+		}
+	}
+}

@@ -1,0 +1,66 @@
+{namespace adw=Digicademy\Academy\ViewHelpers}
+
+<f:render partial="Search/Searchbox" arguments="{type : 'media', objectname: 'Medien'}" />
+
+<f:if condition="{arguments.type} == 10">
+	<h4 class="rowheader"><f:translate key="media.audios" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 10})})</h4>
+</f:if>
+<f:if condition="{arguments.type} == 20">
+	<h4 class="rowheader"><f:translate key="media.galleries" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 20})})</h4>
+</f:if>
+<f:if condition="{arguments.type} == 30">
+	<h4 class="rowheader"><f:translate key="media.documents" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 30})})</h4>
+</f:if>
+<f:if condition="{arguments.type} == 40">
+	<h4 class="rowheader"><f:translate key="media.videos" /> ({f:cObject(typoscriptObjectPath: 'lib.media.typeCount', data: {type : 40})})</h4>
+</f:if>
+
+<ul>
+	<f:widget.paginate objects="{media}" as="paginatedMedia" configuration="{itemsPerPage: 25, insertAbove: 1, insertBelow: 1, maximumNumberOfLinks: 10}">
+		<f:for each="{paginatedMedia}" as="medium" iteration="iterator">
+
+			<adw:alphabet string="{medium.title}" length="1" />
+
+			<f:if condition="{iterator.isFirst}">
+				<dl class="layout-1">
+					<dt>{initialLetter}</dt>
+					<dd>
+						<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action>
+					</dd>
+			</f:if>
+			<f:if condition="{iterator.isLast}">
+				<f:then>
+					<f:if condition="{newBlock}">
+						</dl>
+						<dl class="layout-1">
+							<dt>{initialLetter}</dt>
+					</f:if>
+					<f:if condition="{iterator.total} > 1">
+						<dd>
+							<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action>
+						</dd>
+					</f:if>
+					</dl>
+				</f:then>
+				<f:else>
+					<f:if condition="{iterator.index} > 0">
+						<f:if condition="{newBlock}">
+							</dl>
+							<dl class="layout-1">
+								<dt>{initialLetter}</dt>
+						</f:if>
+						<dd>
+							<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : medium.uid}" pageUid="2141" class="icon before {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : medium.type})}">{medium.title}</f:link.action>
+						</dd>
+					</f:if>
+				</f:else>
+			</f:if>
+
+		</f:for>
+	</f:widget.paginate>
+</ul>
+<p>
+	<f:link.action action="listGroups" class="button">
+		<f:translate key="general.backLink" />
+	</f:link.action>
+</p>

@@ -1,0 +1,8 @@
+<f:if condition="{project.page}">
+	<f:then>
+		<f:link.page pageUid="{project.page}">{project.title}</f:link.page>
+	</f:then>
+	<f:else>
+		{project.title}
+	</f:else>
+</f:if>
