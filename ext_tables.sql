@@ -47,7 +47,9 @@ CREATE TABLE tx_academy_domain_model_projects (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY identifier (identifier),
 	KEY title (title),
@@ -55,8 +57,8 @@ CREATE TABLE tx_academy_domain_model_projects (
 	KEY date_range (date_range),
 	KEY relations (relations),
 	KEY statements (statements),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_units (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -102,14 +104,16 @@ CREATE TABLE tx_academy_domain_model_units (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY title (title),
 	KEY page (page),
 	KEY relations (relations),
-	KEY statements (statements),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY statements (statements)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_persons (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -165,16 +169,18 @@ CREATE TABLE tx_academy_domain_model_persons (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY given_name (given_name),
 	KEY family_name (family_name),
 	KEY page (page),
 	KEY date_range (date_range),
 	KEY relations (relations),
-	KEY statements (statements),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY statements (statements)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_relations (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -236,7 +242,9 @@ CREATE TABLE tx_academy_domain_model_relations (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY type (type),
 	KEY role (role),
@@ -249,9 +257,9 @@ CREATE TABLE tx_academy_domain_model_relations (
 	KEY person_symmetric (person_symmetric),
 	KEY news (news),
 	KEY medium (medium),
-	KEY hcard (hcard),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY hcard (hcard)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_roles (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -282,11 +290,13 @@ CREATE TABLE tx_academy_domain_model_roles (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
-	KEY title (title),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY title (title)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -331,15 +341,17 @@ CREATE TABLE tx_academy_domain_model_hcards (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY type (type),
 	KEY adr (adr),
 	KEY tel (tel),
 	KEY email (email),
-	KEY url (url),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY url (url)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards_adr (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -375,11 +387,13 @@ CREATE TABLE tx_academy_domain_model_hcards_adr (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY type (type),
-	KEY adrcomponents (adrcomponents),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY adrcomponents (adrcomponents)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards_adrcomponents (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -414,12 +428,14 @@ CREATE TABLE tx_academy_domain_model_hcards_adrcomponents (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY type (type),
 	KEY record_value (value),
-	KEY parent_record (parent),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY parent (parent)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards_tel (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -455,12 +471,14 @@ CREATE TABLE tx_academy_domain_model_hcards_tel (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY type (type),
 	KEY record_value (value),
-	KEY parent_record (parent),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY parent (parent)
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards_email (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -496,12 +514,13 @@ CREATE TABLE tx_academy_domain_model_hcards_email (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY type (type),
 	KEY record_value (value),
-	KEY parent_record (parent),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY parent (parent),
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards_url (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -537,12 +556,14 @@ CREATE TABLE tx_academy_domain_model_hcards_url (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY type (type),
 	KEY record_value (value),
-	KEY parent_record (parent),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+	KEY parent (parent),
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_media (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -590,15 +611,17 @@ CREATE TABLE tx_academy_domain_model_media (
 	l10n_diffsource mediumblob NOT NULL,
 
 	PRIMARY KEY (uid),
-	KEY parent (pid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
 	KEY persistent_identifier (persistent_identifier),
 	KEY title (title),
 	KEY type (type),
 	KEY files (files),
 	KEY relations (relations),
 	KEY statements (statements),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid)
-);
+
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_hcards_adr_mm (
 	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
@@ -608,7 +631,7 @@ CREATE TABLE tx_academy_hcards_adr_mm (
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
-);
+) ENGINE=InnoDB;
 
 CREATE TABLE tx_news_domain_model_news (
 	news_relations int(11) unsigned DEFAULT '0' NOT NULL,
