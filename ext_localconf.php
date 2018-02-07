@@ -31,7 +31,7 @@ if (!defined('TYPO3_MODE')) {
     'Digicademy.' . 'academy',
     'Persons',
     array(
-        'Persons' => 'list, listBySelection, listByCategories, listByRoles, show',
+        'Persons' => 'form, list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
         'Persons' => '',

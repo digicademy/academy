@@ -57,6 +57,17 @@ class PersonsController extends ActionController
     }
 
     /**
+     * Displays a the searchform
+     *
+     * @return void
+     */
+    public function formAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+    }
+
+    /**
      * Displays a list of persons, possibly filtered by categories
      *
      * @return void
