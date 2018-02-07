@@ -57,7 +57,7 @@ class PersonsController extends ActionController
     }
 
     /**
-     * Displays a the searchform
+     * Displays a the searchformw
      *
      * @return void
      */

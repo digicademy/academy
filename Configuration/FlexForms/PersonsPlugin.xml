@@ -16,7 +16,7 @@
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">Form</numIndex>
-										<numIndex index="1">Persons->form;Persons->list</numIndex>
+										<numIndex index="1">Persons->form;Persons->list;Persons->show</numIndex>
 									</numIndex>
 									<numIndex index="1">
 										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:personsPlugin.switchableControllerActions.list</numIndex>
