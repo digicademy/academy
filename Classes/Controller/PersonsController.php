@@ -26,10 +26,10 @@ namespace Digicademy\Academy\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Digicademy\Academy\Domain\Model\Persons;
+use Digicademy\Academy\Domain\Repository\PersonsRepository;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use Digicademy\Academy\Domain\Repository\PersonsRepository;
-use Digicademy\Academy\Domain\Model\Persons;
 
 
 class PersonsController extends ActionController
@@ -42,29 +42,18 @@ class PersonsController extends ActionController
 
     /**
      * Use constructor DI and not @inject
+     *
      * @see: https://gist.github.com/NamelessCoder/3b2e5931a6c1af19f9c3f8b46e74f837
      *
-     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface    $configurationManager
-     * @param \Digicademy\Academy\Domain\Repository\PersonsRepository           $personsRepository
+     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
+     * @param \Digicademy\Academy\Domain\Repository\PersonsRepository        $personsRepository
      */
     public function __construct(
         ConfigurationManagerInterface $configurationManager,
         PersonsRepository $personsRepository
-    )
-    {
+    ) {
         parent::__construct($configurationManager);
         $this->personsRepository = $personsRepository;
-    }
-
-    /**
-     * Displays a the searchformw
-     *
-     * @return void
-     */
-    public function formAction()
-    {
-        $arguments = $this->request->getArguments();
-        $this->view->assign('arguments', $arguments);
     }
 
     /**
@@ -81,15 +70,13 @@ class PersonsController extends ActionController
     }
 
     /**
-     * Gets a list of persons by a specific role (set in plugin) and forwards to list action
-     *
-     * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
     public function listByRoleAction()
     {
         $persons = $this->personsRepository->findByRole($this->settings['selectedRole']);
         if ($persons->count() > 0) {
-            $this->forward('list', null,null, array('persons' => $persons));
+            $this->forward('list', null, null, array('persons' => $persons));
         } else {
             $this->forward('list');
         }
