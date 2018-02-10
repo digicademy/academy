@@ -84,7 +84,7 @@ if (!defined('TYPO3_MODE')) {
 
 // TX_NEWS HOOK
 
-$GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded'][] = 'EXT:academy/Classes/Hooks/NewsRepository.php:&Digicademy\Academy\Hooks\NewsRepository->generateQuery';
+// $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded'][] = 'EXT:academy/Classes/Hooks/NewsRepository.php:&Digicademy\Academy\Hooks\NewsRepository->generateQuery';
 
 // BACKEND RELATED
 

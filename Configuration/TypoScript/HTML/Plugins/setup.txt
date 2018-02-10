@@ -85,7 +85,7 @@ plugin.tx_academy {
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/categories.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/units.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/persons.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/news.txt">
+# <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/news.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/events.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/media.txt">
 <INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/linkifier.txt">
