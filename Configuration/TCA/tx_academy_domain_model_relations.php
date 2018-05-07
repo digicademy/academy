@@ -285,7 +285,7 @@ return array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_academy_domain_model_roles',
-                'foreign_table_where' => 'AND tx_academy_domain_model_roles.pid IN (###PAGE_TSCONFIG_IDLIST###) ORDER BY tx_academy_domain_model_roles.title',
+                'foreign_table_where' => 'AND tx_academy_domain_model_roles.pid IN (###PAGE_TSCONFIG_IDLIST###)AND tx_academy_domain_model_roles.sys_language_uid IN (-1,###REC_FIELD_sys_language_uid###) ORDER BY tx_academy_domain_model_roles.title',
                 'items' => array(
                     array('', 0),
                 ),

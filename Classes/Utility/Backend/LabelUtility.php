@@ -34,16 +34,16 @@ class LabelUtility
     public function relationsLabel(array &$parameters)
     {
         // get basic contact information label from lang file
-        $contactInformationLabel = $GLOBALS['LANG']->sL('LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards') . ': ';
+        $contactInformationLabel = $GLOBALS['LANG']->sL('LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards');
 
         // get role - freetext_roles overrides role record
         $role = '';
-        ($parameters['row']['role'][0]) ? $roleRecord = BackendUtility::getRecordRaw('tx_academy_domain_model_roles', 'uid=' . $parameters['row']['role'][0]) : $roleRecord = '';
+        ($parameters['row']['role']) ? $roleRecord = BackendUtility::getRecordRaw('tx_academy_domain_model_roles', 'uid=' . (int)$parameters['row']['role']) : $roleRecord = '';
         if (is_array($roleRecord) && !$parameters['row']['role_freetext']) {
-            $role = $roleRecord['title'] . ': ';
+            $role = $roleRecord['title'];
         }
         if ($parameters['row']['role_freetext']) {
-            $role = htmlspecialchars($parameters['row']['role_freetext']) . ': ';
+            $role = htmlspecialchars($parameters['row']['role_freetext']);
         }
 
         // test for IRRE context; if true, trim the field values to uids
@@ -112,7 +112,7 @@ class LabelUtility
         ($parameters['row']['medium'] > 0) ? $medium = BackendUtility::getRecordRaw('tx_academy_domain_model_media',
             'uid=' . $parameters['row']['medium']) : $medium = '';
 
-        $freetext = $parameters['row']['freetext'];
+        $freetext = htmlspecialchars($parameters['row']['freetext']);
 
         // build the labels for the different objects; reused below in label context
         if (is_array($person)) {
@@ -149,85 +149,89 @@ class LabelUtility
         // in list view field type is string, in inline and record view field type is array (due to select type of field)
         (is_array($parameters['row']['type'])) ? $type = (int)$parameters['row']['type'][0] : $type = (int)$parameters['row']['type'];
 
+        $separator = ': ';
+        $roleAndSeparator = $role . $separator;
+        $contactInformationLabelWithSeparator = $contactInformationLabel . $separator;
+
         // switch the context in which the label appears
         switch ($type) {
             case 10:
-                $parameters['title'] = $contactInformationLabel . $personLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 11:
                 if ($parameters['parent']['config']['foreign_label'] == 'projects') {
-                    $parameters['title'] = $role . $personLabel;
+                    $parameters['title'] = $roleAndSeparator  . $personLabel;
                 } elseif ($parameters['parent']['config']['foreign_label'] == 'persons') {
-                    $parameters['title'] = $role . $projectLabel;
+                    $parameters['title'] = $roleAndSeparator  . $projectLabel;
                 } else {
-                    $parameters['title'] = $role . $personLabel . ' (' . $projectLabel . ')';
+                    $parameters['title'] = $roleAndSeparator . $personLabel . ' (' . $projectLabel . ')';
                 }
                 break;
             case 12:
                 if ($parameters['parent']['config']['foreign_label'] == 'units') {
-                    $parameters['title'] = $role . $personLabel;
+                    $parameters['title'] = $roleAndSeparator . $personLabel;
                 } elseif ($parameters['parent']['config']['foreign_label'] == 'persons') {
-                    $parameters['title'] = $role . $unitLabel;
+                    $parameters['title'] = $roleAndSeparator . $unitLabel;
                 } else {
-                    $parameters['title'] = $role . $personLabel . ' (' . $unitLabel . ')';
+                    $parameters['title'] = $roleAndSeparator . $personLabel . ' (' . $unitLabel . ')';
                 }
                 break;
             case 13:
-                $parameters['title'] = $personLabel . ', ' . $role . $eventLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $personLabel . ', ' . $eventLabel : $parameters['title'] = $personLabel . ', ' . $eventLabel;
                 break;
             case 14:
-                $parameters['title'] = $personLabel . ', ' . $newsLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $personLabel . ', ' . $newsLabel : $parameters['title'] = $personLabel . ', ' . $newsLabel;
                 break;
             case 15:
-                $parameters['title'] = $personLabel . ', ' . $mediumLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $personLabel . ', ' . $mediumLabel : $parameters['title'] = $personLabel . ', ' . $mediumLabel;
                 break;
             case 16:
-                $parameters['title'] = $personLabel . ', ' . $role . $personSymmetricLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $personLabel . ', ' . $personSymmetricLabel : $parameters['title'] = $personLabel . ', ' . $personSymmetricLabel;
                 break;
             case 20:
-                $parameters['title'] = $contactInformationLabel . $projectLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 21:
-                $parameters['title'] = $projectLabel . ', ' . $unitLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $unitLabel : $parameters['title'] = $projectLabel . ', ' . $unitLabel;
                 break;
             case 22:
-                $parameters['title'] = $projectLabel . ', ' . $newsLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $newsLabel : $parameters['title'] = $projectLabel . ', ' . $newsLabel;
                 break;
             case 23:
-                $parameters['title'] = $projectLabel . ', ' . $eventLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $eventLabel : $parameters['title'] = $projectLabel . ', ' . $eventLabel;
                 break;
             case 24:
-                $parameters['title'] = $projectLabel . ', ' . $mediumLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $mediumLabel : $parameters['title'] = $projectLabel . ', ' . $mediumLabel;
                 break;
             case 25:
-                $parameters['title'] = $role . $projectLabel . ', ' . htmlspecialchars($freetext);
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $freetext : $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $freetext;
                 break;
             case 26:
-                $parameters['title'] = $projectLabel . ', ' . $projectSymmetricLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $projectLabel . ', ' . $projectSymmetricLabel : $parameters['title'] = $projectLabel . ', ' . $projectSymmetricLabel;
                 break;
             case 30:
-                $parameters['title'] = $contactInformationLabel . $unitLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 31:
-                $parameters['title'] = $role . $unitLabel . htmlspecialchars($freetext);
+                ($role) ? $parameters['title'] = $roleAndSeparator . $role . $unitLabel . $freetext : $parameters['title'] = $role . $unitLabel . $freetext;
                 break;
             case 32:
-                $parameters['title'] = $unitLabel . ', ' . $unitSymmetricLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $unitLabel . ', ' . $unitSymmetricLabel : $parameters['title'] = $unitLabel . ', ' . $unitSymmetricLabel;
                 break;
             case 40:
-                $parameters['title'] = $contactInformationLabel . $newsLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 41:
-                $parameters['title'] = $newsLabel . ', ' . $eventLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $newsLabel . ', ' . $eventLabel : $parameters['title'] = $newsLabel . ', ' . $eventLabel;
                 break;
             case 42:
-                $parameters['title'] = $newsLabel . ', ' . $mediumLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $newsLabel . ', ' . $mediumLabel : $parameters['title'] = $newsLabel . ', ' . $mediumLabel;
                 break;
             case 50:
-                $parameters['title'] = $contactInformationLabel . $eventLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 51:
-                $parameters['title'] = $eventLabel . ', ' . $mediumLabel;
+                ($role) ? $parameters['title'] = $roleAndSeparator . $eventLabel . ', ' . $mediumLabel : $parameters['title'] = $eventLabel . ', ' . $mediumLabel;
                 break;
         }
 
