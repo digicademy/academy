@@ -64,17 +64,10 @@ return array(
                     family_name,
                     honorific_suffix,
                     sorting,
-                    expertise,
                     date_range,
                     image,
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div2,
                     relations,
-                --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div3,
-                    cv;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_academy/],
-                --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div4,
-                    awards;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_academy/],
-                --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div5,
-                    publications;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_academy/],
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div6,
                     statements,
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div7,
@@ -251,15 +244,6 @@ return array(
                 'eval' => 'trim'
             ),
         ),
-        'expertise' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.expertise',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ),
-        ),
         'date_range' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_persons.date_range',
@@ -325,36 +309,6 @@ return array(
                         'type' => 'suggest',
                     ),
                 ),
-            ),
-        ),
-        'cv' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.cv',
-            'config' => array(
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'eval' => 'trim'
-            ),
-        ),
-        'awards' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.awards',
-            'config' => array(
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'eval' => 'trim'
-            ),
-        ),
-        'publications' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.publications',
-            'config' => array(
-                'type' => 'text',
-                'cols' => 40,
-                'rows' => 15,
-                'eval' => 'trim'
             ),
         ),
         'relations' => array(

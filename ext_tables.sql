@@ -127,10 +127,6 @@ CREATE TABLE tx_academy_domain_model_persons (
 	honorific_prefix varchar(80) DEFAULT '' NOT NULL,
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
-	cv text NOT NULL,
-	expertise varchar(255) DEFAULT '' NOT NULL,
-	awards text NOT NULL,
-	publications text NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -193,6 +189,9 @@ CREATE TABLE tx_academy_domain_model_relations (
 	# tx_academy_domain_model_roles (1:1)
 	role int(11) unsigned DEFAULT '0',
 	role_freetext varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_chftime_domain_model_dateranges (1:1)
+	date_range int(11) unsigned DEFAULT '0',
 
 	# tx_academy_domain_model_projects (1:1)
 	project int(11) unsigned DEFAULT '0',
@@ -257,7 +256,8 @@ CREATE TABLE tx_academy_domain_model_relations (
 	KEY person_symmetric (person_symmetric),
 	KEY news (news),
 	KEY medium (medium),
-	KEY hcard (hcard)
+	KEY hcard (hcard),
+	KEY date_range (date_range)
 
 ) ENGINE=InnoDB;
 
@@ -267,6 +267,9 @@ CREATE TABLE tx_academy_domain_model_roles (
 
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -294,7 +297,8 @@ CREATE TABLE tx_academy_domain_model_roles (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
-	KEY title (title)
+	KEY title (title),
+	KEY statements (statements)
 
 ) ENGINE=InnoDB;
 
@@ -636,4 +640,14 @@ CREATE TABLE tx_academy_hcards_adr_mm (
 CREATE TABLE tx_news_domain_model_news (
 	news_relations int(11) unsigned DEFAULT '0' NOT NULL,
 	event_relations int(11) unsigned DEFAULT '0' NOT NULL
+);
+
+CREATE TABLE sys_category (
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY statements (statements),
 );

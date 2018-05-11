@@ -29,10 +29,6 @@
 			<label index="persons.news4person">News about this person</label>
 			<label index="persons.events4person">Events with this person</label>
 			<label index="persons.media4person">Media content about this person</label>
-			<label index="persons.expertise">Disciplines</label>
-			<label index="persons.cv">Biography</label>
-			<label index="persons.awards">Awards</label>
-			<label index="persons.publications">Publications</label>
 			<label index="persons.profileLink">Profile</label>
 			<label index="persons.vcardLink">Vcard</label>
 			<label index="persons.units">In the academy</label>
@@ -150,10 +146,6 @@
 			<label index="persons.news4person">Pressemeldungen zu dieser Person</label>
 			<label index="persons.events4person">Termine mit dieser Person</label>
 			<label index="persons.media4person">Inhalte in der Mediathek zu dieser Person</label>
-			<label index="persons.expertise">Fachgebiet</label>
-			<label index="persons.cv">Biographie</label>
-			<label index="persons.awards">Preise</label>
-			<label index="persons.publications">Publikationen</label>
 			<label index="persons.profileLink">Profil</label>
 			<label index="persons.vcardLink">Visitenkarte</label>
 			<label index="persons.units">In der Akademie</label>

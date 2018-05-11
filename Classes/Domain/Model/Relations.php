@@ -27,6 +27,7 @@ namespace Digicademy\Academy\Domain\Model;
  ***************************************************************/
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use Digicademy\ChfTime\Domain\Model\DateRanges;
 
 class Relations extends AbstractEntity
 {
@@ -149,6 +150,13 @@ class Relations extends AbstractEntity
      * @var string $freetext
      */
     protected $freetext;
+
+    /**
+     * Duration of the relation
+     *
+     * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     */
+    protected $dateRange = null;
 
     /**
      * Returns the persistentIdentifier
@@ -479,4 +487,27 @@ class Relations extends AbstractEntity
     {
         $this->freetext = $freetext;
     }
+
+    /**
+     * Returns the dateRange
+     *
+     * @return \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     */
+    public function getDateRange()
+    {
+        return $this->dateRange;
+    }
+
+    /**
+     * Sets the dateRange
+     *
+     * @param \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     *
+     * @return void
+     */
+    public function setDateRange(DateRanges $dateRange)
+    {
+        $this->dateRange = $dateRange;
+    }
+
 }
