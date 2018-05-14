@@ -141,7 +141,12 @@ return array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_url.parent',
             'config' => array(
-                'type' => 'none',
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_hcards',
+                'foreign_table' => 'tx_academy_domain_model_hcards',
+                'maxitems' => 1,
+                'size' => 1,
             ),
         ),
         'type' => array(
