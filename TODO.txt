@@ -1,5 +1,7 @@
 NEXT
 
+- check KEYs and CERIF
+
 - generalize Fluid templates
 
 - generate complete test data and template output

@@ -6,7 +6,6 @@ CREATE TABLE tx_academy_domain_model_projects (
 	identifier varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	acronym varchar(40) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
 	# pages (1:n)
@@ -31,6 +30,7 @@ CREATE TABLE tx_academy_domain_model_projects (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
@@ -65,9 +65,9 @@ CREATE TABLE tx_academy_domain_model_units (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	acronym varchar(40) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
 	# pages (1:n)
@@ -88,6 +88,7 @@ CREATE TABLE tx_academy_domain_model_units (
 	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	starttime int(11) unsigned DEFAULT '0' NOT NULL,
 	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
 
 	t3ver_oid int(11) DEFAULT '0' NOT NULL,
 	t3ver_id int(11) DEFAULT '0' NOT NULL,
@@ -126,7 +127,6 @@ CREATE TABLE tx_academy_domain_model_persons (
 	family_name varchar(80) DEFAULT '' NOT NULL,
 	honorific_prefix varchar(80) DEFAULT '' NOT NULL,
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
-	sorting varchar(255) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -139,6 +139,67 @@ CREATE TABLE tx_academy_domain_model_persons (
 
 	# chf_time date range (1:1)
 	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY given_name (given_name),
+	KEY family_name (family_name),
+	KEY page (page),
+	KEY date_range (date_range),
+	KEY relations (relations),
+	KEY statements (statements)
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_media (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(255) DEFAULT '' NOT NULL,
+	type int(11) DEFAULT '0' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+
+	# sys_file (1:n)
+	image int(11) DEFAULT '0' NOT NULL,
+
+	# sys_file (1:n)
+	files int(11) DEFAULT '0' NOT NULL,
+
+	# sys_file_collections (1:n)
+	collections int(11) DEFAULT '0' NOT NULL,
+
+	# tx_academy_domain_model_relations (1:n)
+	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -169,11 +230,197 @@ CREATE TABLE tx_academy_domain_model_persons (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
-	KEY given_name (given_name),
-	KEY family_name (family_name),
-	KEY page (page),
-	KEY date_range (date_range),
+	KEY title (title),
+	KEY type (type),
+	KEY files (files),
 	KEY relations (relations),
+	KEY statements (statements),
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_products (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(255) DEFAULT '' NOT NULL,
+	type int(11) DEFAULT '0' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
+	acronym varchar(40) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+	quantity varchar(255) DEFAULT '' NOT NULL,
+	size varchar(255) DEFAULT '' NOT NULL,
+	version varchar(40) DEFAULT '' NOT NULL,
+
+	# sys_file (1:n)
+	image int(11) DEFAULT '0' NOT NULL,
+
+	# tx_academy_domain_model_relations (1:n)
+	relations int(11) unsigned DEFAULT '0' NOT NULL,
+
+	# chf_time date range (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY title (title),
+	KEY relations (relations),
+	KEY statements (statements)
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_publications (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(255) DEFAULT '' NOT NULL,
+	type int(11) DEFAULT '0' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
+	subtitle varchar(255) DEFAULT '' NOT NULL,
+	abbreviation varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+	bibliographic_note varchar(255) DEFAULT '' NOT NULL,
+	volume varchar(255) DEFAULT '' NOT NULL,
+	number varchar(255) DEFAULT '' NOT NULL,
+	issue varchar(255) DEFAULT '' NOT NULL,
+	edition varchar(255) DEFAULT '' NOT NULL,
+	series varchar(255) DEFAULT '' NOT NULL,
+	start_page int(11) unsigned DEFAULT '0' NOT NULL,
+	end_page int(11) unsigned DEFAULT '0' NOT NULL,
+	total_pages int(11) unsigned DEFAULT '0' NOT NULL,
+	version varchar(40) DEFAULT '' NOT NULL,
+
+	# sys_file (1:n)
+	image int(11) DEFAULT '0' NOT NULL,
+
+	# tx_academy_domain_model_relations (1:n)
+	relations int(11) unsigned DEFAULT '0' NOT NULL,
+
+	# chf_time date range (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY title (title),
+	KEY relations (relations),
+	KEY statements (statements)
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_patents (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	identifier varchar(255) DEFAULT '' NOT NULL,
+	number varchar(255) DEFAULT '' NOT NULL,
+	title varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+	version varchar(40) DEFAULT '' NOT NULL,
+
+	# tx_academy_domain_model_relations (1:n)
+	relations int(11) unsigned DEFAULT '0' NOT NULL,
+
+	# chf_time date range (1:1)
+	registration_date int(11) unsigned DEFAULT '0',
+
+	# chf_time date range (1:1)
+	approval_date int(11) unsigned DEFAULT '0',
+
+	# tx_vocabulary_domain_model_subjects (m:n)
+	statements int(11) unsigned DEFAULT '0',
+
+	# static_countries (1:1)
+	country_code int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting varchar(255) DEFAULT '' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY title (title),
+	KEY relations (relations),
+	KEY registration_date (registration_date),
+	KEY approval_date (approval_date),
 	KEY statements (statements)
 
 ) ENGINE=InnoDB;
@@ -566,64 +813,6 @@ CREATE TABLE tx_academy_domain_model_hcards_url (
 	KEY type (type),
 	KEY record_value (value),
 	KEY parent (parent),
-
-) ENGINE=InnoDB;
-
-CREATE TABLE tx_academy_domain_model_media (
-	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
-	pid int(11) DEFAULT '0' NOT NULL,
-
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	type int(11) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	description text NOT NULL,
-
-	# sys_file (1:n)
-	image int(11) DEFAULT '0' NOT NULL,
-
-	# sys_file (1:n)
-	files int(11) DEFAULT '0' NOT NULL,
-
-	# sys_file_collections (1:n)
-	collections int(11) DEFAULT '0' NOT NULL,
-
-	# tx_academy_domain_model_relations (1:n)
-	relations int(11) unsigned DEFAULT '0' NOT NULL,
-
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
-
-	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
-	crdate int(11) unsigned DEFAULT '0' NOT NULL,
-	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	starttime int(11) unsigned DEFAULT '0' NOT NULL,
-	endtime int(11) unsigned DEFAULT '0' NOT NULL,
-
-	t3ver_oid int(11) DEFAULT '0' NOT NULL,
-	t3ver_id int(11) DEFAULT '0' NOT NULL,
-	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
-	t3ver_label varchar(30) DEFAULT '' NOT NULL,
-	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
-	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
-	t3ver_count int(11) DEFAULT '0' NOT NULL,
-	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
-
-	sys_language_uid int(11) DEFAULT '0' NOT NULL,
-	l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob NOT NULL,
-
-	PRIMARY KEY (uid),
-	KEY pid (pid),
-	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
-
-	KEY persistent_identifier (persistent_identifier),
-	KEY title (title),
-	KEY type (type),
-	KEY files (files),
-	KEY relations (relations),
-	KEY statements (statements),
 
 ) ENGINE=InnoDB;
 
