@@ -1,6 +1,10 @@
 NEXT
 
-- check KEYs and CERIF
+- AGATE-CH
+-- extend relations with publications, products, patents types
+-- configure TCA
+-- modify locallang
+-- extend domain model
 
 - generalize Fluid templates
 
@@ -11,4 +15,5 @@ NEXT
 
 NOTES
 
-- don't forget to implement Eurocris/CERIF
+- implement Eurocris/CERIF
+-- what about cfKeyw? => text field or / selection?

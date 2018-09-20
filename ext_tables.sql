@@ -1,12 +1,13 @@
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfProj
 CREATE TABLE tx_academy_domain_model_projects (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	identifier varchar(255) DEFAULT '' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	acronym varchar(40) DEFAULT '' NOT NULL,
-	description text NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(128) DEFAULT '' NOT NULL, # cfProjId
+	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
+	acronym varchar(40) DEFAULT '' NOT NULL, # cfAcro
+	description text NOT NULL, # cfAbstr
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
@@ -18,7 +19,7 @@ CREATE TABLE tx_academy_domain_model_projects (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# tx_chftime_domain_model_dateranges (1:1)
-	date_range int(11) unsigned DEFAULT '0',
+	date_range int(11) unsigned DEFAULT '0', # cfStartDate, cfEndDate
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -60,15 +61,18 @@ CREATE TABLE tx_academy_domain_model_projects (
 
 ) ENGINE=InnoDB;
 
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfOrgUnit
 CREATE TABLE tx_academy_domain_model_units (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	identifier varchar(255) DEFAULT '' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	acronym varchar(40) DEFAULT '' NOT NULL,
-	description text NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(128) DEFAULT '' NOT NULL, # cfOrgUnitId
+	title varchar(255) DEFAULT '' NOT NULL, # cfName
+	acronym varchar(40) DEFAULT '' NOT NULL, # cfAcro
+	turnover varchar(255) DEFAULT '' NOT NULL, # cfTurn
+	head_count int(11) DEFAULT '0' NOT NULL, # cfHeadcount
+	description text NOT NULL, # cfResAct
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
@@ -109,6 +113,7 @@ CREATE TABLE tx_academy_domain_model_units (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
+	KEY identifier (identifier),
 	KEY title (title),
 	KEY page (page),
 	KEY relations (relations),
@@ -116,17 +121,20 @@ CREATE TABLE tx_academy_domain_model_units (
 
 ) ENGINE=InnoDB;
 
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfPers
 CREATE TABLE tx_academy_domain_model_persons (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	gender tinyint(4) unsigned DEFAULT '0' NOT NULL,
-	given_name varchar(80) DEFAULT '' NOT NULL,
-	additional_name varchar(80) DEFAULT '' NOT NULL,
-	family_name varchar(80) DEFAULT '' NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(128) DEFAULT '' NOT NULL, # cfPersId
+	gender tinyint(4) unsigned DEFAULT '0' NOT NULL, # cfGender
+	given_name varchar(80) DEFAULT '' NOT NULL, # cfFirstNames
+	additional_name varchar(80) DEFAULT '' NOT NULL, # cfOtherNames
+	family_name varchar(80) DEFAULT '' NOT NULL, # cfFamilyNames
 	honorific_prefix varchar(80) DEFAULT '' NOT NULL,
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
+	research_interest varchar(255) DEFAULT '' NOT NULL, # cfResInt
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -138,7 +146,7 @@ CREATE TABLE tx_academy_domain_model_persons (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# chf_time date range (1:1)
-	date_range int(11) unsigned DEFAULT '0',
+	date_range int(11) unsigned DEFAULT '0', # cfBirthdate
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -170,6 +178,7 @@ CREATE TABLE tx_academy_domain_model_persons (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
+	KEY identifier (identifier),
 	KEY given_name (given_name),
 	KEY family_name (family_name),
 	KEY page (page),
@@ -179,6 +188,7 @@ CREATE TABLE tx_academy_domain_model_persons (
 
 ) ENGINE=InnoDB;
 
+# media are part of research portal features (not bound to CERIF)
 CREATE TABLE tx_academy_domain_model_media (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -238,19 +248,18 @@ CREATE TABLE tx_academy_domain_model_media (
 
 ) ENGINE=InnoDB;
 
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfResProd
 CREATE TABLE tx_academy_domain_model_products (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
 	identifier varchar(255) DEFAULT '' NOT NULL,
-	type int(11) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
+	type int(11) DEFAULT '0' NOT NULL, # product classification: software, research data, etc.
+	title varchar(255) DEFAULT '' NOT NULL, # cfName
 	acronym varchar(40) DEFAULT '' NOT NULL,
-	description text NOT NULL,
-	quantity varchar(255) DEFAULT '' NOT NULL,
-	size varchar(255) DEFAULT '' NOT NULL,
-	version varchar(40) DEFAULT '' NOT NULL,
+	description text NOT NULL, # cfDescr
+	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -291,33 +300,39 @@ CREATE TABLE tx_academy_domain_model_products (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
+	KEY identifier (identifier),
+	KEY type (type),
 	KEY title (title),
+	KEY date_range (date_range),
 	KEY relations (relations),
 	KEY statements (statements)
 
 ) ENGINE=InnoDB;
 
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfResPubl
 CREATE TABLE tx_academy_domain_model_publications (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	identifier varchar(255) DEFAULT '' NOT NULL,
-	type int(11) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	subtitle varchar(255) DEFAULT '' NOT NULL,
-	abbreviation varchar(255) DEFAULT '' NOT NULL,
-	description text NOT NULL,
-	bibliographic_note varchar(255) DEFAULT '' NOT NULL,
-	volume varchar(255) DEFAULT '' NOT NULL,
-	number varchar(255) DEFAULT '' NOT NULL,
-	issue varchar(255) DEFAULT '' NOT NULL,
-	edition varchar(255) DEFAULT '' NOT NULL,
-	series varchar(255) DEFAULT '' NOT NULL,
-	start_page int(11) unsigned DEFAULT '0' NOT NULL,
-	end_page int(11) unsigned DEFAULT '0' NOT NULL,
-	total_pages int(11) unsigned DEFAULT '0' NOT NULL,
-	version varchar(40) DEFAULT '' NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(128) DEFAULT '' NOT NULL, # cfResPublId
+	type int(11) DEFAULT '0' NOT NULL, # publication classification: article, book, newspaper, etc. (cf. Zotero types)
+	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
+	subtitle varchar(255) DEFAULT '' NOT NULL, # cfSubtitle
+	abbreviation varchar(255) DEFAULT '' NOT NULL, # cfNameAbbrev
+	volume varchar(255) DEFAULT '' NOT NULL, # cfVol
+	number varchar(255) DEFAULT '' NOT NULL, # cfNum
+	issue varchar(255) DEFAULT '' NOT NULL, # cfIssue
+	edition varchar(255) DEFAULT '' NOT NULL, # cfEdition
+	series varchar(255) DEFAULT '' NOT NULL, # cfSeries
+	start_page int(11) unsigned DEFAULT '0' NOT NULL, # cfStartPage
+	end_page int(11) unsigned DEFAULT '0' NOT NULL, # cfEndPage
+	total_pages int(11) unsigned DEFAULT '0' NOT NULL, # cfTotalPages
+	isbn varchar(255) DEFAULT '' NOT NULL, # cfISBN
+	issn varchar(255) DEFAULT '' NOT NULL, # cfISSN
+	description text NOT NULL, # cfAbstr
+	bibliographic_note varchar(255) DEFAULT '' NOT NULL, # cfBiblNote
+	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -326,7 +341,7 @@ CREATE TABLE tx_academy_domain_model_publications (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# chf_time date range (1:1)
-	date_range int(11) unsigned DEFAULT '0',
+	date_range int(11) unsigned DEFAULT '0', # cfResPublDate
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -358,37 +373,43 @@ CREATE TABLE tx_academy_domain_model_publications (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
+	KEY identifier (identifier),
+	KEY type (type),
 	KEY title (title),
+	KEY isbn (isbn),
+	KEY issn (issn),
+	KEY date_range (date_range),
 	KEY relations (relations),
 	KEY statements (statements)
 
 ) ENGINE=InnoDB;
 
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfResPat
 CREATE TABLE tx_academy_domain_model_patents (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	identifier varchar(255) DEFAULT '' NOT NULL,
-	number varchar(255) DEFAULT '' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	description text NOT NULL,
-	version varchar(40) DEFAULT '' NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(128) DEFAULT '' NOT NULL, # cfResPatId
+	number varchar(255) DEFAULT '' NOT NULL, # cfPatentNum
+	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
+	description text NOT NULL, # cfAbstr
+	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
+
+	# chf_time date range (1:1)
+	registration_date int(11) unsigned DEFAULT '0', # cfRegistrDate
+
+	# chf_time date range (1:1)
+	approval_date int(11) unsigned DEFAULT '0', # cfApprovDate
 
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
-
-	# chf_time date range (1:1)
-	registration_date int(11) unsigned DEFAULT '0',
-
-	# chf_time date range (1:1)
-	approval_date int(11) unsigned DEFAULT '0',
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
 
 	# static_countries (1:1)
-	country_code int(11) unsigned DEFAULT '0',
+	country_code int(11) unsigned DEFAULT '0', # cfCountryCode
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -417,14 +438,16 @@ CREATE TABLE tx_academy_domain_model_patents (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 
 	KEY persistent_identifier (persistent_identifier),
+	KEY identifier (identifier),
 	KEY title (title),
-	KEY relations (relations),
 	KEY registration_date (registration_date),
 	KEY approval_date (approval_date),
+	KEY relations (relations),
 	KEY statements (statements)
 
 ) ENGINE=InnoDB;
 
+# implements some of the CERIF relationship types
 CREATE TABLE tx_academy_domain_model_relations (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -508,6 +531,7 @@ CREATE TABLE tx_academy_domain_model_relations (
 
 ) ENGINE=InnoDB;
 
+# CERIF classifications for relationship roles between CERIF entities supported by the academy extension
 CREATE TABLE tx_academy_domain_model_roles (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -549,6 +573,9 @@ CREATE TABLE tx_academy_domain_model_roles (
 
 ) ENGINE=InnoDB;
 
+# https://en.wikipedia.org/wiki/VCard
+# relates to https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfEAddr
+# relates to https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfPAddr
 CREATE TABLE tx_academy_domain_model_hcards (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
