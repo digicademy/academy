@@ -1,3 +1,5 @@
+# ENTITIES #############################################################################################################
+
 # https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfProj
 CREATE TABLE tx_academy_domain_model_projects (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
@@ -188,22 +190,22 @@ CREATE TABLE tx_academy_domain_model_persons (
 
 ) ENGINE=InnoDB;
 
-# media are part of research portal features (not bound to CERIF)
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfMedium
 CREATE TABLE tx_academy_domain_model_media (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	identifier varchar(255) DEFAULT '' NOT NULL,
-	type int(11) DEFAULT '0' NOT NULL,
-	title varchar(255) DEFAULT '' NOT NULL,
-	description text NOT NULL,
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	identifier varchar(255) DEFAULT '' NOT NULL, # cfMediumId
+	type int(11) DEFAULT '0' NOT NULL, # media classification: document, images, video, audio, etc.
+	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
+	description text NOT NULL, # cfDescr
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
 	# sys_file (1:n)
-	files int(11) DEFAULT '0' NOT NULL,
+	files int(11) DEFAULT '0' NOT NULL, # cfMediumCreationDate, cfSize, cfMimeType
 
 	# sys_file_collections (1:n)
 	collections int(11) DEFAULT '0' NOT NULL,
@@ -249,6 +251,10 @@ CREATE TABLE tx_academy_domain_model_media (
 ) ENGINE=InnoDB;
 
 # https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfResProd
+
+# => for AGATE : quantity varchar(255) DEFAULT '' NOT NULL,
+# => for AGATE : size varchar(255) DEFAULT '' NOT NULL,
+
 CREATE TABLE tx_academy_domain_model_products (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
@@ -454,11 +460,11 @@ CREATE TABLE tx_academy_domain_model_relations (
 
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 	type int(11) DEFAULT '0' NOT NULL,
-	freetext text NOT NULL,
+	description text NOT NULL,
 
 	# tx_academy_domain_model_roles (1:1)
 	role int(11) unsigned DEFAULT '0',
-	role_freetext varchar(255) DEFAULT '' NOT NULL,
+	label varchar(255) DEFAULT '' NOT NULL,
 
 	# tx_chftime_domain_model_dateranges (1:1)
 	date_range int(11) unsigned DEFAULT '0',
@@ -477,6 +483,18 @@ CREATE TABLE tx_academy_domain_model_relations (
 	# tx_academy_domain_model_persons (1:1)
 	person int(11) unsigned DEFAULT '0',
 	person_symmetric int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_products (1:1)
+	product int(11) unsigned DEFAULT '0',
+	product_symmetric int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_patents (1:1)
+	patent int(11) unsigned DEFAULT '0',
+	patent_symmetric int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_publications (1:1)
+	publication int(11) unsigned DEFAULT '0',
+	publication_symmetric int(11) unsigned DEFAULT '0',
 
 	# tx_academy_domain_model_media (1:1)
 	medium int(11) unsigned DEFAULT '0',
@@ -572,6 +590,8 @@ CREATE TABLE tx_academy_domain_model_roles (
 	KEY statements (statements)
 
 ) ENGINE=InnoDB;
+
+# ADDRESSES ############################################################################################################
 
 # https://en.wikipedia.org/wiki/VCard
 # relates to https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfEAddr
@@ -858,12 +878,176 @@ CREATE TABLE tx_news_domain_model_news (
 	event_relations int(11) unsigned DEFAULT '0' NOT NULL
 );
 
+# SEMANTIC #############################################################################################################
+
+# https://www.eurocris.org/Uploads/Web%20pages/CERIF-1.5/cerif.html#cfClass
 CREATE TABLE sys_category (
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 
 	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
+	statements int(11) unsigned DEFAULT '0', # used for expressing relation to cfClassScheme
 
 	KEY persistent_identifier (persistent_identifier),
 	KEY statements (statements),
 );
+
+# RELATIONS ############################################################################################################
+
+CREATE TABLE tx_academy_domain_model_relations_person_contact (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+
+	# tx_academy_domain_model_roles (1:1)
+	role int(11) unsigned DEFAULT '0',
+	label varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_chftime_domain_model_dateranges (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_projects (1:1)
+	person int(11) unsigned DEFAULT '0',
+	contact int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_local int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY role (role),
+	KEY date_range (date_range),
+	KEY person (person),
+	KEY contact (contact),
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_relations_person_event (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+
+	# tx_academy_domain_model_roles (1:1)
+	role int(11) unsigned DEFAULT '0',
+	label varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_chftime_domain_model_dateranges (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_projects (1:1)
+	person int(11) unsigned DEFAULT '0',
+	event int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_local int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY role (role),
+	KEY date_range (date_range),
+	KEY person (person),
+	KEY event (event),
+
+) ENGINE=InnoDB;
+
+CREATE TABLE tx_academy_domain_model_relations_person_medium (
+	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+
+	# tx_academy_domain_model_roles (1:1)
+	role int(11) unsigned DEFAULT '0',
+	label varchar(255) DEFAULT '' NOT NULL,
+
+	# tx_chftime_domain_model_dateranges (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+
+	# tx_academy_domain_model_projects (1:1)
+	person int(11) unsigned DEFAULT '0',
+	medium int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_local int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(30) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob NOT NULL,
+
+	PRIMARY KEY (uid),
+	KEY pid (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+
+	KEY persistent_identifier (persistent_identifier),
+	KEY role (role),
+	KEY date_range (date_range),
+	KEY person (person),
+	KEY medium (medium),
+
+) ENGINE=InnoDB;

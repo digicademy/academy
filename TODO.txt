@@ -1,7 +1,20 @@
 NEXT
 
+- split relations into separate tables
+- introduce types
+- introduce types for roles
+
+- CERIF Entities:
++ Equipment
++ Facility
++ Service
++ Funding
++ Indicator
++ Measurement
++ Prize
++ Citation
+
 - AGATE-CH
--- extend relations with publications, products, patents types
 -- configure TCA
 -- modify locallang
 -- extend domain model

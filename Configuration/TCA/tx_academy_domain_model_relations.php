@@ -58,6 +58,7 @@ return array(
     ),
     'types' => array(
         '0' => array('showitem' => 'type'),
+
         '10' => array('showitem' => 'type,person,hcard,date_range'),
         '11' => array('showitem' => 'type,role,role_freetext,person,project,date_range'),
         '12' => array('showitem' => 'type,role,role_freetext,person,unit,date_range'),
@@ -65,6 +66,10 @@ return array(
         '14' => array('showitem' => 'type,role,role_freetext,person,news,date_range'),
         '15' => array('showitem' => 'type,role,role_freetext,person,medium,date_range'),
         '16' => array('showitem' => 'type,role,role_freetext,person,person_symmetric,date_range'),
+        '17' => array('showitem' => 'type,role,role_freetext,person,publication,date_range'),
+        '18' => array('showitem' => 'type,role,role_freetext,person,product,date_range'),
+        '19' => array('showitem' => 'type,role,role_freetext,person,patent,date_range'),
+
         '20' => array('showitem' => 'type,role,role_freetext,project,hcard,date_range'),
         '21' => array('showitem' => 'type,role,role_freetext,project,unit,date_range'),
         '22' => array('showitem' => 'type,role,role_freetext,project,news,date_range'),
@@ -72,14 +77,29 @@ return array(
         '24' => array('showitem' => 'type,role,role_freetext,project,medium,date_range'),
         '25' => array('showitem' => 'type,role_freetext,project,freetext,date_range'),
         '26' => array('showitem' => 'type,role,role_freetext,project,project_symmetric,date_range'),
+        '27' => array('showitem' => 'type,role,role_freetext,project,publication,date_range'),
+        '28' => array('showitem' => 'type,role,role_freetext,project,product,date_range'),
+        '29' => array('showitem' => 'type,role,role_freetext,project,patent,date_range'),
+
         '30' => array('showitem' => 'type,unit,hcard,date_range'),
         '31' => array('showitem' => 'type,role,role_freetext,unit,freetext,date_range'),
         '32' => array('showitem' => 'type,role,role_freetext,unit,unit_symmetric,date_range'),
+        '33' => array('showitem' => 'type,role,role_freetext,unit,publication,date_range'),
+        '34' => array('showitem' => 'type,role,role_freetext,unit,product,date_range'),
+        '35' => array('showitem' => 'type,role,role_freetext,unit,patent,date_range'),
+
         '40' => array('showitem' => 'type,news,hcard,date_range'),
         '41' => array('showitem' => 'type,news,event,date_range'),
         '42' => array('showitem' => 'type,news,medium,date_range'),
+
         '50' => array('showitem' => 'type,event,hcard,date_range'),
         '51' => array('showitem' => 'type,event,medium,date_range'),
+
+        '61' => array('showitem' => 'type,role,role_freetext,publication,publication_symmetric,date_range'),
+
+        '71' => array('showitem' => 'type,role,role_freetext,product,product_symmetric,date_range'),
+
+        '81' => array('showitem' => 'type,role,role_freetext,patent,patent_symmetric,date_range'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),

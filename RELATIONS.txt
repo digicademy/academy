@@ -1,0 +1,312 @@
+RELATIONS
+
+https://www.eurocris.org/Uploads/Web pages/CERIF-1.5/cerif.html
+
+121 relation tables
+
+# = entity tbd
++ = covered by relation
+
+Entity tables tbd:
+- Equipment
+- Facility
+- Funding
+- Indicator
+- Measurement
+- Service
+- Prize
+
+--- Persons ---
+
+Person <> Contact
+Person <> Event
+Person <> Medium
+Person <> News
+Person <> Patent
+Person <> Person
+Person <> Product
+Person <> Project
+Person <> Publication
+Person <> Unit
+
+# Person <> Equipment
+# Person <> Facility
+# Person <> Funding
+# Person <> Indicator
+# Person <> Measurement
+# Person <> Service
+# Person <> Prize
+
+--- Projects ---
+
+Project <> Contact
+Project <> Event
+Project <> Medium
+Project <> News
+Project <> Patent
+Project <> Project
+Project <> Product
+Project <> Publication
+Project <> Unit
++ Person <> Project
+
+# Project <> Equipment
+# Project <> Facility
+# Project <> Funding
+# Project <> Indicator
+# Project <> Measurement
+# Project <> Prize
+
+--- Units ---
+
+Unit <> Contact
+Unit <> Event
+Unit <> Indicator
+Unit <> Patent
+Unit <> Product
+Unit <> Publication
+Unit <> Measurement
+Unit <> Medium
+Unit <> News
+Unit <> Unit
++ Person <> Unit
++ Project <> Unit
+
+# Unit <> Equipment
+# Unit <> Facility
+# Unit <> Funding
+# Unit <> Service
+# Unit <> Prize
+
+--- Publications ---
+
+Publication <> Event
+Publication <> Patent
+Publication <> Publication
+Publication <> Product
+Publication <> Medium
+Publication <> News
++ Person <> Publication
++ Project <> Publication
++ Unit <> Publication
+
+# Publication <> Citation
+# Publication <> Equipment
+# Publication <> Facility
+# Publication <> Funding
+# Publication <> Indicator
+# Publication <> Measurement
+# Publication <> Service
+
+--- Products ---
+
+Product <> Event
+Product <> Product
+Product <> Medium
+Product <> News
++ Person <> Publication
++ Project <> Publication
++ Unit <> Publication
++ Publication <> Product
+
+# Product <> Equipment
+# Product <> Facility
+# Product <> Funding
+# Product <> Indicator
+# Product <> Measurement
+# Product <> Service
+
+--- Patents ---
+
+Patent <> Patent
+Patent <> Medium
+Patent <> News
++ Person <> Patent
++ Project <> Patent
++ Unit <> Patent
++ Publication <> Patent
+
+# Patent <> Facility
+# Patent <> Equipment
+# Patent <> Funding
+# Patent <> Indicator
+# Patent <> Measurement
+# Patent <> Service
+
+--- Events ---
+
+Event <> Event
+Event <> News
+Event <> Medium
++ Person <> Event
++ Project <> Event
++ Unit <> Event
++ Publication <> Event
++ Product <> Event
+
+# Event <> Funding
+# Event <> Facility
+# Event <> Service
+# Event <> Equipment
+# Event <> Measurement
+# Event <> Indicator
+
+--- Media ---
+
+Medium <> Medium
++ Person <> Medium
++ Project <> Medium
++ Unit <> Medium
++ Event <> Medium
++ Publication <> Medium
++ Patent <> Medium
++ Product <> Medium
+
+# Medium <> Facility
+# Medium <> Equipment
+# Medium <> Service
+# Medium <> Funding
+# Medium <> Citation
+# Medium <> Indicator
+# Medium <> Measurement
+
+--- News ---
+
+News <> News
++ Person <> News
++ Project <> News
++ Unit <> News
++ Event <> News
++ Publication <> News
++ Product <> News
++ Patent <> News
+
+--- Equipment ---
+
+Equipment <> Contact
+Equipment <> Equipment
++ Unit <> Equipment
++ Person <> Equipment
++ Project <> Equipment
++ Publication <> Equipment
++ Medium <> Equipment
++ Event <> Equipment
++ Patent <> Equipment
++ Product <> Equipment
+
+# Equipment <> Facility
+# Equipment <> Service
+# Equipment <> Funding
+# Equipment <> Indicator
+# Equipment <> Measurement
+
+--- Facility ---
+
+Facility <> Contact
+Facility <> Facility
++ Unit <> Facility
++ Person <> Facility
++ Project <> Facility
++ Publication <> Facility
++ Medium <> Facility
++ Equipment <> Facility
++ Event <> Facility
++ Patent <> Facility
++ Product <> Facility
+
+# Facility <> Funding
+# Facility <> Service
+# Facility <> Measurement
+# Facility <> Indicator
+
+--- Service ---
+
+Service <> Service
+Service <> Contact
++ Person <> Service
++ Unit <> Service
++ Project <> Service
++ Medium <> Service
++ Facility <> Service
++ Equipment <> Service
++ Event <> Service
++ Publication <> Service
++ Patent <> Service
++ Product <> Service
+
+# Service <> Funding
+# Service <> Measurement
+# Service <> Indicator
+
+--- Funding ---
+
+Funding <> Funding
++ Equipment <> Funding
++ Event <> Funding
++ Facility <> Funding
++ Unit <> Funding
++ Person <> Funding
++ Project <> Funding
++ Product <> Funding
++ Publication <> Funding
++ Patent <> Funding
++ Service <> Funding
++ Medium <> Funding
+
+# Funding <> Indicator
+# Funding <> Measurement
+
+--- Indicator ---
+
+# Indicator <> Measurement
+# Indicator <> Indicator
++ Person <> Indicator
++ Unit <> Indicator
++ Project <> Indicator
++ Publication <> Indicator
++ Patent <> Indicator
++ Product <> Indicator
++ Facility <> Indicator
++ Service <> Indicator
++ Equipment <> Indicator
++ Event <> Indicator
++ Medium <> Indicator
++ Funding <> Indicator
+
+--- Measurement ---
+
+# Measurement <> Measurement
++ Indicator <> Measurement
++ Person <> Measurement
++ Unit <> Measurement
++ Project <> Measurement
++ Publication <> Measurement
++ Patent <> Measurement
++ Product <> Measurement
++ Facility <> Measurement
++ Service <> Measurement
++ Equipment <> Measurement
++ Event <> Measurement
++ Medium <> Measurement
++ Funding <> Measurement
+
+--- Prize ---
+
++ Unit <> Prize
++ Person <> Prize
++ Project <> Prize
+
+--- Citation ---
+
++ Medium <> Citation
++ Publication <> Citations
+
+$$$$ CERIF ENTITIES NOT REALISED AS ERM ENTITIES $$$
+
+CV => bound to Person
+Qualification => bound to Person
+ExpertiseAndSkills => bound to Person / Unit
+Language => Static Info Tables: Languages
+Currency => Static Currencies: Currencies
+Country => Static Info Tables: Countries
+ElectronicAddress / PostalAddress => hCards
