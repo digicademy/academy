@@ -5,11 +5,16 @@ CREATE TABLE tx_academy_domain_model_projects (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(128) DEFAULT '' NOT NULL, # cfProjId
-	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
-	acronym varchar(40) DEFAULT '' NOT NULL, # cfAcro
-	description text NOT NULL, # cfAbstr
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfProjId
+	identifier varchar(128) DEFAULT '' NOT NULL,
+	# cfTitle
+	title varchar(255) DEFAULT '' NOT NULL,
+	# cfAcro
+	acronym varchar(40) DEFAULT '' NOT NULL,
+	# cfAbstr
+	description text NOT NULL,
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
@@ -21,7 +26,8 @@ CREATE TABLE tx_academy_domain_model_projects (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# tx_chftime_domain_model_dateranges (1:1)
-	date_range int(11) unsigned DEFAULT '0', # cfStartDate, cfEndDate
+	# cfStartDate, cfEndDate
+	date_range int(11) unsigned DEFAULT '0',
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -68,13 +74,20 @@ CREATE TABLE tx_academy_domain_model_units (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(128) DEFAULT '' NOT NULL, # cfOrgUnitId
-	title varchar(255) DEFAULT '' NOT NULL, # cfName
-	acronym varchar(40) DEFAULT '' NOT NULL, # cfAcro
-	turnover varchar(255) DEFAULT '' NOT NULL, # cfTurn
-	head_count int(11) DEFAULT '0' NOT NULL, # cfHeadcount
-	description text NOT NULL, # cfResAct
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfOrgUnitId
+	identifier varchar(128) DEFAULT '' NOT NULL,
+	# cfName
+	title varchar(255) DEFAULT '' NOT NULL,
+	# cfAcro
+	acronym varchar(40) DEFAULT '' NOT NULL,
+	# cfTurn
+	turnover varchar(255) DEFAULT '' NOT NULL,
+	# cfHeadcount
+	head_count int(11) DEFAULT '0' NOT NULL,
+	# cfResAct
+	description text NOT NULL,
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
@@ -128,15 +141,22 @@ CREATE TABLE tx_academy_domain_model_persons (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(128) DEFAULT '' NOT NULL, # cfPersId
-	gender tinyint(4) unsigned DEFAULT '0' NOT NULL, # cfGender
-	given_name varchar(80) DEFAULT '' NOT NULL, # cfFirstNames
-	additional_name varchar(80) DEFAULT '' NOT NULL, # cfOtherNames
-	family_name varchar(80) DEFAULT '' NOT NULL, # cfFamilyNames
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfPersId
+	identifier varchar(128) DEFAULT '' NOT NULL,
+	# cfGender
+	gender tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	# cfFirstNames
+	given_name varchar(80) DEFAULT '' NOT NULL,
+	# cfOtherNames
+	additional_name varchar(80) DEFAULT '' NOT NULL,
+	# cfFamilyNames
+	family_name varchar(80) DEFAULT '' NOT NULL,
 	honorific_prefix varchar(80) DEFAULT '' NOT NULL,
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
-	research_interest varchar(255) DEFAULT '' NOT NULL, # cfResInt
+	# cfResInt
+	research_interest varchar(255) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -148,7 +168,8 @@ CREATE TABLE tx_academy_domain_model_persons (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# chf_time date range (1:1)
-	date_range int(11) unsigned DEFAULT '0', # cfBirthdate
+	# cfBirthdate
+	date_range int(11) unsigned DEFAULT '0',
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -195,17 +216,23 @@ CREATE TABLE tx_academy_domain_model_media (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(255) DEFAULT '' NOT NULL, # cfMediumId
-	type int(11) DEFAULT '0' NOT NULL, # media classification: document, images, video, audio, etc.
-	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
-	description text NOT NULL, # cfDescr
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfMediumId
+	identifier varchar(255) DEFAULT '' NOT NULL,
+	# media classification: document, images, video, audio, etc.
+	type int(11) DEFAULT '0' NOT NULL,
+	# cfTitle
+	title varchar(255) DEFAULT '' NOT NULL,
+	# cfDescr
+	description text NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
 	# sys_file (1:n)
-	files int(11) DEFAULT '0' NOT NULL, # cfMediumCreationDate, cfSize, cfMimeType
+	# cfMediumCreationDate, cfSize, cfMimeType
+	files int(11) DEFAULT '0' NOT NULL,
 
 	# sys_file_collections (1:n)
 	collections int(11) DEFAULT '0' NOT NULL,
@@ -259,13 +286,18 @@ CREATE TABLE tx_academy_domain_model_products (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 	identifier varchar(255) DEFAULT '' NOT NULL,
-	type int(11) DEFAULT '0' NOT NULL, # product classification: software, research data, etc.
-	title varchar(255) DEFAULT '' NOT NULL, # cfName
+	# product classification: software, research data, etc.
+	type int(11) DEFAULT '0' NOT NULL,
+	# cfName
+	title varchar(255) DEFAULT '' NOT NULL,
 	acronym varchar(40) DEFAULT '' NOT NULL,
-	description text NOT NULL, # cfDescr
-	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
+	# cfDescr
+	description text NOT NULL,
+	# cfVersInfo
+	version varchar(40) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -320,25 +352,44 @@ CREATE TABLE tx_academy_domain_model_publications (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(128) DEFAULT '' NOT NULL, # cfResPublId
-	type int(11) DEFAULT '0' NOT NULL, # publication classification: article, book, newspaper, etc. (cf. Zotero types)
-	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
-	subtitle varchar(255) DEFAULT '' NOT NULL, # cfSubtitle
-	abbreviation varchar(255) DEFAULT '' NOT NULL, # cfNameAbbrev
-	volume varchar(255) DEFAULT '' NOT NULL, # cfVol
-	number varchar(255) DEFAULT '' NOT NULL, # cfNum
-	issue varchar(255) DEFAULT '' NOT NULL, # cfIssue
-	edition varchar(255) DEFAULT '' NOT NULL, # cfEdition
-	series varchar(255) DEFAULT '' NOT NULL, # cfSeries
-	start_page int(11) unsigned DEFAULT '0' NOT NULL, # cfStartPage
-	end_page int(11) unsigned DEFAULT '0' NOT NULL, # cfEndPage
-	total_pages int(11) unsigned DEFAULT '0' NOT NULL, # cfTotalPages
-	isbn varchar(255) DEFAULT '' NOT NULL, # cfISBN
-	issn varchar(255) DEFAULT '' NOT NULL, # cfISSN
-	description text NOT NULL, # cfAbstr
-	bibliographic_note varchar(255) DEFAULT '' NOT NULL, # cfBiblNote
-	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfResPublId
+	identifier varchar(128) DEFAULT '' NOT NULL,
+	# publication classification: article, book, newspaper, etc. (cf. Zotero types)
+	type int(11) DEFAULT '0' NOT NULL,
+	# cfTitle
+	title varchar(255) DEFAULT '' NOT NULL,
+	# cfSubtitle
+	subtitle varchar(255) DEFAULT '' NOT NULL,
+	# cfNameAbbrev
+	abbreviation varchar(255) DEFAULT '' NOT NULL,
+	# cfVol
+	volume varchar(255) DEFAULT '' NOT NULL,
+	# cfNum
+	number varchar(255) DEFAULT '' NOT NULL,
+	# cfIssue
+	issue varchar(255) DEFAULT '' NOT NULL,
+	# cfEdition
+	edition varchar(255) DEFAULT '' NOT NULL,
+	# cfSeries
+	series varchar(255) DEFAULT '' NOT NULL,
+	# cfStartPage
+	start_page int(11) unsigned DEFAULT '0' NOT NULL,
+	# cfEndPage
+	end_page int(11) unsigned DEFAULT '0' NOT NULL,
+	# cfTotalPages
+	total_pages int(11) unsigned DEFAULT '0' NOT NULL,
+	# cfISBN
+	isbn varchar(255) DEFAULT '' NOT NULL,
+	# cfISSN
+	issn varchar(255) DEFAULT '' NOT NULL,
+	# cfAbstr
+	description text NOT NULL,
+	# cfBiblNote
+	bibliographic_note varchar(255) DEFAULT '' NOT NULL,
+	# cfVersInfo
+	version varchar(40) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -347,7 +398,8 @@ CREATE TABLE tx_academy_domain_model_publications (
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
 	# chf_time date range (1:1)
-	date_range int(11) unsigned DEFAULT '0', # cfResPublDate
+	# cfResPublDate
+	date_range int(11) unsigned DEFAULT '0',
 
 	# tx_vocabulary_domain_model_subjects (m:n)
 	statements int(11) unsigned DEFAULT '0',
@@ -395,18 +447,26 @@ CREATE TABLE tx_academy_domain_model_patents (
 	uid int(11) unsigned DEFAULT '0' NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	persistent_identifier varchar(255) DEFAULT '' NOT NULL, # cfURI
-	identifier varchar(128) DEFAULT '' NOT NULL, # cfResPatId
-	number varchar(255) DEFAULT '' NOT NULL, # cfPatentNum
-	title varchar(255) DEFAULT '' NOT NULL, # cfTitle
-	description text NOT NULL, # cfAbstr
-	version varchar(40) DEFAULT '' NOT NULL, # cfVersInfo
+	# cfURI
+	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
+	# cfResPatId
+	identifier varchar(128) DEFAULT '' NOT NULL,
+	# cfPatentNum
+	number varchar(255) DEFAULT '' NOT NULL,
+	# cfTitle
+	title varchar(255) DEFAULT '' NOT NULL,
+	# cfAbstr
+	description text NOT NULL,
+	# cfVersInfo
+	version varchar(40) DEFAULT '' NOT NULL,
 
 	# chf_time date range (1:1)
-	registration_date int(11) unsigned DEFAULT '0', # cfRegistrDate
+	# cfRegistrDate
+	registration_date int(11) unsigned DEFAULT '0',
 
 	# chf_time date range (1:1)
-	approval_date int(11) unsigned DEFAULT '0', # cfApprovDate
+	# cfApprovDate
+	approval_date int(11) unsigned DEFAULT '0',
 
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
@@ -415,7 +475,8 @@ CREATE TABLE tx_academy_domain_model_patents (
 	statements int(11) unsigned DEFAULT '0',
 
 	# static_countries (1:1)
-	country_code int(11) unsigned DEFAULT '0', # cfCountryCode
+	# cfCountryCode
+	country_code int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -885,7 +946,8 @@ CREATE TABLE sys_category (
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 
 	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0', # used for expressing relation to cfClassScheme
+	# used for expressing relation to cfClassScheme
+	statements int(11) unsigned DEFAULT '0',
 
 	KEY persistent_identifier (persistent_identifier),
 	KEY statements (statements),
