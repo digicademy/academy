@@ -74,7 +74,6 @@
 			<label index="tx_academy_domain_model_projects.image">Images</label>
 			<label index="tx_academy_domain_model_projects.description">Description</label>
 			<label index="tx_academy_domain_model_projects.relations">Relations (project)</label>
-			<label index="tx_academy_domain_model_projects.statements">RDF Statements</label>
 
 			<label index="tx_academy_domain_model_persons">Persons</label>
 			<label index="tx_academy_domain_model_persons.div1">General</label>
@@ -96,7 +95,6 @@
 			<label index="tx_academy_domain_model_persons.page">Page with person information</label>
 			<label index="tx_academy_domain_model_persons.image">Images</label>
 			<label index="tx_academy_domain_model_persons.relations">Relations (person)</label>
-			<label index="tx_academy_domain_model_persons.statements">RDF Statements</label>
 
 			<label index="tx_academy_domain_model_hcards">Contact information</label>
 			<label index="tx_academy_domain_model_hcards.persistent_identifier">Persistent identifier</label>
@@ -201,7 +199,6 @@
 			<label index="tx_academy_domain_model_roles.div1">General</label>
 			<label index="tx_academy_domain_model_roles.persistent_identifier">Persistent identifier</label>
 			<label index="tx_academy_domain_model_roles.title">Title</label>
-			<label index="tx_academy_domain_model_roles.statements">RDF Statements</label>
 
 			<label index="tx_academy_domain_model_units">Unit</label>
 			<label index="tx_academy_domain_model_units.div1">General</label>
@@ -218,7 +215,6 @@
 			<label index="tx_academy_domain_model_units.description">Description</label>
 			<label index="tx_academy_domain_model_units.relations">Relations (unit)</label>
 			<label index="tx_academy_domain_model_units.categories">Categories</label>
-			<label index="tx_academy_domain_model_units.statements">RDF Statements</label>
 
 			<label index="tx_academy_domain_model_events">Events</label>
 
@@ -245,10 +241,8 @@
 			<label index="tx_academy_domain_model_media.files">Files</label>
 			<label index="tx_academy_domain_model_media.collections">Collections</label>
 			<label index="tx_academy_domain_model_media.relations">Relations (medium)</label>
-			<label index="tx_academy_domain_model_media.statements">RDF Statements</label>
 
 			<label index="sys_category.persistent_identifier">Persistent identifier</label>
-			<label index="sys_category.statements">RDF Statements</label>
 
 		</languageKey>
 
@@ -320,7 +314,6 @@
 			<label index="tx_academy_domain_model_projects.image">Bild</label>
 			<label index="tx_academy_domain_model_projects.description">Beschreibung</label>
 			<label index="tx_academy_domain_model_projects.relations">Verknüpfungen (Projekt)</label>
-			<label index="tx_academy_domain_model_projects.statements">Metadaten (LOD Statements)</label>
 
 			<label index="tx_academy_domain_model_persons">Personen</label>
 			<label index="tx_academy_domain_model_persons.div1">Allgemein</label>
@@ -342,7 +335,6 @@
 			<label index="tx_academy_domain_model_persons.page">Seite mit Personeninformationen</label>
 			<label index="tx_academy_domain_model_persons.relations">Verknüpfungen (Person)</label>
 			<label index="tx_academy_domain_model_persons.image">Foto</label>
-			<label index="tx_academy_domain_model_persons.statements">Metadaten (LOD Statements)</label>
 
 			<label index="tx_academy_domain_model_hcards">Kontaktinformationen</label>
 			<label index="tx_academy_domain_model_hcards.persistent_identifier">Persistenter Identifikator</label>
@@ -448,7 +440,6 @@
 			<label index="tx_academy_domain_model_roles.div1">Allgemein</label>
 			<label index="tx_academy_domain_model_roles.persistent_identifier">Persistenter Identifikator</label>
 			<label index="tx_academy_domain_model_roles.title">Bezeichnung</label>
-			<label index="tx_academy_domain_model_roles.statements">Metadaten (LOD Statements)</label>
 
 			<label index="tx_academy_domain_model_units">Organisationseinheiten</label>
 			<label index="tx_academy_domain_model_units.div1">Allgemein</label>
@@ -465,7 +456,6 @@
 			<label index="tx_academy_domain_model_units.description">Beschreibung</label>
 			<label index="tx_academy_domain_model_units.relations">Verknüpfungen (Organisationseinheit)</label>
 			<label index="tx_academy_domain_model_units.categories">Kategorien</label>
-			<label index="tx_academy_domain_model_units.statements">Metadaten (LOD Statements)</label>
 
 			<label index="tx_academy_domain_model_events">Termine</label>
 
@@ -492,10 +482,8 @@
 			<label index="tx_academy_domain_model_media.files">Einzelne Dateien</label>
 			<label index="tx_academy_domain_model_media.collections">Sammlungen</label>
 			<label index="tx_academy_domain_model_media.relations">Verknüpfungen (Medium)</label>
-			<label index="tx_academy_domain_model_media.statements">Metadaten (LOD Statements)</label>
 
 			<label index="sys_category.persistent_identifier">Persistenter Identifikator</label>
-			<label index="sys_category.statements">Metadaten (LOD Statements)</label>
 
 		</languageKey>
 	</data>

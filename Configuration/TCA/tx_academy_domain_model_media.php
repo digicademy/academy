@@ -278,7 +278,7 @@ return array(
                     ),
                     'edit' => Array(
                         'type' => 'popup',
-                        'title' => 'LLL:EXT:vocabulary/Resources/Private/Language/locallang_db.xlf:wizard_edit',
+                        'title' => 'Edit record',
                         'icon' => 'actions-open',
                         'JSopenParams' => 'height=550,width=900,status=0,menubar=0,scrollbars=1',
                         'popup_onlyOpenIfSelected' => 1,

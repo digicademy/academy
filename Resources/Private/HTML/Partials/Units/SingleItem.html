@@ -1,23 +1,8 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
       xmlns:da="http://typo3.org/ns/Digicademy/Academy/ViewHelpers"
-      xmlns:ag="http://typo3.org/ns/Digicademy/Agate/ViewHelpers"
       data-namespace-typo3-fluid="true">
 
 <div class="single item unit" id="unit-{unit.uid}">
-
-    <f:if condition="{unit.statements}">
-
-        <f:for each="{unit.statements}" as="statement">
-
-            <f:if condition="{statement.subject.type} == 3">
-                <script type="application/ld+json">
-                    <ag:JsonLd statement="{statement}" />
-                </script>
-            </f:if>
-
-        </f:for>
-
-    </f:if>
 
     <h2>{unit.title} <f:if condition="{unit.acronym}">({unit.acronym})</f:if></h2>
 
