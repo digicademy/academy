@@ -21,9 +21,6 @@ CREATE TABLE tx_academy_domain_model_projects (
 	# tx_chftime_domain_model_dateranges (1:1)
 	date_range int(11) unsigned DEFAULT '0',
 
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
-
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
@@ -56,7 +53,6 @@ CREATE TABLE tx_academy_domain_model_projects (
 	KEY page (page),
 	KEY date_range (date_range),
 	KEY relations (relations),
-	KEY statements (statements),
 
 ) ENGINE=InnoDB;
 
@@ -78,9 +74,6 @@ CREATE TABLE tx_academy_domain_model_units (
 
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
-
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -111,7 +104,6 @@ CREATE TABLE tx_academy_domain_model_units (
 	KEY title (title),
 	KEY page (page),
 	KEY relations (relations),
-	KEY statements (statements)
 
 ) ENGINE=InnoDB;
 
@@ -139,9 +131,6 @@ CREATE TABLE tx_academy_domain_model_persons (
 
 	# chf_time date range (1:1)
 	date_range int(11) unsigned DEFAULT '0',
-
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -174,8 +163,6 @@ CREATE TABLE tx_academy_domain_model_persons (
 	KEY page (page),
 	KEY date_range (date_range),
 	KEY relations (relations),
-	KEY statements (statements)
-
 ) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_relations (
@@ -268,9 +255,6 @@ CREATE TABLE tx_academy_domain_model_roles (
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
-
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -298,8 +282,6 @@ CREATE TABLE tx_academy_domain_model_roles (
 
 	KEY persistent_identifier (persistent_identifier),
 	KEY title (title),
-	KEY statements (statements)
-
 ) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_domain_model_hcards (
@@ -590,9 +572,6 @@ CREATE TABLE tx_academy_domain_model_media (
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
-
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
@@ -623,8 +602,6 @@ CREATE TABLE tx_academy_domain_model_media (
 	KEY type (type),
 	KEY files (files),
 	KEY relations (relations),
-	KEY statements (statements),
-
 ) ENGINE=InnoDB;
 
 CREATE TABLE tx_academy_hcards_adr_mm (
@@ -645,9 +622,5 @@ CREATE TABLE tx_news_domain_model_news (
 CREATE TABLE sys_category (
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 
-	# tx_vocabulary_domain_model_subjects (m:n)
-	statements int(11) unsigned DEFAULT '0',
-
 	KEY persistent_identifier (persistent_identifier),
-	KEY statements (statements),
 );

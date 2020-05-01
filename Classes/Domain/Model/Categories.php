@@ -40,14 +40,6 @@ class Categories extends Category
     protected $persistentIdentifier;
 
     /**
-     * LOD statements about the category
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements>
-     * @lazy
-     */
-    protected $statements = null;
-
-    /**
      * Returns the persistentIdentifier
      *
      * @return \string $persistentIdentifier
@@ -67,27 +59,5 @@ class Categories extends Category
     public function setPersistentIdentifier($persistentIdentifier)
     {
         $this->persistentIdentifier = $persistentIdentifier;
-    }
-
-    /**
-     * Returns the statements
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements> $statements
-     */
-    public function getStatements()
-    {
-        return $this->statements;
-    }
-
-    /**
-     * Sets the statements
-     *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements> $statements
-     *
-     * @return void
-     */
-    public function setStatements($statements)
-    {
-        $this->statements = $statements;
     }
 }

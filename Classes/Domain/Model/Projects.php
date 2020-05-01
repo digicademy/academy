@@ -116,14 +116,6 @@ class Projects extends AbstractEntity
     protected $categories = null;
 
     /**
-     * LOD statements about the project
-     *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements>
-     * @lazy
-     */
-    protected $statements = null;
-
-    /**
      * Returns the persistentIdentifier
      *
      * @return \string $persistentIdentifier
@@ -363,28 +355,6 @@ class Projects extends AbstractEntity
     public function setCategories($categories)
     {
         $this->categories = $categories;
-    }
-
-    /**
-     * Returns the statements
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements> $statements
-     */
-    public function getStatements()
-    {
-        return $this->statements;
-    }
-
-    /**
-     * Sets the statements
-     *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Vocabulary\Domain\Model\Statements> $statements
-     *
-     * @return void
-     */
-    public function setStatements($statements)
-    {
-        $this->statements = $statements;
     }
 
 }
