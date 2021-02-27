@@ -26,18 +26,34 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class FormatAdrComponentsViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'object',
+            'object',
+            'Adr components',
+            true
+        );
+    }
 
     /**
-     * @param object $components
-     *
      * @return string
      */
-    public function render($components)
+    public function render(): string
     {
+        $components = $this->arguments['components'];
 
         $componentsArray = array(
             'pobox' => array(),

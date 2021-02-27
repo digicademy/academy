@@ -26,8 +26,8 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Fluid\Core\Exception;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 /**
  * Fuses several relations to the same project or unit into one relation (array) and thereby collects all roles.
@@ -36,16 +36,37 @@ use TYPO3\CMS\Fluid\Core\Exception;
 
 class FuseRelationsViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'relations',
+            'array',
+            'Array of relations',
+            true
+        );
+        $this->registerArgument(
+            'type',
+            'string',
+            'Type of relation',
+            true
+        );
+    }
 
     /**
-     * @param array  $relations
-     * @param string $type
-     *
      * @return array
      * @throws
      */
-    public function render($relations, $type)
+    public function render(): array
     {
+        $relations = $this->arguments['relations'];
+        $type = $this->arguments['type'];
 
         $fusedRelations = array();
 

@@ -26,26 +26,62 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
-use TYPO3\CMS\Extbase\Utility\ArrayUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class MergeVariableViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'array1',
+            'array',
+            'array1',
+            true
+        );
+        $this->registerArgument(
+            'array2',
+            'array',
+            'array2',
+            true,
+        );
+        $this->registerArgument(
+            'removeEmptyElements',
+            'bool',
+            'Remove empty elements',
+            false,
+            false
+        );
+        $this->registerArgument(
+            'keepZeros',
+            'bool',
+            'Keep zero',
+            false,
+            true
+        );
+    }
 
     /**
      * Merges array2 with array1; array1 is an existing variable in the current template variable container and the key of the argument
      * is used to identify it. If it can't be identified, nothing happens. Zeros, NULL and empty values in the melted array can be removed
      * using the according arguments.
      *
-     * @param array   $array1
-     * @param array   $array2
-     * @param boolean $removeEmptyElements
-     * @param boolean $keepZeros
-     *
      * @return void
      */
-    public function render($array1, $array2, $removeEmptyElements = false, $keepZeros = true)
+    public function render()
     {
+        $array1 = $this->arguments['array1'];
+        $array2 = $this->arguments['array2'];
+        $removeEmptyElements = $this->arguments['removeEmptyElements'];
+        $keepZeros = $this->arguments['keepZeros'];
 
         // get the key of array1 to identify which variable to replace
         $key = key($array1);
@@ -54,7 +90,7 @@ class MergeVariableViewHelper extends AbstractViewHelper
             // first remove the identified variable from the current container
             $this->templateVariableContainer->remove($key);
             // melt both arrays
-            $melt = ArrayUtility::arrayMergeRecursiveOverrule($array1[$key], $array2);
+            $melt = ArrayUtility::mergeRecursiveWithOverrule($array1[$key], $array2);
             // possibly remove zeros, NULL and empty values
             if ($removeEmptyElements === true && $keepZeros === true) {
                 $melt = array_diff($melt, array(''));

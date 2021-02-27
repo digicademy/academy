@@ -26,29 +26,45 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Core\Resource\Collection\FolderBasedFileCollection;
 use TYPO3\CMS\Core\Resource\Collection\StaticFileCollection;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 class FileCollectionViewHelper extends AbstractViewHelper
 {
 
     /**
-     * Retrieves a file collection from DB (folder OR static) and loads it's files
+     * Initialize arguments
      *
-     * @param \integer $uid
+     * @return void
      *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'uid',
+            'int',
+            'Uid of the file collection',
+            true
+        );
+    }
+
+    /**
      * @return object $fileCollection
      */
-    public function render($uid)
+    public function render(): object
     {
+        $uid = (int)$this->arguments['uid'];
 
-        $collectionRecord = $GLOBALS['TYPO3_DB']->exec_SELECTgetSingleRow(
-            '*',
-            'sys_file_collection',
-            'uid = ' . (int)$uid
-        );
+        $collectionRecord = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('sys_file_collection')
+            ->select(['*'], 'sys_file_collection', ['uid' => $uid]
+            )->fetch();
+
         switch ($collectionRecord['type']) {
             case 'folder':
                 $fileCollection = GeneralUtility::makeInstance(FolderBasedFileCollection::class);

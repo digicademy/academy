@@ -26,20 +26,40 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class ImplodeViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'glue',
+            'string',
+            'Char to glue pieces',
+            true
+        );
+        $this->registerArgument(
+            'pieces',
+            'array',
+            'Array to implode',
+            false,
+            []
+        );
+    }
 
     /**
-     *
-     * @param string $glue
-     * @param array  $pieces
-     *
      * @return string The imploded array
      */
-    public function render($glue = '', $pieces = array())
+    public function render(): string
     {
-        return implode($glue, $pieces);
+        return implode($this->arguments['glue'], $this->arguments['pieces']);
     }
 }

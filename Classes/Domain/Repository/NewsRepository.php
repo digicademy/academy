@@ -44,8 +44,12 @@ class NewsRepository extends GeorgRingerNewsRepository
     public function countByDate(DemandInterface $demand)
     {
         $data = array();
-        $dateField = trim($GLOBALS['TYPO3_DB']->fullQuoteStr($demand->getDateField(), 'tx_news_domain_model_news'),
-            '\'');
+
+// @TODO: 10.4 migration; check if this repository method still makes sense or should be removed
+die('Digicademy\Academy\Domain\Repository\NewsRepository needs API migration to TYPO3 10.4');
+
+/*
+        $dateField = trim($GLOBALS['TYPO3_DB']->fullQuoteStr($demand->getDateField(), 'tx_news_domain_model_news'),'\'');
 
         $sql = $this->findDemandedRaw($demand);
         $sql = 'SELECT FROM_UNIXTIME(' . $dateField . ', "%m") AS "_Month",' .
@@ -80,6 +84,7 @@ class NewsRepository extends GeorgRingerNewsRepository
         }
 
         return $data;
+*/
     }
 
 }

@@ -26,19 +26,42 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class InArrayViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'needle',
+            'mixed',
+            'Needle to search in array',
+            true
+        );
+        $this->registerArgument(
+            'haystack',
+            'array',
+            'Array to search',
+            true
+        );
+    }
 
     /**
-     * @param mixed $needle
-     * @param array $haystack
-     *
      * @return boolean
      */
-    public function render($needle, $haystack)
+    public function render(): bool
     {
+        $needle = $this->arguments['needle'];
+        $haystack = $this->arguments['haystack'];
+
         $result = false;
         if (is_array($haystack)) {
             $result = in_array($needle, $haystack);

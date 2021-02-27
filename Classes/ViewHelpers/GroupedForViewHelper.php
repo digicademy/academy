@@ -26,31 +26,72 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 use TYPO3\CMS\Extbase\Reflection\ObjectAccess;
-use TYPO3\CMS\Fluid\Core\ViewHelper\Exception;
 
 /* Copies the standard groupedFor view helper and adds iteration; needed for eventDateMenu */
 
 class GroupedForViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'each',
+            'array',
+            'The array or \TYPO3\CMS\Extbase\Persistence\ObjectStorage to iterated over',
+            true
+        );
+        $this->registerArgument(
+            'as',
+            'string',
+            'The name of the iteration variable',
+            true
+        );
+        $this->registerArgument(
+            'groupBy',
+            'string',
+            'Group by this property',
+            true
+        );
+        $this->registerArgument(
+            'groupKey',
+            'string',
+            'The name of the variable to store the current group',
+            false,
+            'groupKey'
+        );
+        $this->registerArgument(
+            'iteration',
+            'string',
+            'The name of the variable to store iteration information (index, cycle, isFirst, isLast, isEven, isOdd)',
+            false
+        );
+    }
 
     /**
      * Iterates through elements of $each and renders child nodes
      *
-     * @param array  $each      The array or \TYPO3\CMS\Extbase\Persistence\ObjectStorage to iterated over
-     * @param string $as        The name of the iteration variable
-     * @param string $groupBy   Group by this property
-     * @param string $groupKey  The name of the variable to store the current group
-     * @param string $iteration The name of the variable to store iteration information (index, cycle, isFirst, isLast, isEven, isOdd)
-     *
      * @return string Rendered string
-     * @throws \TYPO3\CMS\Fluid\Core\ViewHelper\Exception
+     * @throws Exception
      * @api
      */
-    public function render($each, $as, $groupBy, $groupKey = 'groupKey', $iteration = null)
+    public function render(): string
     {
+        $each = $this->arguments['each'];
+        $as = $this->arguments['as'];
+        $groupBy = $this->arguments['groupBy'];
+        $groupKey = $this->arguments['groupKey'];
+        $iteration = $this->arguments['iteration'];
+
         $output = '';
         if ($each === null) {
             return '';

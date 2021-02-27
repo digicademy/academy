@@ -26,19 +26,43 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
 class GroupRelationsViewHelper extends AbstractViewHelper
 {
 
     /**
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $relations
-     * @param string                                       $property
+     * Initialize arguments
      *
      * @return void
+     *
+     * @throws Exception
      */
-    public function render($relations, $property = 'type')
+    public function initializeArguments()
     {
+        $this->registerArgument(
+            'relations',
+            'TYPO3\CMS\Extbase\Persistence\ObjectStorage',
+            '',
+            true
+        );
+        $this->registerArgument(
+            'type',
+            'string',
+            '',
+            false,
+            'type'
+        );
+    }
+
+    /**
+     * @return void
+     */
+    public function render()
+    {
+        $relations = $this->arguments['relations'];
+        $property = $this->arguments['property'];
 
         $groupedRelations = array();
 
@@ -49,7 +73,5 @@ class GroupRelationsViewHelper extends AbstractViewHelper
             }
             $this->templateVariableContainer->add('groupedRelations', $groupedRelations);
         }
-
-        return;
     }
 }

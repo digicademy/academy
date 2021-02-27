@@ -26,22 +26,45 @@ namespace Digicademy\Academy\ViewHelpers;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class TestIfRelationsExistViewHelper extends AbstractViewHelper
 {
+    /**
+     * Initialize arguments
+     *
+     * @return void
+     *
+     * @throws Exception
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'relationNumbers',
+            'string',
+            'Number of relations',
+            true
+        );
+        $this->registerArgument(
+            'groupedRelations',
+            'array',
+            'Grouped relations',
+            false,
+            []
+        );
+    }
 
     /**
      * Tests if news, events or media exist in the submitted grouped relations array and returns TRUE if so
      *
-     * @param string $relationNumbers
-     * @param array  $groupedRelations
-     *
      * @return boolean
      */
-    public function render($relationNumbers, $groupedRelations = array())
+    public function render(): bool
     {
+        $relationNumbers = $this->arguments['relationNumbers'];
+        $groupedRelations = $this->arguments['groupedRelations'];
 
         $relationNumbersArray = GeneralUtility::trimExplode(',', $relationNumbers);
 
