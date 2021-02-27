@@ -25,7 +25,7 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => 'persistent_identifier,given_name,honorific_prefix,additional_name,family_name,honorific_suffix',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_persons.svg'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_persons.svg'
     ),
     'interface' => array(
         'showRecordFieldList' => '

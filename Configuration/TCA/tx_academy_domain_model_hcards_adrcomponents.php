@@ -23,7 +23,7 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => 'value',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adrcomponents.svg'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adrcomponents.svg'
     ),
     'interface' => array(
         'showRecordFieldList' => '

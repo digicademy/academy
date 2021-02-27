@@ -25,7 +25,7 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => 'label,org',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adr.svg'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adr.svg'
     ),
     'interface' => array(
         'showRecordFieldList' => '

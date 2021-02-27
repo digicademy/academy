@@ -24,7 +24,7 @@ return array(
             'endtime' => 'endtime',
         ),
         'searchFields' => 'title,description',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_media.svg'
+        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_media.svg'
     ),
     'interface' => array(
         'showRecordFieldList' => '

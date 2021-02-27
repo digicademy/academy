@@ -27,6 +27,8 @@ namespace Digicademy\Academy\Utility\Backend;
  ***************************************************************/
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
+use TYPO3\CMS\Core\Database\ConnectionPool;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class LabelUtility
 {
@@ -38,7 +40,12 @@ class LabelUtility
 
         // get role - freetext_roles overrides role record
         $role = '';
-        ($parameters['row']['role']) ? $roleRecord = BackendUtility::getRecordRaw('tx_academy_domain_model_roles', 'uid=' . (int)$parameters['row']['role']) : $roleRecord = '';
+// @TODO: 10.4 migration / ($parameters['row']['role']) ? $roleRecord = BackendUtility::getRecordRaw('tx_academy_domain_model_roles', 'uid=' . (int)$parameters['row']['role']) : $roleRecord = '';
+        ($parameters['row']['role']) ? $roleRecord = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_roles')
+            ->select(['uid'], 'tx_academy_domain_model_roles', ['uid' => (int)$parameters['row']['role']]
+            )->fetch() : $roleRecord = '';
+
         if (is_array($roleRecord) && !$parameters['row']['role_freetext']) {
             $role = $roleRecord['title'];
         }
@@ -91,26 +98,65 @@ class LabelUtility
         }
 
         // get the records for the related objects
-        ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecordRaw('tx_academy_domain_model_persons',
-            'uid=' . $parameters['row']['person']) : $person = '';
-        ($parameters['row']['person_symmetric'] > 0) ? $person_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_persons',
-            'uid=' . $parameters['row']['person_symmetric']) : $person_symmetric = '';
-        ($parameters['row']['project'] > 0) ? $project = BackendUtility::getRecordRaw('tx_academy_domain_model_projects',
-            'uid=' . $parameters['row']['project']) : $project = '';
-        ($parameters['row']['project_symmetric'] > 0) ? $project_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_projects',
-            'uid=' . $parameters['row']['project_symmetric']) : $project_symmetric = '';
-        ($parameters['row']['unit'] > 0) ? $unit = BackendUtility::getRecordRaw('tx_academy_domain_model_units',
-            'uid=' . $parameters['row']['unit']) : $unit = '';
-        ($parameters['row']['unit_symmetric'] > 0) ? $unit_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_units',
-            'uid=' . $parameters['row']['unit_symmetric']) : $unit_symmetric = '';
-        ($parameters['row']['hcard'] > 0) ? $hcard = BackendUtility::getRecordRaw('tx_academy_domain_model_hcards',
-            'uid=' . $parameters['row']['hcard']) : $hcard = '';
-        ($parameters['row']['news'] > 0) ? $news = BackendUtility::getRecordRaw('tx_news_domain_model_news',
-            'uid=' . $parameters['row']['news']) : $news = '';
-        ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecordRaw('tx_news_domain_model_news',
-            'uid=' . $parameters['row']['event']) : $event = '';
-        ($parameters['row']['medium'] > 0) ? $medium = BackendUtility::getRecordRaw('tx_academy_domain_model_media',
-            'uid=' . $parameters['row']['medium']) : $medium = '';
+// @TODO: 10.4 migration / ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecordRaw('tx_academy_domain_model_persons', 'uid=' . $parameters['row']['person']) : $person = '';
+        ($parameters['row']['person'] > 0) ? $person = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_persons')
+            ->select(['uid'], 'tx_academy_domain_model_persons', ['uid' => (int)$parameters['row']['person']]
+            )->fetch() : $person = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['person_symmetric'] > 0) ? $person_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_persons', 'uid=' . $parameters['row']['person_symmetric']) : $person_symmetric = '';
+        ($parameters['row']['person_symmetric']) ? $person_symmetric = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_persons')
+            ->select(['uid'], 'tx_academy_domain_model_persons', ['uid' => (int)$parameters['row']['person_symmetric']]
+            )->fetch() : $person_symmetric = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['project'] > 0) ? $project = BackendUtility::getRecordRaw('tx_academy_domain_model_projects', 'uid=' . $parameters['row']['project']) : $project = '';
+        ($parameters['row']['project']) ? $project = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_projects')
+            ->select(['uid'], 'tx_academy_domain_model_projects', ['uid' => (int)$parameters['row']['project']]
+            )->fetch() : $project = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['project_symmetric'] > 0) ? $project_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_projects', 'uid=' . $parameters['row']['project_symmetric']) : $project_symmetric = '';
+        ($parameters['row']['project_symmetric']) ? $project_symmetric = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_projects')
+            ->select(['uid'], 'tx_academy_domain_model_projects', ['uid' => (int)$parameters['row']['project_symmetric']]
+            )->fetch() : $project_symmetric = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['unit'] > 0) ? $unit = BackendUtility::getRecordRaw('tx_academy_domain_model_units', 'uid=' . $parameters['row']['unit']) : $unit = '';
+        ($parameters['row']['unit']) ? $unit = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_units')
+            ->select(['uid'], 'tx_academy_domain_model_units', ['uid' => (int)$parameters['row']['unit']]
+            )->fetch() : $unit = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['unit_symmetric'] > 0) ? $unit_symmetric = BackendUtility::getRecordRaw('tx_academy_domain_model_units', 'uid=' . $parameters['row']['unit_symmetric']) : $unit_symmetric = '';
+        ($parameters['row']['unit_symmetric']) ? $unit_symmetric = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_units')
+            ->select(['uid'], 'tx_academy_domain_model_units', ['uid' => (int)$parameters['row']['unit_symmetric']]
+            )->fetch() : $unit_symmetric = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['hcard'] > 0) ? $hcard = BackendUtility::getRecordRaw('tx_academy_domain_model_hcards', 'uid=' . $parameters['row']['hcard']) : $hcard = '';
+        ($parameters['row']['hcard']) ? $hcard = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_hcards')
+            ->select(['uid'], 'tx_academy_domain_model_hcards', ['uid' => (int)$parameters['row']['hcard']]
+            )->fetch() : $hcard = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['news'] > 0) ? $news = BackendUtility::getRecordRaw('tx_news_domain_model_news', 'uid=' . $parameters['row']['news']) : $news = '';
+        ($parameters['row']['news']) ? $news = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_news_domain_model_news')
+            ->select(['uid'], 'tx_news_domain_model_news', ['uid' => (int)$parameters['row']['news']]
+            )->fetch() : $news = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecordRaw('tx_news_domain_model_news', 'uid=' . $parameters['row']['event']) : $event = '';
+        ($parameters['row']['event']) ? $event = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_news_domain_model_news')
+            ->select(['uid'], 'tx_news_domain_model_news', ['uid' => (int)$parameters['row']['event']]
+            )->fetch() : $event = '';
+
+// @TODO: 10.4 migration / ($parameters['row']['medium'] > 0) ? $medium = BackendUtility::getRecordRaw('tx_academy_domain_model_media', 'uid=' . $parameters['row']['medium']) : $medium = '';
+        ($parameters['row']['medium']) ? $medium = GeneralUtility::makeInstance(ConnectionPool::class)
+            ->getConnectionForTable('tx_academy_domain_model_media')
+            ->select(['uid'], 'tx_academy_domain_model_media', ['uid' => (int)$parameters['row']['medium']]
+            )->fetch() : $medium = '';
 
         $freetext = htmlspecialchars($parameters['row']['freetext']);
 
