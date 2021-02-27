@@ -18,9 +18,9 @@
   },
   "version": "2.0.0",
   "require": {
-    "typo3/cms-core": ">=10.4.0 || <=10.4.99",
-    "georgringer/news": "^8.5",
-    "georgringer/eventnews": "^4.0"
+    "typo3/cms-core": ">=7.6.0 || <=7.6.99",
+    "georgringer/news": "^6.1",
+    "georgringer/eventnews": "^2.0"
   },
   "replace": {
     "typo3-ter/academy": "self.version"
