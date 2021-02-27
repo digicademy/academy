@@ -35,7 +35,7 @@ class Categories extends Category
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 

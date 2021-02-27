@@ -36,7 +36,7 @@ class Media extends AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -58,7 +58,7 @@ class Media extends AbstractEntity
      * The title of the medium
      *
      * @var \string $title
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $title;
 
@@ -73,7 +73,7 @@ class Media extends AbstractEntity
      * Images
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $image = null;
 
@@ -81,7 +81,7 @@ class Media extends AbstractEntity
      * Files
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $files = null;
 
@@ -89,7 +89,7 @@ class Media extends AbstractEntity
      * File collections
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\FileCollection>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $collections = null;
 
@@ -97,7 +97,7 @@ class Media extends AbstractEntity
      * Relations of the medium with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $relations = null;
 
@@ -105,7 +105,7 @@ class Media extends AbstractEntity
      * Selected categories for the medium
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $categories = null;
 

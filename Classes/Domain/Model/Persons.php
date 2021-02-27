@@ -37,7 +37,7 @@ class Persons extends AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -66,7 +66,7 @@ class Persons extends AbstractEntity
      * Family name of the person
      *
      * @var \string $familyName
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $familyName;
 
@@ -95,7 +95,7 @@ class Persons extends AbstractEntity
      * Images
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $image = null;
 
@@ -145,7 +145,7 @@ class Persons extends AbstractEntity
      * Relations of the person with projects, hcards, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $relations = null;
 
@@ -153,7 +153,7 @@ class Persons extends AbstractEntity
      * Selected categories for the person
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $categories = null;
 

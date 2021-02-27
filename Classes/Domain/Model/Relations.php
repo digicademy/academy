@@ -37,7 +37,7 @@ class Relations extends AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -45,7 +45,7 @@ class Relations extends AbstractEntity
      * The type of relation
      *
      * @var integer $type
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $type;
 
@@ -53,7 +53,7 @@ class Relations extends AbstractEntity
      * The role of the relation
      *
      * @var \Digicademy\Academy\Domain\Model\Roles $role
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $role;
 
@@ -68,7 +68,7 @@ class Relations extends AbstractEntity
      * Related project
      *
      * @var \Digicademy\Academy\Domain\Model\Projects $project
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $project = null;
 
@@ -76,7 +76,7 @@ class Relations extends AbstractEntity
      * Related project
      *
      * @var \Digicademy\Academy\Domain\Model\Projects $projectSymmetric
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $projectSymmetric = null;
 
@@ -84,7 +84,7 @@ class Relations extends AbstractEntity
      * Related Person
      *
      * @var \Digicademy\Academy\Domain\Model\Persons $person
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $person = null;
 
@@ -92,7 +92,7 @@ class Relations extends AbstractEntity
      * Related Person
      *
      * @var \Digicademy\Academy\Domain\Model\Persons $personSymmetric
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $personSymmetric = null;
 
@@ -100,7 +100,7 @@ class Relations extends AbstractEntity
      * Related Hcard
      *
      * @var \Digicademy\Academy\Domain\Model\Hcards $hcard
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $hcard = null;
 
@@ -108,7 +108,7 @@ class Relations extends AbstractEntity
      * Related Unit
      *
      * @var \Digicademy\Academy\Domain\Model\Units $unit
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $unit = null;
 
@@ -116,7 +116,7 @@ class Relations extends AbstractEntity
      * Related Unit
      *
      * @var \Digicademy\Academy\Domain\Model\Units $unitSymmetric
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $unitSymmetric = null;
 
@@ -124,7 +124,7 @@ class Relations extends AbstractEntity
      * Related News
      *
      * @var \Digicademy\Academy\Domain\Model\News $news
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $news = null;
 
@@ -132,7 +132,7 @@ class Relations extends AbstractEntity
      * Related Event
      *
      * @var \Digicademy\Academy\Domain\Model\Events $event
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $event = null;
 
@@ -140,7 +140,7 @@ class Relations extends AbstractEntity
      * Related medium
      *
      * @var \Digicademy\Academy\Domain\Model\Media $medium
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $medium = null;
 

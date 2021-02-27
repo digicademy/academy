@@ -36,7 +36,7 @@ class Hcards extends AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -44,7 +44,7 @@ class Hcards extends AbstractEntity
      * The label of the hcard
      *
      * @var \string $label
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $label;
 
@@ -59,7 +59,7 @@ class Hcards extends AbstractEntity
      * Addresses
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsAdr>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $adr = null;
 
@@ -67,7 +67,7 @@ class Hcards extends AbstractEntity
      * Telefone numbers
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsTel>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $tel = null;
 
@@ -75,7 +75,7 @@ class Hcards extends AbstractEntity
      * Email Addresses
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsEmail>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $email = null;
 
@@ -83,7 +83,7 @@ class Hcards extends AbstractEntity
      * URLs
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsUrl>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $url = null;
 

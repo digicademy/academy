@@ -36,7 +36,7 @@ class Roles extends AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -44,7 +44,7 @@ class Roles extends AbstractEntity
      * The title of the role
      *
      * @var \string $title
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $title;
 

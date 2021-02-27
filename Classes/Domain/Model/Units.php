@@ -34,7 +34,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \string
      *
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $persistentIdentifier;
 
@@ -42,7 +42,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * The title of the unit
      *
      * @var \string $title
-     * @validate NotEmpty
+     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
      */
     protected $title;
 
@@ -78,7 +78,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Image
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $image = null;
 
@@ -86,7 +86,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Relations of the unit with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $relations = null;
 
@@ -94,7 +94,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Selected categories for the unit
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
-     * @lazy
+     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
      */
     protected $categories = null;
 
