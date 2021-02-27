@@ -54,6 +54,7 @@ class LabelUtility
         }
 
         // test for IRRE context; if true, trim the field values to uids
+/*
         if (is_array($parameters['parent'])) {
             if ($parameters['row']['person']) {
                 $parameters['row']['person'] = preg_replace('/tx_academy_domain_model_persons_/', '',
@@ -96,7 +97,7 @@ class LabelUtility
                     substr($parameters['row']['medium'], 0, stripos($parameters['row']['medium'], '|')));
             }
         }
-
+*/
         // get the records for the related objects
 // @TODO: 10.4 migration / ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecordRaw('tx_academy_domain_model_persons', 'uid=' . $parameters['row']['person']) : $person = '';
         ($parameters['row']['person'] > 0) ? $person = GeneralUtility::makeInstance(ConnectionPool::class)

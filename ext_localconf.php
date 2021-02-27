@@ -84,11 +84,11 @@ if (!defined('TYPO3_MODE')) {
 
 // TX_NEWS HOOK
 
-// $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded'][] = 'EXT:academy/Classes/Hooks/NewsRepository.php:&Digicademy\Academy\Hooks\NewsRepository->generateQuery';
+// $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded'][] = 'Digicademy\Academy\Hooks\NewsRepository->generateQuery';
 
 // BACKEND RELATED
 
 if (TYPO3_MODE == 'BE') {
     // hook for generating XML conformat UUIDs on new and update szenarios
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'EXT:academy/Classes/Hooks/Backend/DataHandler.php:Digicademy\Academy\Hooks\Backend\DataHandler';
+    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'Digicademy\Academy\Hooks\Backend\DataHandler';
 }
