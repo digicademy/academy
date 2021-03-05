@@ -1,7 +1,7 @@
 {
   "name": "digicademy/academy",
   "type": "typo3-cms-extension",
-  "description": "Framework for creating research portals: Projects, Persons, Organizational Units, News, Events, and Media",
+  "description": "Framework for creating CRIS portals: Projects, Persons, Organizational Units, News, Events, and Media",
   "homepage": "http://www.digitale-akademie.de",
   "authors": [
     {
@@ -12,18 +12,18 @@
     }
   ],
   "license": ["GPL-2.0+"],
-  "keywords": ["TYPO3", "Research Portal", "Digital Humanities"],
+  "keywords": ["TYPO3", "Current Research Information Systems", "Digital Humanities"],
   "support": {
     "issues": "https://github.com/digicademy/academy/issues"
   },
   "version": "2.0.0",
   "require": {
-    "typo3/cms-core": ">=7.6.0 || <=8.7.99",
-    "georgringer/news": "^6.1",
-    "georgringer/eventnews": "^2.0"
+    "typo3/cms-core": ">=7.6.0 || <=7.6.99",
+    "georgringer/news": "^8.5",
+    "georgringer/eventnews": "^4.0",
+    "digicademy/chf_time": "dev-master"
   },
   "replace": {
-    "academy": "self.version",
     "typo3-ter/academy": "self.version"
   },
   "autoload": {
