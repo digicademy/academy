@@ -26,6 +26,7 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Hcards extends AbstractEntity
@@ -36,7 +37,7 @@ class Hcards extends AbstractEntity
      *
      * @var \string
      *
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $persistentIdentifier;
 
@@ -44,7 +45,7 @@ class Hcards extends AbstractEntity
      * The label of the hcard
      *
      * @var \string $label
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $label;
 
@@ -59,7 +60,7 @@ class Hcards extends AbstractEntity
      * Addresses
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsAdr>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $adr = null;
 
@@ -67,7 +68,7 @@ class Hcards extends AbstractEntity
      * Telefone numbers
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsTel>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $tel = null;
 
@@ -75,7 +76,7 @@ class Hcards extends AbstractEntity
      * Email Addresses
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsEmail>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $email = null;
 
@@ -83,7 +84,7 @@ class Hcards extends AbstractEntity
      * URLs
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsUrl>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $url = null;
 

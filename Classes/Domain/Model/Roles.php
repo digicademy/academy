@@ -26,6 +26,7 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 class Roles extends AbstractEntity
@@ -36,7 +37,7 @@ class Roles extends AbstractEntity
      *
      * @var \string
      *
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $persistentIdentifier;
 
@@ -44,7 +45,7 @@ class Roles extends AbstractEntity
      * The title of the role
      *
      * @var \string $title
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $title;
 

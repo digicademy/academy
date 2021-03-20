@@ -56,7 +56,7 @@ class HcardsAdr extends AbstractValueObject
      * Address components
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\HcardsAdrcomponents>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $adrcomponents = null;
 

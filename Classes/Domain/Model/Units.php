@@ -26,6 +26,8 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
+
 class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
 {
 
@@ -34,7 +36,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      *
      * @var \string
      *
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $persistentIdentifier;
 
@@ -42,7 +44,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * The title of the unit
      *
      * @var \string $title
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $title;
 
@@ -78,7 +80,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Image
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $image = null;
 
@@ -86,7 +88,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Relations of the unit with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $relations = null;
 
@@ -94,7 +96,7 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * Selected categories for the unit
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $categories = null;
 

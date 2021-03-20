@@ -26,6 +26,7 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use Digicademy\ChfTime\Domain\Model\DateRanges;
 
@@ -37,7 +38,7 @@ class Relations extends AbstractEntity
      *
      * @var \string
      *
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $persistentIdentifier;
 
@@ -45,7 +46,7 @@ class Relations extends AbstractEntity
      * The type of relation
      *
      * @var integer $type
-     * @TYPO3\\CMS\\Extbase\\Annotation\\Validate NotEmpty
+     * @Extbase\Validate("NotEmpty")
      */
     protected $type;
 
@@ -53,7 +54,7 @@ class Relations extends AbstractEntity
      * The role of the relation
      *
      * @var \Digicademy\Academy\Domain\Model\Roles $role
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $role;
 
@@ -68,7 +69,7 @@ class Relations extends AbstractEntity
      * Related project
      *
      * @var \Digicademy\Academy\Domain\Model\Projects $project
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $project = null;
 
@@ -76,7 +77,7 @@ class Relations extends AbstractEntity
      * Related project
      *
      * @var \Digicademy\Academy\Domain\Model\Projects $projectSymmetric
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $projectSymmetric = null;
 
@@ -84,7 +85,7 @@ class Relations extends AbstractEntity
      * Related Person
      *
      * @var \Digicademy\Academy\Domain\Model\Persons $person
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $person = null;
 
@@ -92,7 +93,7 @@ class Relations extends AbstractEntity
      * Related Person
      *
      * @var \Digicademy\Academy\Domain\Model\Persons $personSymmetric
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $personSymmetric = null;
 
@@ -100,7 +101,7 @@ class Relations extends AbstractEntity
      * Related Hcard
      *
      * @var \Digicademy\Academy\Domain\Model\Hcards $hcard
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $hcard = null;
 
@@ -108,7 +109,7 @@ class Relations extends AbstractEntity
      * Related Unit
      *
      * @var \Digicademy\Academy\Domain\Model\Units $unit
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $unit = null;
 
@@ -116,7 +117,7 @@ class Relations extends AbstractEntity
      * Related Unit
      *
      * @var \Digicademy\Academy\Domain\Model\Units $unitSymmetric
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $unitSymmetric = null;
 
@@ -124,7 +125,7 @@ class Relations extends AbstractEntity
      * Related News
      *
      * @var \Digicademy\Academy\Domain\Model\News $news
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $news = null;
 
@@ -132,7 +133,7 @@ class Relations extends AbstractEntity
      * Related Event
      *
      * @var \Digicademy\Academy\Domain\Model\Events $event
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $event = null;
 
@@ -140,7 +141,7 @@ class Relations extends AbstractEntity
      * Related medium
      *
      * @var \Digicademy\Academy\Domain\Model\Media $medium
-     * @TYPO3\\CMS\\Extbase\\Annotation\\ORM\\Lazy
+     * @Extbase\ORM\Lazy
      */
     protected $medium = null;
 
@@ -209,6 +210,9 @@ class Relations extends AbstractEntity
      */
     public function getRole()
     {
+        if ($this->role instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->role->_loadRealInstance();
+        }
         return $this->role;
     }
 
@@ -253,6 +257,9 @@ class Relations extends AbstractEntity
      */
     public function getProject()
     {
+        if ($this->project instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->project->_loadRealInstance();
+        }
         return $this->project;
     }
 
@@ -275,6 +282,9 @@ class Relations extends AbstractEntity
      */
     public function getProjectSymmetric()
     {
+        if ($this->projectSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->projectSymmetric->_loadRealInstance();
+        }
         return $this->projectSymmetric;
     }
 
@@ -297,6 +307,9 @@ class Relations extends AbstractEntity
      */
     public function getPerson()
     {
+        if ($this->person instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->person->_loadRealInstance();
+        }
         return $this->person;
     }
 
@@ -319,6 +332,9 @@ class Relations extends AbstractEntity
      */
     public function getPersonSymmetric()
     {
+        if ($this->personSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->personSymmetric->_loadRealInstance();
+        }
         return $this->personSymmetric;
     }
 
@@ -341,6 +357,9 @@ class Relations extends AbstractEntity
      */
     public function getHcard()
     {
+        if ($this->hcard instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->hcard->_loadRealInstance();
+        }
         return $this->hcard;
     }
 
@@ -363,6 +382,9 @@ class Relations extends AbstractEntity
      */
     public function getUnit()
     {
+        if ($this->unit instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->unit->_loadRealInstance();
+        }
         return $this->unit;
     }
 
@@ -385,6 +407,9 @@ class Relations extends AbstractEntity
      */
     public function getUnitSymmetric()
     {
+        if ($this->unitSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->unitSymmetric->_loadRealInstance();
+        }
         return $this->unitSymmetric;
     }
 
@@ -407,6 +432,9 @@ class Relations extends AbstractEntity
      */
     public function getNews()
     {
+        if ($this->news instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->news->_loadRealInstance();
+        }
         return $this->news;
     }
 
@@ -429,6 +457,9 @@ class Relations extends AbstractEntity
      */
     public function getEvent()
     {
+        if ($this->event instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->event->_loadRealInstance();
+        }
         return $this->event;
     }
 
@@ -451,6 +482,9 @@ class Relations extends AbstractEntity
      */
     public function getMedium()
     {
+        if ($this->medium instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->medium->_loadRealInstance();
+        }
         return $this->medium;
     }
 
@@ -495,6 +529,9 @@ class Relations extends AbstractEntity
      */
     public function getDateRange()
     {
+        if ($this->dateRange instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->dateRange->_loadRealInstance();
+        }
         return $this->dateRange;
     }
 
