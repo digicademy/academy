@@ -51,7 +51,7 @@ class MediaController extends ActionController
         ConfigurationManagerInterface $configurationManager,
         MediaRepository $mediaRepository
     ) {
-        parent::__construct($configurationManager);
+        $this->injectConfigurationManager($configurationManager);
         $this->mediaRepository = $mediaRepository;
     }
 

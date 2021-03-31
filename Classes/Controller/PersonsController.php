@@ -52,7 +52,7 @@ class PersonsController extends ActionController
         ConfigurationManagerInterface $configurationManager,
         PersonsRepository $personsRepository
     ) {
-        parent::__construct($configurationManager);
+        $this->injectConfigurationManager($configurationManager);
         $this->personsRepository = $personsRepository;
     }
 

@@ -51,7 +51,7 @@ class ProjectsController extends ActionController
         ProjectsRepository $projectsRepository
     )
     {
-        parent::__construct($configurationManager);
+        $this->injectConfigurationManager($configurationManager);
         $this->projectsRepository = $projectsRepository;
     }
 

@@ -52,7 +52,7 @@ class HcardsController extends ActionController
         HcardsRepository $hcardsRepository
     )
     {
-        parent::__construct($configurationManager);
+        $this->injectConfigurationManager($configurationManager);
         $this->hcardsRepository = $hcardsRepository;
     }
 
