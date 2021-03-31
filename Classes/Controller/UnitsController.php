@@ -51,7 +51,7 @@ class UnitsController extends ActionController
         UnitsRepository $unitsRepository
     )
     {
-        parent::__construct($configurationManager);
+        $this->injectConfigurationManager($configurationManager);
         $this->unitsRepository = $unitsRepository;
     }
 
