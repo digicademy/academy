@@ -41,7 +41,7 @@ class PersonsController extends ActionController
     protected $personsRepository;
 
     /**
-     * Use constructor DI and not @inject
+     * Use constructor DI and not (at)inject
      *
      * @see: https://gist.github.com/NamelessCoder/3b2e5931a6c1af19f9c3f8b46e74f837
      *
