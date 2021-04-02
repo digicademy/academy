@@ -37,28 +37,28 @@ class Events extends EventNews
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
      */
-    protected $eventsRelations = null;
+    protected $eventRelations = null;
 
     /**
      * Returns the relations
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $eventsRelations
+     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $eventRelations
      */
-    public function getEventsRelations()
+    public function getEventRelations()
     {
-        return $this->eventsRelations;
+        return $this->eventRelations;
     }
 
     /**
      * Sets the relations
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $eventsRelations
+     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $eventRelations
      *
      * @return void
      */
-    public function setEventsRelations($eventsRelations)
+    public function setEventRelations($eventRelations)
     {
-        $this->eventsRelations = $eventsRelations;
+        $this->eventRelations = $eventRelations;
     }
 
 }

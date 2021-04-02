@@ -244,6 +244,8 @@
 
 			<label index="sys_category.persistent_identifier">Persistent identifier</label>
 
+			<label index="tx_news_domain_model_news.type.I.3">Event</label>
+
 		</languageKey>
 
 		<languageKey index="de" type="array">
@@ -404,14 +406,14 @@
 			<label index="tx_academy_domain_model_relations.type.I.10">Person &lt;&gt; Kontaktinformationen</label>
 			<label index="tx_academy_domain_model_relations.type.I.11">Person &lt;&gt; Projekt</label>
 			<label index="tx_academy_domain_model_relations.type.I.12">Person &lt;&gt; Organisationseinheit</label>
-			<label index="tx_academy_domain_model_relations.type.I.13">Person &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.13">Person &lt;&gt; Ereignis</label>
 			<label index="tx_academy_domain_model_relations.type.I.14">Person &lt;&gt; News</label>
 			<label index="tx_academy_domain_model_relations.type.I.15">Person &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.16">Person &lt;&gt; Person</label>
 			<label index="tx_academy_domain_model_relations.type.I.20">Projekt &lt;&gt; Kontaktinformationen</label>
 			<label index="tx_academy_domain_model_relations.type.I.21">Projekt &lt;&gt; Organisationseinheit</label>
 			<label index="tx_academy_domain_model_relations.type.I.22">Projekt &lt;&gt; News</label>
-			<label index="tx_academy_domain_model_relations.type.I.23">Projekt &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.23">Projekt &lt;&gt; Ereignis</label>
 			<label index="tx_academy_domain_model_relations.type.I.24">Projekt &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.25">Projekt &lt;&gt; Freitext</label>
 			<label index="tx_academy_domain_model_relations.type.I.26">Projekt &lt;&gt; Projekt</label>
@@ -419,15 +421,15 @@
 			<label index="tx_academy_domain_model_relations.type.I.31">Organisationseinheit &lt;&gt; Freitext</label>
 			<label index="tx_academy_domain_model_relations.type.I.32">Organisationseinheit &lt;&gt; Organisationseinheit</label>
 			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Kontaktinformationen</label>
-			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Termin</label>
+			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Ereignis</label>
 			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>
-			<label index="tx_academy_domain_model_relations.type.I.50">Termin &lt;&gt; Kontaktinformationen</label>
-			<label index="tx_academy_domain_model_relations.type.I.51">Termin &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.50">Ereignis &lt;&gt; Kontaktinformationen</label>
+			<label index="tx_academy_domain_model_relations.type.I.51">Ereignis &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.role">Rolle</label>
 			<label index="tx_academy_domain_model_relations.role_freetext">Rolle (Freitext)</label>
 			<label index="tx_academy_domain_model_relations.date_range">Zeitraum</label>
 			<label index="tx_academy_domain_model_relations.project">Projekt</label>
-			<label index="tx_academy_domain_model_relations.event">Termin</label>
+			<label index="tx_academy_domain_model_relations.event">Ereignis</label>
 			<label index="tx_academy_domain_model_relations.person">Person</label>
 			<label index="tx_academy_domain_model_relations.medium">Medium</label>
 			<label index="tx_academy_domain_model_relations.news">News</label>
@@ -457,11 +459,11 @@
 			<label index="tx_academy_domain_model_units.relations">Verknüpfungen (Organisationseinheit)</label>
 			<label index="tx_academy_domain_model_units.categories">Kategorien</label>
 
-			<label index="tx_academy_domain_model_events">Termine</label>
+			<label index="tx_academy_domain_model_events">Ereignise</label>
 
 			<label index="tx_academy_domain_model_news">Nachrichten</label>
 			<label index="tx_academy_domain_model_news.news_relations">Verknüpfungen (Nachricht)</label>
-			<label index="tx_academy_domain_model_news.event_relations">Verknüpfungen (Termin)</label>
+			<label index="tx_academy_domain_model_news.event_relations">Verknüpfungen (Ereignis)</label>
 
 			<label index="tx_academy_domain_model_media">Medien</label>
 			<label index="tx_academy_domain_model_media.div1">Allgemein</label>
@@ -484,6 +486,8 @@
 			<label index="tx_academy_domain_model_media.relations">Verknüpfungen (Medium)</label>
 
 			<label index="sys_category.persistent_identifier">Persistenter Identifikator</label>
+
+			<label index="tx_news_domain_model_news.type.I.3">Ereignis</label>
 
 		</languageKey>
 	</data>
