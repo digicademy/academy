@@ -316,6 +316,36 @@ return array(
                     'showPossibleLocalizationRecords' => 1,
                     'showAllLocalizationLink' => 1
                 ),
+                'overrideChildTca' => [
+                    'columns' => [
+                        'type' => [
+                            'config' => [
+                                'items' => [
+                                    15 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.15',
+                                        '15'
+                                    ],
+                                    24 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.24',
+                                        '24'
+                                    ],
+                                    35 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.35',
+                                        '35'
+                                    ],
+                                    42 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.42',
+                                        '42'
+                                    ],
+                                    51 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.51',
+                                        '51'
+                                    ],
+                                ]
+                            ]
+                        ]
+                    ],
+                ],
             ),
         ),
     ),

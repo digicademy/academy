@@ -178,6 +178,9 @@
 			<label index="tx_academy_domain_model_relations.type.I.30">Unit &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.31">Unit &lt;&gt; Freetext</label>
 			<label index="tx_academy_domain_model_relations.type.I.32">Unit &lt;&gt; Unit</label>
+			<label index="tx_academy_domain_model_relations.type.I.33">Unit &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.34">Unit &lt;&gt; Event</label>
+			<label index="tx_academy_domain_model_relations.type.I.35">Unit &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Event</label>
 			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>
@@ -420,6 +423,9 @@
 			<label index="tx_academy_domain_model_relations.type.I.30">Organisationseinheit &lt;&gt; Kontaktinformationen</label>
 			<label index="tx_academy_domain_model_relations.type.I.31">Organisationseinheit &lt;&gt; Freitext</label>
 			<label index="tx_academy_domain_model_relations.type.I.32">Organisationseinheit &lt;&gt; Organisationseinheit</label>
+			<label index="tx_academy_domain_model_relations.type.I.33">Organisationseinheit &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.34">Organisationseinheit &lt;&gt; Ereignis</label>
+			<label index="tx_academy_domain_model_relations.type.I.35">Organisationseinheit &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Kontaktinformationen</label>
 			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Ereignis</label>
 			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>

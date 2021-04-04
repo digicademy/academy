@@ -46,6 +46,40 @@ $tca = array(
                 'showPossibleLocalizationRecords' => 1,
                 'showAllLocalizationLink' => 1
             ),
+            'overrideChildTca' => [
+                'columns' => [
+                    'type' => [
+                        'config' => [
+                            'items' => [
+                                14 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.14',
+                                    '14'
+                                ],
+                                22 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.22',
+                                    '22'
+                                ],
+                                33 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.33',
+                                    '33'
+                                ],
+                                40 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.40',
+                                    '40'
+                                ],
+                                41 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.41',
+                                    '41'
+                                ],
+                                42 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.42',
+                                    '42'
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+            ],
         ),
     ),
     'event_relations' => array(
@@ -69,6 +103,40 @@ $tca = array(
                 'showPossibleLocalizationRecords' => 1,
                 'showAllLocalizationLink' => 1
             ),
+            'overrideChildTca' => [
+                'columns' => [
+                    'type' => [
+                        'config' => [
+                            'items' => [
+                                13 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.13',
+                                    '13'
+                                ],
+                                23 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.23',
+                                    '23'
+                                ],
+                                41 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.41',
+                                    '41'
+                                ],
+                                34 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.34',
+                                    '34'
+                                ],
+                                50 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.50',
+                                    '50'
+                                ],
+                                51 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.51',
+                                    '51'
+                                ],
+                            ]
+                        ]
+                    ]
+                ],
+            ],
         ),
     ),
 );
