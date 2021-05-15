@@ -111,9 +111,15 @@ class LabelUtility
 
         ($parameters['row']['news'] > 0) ? $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news']) : $news = '';
 
+        ($parameters['row']['news_symmetric'] > 0) ? $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']) : $news_symmetric = '';
+
         ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event']) : $event = '';
 
+        ($parameters['row']['event_symmetric'] > 0) ? $event_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event_symmetric']) : $event_symmetric = '';
+
         ($parameters['row']['medium'] > 0) ? $medium = BackendUtility::getRecord('tx_academy_domain_model_media', $parameters['row']['medium']) : $medium = '';
+
+        ($parameters['row']['medium_symmetric'] > 0) ? $medium_symmetric = BackendUtility::getRecord('tx_academy_domain_model_media', $parameters['row']['medium_symmetric']) : $medium_symmetric = '';
 
         $freetext = htmlspecialchars($parameters['row']['freetext']);
 
@@ -142,11 +148,20 @@ class LabelUtility
         if (is_array($news)) {
             $newsLabel = $news['title'];
         }
+        if (is_array($news_symmetric)) {
+            $newsSymmetricLabel = $news_symmetric['title'];
+        }
         if (is_array($event)) {
             $eventLabel = $event['title'];
         }
+        if (is_array($event_symmetric)) {
+            $eventSymmetricLabel = $event_symmetric['title'];
+        }
         if (is_array($medium)) {
             $mediumLabel = $medium['title'];
+        }
+        if (is_array($medium_symmetric)) {
+            $mediumSymmetricLabel = $medium_symmetric['title'];
         }
 
         // in list view field type is string, in inline and record view field type is array (due to select type of field)
@@ -230,11 +245,20 @@ class LabelUtility
             case 42:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $newsLabel . ', ' . $mediumLabel : $parameters['title'] = $newsLabel . ', ' . $mediumLabel;
                 break;
+            case 43:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $newsLabel . ', ' . $newsSymmetricLabel : $parameters['title'] = $newsLabel . ', ' . $newsSymmetricLabel;
+                break;
             case 50:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;
             case 51:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $eventLabel . ', ' . $mediumLabel : $parameters['title'] = $eventLabel . ', ' . $mediumLabel;
+                break;
+            case 52:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $eventLabel . ', ' . $eventSymmetricLabel : $parameters['title'] = $eventLabel . ', ' . $eventSymmetricLabel;
+                break;
+            case 60:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $mediumLabel . ', ' . $mediumSymmetricLabel : $parameters['title'] = $mediumLabel . ', ' . $mediumSymmetricLabel;
                 break;
         }
 

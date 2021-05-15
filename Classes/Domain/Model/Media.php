@@ -26,8 +26,12 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Digicademy\Academy\Domain\Repository\RelationsRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Media extends AbstractEntity
 {
@@ -293,6 +297,15 @@ class Media extends AbstractEntity
      */
     public function getRelations()
     {
+        $objectStorage = GeneralUtility::makeInstance(ObjectStorage::class);
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $relationsRepository = $objectManager->get(RelationsRepository::class);
+        $symmetricRelations = $relationsRepository->findByMediumSymmetric($this);
+        if ($symmetricRelations) {
+            foreach ($symmetricRelations as $symmetricRelation) {
+                $this->relations->attach($symmetricRelation);
+            }
+        }
         return $this->relations;
     }
 

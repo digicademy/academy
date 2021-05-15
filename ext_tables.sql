@@ -190,6 +190,7 @@ CREATE TABLE tx_academy_domain_model_relations (
 
 	# tx_academy_domain_model_events (1:1)
 	event int(11) unsigned DEFAULT '0',
+	event_symmetric int(11) unsigned DEFAULT '0',
 
 	# tx_academy_domain_model_persons (1:1)
 	person int(11) unsigned DEFAULT '0',
@@ -197,9 +198,11 @@ CREATE TABLE tx_academy_domain_model_relations (
 
 	# tx_academy_domain_model_media (1:1)
 	medium int(11) unsigned DEFAULT '0',
+	medium_symmetric int(11) unsigned DEFAULT '0',
 
 	# tx_news_domain_model_news (1:1)
 	news int(11) unsigned DEFAULT '0',
+	news_symmetric int(11) unsigned DEFAULT '0',
 
 	# tx_academy_domain_model_hcards (1:1)
 	hcard int(11) unsigned DEFAULT '0',

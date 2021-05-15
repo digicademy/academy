@@ -304,6 +304,8 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_relations',
                 'foreign_field' => 'medium',
                 'foreign_sortby' => 'sorting',
+                'symmetric_field' => 'media_symmetric',
+                'symmetric_sortby' => 'sorting_symmetric',
                 'maxitems' => 9999,
                 'behaviour' => array(
                     'disableMovingChildrenWithParent' => 1,
@@ -340,6 +342,10 @@ return array(
                                     51 => [
                                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.51',
                                         '51'
+                                    ],
+                                    60 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.60',
+                                        '60'
                                     ],
                                 ]
                             ]

@@ -34,6 +34,8 @@ $tca = array(
             'foreign_field' => 'news',
             'foreign_sortby' => 'sorting',
             'foreign_label' => 'news',
+            'symmetric_field' => 'news_symmetric',
+            'symmetric_sortby' => 'sorting_symmetric',
             'maxitems' => 9999,
             'behaviour' => array(
                 'disableMovingChildrenWithParent' => 1,
@@ -75,6 +77,10 @@ $tca = array(
                                     'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.42',
                                     '42'
                                 ],
+                                43 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.43',
+                                    '43'
+                                ],
                             ]
                         ]
                     ]
@@ -91,6 +97,8 @@ $tca = array(
             'foreign_field' => 'event',
             'foreign_sortby' => 'sorting',
             'foreign_label' => 'news',
+            'symmetric_field' => 'event_symmetric',
+            'symmetric_sortby' => 'sorting_symmetric',
             'maxitems' => 9999,
             'behaviour' => array(
                 'disableMovingChildrenWithParent' => 1,
@@ -131,6 +139,10 @@ $tca = array(
                                 51 => [
                                     'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.51',
                                     '51'
+                                ],
+                                52 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.52',
+                                    '52'
                                 ],
                             ]
                         ]

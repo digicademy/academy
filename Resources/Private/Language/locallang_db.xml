@@ -184,8 +184,11 @@
 			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Event</label>
 			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.43">News &lt;&gt; News</label>
 			<label index="tx_academy_domain_model_relations.type.I.50">Event &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.51">Event &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.52">Event &lt;&gt; Event</label>
+			<label index="tx_academy_domain_model_relations.type.I.60">Medium &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.role">Role</label>
 			<label index="tx_academy_domain_model_relations.role_freetext">Role (Freetext)</label>
 			<label index="tx_academy_domain_model_relations.project">Project</label>

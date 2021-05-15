@@ -130,6 +130,14 @@ class Relations extends AbstractEntity
     protected $news = null;
 
     /**
+     * Related News
+     *
+     * @var \Digicademy\Academy\Domain\Model\News $newsSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $newsSymmetric = null;
+
+    /**
      * Related Event
      *
      * @var \Digicademy\Academy\Domain\Model\Events $event
@@ -138,12 +146,28 @@ class Relations extends AbstractEntity
     protected $event = null;
 
     /**
+     * Related Event
+     *
+     * @var \Digicademy\Academy\Domain\Model\Events $eventSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $eventSymmetric = null;
+
+    /**
      * Related medium
      *
      * @var \Digicademy\Academy\Domain\Model\Media $medium
      * @Extbase\ORM\Lazy
      */
     protected $medium = null;
+
+    /**
+     * Related medium
+     *
+     * @var \Digicademy\Academy\Domain\Model\Media $mediumSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $mediumSymmetric = null;
 
     /**
      * Freetext relation
@@ -451,6 +475,31 @@ class Relations extends AbstractEntity
     }
 
     /**
+     * Returns the newsSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\News $newsSymmetric
+     */
+    public function getNewsSymmetric()
+    {
+        if ($this->newsSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->newsSymmetric->_loadRealInstance();
+        }
+        return $this->newsSymmetric;
+    }
+
+    /**
+     * Sets the newsSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\News $newsSymmetric
+     *
+     * @return void
+     */
+    public function setNewsSymmetric(News $newsSymmetric)
+    {
+        $this->newsSymmetric = $newsSymmetric;
+    }
+
+    /**
      * Returns the event
      *
      * @return \Digicademy\Academy\Domain\Model\Events $event
@@ -476,6 +525,31 @@ class Relations extends AbstractEntity
     }
 
     /**
+     * Returns the eventSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\Events $eventSymmetric
+     */
+    public function getEventSymmetric()
+    {
+        if ($this->eventSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->eventSymmetric->_loadRealInstance();
+        }
+        return $this->eventSymmetric;
+    }
+
+    /**
+     * Sets the eventSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\Events $eventSymmetric
+     *
+     * @return void
+     */
+    public function setEventSymmetric(Events $eventSymmetric)
+    {
+        $this->eventSymmetric = $eventSymmetric;
+    }
+
+    /**
      * Returns the medium
      *
      * @return \Digicademy\Academy\Domain\Model\Media $medium
@@ -498,6 +572,31 @@ class Relations extends AbstractEntity
     public function setMedium(Media $medium)
     {
         $this->medium = $medium;
+    }
+
+    /**
+     * Returns the mediumSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\Media $mediumSymmetric
+     */
+    public function getMediumSymmetric()
+    {
+        if ($this->mediumSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
+            $this->mediumSymmetric->_loadRealInstance();
+        }
+        return $this->mediumSymmetric;
+    }
+
+    /**
+     * Sets the mediumSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\Media $mediumSymmetric
+     *
+     * @return void
+     */
+    public function setMediumSymmetric(Media $mediumSymmetric)
+    {
+        $this->mediumSymmetric = $mediumSymmetric;
     }
 
     /**

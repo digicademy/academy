@@ -26,8 +26,12 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Digicademy\Academy\Domain\Repository\RelationsRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use GeorgRinger\News\Domain\Model\News as GeorgRingerNews;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class News extends GeorgRingerNews
 {
@@ -46,6 +50,15 @@ class News extends GeorgRingerNews
      */
     public function getNewsRelations()
     {
+        $objectStorage = GeneralUtility::makeInstance(ObjectStorage::class);
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $relationsRepository = $objectManager->get(RelationsRepository::class);
+        $symmetricRelations = $relationsRepository->findByNewsSymmetric($this);
+        if ($symmetricRelations) {
+            foreach ($symmetricRelations as $symmetricRelation) {
+                $this->newsRelations->attach($symmetricRelation);
+            }
+        }
         return $this->newsRelations;
     }
 

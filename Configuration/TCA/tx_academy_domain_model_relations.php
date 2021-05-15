@@ -43,11 +43,14 @@ return array(
             date_range,
             project, 
             project_symmetric,
-            event, 
+            event,
+            event_symmetric, 
             person, 
             person_symmetric,
-            medium, 
-            news, 
+            medium,
+            medium_symmetric, 
+            news,
+            news_symmetric, 
             unit, 
             unit_symmetric,
             hcard, 
@@ -78,8 +81,11 @@ return array(
         '40' => array('showitem' => 'type,news,hcard,date_range'),
         '41' => array('showitem' => 'type,news,event,date_range'),
         '42' => array('showitem' => 'type,news,medium,date_range'),
+        '43' => array('showitem' => 'type,news,news_symmetric,date_range'),
         '50' => array('showitem' => 'type,event,hcard,date_range'),
         '51' => array('showitem' => 'type,event,medium,date_range'),
+        '52' => array('showitem' => 'type,event,event_symmetric,date_range'),
+        '60' => array('showitem' => 'type,medium,medium_symmetric,date_range'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -186,112 +192,10 @@ return array(
             'config' => array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-/*
-                'items' => array(
-                    10 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.10',
-                        '10'
-                    ],
-                    11 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.11',
-                        '11'
-                    ],
-                    12 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.12',
-                        '12'
-                    ],
-                    13 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.13',
-                        '13'
-                    ],
-                    14 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.14',
-                        '14'
-                    ],
-                    15 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.15',
-                        '15'
-                    ],
-                    16 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.16',
-                        '16'
-                    ],
-                    20 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.20',
-                        '20'
-                    ],
-                    21 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.21',
-                        '21'
-                    ],
-                    22 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.22',
-                        '22'
-                    ],
-                    23 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.23',
-                        '23'
-                    ],
-                    24 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.24',
-                        '24'
-                    ],
-                    25 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.25',
-                        '25'
-                    ],
-                    26 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.26',
-                        '26'
-                    ],
-                    30 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.30',
-                        '30'
-                    ],
-                    31 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.31',
-                        '31'
-                    ],
-                    32 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.32',
-                        '32'
-                    ],
-                    33 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.33',
-                        '33'
-                    ],
-                    34 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.34',
-                        '34'
-                    ],
-                    40 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.40',
-                        '40'
-                    ],
-                    41 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.41',
-                        '41'
-                    ],
-                    42 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.42',
-                        '42'
-                    ],
-                    50 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.50',
-                        '50'
-                    ],
-                    51 => [
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.51',
-                        '51'
-                    ],
-                ),
-*/
                 'size' => 1,
                 'minitems' => 1,
                 'maxitems' => 1,
                 'eval' => 'required',
-                // this function does not work in TYPO3 7 since the IRRE parent field information is gone in the child
-                // 'itemsProcFunc' => 'Digicademy\Academy\Utility\Backend\ItemUtility->filterRelationTypeItems',
             ),
         ),
         'role' => array(
@@ -507,6 +411,50 @@ return array(
                 ),
             ),
         ),
+        'event_symmetric' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.event',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_news_domain_model_news',
+                'foreign_table' => 'tx_news_domain_model_news',
+                'maxitems' => 1,
+                'size' => 1,
+                'wizards' => array(
+                    'suggest' => array(
+                        'type' => 'suggest',
+                        'default' => array(
+                            'pidList' => '###PLACEHOLDER###',
+                        ),
+                    ),
+                    'add' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
+                        'module' => array(
+                            'name' => 'wizard_add',
+                        ),
+                        'title' => 'Create new record',
+                        'icon' => 'actions-add',
+                        'params' => array(
+                            'table' => 'tx_news_domain_model_news',
+                            'pid' => '###PAGE_TSCONFIG_ID###',
+                            'setValue' => 'prepend'
+                        ),
+                    ),
+                    'edit' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        'popup_onlyOpenIfSelected' => 1,
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'title' => 'Edit',
+                        'icon' => 'actions-open',
+                    ),
+                ),
+            ),
+        ),
         'person' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.person',
@@ -639,7 +587,95 @@ return array(
                 ),
             ),
         ),
+        'medium_symmetric' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.medium',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_media',
+                'foreign_table' => 'tx_academy_domain_model_media',
+                'maxitems' => 1,
+                'size' => 1,
+                'wizards' => array(
+                    'suggest' => array(
+                        'type' => 'suggest',
+                        'default' => array(
+                            'pidList' => '###PLACEHOLDER###',
+                        ),
+                    ),
+                    'add' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
+                        'module' => array(
+                            'name' => 'wizard_add',
+                        ),
+                        'title' => 'Create new record',
+                        'icon' => 'actions-add',
+                        'params' => array(
+                            'table' => 'tx_academy_domain_model_media',
+                            'pid' => '###PAGE_TSCONFIG_ID###',
+                            'setValue' => 'prepend'
+                        ),
+                    ),
+                    'edit' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        'popup_onlyOpenIfSelected' => 1,
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'title' => 'Edit',
+                        'icon' => 'actions-open',
+                    ),
+                ),
+            ),
+        ),
         'news' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.news',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_news_domain_model_news',
+                'foreign_table' => 'tx_news_domain_model_news',
+                'maxitems' => 1,
+                'size' => 1,
+                'wizards' => array(
+                    'suggest' => array(
+                        'type' => 'suggest',
+                        'default' => array(
+                            'pidList' => '###PLACEHOLDER###',
+                        ),
+                    ),
+                    'add' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
+                        'module' => array(
+                            'name' => 'wizard_add',
+                        ),
+                        'title' => 'Create new record',
+                        'icon' => 'actions-add',
+                        'params' => array(
+                            'table' => 'tx_news_domain_model_news',
+                            'pid' => '###PAGE_TSCONFIG_ID###',
+                            'setValue' => 'prepend'
+                        ),
+                    ),
+                    'edit' => array(
+                        'type' => 'popup',
+                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+                        'popup_onlyOpenIfSelected' => 1,
+                        'module' => array(
+                            'name' => 'wizard_edit',
+                        ),
+                        'title' => 'Edit',
+                        'icon' => 'actions-open',
+                    ),
+                ),
+            ),
+        ),
+        'news_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.news',
             'config' => array(

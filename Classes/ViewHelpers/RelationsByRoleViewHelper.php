@@ -5,7 +5,7 @@ namespace Digicademy\Academy\ViewHelpers;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2017 Torsten Schrade <Torsten.Schrade@adwmainz.de>
+ *  (c) 2021 Torsten Schrade <Torsten.Schrade@adwmainz.de>
  *
  *  All rights reserved
  *
@@ -29,7 +29,7 @@ namespace Digicademy\Academy\ViewHelpers;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 
-class GroupRelationsViewHelper extends AbstractViewHelper
+class RelationsByRoleViewHelper extends AbstractViewHelper
 {
 
     /**
@@ -48,30 +48,30 @@ class GroupRelationsViewHelper extends AbstractViewHelper
             true
         );
         $this->registerArgument(
-            'property',
-            'string',
+            'roleUid',
+            'integer',
             '',
-            false,
-            'type'
+            true
         );
     }
 
     /**
-     * @return void
+     * @return array
      */
     public function render()
     {
         $relations = $this->arguments['relations'];
-        $property = $this->arguments['property'];
+        $roleUid = $this->arguments['roleUid'];
 
-        $groupedRelations = array();
+        $relationsByRole = array();
 
         if ($relations->count() > 0) {
             foreach ($relations as $relation) {
-                $getProperty = 'get' . ucfirst($property);
-                $groupedRelations[$relation->$getProperty()][] = $relation;
+                if ($relation->getRole()->getUid() == $roleUid) {
+                    $relationsByRole[] = $relation;
+                }
             }
-            $this->templateVariableContainer->add('groupedRelations', $groupedRelations);
         }
+        return $relationsByRole;
     }
 }
