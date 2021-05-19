@@ -26,10 +26,11 @@ namespace Digicademy\Academy\Controller;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use Digicademy\Academy\Domain\Model\Units;
+use Digicademy\Academy\Domain\Repository\UnitsRepository;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use Digicademy\Academy\Domain\Repository\UnitsRepository;
-use Digicademy\Academy\Domain\Model\Units;
 
 class UnitsController extends ActionController
 {
@@ -41,18 +42,42 @@ class UnitsController extends ActionController
 
     /**
      * Use constructor DI and not (at)inject
+     *
      * @see: https://gist.github.com/NamelessCoder/3b2e5931a6c1af19f9c3f8b46e74f837
      *
-     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface    $configurationManager
-     * @param \Digicademy\Academy\Domain\Repository\UnitsRepository             $unitsRepository
+     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
+     * @param \Digicademy\Academy\Domain\Repository\UnitsRepository          $unitsRepository
      */
     public function __construct(
         ConfigurationManagerInterface $configurationManager,
         UnitsRepository $unitsRepository
-    )
-    {
+    ) {
         $this->injectConfigurationManager($configurationManager);
         $this->unitsRepository = $unitsRepository;
+    }
+
+    /**
+     * Initializes the current action
+     *
+     * @return void
+     */
+    public function initializeAction()
+    {
+        switch ($this->actionMethodName) {
+            case 'listAction':
+                if ($this->settings['selectedCategories']) {
+                    $this->request->setArgument('selectedCategories', $this->settings['selectedCategories']);
+                }
+                break;
+
+            case 'showAction':
+                if ($this->settings['selectedUnits']) {
+                    $selectedUnits = GeneralUtility::trimExplode(',', $this->settings['selectedUnits']);
+                    $this->request->setArgument('unit', $selectedUnits[0]);
+                }
+            default:
+                break;
+        }
     }
 
     /**

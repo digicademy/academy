@@ -13,6 +13,7 @@
 							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:projectsPlugin.switchableControllerActions</label>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:projectsPlugin.switchableControllerActions.list</numIndex>

@@ -13,6 +13,7 @@
 							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions</label>
 							<config>
 								<type>select</type>
+								<renderType>selectSingle</renderType>
 								<items>
 									<numIndex index="0">
 										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:unitsPlugin.switchableControllerActions.list</numIndex>
@@ -57,7 +58,12 @@
 									</suggest>
 								</wizards>
 							</config>
-							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Units->listBySelection;Units->show]]></displayCond>
+							<displayCond>
+								<or>
+									<value1><![CDATA[FIELD:switchableControllerActions:=:Units->listBySelection;Units->show]]></value1>
+									<value2><![CDATA[FIELD:switchableControllerActions:=:Units->show]]></value2>
+								</or>
+								</displayCond>
 						</TCEforms>
 					</settings.selectedUnits>
 
