@@ -43,7 +43,7 @@ class GroupRelationsViewHelper extends AbstractViewHelper
     {
         $this->registerArgument(
             'relations',
-            'TYPO3\CMS\Extbase\Persistence\ObjectStorage',
+            'mixed',
             '',
             true
         );
@@ -54,6 +54,13 @@ class GroupRelationsViewHelper extends AbstractViewHelper
             false,
             'type'
         );
+        $this->registerArgument(
+            'as',
+            'string',
+            '',
+            false,
+            'groupedRelations'
+        );
     }
 
     /**
@@ -63,15 +70,19 @@ class GroupRelationsViewHelper extends AbstractViewHelper
     {
         $relations = $this->arguments['relations'];
         $property = $this->arguments['property'];
+        $as = $this->arguments['as'];
 
-        $groupedRelations = array();
+        $groupedRelations = [];
+        $key = 0;
 
-        if ($relations->count() > 0) {
+        if ($relations) {
             foreach ($relations as $relation) {
                 $getProperty = 'get' . ucfirst($property);
-                $groupedRelations[$relation->$getProperty()][] = $relation;
+                $propertyValue = $relation->$getProperty();
+                (is_object($propertyValue)) ? $key = $propertyValue->getUid() : $key = (int)$propertyValue;
+                $groupedRelations[$key][] = $relation;
             }
-            $this->templateVariableContainer->add('groupedRelations', $groupedRelations);
+            $this->templateVariableContainer->add($as, $groupedRelations);
         }
     }
 }

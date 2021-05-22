@@ -236,6 +236,15 @@ class LabelUtility
             case 32:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $unitLabel . ', ' . $unitSymmetricLabel : $parameters['title'] = $unitLabel . ', ' . $unitSymmetricLabel;
                 break;
+            case 33:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $unitLabel . ', ' . $newsLabel : $parameters['title'] = $unitLabel . ', ' . $newsLabel;
+                break;
+            case 34:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $unitLabel . ', ' . $eventLabel : $parameters['title'] = $unitLabel . ', ' . $eventLabel;
+                break;
+            case 35:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $unitLabel . ', ' . $mediumLabel : $parameters['title'] = $unitLabel . ', ' . $mediumLabel;
+                break;
             case 40:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $hcardLabel : $parameters['title'] = $contactInformationLabelWithSeparator . $hcardLabel;
                 break;

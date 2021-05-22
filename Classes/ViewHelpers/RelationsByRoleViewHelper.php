@@ -43,7 +43,7 @@ class RelationsByRoleViewHelper extends AbstractViewHelper
     {
         $this->registerArgument(
             'relations',
-            'TYPO3\CMS\Extbase\Persistence\ObjectStorage',
+            'mixed',
             '',
             true
         );
@@ -63,11 +63,11 @@ class RelationsByRoleViewHelper extends AbstractViewHelper
         $relations = $this->arguments['relations'];
         $roleUid = $this->arguments['roleUid'];
 
-        $relationsByRole = array();
+        $relationsByRole = [];
 
-        if ($relations->count() > 0) {
+        if ($relations) {
             foreach ($relations as $relation) {
-                if ($relation->getRole()->getUid() == $roleUid) {
+                if (is_object($relation->getRole()) && $relation->getRole()->getUid() == $roleUid) {
                     $relationsByRole[] = $relation;
                 }
             }
