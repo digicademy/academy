@@ -108,7 +108,7 @@ return array(
         ),
         'hidden' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => array(
                 'type' => 'check',
             ),

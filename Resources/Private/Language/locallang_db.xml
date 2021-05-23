@@ -70,7 +70,7 @@
 			<label index="tx_academy_domain_model_projects.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_projects.acronym">Acronym</label>
 			<label index="tx_academy_domain_model_projects.date_range">Date range</label>
-			<label index="tx_academy_domain_model_projects.page">Page with project information</label>
+			<label index="tx_academy_domain_model_projects.page">Page with information</label>
 			<label index="tx_academy_domain_model_projects.image">Images</label>
 			<label index="tx_academy_domain_model_projects.description">Description</label>
 			<label index="tx_academy_domain_model_projects.relations">Relations (project)</label>
@@ -95,6 +95,68 @@
 			<label index="tx_academy_domain_model_persons.page">Page with person information</label>
 			<label index="tx_academy_domain_model_persons.image">Images</label>
 			<label index="tx_academy_domain_model_persons.relations">Relations (person)</label>
+
+			<label index="tx_academy_domain_model_products">Products</label>
+			<label index="tx_academy_domain_model_products.div1">General</label>
+			<label index="tx_academy_domain_model_products.div2">Description</label>
+			<label index="tx_academy_domain_model_products.div3">Relations</label>
+			<label index="tx_academy_domain_model_products.div4">Metadata</label>
+			<label index="tx_academy_domain_model_products.div5">Categories</label>
+			<label index="tx_academy_domain_model_products.persistent_identifier">Persistent identifier</label>
+			<label index="tx_academy_domain_model_products.identifier">Identifier</label>
+			<label index="tx_academy_domain_model_products.title">Title</label>
+			<label index="tx_academy_domain_model_products.sorting">Sorting (not displayed)</label>
+			<label index="tx_academy_domain_model_products.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_products.version">Version</label>
+			<label index="tx_academy_domain_model_products.date_range">Date range</label>
+			<label index="tx_academy_domain_model_products.page">Page with information</label>
+			<label index="tx_academy_domain_model_products.image">Images</label>
+			<label index="tx_academy_domain_model_products.description">Description</label>
+			<label index="tx_academy_domain_model_products.relations">Relations (product)</label>
+
+			<label index="tx_academy_domain_model_services">Services</label>
+			<label index="tx_academy_domain_model_services.div1">General</label>
+			<label index="tx_academy_domain_model_services.div2">Description</label>
+			<label index="tx_academy_domain_model_services.div3">Relations</label>
+			<label index="tx_academy_domain_model_services.div4">Metadata</label>
+			<label index="tx_academy_domain_model_services.div5">Categories</label>
+			<label index="tx_academy_domain_model_services.persistent_identifier">Persistent identifier</label>
+			<label index="tx_academy_domain_model_services.identifier">Identifier</label>
+			<label index="tx_academy_domain_model_services.title">Title</label>
+			<label index="tx_academy_domain_model_services.sorting">Sorting (not displayed)</label>
+			<label index="tx_academy_domain_model_services.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_services.version">Version</label>
+			<label index="tx_academy_domain_model_services.date_range">Date range</label>
+			<label index="tx_academy_domain_model_services.page">Page with information</label>
+			<label index="tx_academy_domain_model_services.image">Images</label>
+			<label index="tx_academy_domain_model_services.description">Description</label>
+			<label index="tx_academy_domain_model_services.relations">Relations (service)</label>
+
+			<label index="tx_academy_domain_model_publications">Publications</label>
+			<label index="tx_academy_domain_model_publications.div1">General</label>
+			<label index="tx_academy_domain_model_publications.div2">Description</label>
+			<label index="tx_academy_domain_model_publications.div3">Relations</label>
+			<label index="tx_academy_domain_model_publications.div4">Metadata</label>
+			<label index="tx_academy_domain_model_publications.div5">Categories</label>
+			<label index="tx_academy_domain_model_publications.persistent_identifier">Persistent identifier</label>
+			<label index="tx_academy_domain_model_publications.identifier">Identifier</label>
+			<label index="tx_academy_domain_model_publications.title">Title</label>
+			<label index="tx_academy_domain_model_publications.subtitle">Subtitle</label>
+			<label index="tx_academy_domain_model_publications.abbreviation">Abbreviation</label>
+			<label index="tx_academy_domain_model_publications.volume">Volume</label>
+			<label index="tx_academy_domain_model_publications.number">Number</label>
+			<label index="tx_academy_domain_model_publications.issue">Issue</label>
+			<label index="tx_academy_domain_model_publications.edition">Edition</label>
+			<label index="tx_academy_domain_model_publications.series">Series</label>
+			<label index="tx_academy_domain_model_publications.start_page">Start page</label>
+			<label index="tx_academy_domain_model_publications.end_page">End page</label>
+			<label index="tx_academy_domain_model_publications.total_pages">Total pages</label>
+			<label index="tx_academy_domain_model_publications.description">Description</label>
+			<label index="tx_academy_domain_model_publications.bibliographic_note">Bibliographic note</label>
+			<label index="tx_academy_domain_model_publications.image">Images</label>
+			<label index="tx_academy_domain_model_publications.page">Page</label>
+			<label index="tx_academy_domain_model_publications.relations">Relations (publication)</label>
+			<label index="tx_academy_domain_model_publications.date_range">Date range</label>
 
 			<label index="tx_academy_domain_model_hcards">Contact information</label>
 			<label index="tx_academy_domain_model_hcards.persistent_identifier">Persistent identifier</label>
@@ -161,6 +223,7 @@
 			<label index="tx_academy_domain_model_relations">Relations</label>
 			<label index="tx_academy_domain_model_relations.persistent_identifier">Persistent identifier</label>
 			<label index="tx_academy_domain_model_relations.type">Type of relation</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.10">Person &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.11">Person &lt;&gt; Project</label>
 			<label index="tx_academy_domain_model_relations.type.I.12">Person &lt;&gt; Unit</label>
@@ -168,6 +231,7 @@
 			<label index="tx_academy_domain_model_relations.type.I.14">Person &lt;&gt; News</label>
 			<label index="tx_academy_domain_model_relations.type.I.15">Person &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.16">Person &lt;&gt; Person</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.20">Project &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.21">Project &lt;&gt; Unit</label>
 			<label index="tx_academy_domain_model_relations.type.I.22">Project &lt;&gt; News</label>
@@ -175,20 +239,52 @@
 			<label index="tx_academy_domain_model_relations.type.I.24">Project &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.25">Project &lt;&gt; Freetext</label>
 			<label index="tx_academy_domain_model_relations.type.I.26">Project &lt;&gt; Project</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.30">Unit &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.31">Unit &lt;&gt; Freetext</label>
 			<label index="tx_academy_domain_model_relations.type.I.32">Unit &lt;&gt; Unit</label>
 			<label index="tx_academy_domain_model_relations.type.I.33">Unit &lt;&gt; News</label>
 			<label index="tx_academy_domain_model_relations.type.I.34">Unit &lt;&gt; Event</label>
 			<label index="tx_academy_domain_model_relations.type.I.35">Unit &lt;&gt; Medium</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.40">News &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.41">News &lt;&gt; Event</label>
 			<label index="tx_academy_domain_model_relations.type.I.42">News &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.43">News &lt;&gt; News</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.50">Event &lt;&gt; Contact information</label>
 			<label index="tx_academy_domain_model_relations.type.I.51">Event &lt;&gt; Medium</label>
 			<label index="tx_academy_domain_model_relations.type.I.52">Event &lt;&gt; Event</label>
+
 			<label index="tx_academy_domain_model_relations.type.I.60">Medium &lt;&gt; Medium</label>
+
+			<label index="tx_academy_domain_model_relations.type.I.70">Product &lt;&gt; Person</label>
+			<label index="tx_academy_domain_model_relations.type.I.71">Product &lt;&gt; Project</label>
+			<label index="tx_academy_domain_model_relations.type.I.72">Product &lt;&gt; Unit</label>
+			<label index="tx_academy_domain_model_relations.type.I.73">Product &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.74">Product &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.75">Product &lt;&gt; Event</label>
+			<label index="tx_academy_domain_model_relations.type.I.76">Product &lt;&gt; Service</label>
+			<label index="tx_academy_domain_model_relations.type.I.77">Product &lt;&gt; Publication</label>
+			<label index="tx_academy_domain_model_relations.type.I.78">Product &lt;&gt; Product</label>
+
+			<label index="tx_academy_domain_model_relations.type.I.80">Service &lt;&gt; Person</label>
+			<label index="tx_academy_domain_model_relations.type.I.81">Service &lt;&gt; Project</label>
+			<label index="tx_academy_domain_model_relations.type.I.82">Service &lt;&gt; Unit</label>
+			<label index="tx_academy_domain_model_relations.type.I.83">Service &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.84">Service &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.85">Service &lt;&gt; Event</label>
+			<label index="tx_academy_domain_model_relations.type.I.86">Service &lt;&gt; Publication</label>
+			<label index="tx_academy_domain_model_relations.type.I.87">Service &lt;&gt; Service</label>
+
+			<label index="tx_academy_domain_model_relations.type.I.90">Publication &lt;&gt; Person</label>
+			<label index="tx_academy_domain_model_relations.type.I.91">Publication &lt;&gt; Project</label>
+			<label index="tx_academy_domain_model_relations.type.I.92">Publication &lt;&gt; Unit</label>
+			<label index="tx_academy_domain_model_relations.type.I.93">Publication &lt;&gt; Medium</label>
+			<label index="tx_academy_domain_model_relations.type.I.94">Publication &lt;&gt; News</label>
+			<label index="tx_academy_domain_model_relations.type.I.95">Publication &lt;&gt; Event</label>
+			<label index="tx_academy_domain_model_relations.type.I.96">Publication &lt;&gt; Publication</label>
+
 			<label index="tx_academy_domain_model_relations.role">Role</label>
 			<label index="tx_academy_domain_model_relations.role_freetext">Role (Freetext)</label>
 			<label index="tx_academy_domain_model_relations.project">Project</label>
@@ -200,6 +296,9 @@
 			<label index="tx_academy_domain_model_relations.hcard">Contact information</label>
 			<label index="tx_academy_domain_model_relations.freetext">Freetext</label>
 			<label index="tx_academy_domain_model_relations.date_range">Date range</label>
+			<label index="tx_academy_domain_model_relations.product">Product</label>
+			<label index="tx_academy_domain_model_relations.service">Service</label>
+			<label index="tx_academy_domain_model_relations.publication">Publication</label>
 
 			<label index="tx_academy_domain_model_roles">Role</label>
 			<label index="tx_academy_domain_model_roles.div1">General</label>

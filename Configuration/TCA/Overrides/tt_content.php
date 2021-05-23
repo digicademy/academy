@@ -20,3 +20,12 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_medi
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_hcards'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('academy_hcards', 'FILE:EXT:academy/Configuration/FlexForms/HcardsPlugin.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_products'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('academy_products', 'FILE:EXT:academy/Configuration/FlexForms/ProductsPlugin.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_services'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('academy_services', 'FILE:EXT:academy/Configuration/FlexForms/ServicesPlugin.xml');
+
+$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_publications'] = 'pi_flexform';
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('academy_publications', 'FILE:EXT:academy/Configuration/FlexForms/PublicationsPlugin.xml');

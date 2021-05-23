@@ -115,7 +115,7 @@ return array(
         ),
         'hidden' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => array(
                 'type' => 'check',
             ),
@@ -238,7 +238,9 @@ return array(
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim'
+                'eval' => 'trim',
+                'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
             ),
         ),
         'relations' => array(
@@ -299,6 +301,18 @@ return array(
                                     35 => [
                                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.35',
                                         '35'
+                                    ],
+                                    72 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.72',
+                                        '72'
+                                    ],
+                                    82 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.82',
+                                        '82'
+                                    ],
+                                    92 => [
+                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.92',
+                                        '92'
                                     ],
                                 ]
                             ]

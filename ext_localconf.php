@@ -82,9 +82,38 @@ if (!defined('TYPO3_MODE')) {
     )
 );
 
-// TX_NEWS HOOK
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Digicademy.' . 'academy',
+    'Products',
+    array(
+        'Products' => 'list, listBySelection, listByCategories, listByRoles, show',
+    ),
+    array(
+        'Products' => '',
+    )
+);
 
-// $GLOBALS['TYPO3_CONF_VARS']['EXT']['news']['Domain/Repository/AbstractDemandedRepository.php']['findDemanded'][] = 'Digicademy\Academy\Hooks\NewsRepository->generateQuery';
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Digicademy.' . 'academy',
+    'Services',
+    array(
+        'Services' => 'list, listBySelection, listByCategories, listByRoles, show',
+    ),
+    array(
+        'Services' => '',
+    )
+);
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'Digicademy.' . 'academy',
+    'Publications',
+    array(
+        'Publications' => 'list, listBySelection, listByCategories, listByRoles, show',
+    ),
+    array(
+        'Publications' => '',
+    )
+);
 
 // BACKEND RELATED
 

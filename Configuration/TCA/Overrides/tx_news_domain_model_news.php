@@ -81,6 +81,18 @@ $tca = array(
                                     'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.43',
                                     '43'
                                 ],
+                                74 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.74',
+                                    '74'
+                                ],
+                                84 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.84',
+                                    '84'
+                                ],
+                                94 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.94',
+                                    '94'
+                                ],
                             ]
                         ]
                     ]
@@ -143,6 +155,18 @@ $tca = array(
                                 52 => [
                                     'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.52',
                                     '52'
+                                ],
+                                75 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.75',
+                                    '75'
+                                ],
+                                85 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.85',
+                                    '85'
+                                ],
+                                95 => [
+                                    'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type.I.95',
+                                    '95'
                                 ],
                             ]
                         ]

@@ -5,7 +5,7 @@ namespace Digicademy\Academy\Utility\Backend;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2017 Torsten Schrade <Torsten.Schrade@adwmainz.de>
+ *  (c) 2021 Torsten Schrade <Torsten.Schrade@adwmainz.de>
  *
  *  All rights reserved
  *
@@ -49,77 +49,35 @@ class LabelUtility
             $role = htmlspecialchars($parameters['row']['role_freetext']);
         }
 
-        // test for IRRE context; if true, trim the field values to uids
-/*
-        if (is_array($parameters['parent'])) {
-            if ($parameters['row']['person']) {
-                $parameters['row']['person'] = preg_replace('/tx_academy_domain_model_persons_/', '',
-                    substr($parameters['row']['person'], 0, stripos($parameters['row']['person'], '|')));
-            }
-            if ($parameters['row']['person_symmetric']) {
-                $parameters['row']['person_symmetric'] = preg_replace('/tx_academy_domain_model_persons_/', '',
-                    substr($parameters['row']['person_symmetric'], 0, stripos($parameters['row']['person_symmetric'], '|')));
-            }
-            if ($parameters['row']['project']) {
-                $parameters['row']['project'] = preg_replace('/tx_academy_domain_model_projects_/', '',
-                    substr($parameters['row']['project'], 0, stripos($parameters['row']['project'], '|')));
-            }
-            if ($parameters['row']['project_symmetric']) {
-                $parameters['row']['project_symmetric'] = preg_replace('/tx_academy_domain_model_projects_/', '',
-                    substr($parameters['row']['project_symmetric'], 0, stripos($parameters['row']['project_symmetric'], '|')));
-            }
-            if ($parameters['row']['unit']) {
-                $parameters['row']['unit'] = preg_replace('/tx_academy_domain_model_units_/', '',
-                    substr($parameters['row']['unit'], 0, stripos($parameters['row']['unit'], '|')));
-            }
-            if ($parameters['row']['unit']) {
-                $parameters['row']['unit_symmetric'] = preg_replace('/tx_academy_domain_model_units_/', '',
-                    substr($parameters['row']['unit_symmetric'], 0, stripos($parameters['row']['unit_symmetric'], '|')));
-            }
-            if ($parameters['row']['hcard']) {
-                $parameters['row']['hcard'] = preg_replace('/tx_academy_domain_model_hcards_/', '',
-                    substr($parameters['row']['hcard'], 0, stripos($parameters['row']['hcard'], '|')));
-            }
-            if ($parameters['row']['news']) {
-                $parameters['row']['news'] = preg_replace('/tx_news_domain_model_news_/', '',
-                    substr($parameters['row']['news'], 0, stripos($parameters['row']['news'], '|')));
-            }
-            if ($parameters['row']['event']) {
-                $parameters['row']['event'] = preg_replace('/tx_news_domain_model_news_/', '',
-                    substr($parameters['row']['event'], 0, stripos($parameters['row']['event'], '|')));
-            }
-            if ($parameters['row']['medium']) {
-                $parameters['row']['medium'] = preg_replace('/tx_academy_domain_model_media_/', '',
-                    substr($parameters['row']['medium'], 0, stripos($parameters['row']['medium'], '|')));
-            }
-        }
-*/
         // get the records for the related objects
         ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person']) : $person = '';
-
         ($parameters['row']['person_symmetric'] > 0) ? $person_symmetric = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person_symmetric']) : $person_symmetric = '';
 
         ($parameters['row']['project'] > 0) ? $project = BackendUtility::getRecord('tx_academy_domain_model_projects', $parameters['row']['project']) : $project = '';
-
         ($parameters['row']['project_symmetric'] > 0) ? $project_symmetric = BackendUtility::getRecord('tx_academy_domain_model_projects', $parameters['row']['project_symmetric']) : $project_symmetric = '';
 
         ($parameters['row']['unit'] > 0) ? $unit = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit']) : $unit = '';
-
         ($parameters['row']['unit_symmetric'] > 0) ? $unit_symmetric = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit_symmetric']) : $unit_symmetric = '';
 
-        ($parameters['row']['hcard'] > 0) ? $hcard = BackendUtility::getRecord('tx_academy_domain_model_hcards', $parameters['row']['hcard']) : $hcard = '';
-
         ($parameters['row']['news'] > 0) ? $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news']) : $news = '';
-
         ($parameters['row']['news_symmetric'] > 0) ? $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']) : $news_symmetric = '';
 
         ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event']) : $event = '';
-
         ($parameters['row']['event_symmetric'] > 0) ? $event_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event_symmetric']) : $event_symmetric = '';
 
         ($parameters['row']['medium'] > 0) ? $medium = BackendUtility::getRecord('tx_academy_domain_model_media', $parameters['row']['medium']) : $medium = '';
-
         ($parameters['row']['medium_symmetric'] > 0) ? $medium_symmetric = BackendUtility::getRecord('tx_academy_domain_model_media', $parameters['row']['medium_symmetric']) : $medium_symmetric = '';
+
+        ($parameters['row']['product'] > 0) ? $product = BackendUtility::getRecord('tx_academy_domain_model_products', $parameters['row']['product']) : $product = '';
+        ($parameters['row']['product_symmetric'] > 0) ? $product_symmetric = BackendUtility::getRecord('tx_academy_domain_model_products', $parameters['row']['product_symmetric']) : $product_symmetric = '';
+
+        ($parameters['row']['service'] > 0) ? $service = BackendUtility::getRecord('tx_academy_domain_model_services', $parameters['row']['service']) : $service = '';
+        ($parameters['row']['service_symmetric'] > 0) ? $service_symmetric = BackendUtility::getRecord('tx_academy_domain_model_services', $parameters['row']['service_symmetric']) : $service_symmetric = '';
+
+        ($parameters['row']['publication'] > 0) ? $publication = BackendUtility::getRecord('tx_academy_domain_model_publications', $parameters['row']['publication']) : $publication = '';
+        ($parameters['row']['publication_symmetric'] > 0) ? $publication_symmetric = BackendUtility::getRecord('tx_academy_domain_model_publications', $parameters['row']['publication_symmetric']) : $publication_symmetric = '';
+
+        ($parameters['row']['hcard'] > 0) ? $hcard = BackendUtility::getRecord('tx_academy_domain_model_hcards', $parameters['row']['hcard']) : $hcard = '';
 
         $freetext = htmlspecialchars($parameters['row']['freetext']);
 
@@ -162,6 +120,24 @@ class LabelUtility
         }
         if (is_array($medium_symmetric)) {
             $mediumSymmetricLabel = $medium_symmetric['title'];
+        }
+        if (is_array($product)) {
+            $productLabel = $product['title'];
+        }
+        if (is_array($product_symmetric)) {
+            $productSymmetricLabel = $product_symmetric['title'];
+        }
+        if (is_array($service)) {
+            $serviceLabel = $service['title'];
+        }
+        if (is_array($service_symmetric)) {
+            $serviceSymmetricLabel = $service_symmetric['title'];
+        }
+        if (is_array($publication)) {
+            $publicationLabel = $publication['title'];
+        }
+        if (is_array($publication_symmetric)) {
+            $publicationSymmetricLabel = $publication_symmetric['title'];
         }
 
         // in list view field type is string, in inline and record view field type is array (due to select type of field)
@@ -268,6 +244,79 @@ class LabelUtility
                 break;
             case 60:
                 ($role) ? $parameters['title'] = $roleAndSeparator . $mediumLabel . ', ' . $mediumSymmetricLabel : $parameters['title'] = $mediumLabel . ', ' . $mediumSymmetricLabel;
+                break;
+
+            case 70:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $personLabel : $parameters['title'] = $productLabel . ', ' . $personLabel;
+                break;
+            case 71:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $projectLabel : $parameters['title'] = $productLabel . ', ' . $projectLabel;
+                break;
+            case 72:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $unitLabel : $parameters['title'] = $productLabel . ', ' . $unitLabel;
+                break;
+            case 73:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $mediumLabel : $parameters['title'] = $productLabel . ', ' . $mediumLabel;
+                break;
+            case 74:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $newsLabel : $parameters['title'] = $productLabel . ', ' . $newsLabel;
+                break;
+            case 75:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $eventLabel : $parameters['title'] = $productLabel . ', ' . $eventLabel;
+                break;
+            case 76:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $serviceLabel : $parameters['title'] = $productLabel . ', ' . $serviceLabel;
+                break;
+            case 77:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $publicationLabel : $parameters['title'] = $productLabel . ', ' . $publicationLabel;
+                break;
+            case 78:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $productLabel . ', ' . $productSymmetricLabel : $parameters['title'] = $productLabel . ', ' . $productSymmetricLabel;
+                break;
+            case 80:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $personLabel : $parameters['title'] = $serviceLabel . ', ' . $personLabel;
+                break;
+            case 81:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $projectLabel : $parameters['title'] = $serviceLabel . ', ' . $projectLabel;
+                break;
+            case 82:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $unitLabel : $parameters['title'] = $serviceLabel . ', ' . $unitLabel;
+                break;
+            case 83:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $mediumLabel : $parameters['title'] = $serviceLabel . ', ' . $mediumLabel;
+                break;
+            case 84:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $newsLabel : $parameters['title'] = $serviceLabel . ', ' . $newsLabel;
+                break;
+            case 85:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $eventLabel : $parameters['title'] = $serviceLabel . ', ' . $eventLabel;
+                break;
+            case 86:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $publicationLabel : $parameters['title'] = $serviceLabel . ', ' . $publicationLabel;
+                break;
+            case 87:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $serviceLabel . ', ' . $serviceSymmetricLabel : $parameters['title'] = $serviceLabel . ', ' . $serviceSymmetricLabel;
+                break;
+            case 90:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $personLabel : $parameters['title'] = $publicationLabel . ', ' . $personLabel;
+                break;
+            case 91:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $projectLabel : $parameters['title'] = $publicationLabel . ', ' . $projectLabel;
+                break;
+            case 92:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $unitLabel : $parameters['title'] = $publicationLabel . ', ' . $unitLabel;
+                break;
+            case 93:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $mediumLabel : $parameters['title'] = $publicationLabel . ', ' . $mediumLabel;
+                break;
+            case 94:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $newsLabel : $parameters['title'] = $publicationLabel . ', ' . $newsLabel;
+                break;
+            case 95:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $eventLabel : $parameters['title'] = $publicationLabel . ', ' . $eventLabel;
+                break;
+            case 96:
+                ($role) ? $parameters['title'] = $roleAndSeparator . $publicationLabel . ', ' . $publicationSymmetricLabel : $parameters['title'] = $publicationLabel . ', ' . $publicationSymmetricLabel;
                 break;
         }
 

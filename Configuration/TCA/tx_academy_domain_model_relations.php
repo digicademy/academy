@@ -53,6 +53,12 @@ return array(
             news_symmetric, 
             unit, 
             unit_symmetric,
+            product, 
+            product_symmetric,
+            service, 
+            service_symmetric,
+            publication, 
+            publication_symmetric,
             hcard, 
             freetext, 
             sorting,
@@ -60,7 +66,9 @@ return array(
         ',
     ),
     'types' => array(
+
         '0' => array('showitem' => 'type'),
+
         '10' => array('showitem' => 'type,person,hcard,date_range'),
         '11' => array('showitem' => 'type,role,role_freetext,person,project,date_range'),
         '12' => array('showitem' => 'type,role,role_freetext,person,unit,date_range'),
@@ -68,6 +76,7 @@ return array(
         '14' => array('showitem' => 'type,role,role_freetext,person,news,date_range'),
         '15' => array('showitem' => 'type,role,role_freetext,person,medium,date_range'),
         '16' => array('showitem' => 'type,role,role_freetext,person,person_symmetric,date_range'),
+
         '20' => array('showitem' => 'type,role,role_freetext,project,hcard,date_range'),
         '21' => array('showitem' => 'type,role,role_freetext,project,unit,date_range'),
         '22' => array('showitem' => 'type,role,role_freetext,project,news,date_range'),
@@ -75,20 +84,51 @@ return array(
         '24' => array('showitem' => 'type,role,role_freetext,project,medium,date_range'),
         '25' => array('showitem' => 'type,role_freetext,project,freetext,date_range'),
         '26' => array('showitem' => 'type,role,role_freetext,project,project_symmetric,date_range'),
+
         '30' => array('showitem' => 'type,unit,hcard,date_range'),
         '31' => array('showitem' => 'type,role,role_freetext,unit,freetext,date_range'),
         '32' => array('showitem' => 'type,role,unit,unit_symmetric,date_range'),
         '33' => array('showitem' => 'type,role,unit,news,date_range'),
         '34' => array('showitem' => 'type,role,unit,event,date_range'),
         '35' => array('showitem' => 'type,role,unit,medium,date_range'),
+
         '40' => array('showitem' => 'type,news,hcard,date_range'),
         '41' => array('showitem' => 'type,news,event,date_range'),
         '42' => array('showitem' => 'type,news,medium,date_range'),
         '43' => array('showitem' => 'type,news,news_symmetric,date_range'),
+
         '50' => array('showitem' => 'type,event,hcard,date_range'),
         '51' => array('showitem' => 'type,event,medium,date_range'),
         '52' => array('showitem' => 'type,event,event_symmetric,date_range'),
+
         '60' => array('showitem' => 'type,medium,medium_symmetric,date_range'),
+
+        '70' => array('showitem' => 'type,role,role_freetext,person,product,date_range'),
+        '71' => array('showitem' => 'type,role,role_freetext,project,product,date_range'),
+        '72' => array('showitem' => 'type,role,role_freetext,unit,product,date_range'),
+        '73' => array('showitem' => 'type,role,role_freetext,medium,product,date_range'),
+        '74' => array('showitem' => 'type,role,role_freetext,news,product,date_range'),
+        '75' => array('showitem' => 'type,role,role_freetext,event,product,date_range'),
+        '76' => array('showitem' => 'type,role,role_freetext,service,product,date_range'),
+        '77' => array('showitem' => 'type,role,role_freetext,publication,product,date_range'),
+        '78' => array('showitem' => 'type,role,role_freetext,product,product_symmetric,date_range'),
+
+        '80' => array('showitem' => 'type,role,role_freetext,person,service,date_range'),
+        '81' => array('showitem' => 'type,role,role_freetext,project,service,date_range'),
+        '82' => array('showitem' => 'type,role,role_freetext,unit,service,date_range'),
+        '83' => array('showitem' => 'type,role,role_freetext,medium,service,date_range'),
+        '84' => array('showitem' => 'type,role,role_freetext,news,service,date_range'),
+        '85' => array('showitem' => 'type,role,role_freetext,event,service,date_range'),
+        '86' => array('showitem' => 'type,role,role_freetext,publication,service,date_range'),
+        '87' => array('showitem' => 'type,role,role_freetext,service,service_symmetric,date_range'),
+
+        '90' => array('showitem' => 'type,role,role_freetext,person,publication,date_range'),
+        '91' => array('showitem' => 'type,role,role_freetext,project,publication,date_range'),
+        '92' => array('showitem' => 'type,role,role_freetext,unit,publication,date_range'),
+        '93' => array('showitem' => 'type,role,role_freetext,medium,publication,date_range'),
+        '94' => array('showitem' => 'type,role,role_freetext,news,publication,date_range'),
+        '95' => array('showitem' => 'type,role,role_freetext,event,publication,date_range'),
+        '96' => array('showitem' => 'type,role,role_freetext,publication,publication_symmetric,date_range'),
     ),
     'palettes' => array(
         '1' => array('showitem' => ''),
@@ -139,7 +179,7 @@ return array(
         ),
         'hidden' => array(
             'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.hidden',
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.visible',
             'config' => array(
                 'type' => 'check',
             ),
@@ -214,38 +254,6 @@ return array(
                 ),
                 'minitems' => 0,
                 'maxitems' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_roles',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'role_freetext' => array(
@@ -292,38 +300,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_projects',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_projects',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'project_symmetric' => array(
@@ -336,38 +312,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_projects',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_projects',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'event' => array(
@@ -380,38 +324,6 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_news_domain_model_news',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'event_symmetric' => array(
@@ -424,38 +336,6 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_news_domain_model_news',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'person' => array(
@@ -468,38 +348,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_persons',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_persons',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'person_symmetric' => array(
@@ -512,38 +360,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_persons',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_persons',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'medium' => array(
@@ -556,38 +372,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_media',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_media',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'medium_symmetric' => array(
@@ -600,38 +384,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_media',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_media',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'news' => array(
@@ -644,38 +396,6 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_news_domain_model_news',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'news_symmetric' => array(
@@ -688,38 +408,6 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_news_domain_model_news',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'unit' => array(
@@ -732,38 +420,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_units',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_units',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'unit_symmetric' => array(
@@ -776,38 +432,78 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_units',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_units',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
+            ),
+        ),
+        'product' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.product',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_products',
+                'foreign_table' => 'tx_academy_domain_model_products',
+                'maxitems' => 1,
+                'size' => 1,
+            ),
+        ),
+        'product_symmetric' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.product_symmetric',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_products',
+                'foreign_table' => 'tx_academy_domain_model_products',
+                'maxitems' => 1,
+                'size' => 1,
+            ),
+        ),
+        'service' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.service',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_services',
+                'foreign_table' => 'tx_academy_domain_model_services',
+                'maxitems' => 1,
+                'size' => 1,
+            ),
+        ),
+        'service_symmetric' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.service_symmetric',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_services',
+                'foreign_table' => 'tx_academy_domain_model_services',
+                'maxitems' => 1,
+                'size' => 1,
+            ),
+        ),
+        'publication' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.publication',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_publications',
+                'foreign_table' => 'tx_academy_domain_model_publications',
+                'maxitems' => 1,
+                'size' => 1,
+            ),
+        ),
+        'publication_symmetric' => array(
+            'exclude' => 0,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.publication_symmetric',
+            'config' => array(
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_publications',
+                'foreign_table' => 'tx_academy_domain_model_publications',
+                'maxitems' => 1,
+                'size' => 1,
             ),
         ),
         'hcard' => array(
@@ -820,38 +516,6 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_hcards',
                 'maxitems' => 1,
                 'size' => 1,
-                'wizards' => array(
-                    'suggest' => array(
-                        'type' => 'suggest',
-                        'default' => array(
-                            'pidList' => '###PLACEHOLDER###',
-                        ),
-                    ),
-                    'add' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=550,width=780,status=0,menubar=0,scrollbars=1',
-                        'module' => array(
-                            'name' => 'wizard_add',
-                        ),
-                        'title' => 'Create new record',
-                        'icon' => 'actions-add',
-                        'params' => array(
-                            'table' => 'tx_academy_domain_model_hcards',
-                            'pid' => '###PAGE_TSCONFIG_ID###',
-                            'setValue' => 'prepend'
-                        ),
-                    ),
-                    'edit' => array(
-                        'type' => 'popup',
-                        'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
-                        'popup_onlyOpenIfSelected' => 1,
-                        'module' => array(
-                            'name' => 'wizard_edit',
-                        ),
-                        'title' => 'Edit',
-                        'icon' => 'actions-open',
-                    ),
-                ),
             ),
         ),
         'freetext' => array(
