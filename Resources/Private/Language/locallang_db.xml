@@ -58,6 +58,36 @@
 			<label index="hcardsPlugin.switchableControllerActions.listBySelection">List of selected contacts</label>
 			<label index="hcardsPlugin.selectedHcards">Choose contacts</label>
 
+			<label index="productsPlugin.switchableControllerActions">Display</label>
+			<label index="productsPlugin.switchableControllerActions.show">Product detail view</label>
+			<label index="productsPlugin.switchableControllerActions.list">List of all products</label>
+			<label index="productsPlugin.switchableControllerActions.listByCategories">List of products with selected categories</label>
+			<label index="productsPlugin.switchableControllerActions.listByRoles">List of products with selected roles</label>
+			<label index="productsPlugin.switchableControllerActions.listBySelection">List of selected products</label>
+			<label index="productsPlugin.selectedUnits">Choose products</label>
+			<label index="productsPlugin.selectedCategories">Choose categories</label>
+			<label index="productsPlugin.selectedRoles">Choose roles</label>
+
+			<label index="servicesPlugin.switchableControllerActions">Display</label>
+			<label index="servicesPlugin.switchableControllerActions.show">Service detail view</label>
+			<label index="servicesPlugin.switchableControllerActions.list">List of all services</label>
+			<label index="servicesPlugin.switchableControllerActions.listByCategories">List of services with selected categories</label>
+			<label index="servicesPlugin.switchableControllerActions.listByRoles">List of services with selected roles</label>
+			<label index="servicesPlugin.switchableControllerActions.listBySelection">List of selected services</label>
+			<label index="servicesPlugin.selectedUnits">Choose service</label>
+			<label index="servicesPlugin.selectedCategories">Choose categories</label>
+			<label index="servicesPlugin.selectedRoles">Choose roles</label>
+
+			<label index="publicationsPlugin.switchableControllerActions">Display</label>
+			<label index="publicationsPlugin.switchableControllerActions.show">Publication detail view</label>
+			<label index="publicationsPlugin.switchableControllerActions.list">List of all publications</label>
+			<label index="publicationsPlugin.switchableControllerActions.listByCategories">List of publications with selected categories</label>
+			<label index="publicationsPlugin.switchableControllerActions.listByRoles">List of publications with selected roles</label>
+			<label index="publicationsPlugin.switchableControllerActions.listBySelection">List of selected publications</label>
+			<label index="publicationsPlugin.selectedUnits">Choose publications</label>
+			<label index="publicationsPlugin.selectedCategories">Choose categories</label>
+			<label index="publicationsPlugin.selectedRoles">Choose roles</label>
+
 			<label index="tx_academy_domain_model_projects">Projects</label>
 			<label index="tx_academy_domain_model_projects.div1">General</label>
 			<label index="tx_academy_domain_model_projects.div2">Description</label>

@@ -1,0 +1,116 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:plugin.sheet.general</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+					<switchableControllerActions>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions</label>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions.list</numIndex>
+										<numIndex index="1">Services->list;Services->show</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions.listBySelection</numIndex>
+										<numIndex index="1">Services->listBySelection;Services->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions.listByCategories</numIndex>
+										<numIndex index="1">Services->listByCategories;Services->show</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions.listByRoles</numIndex>
+										<numIndex index="1">Services->listByRoles;Services->show</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.switchableControllerActions.show</numIndex>
+										<numIndex index="1">Services->show</numIndex>
+									</numIndex>
+								</items>
+							</config>
+							<onChange>reload</onChange>
+						</TCEforms>
+					</switchableControllerActions>
+
+					<settings.selectedUnits>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.selectedUnits</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_services</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond>
+								<or>
+									<value1><![CDATA[FIELD:switchableControllerActions:=:Services->listBySelection;Services->show]]></value1>
+									<value2><![CDATA[FIELD:switchableControllerActions:=:Services->show]]></value2>
+								</or>
+								</displayCond>
+						</TCEforms>
+					</settings.selectedUnits>
+
+					<settings.selectedCategories>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.selectedCategories</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>sys_category</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Services->listByCategories;Services->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedCategories>
+
+					<settings.selectedRoles>
+						<TCEforms>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:servicesPlugin.selectedRoles</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>tx_academy_domain_model_roles</allowed>
+								<size>10</size>
+								<maxitems>9999</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>1</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+									</suggest>
+								</wizards>
+							</config>
+							<displayCond><![CDATA[FIELD:switchableControllerActions:=:Services->listByRoles;Services->show]]></displayCond>
+						</TCEforms>
+					</settings.selectedRoles>
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure> 
