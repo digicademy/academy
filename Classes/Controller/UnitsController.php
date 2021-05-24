@@ -60,6 +60,7 @@ class UnitsController extends ActionController
      * Initializes the current action
      *
      * @return void
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
      */
     public function initializeAction()
     {

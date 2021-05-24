@@ -72,6 +72,17 @@ class PersonsController extends ActionController
     /**
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
      */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $persons = $this->personsRepository->findBySelection($this->settings['selectedPersons']);
+        $this->view->assign('persons', $persons);
+    }
+
+    /**
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
     public function listByRoleAction()
     {
         $persons = $this->personsRepository->findByRole($this->settings['selectedRole']);
