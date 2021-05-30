@@ -49,6 +49,8 @@ class LabelUtility
             $role = htmlspecialchars($parameters['row']['role_freetext']);
         }
 
+#\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($parameters['row'], NULL, 5, FALSE, TRUE, FALSE, array(), array());
+
         // get the records for the related objects
         ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person']) : $person = '';
         ($parameters['row']['person_symmetric'] > 0) ? $person_symmetric = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person_symmetric']) : $person_symmetric = '';
@@ -144,7 +146,11 @@ class LabelUtility
         (is_array($parameters['row']['type'])) ? $type = (int)$parameters['row']['type'][0] : $type = (int)$parameters['row']['type'];
 
         $separator = ': ';
-        $roleAndSeparator = $role . $separator;
+        if ($role) {
+            $roleAndSeparator = $role . $separator;
+        } else {
+            $roleAndSeparator = '';
+        }
         $contactInformationLabelWithSeparator = $contactInformationLabel . $separator;
 
         // switch the context in which the label appears
@@ -167,7 +173,7 @@ class LabelUtility
                 } elseif ($parameters['parent']['config']['foreign_label'] == 'persons') {
                     $parameters['title'] = $roleAndSeparator . $unitLabel;
                 } else {
-                    $parameters['title'] = $roleAndSeparator . $personLabel . ' (' . $unitLabel . ')';
+                    $parameters['title'] = $roleAndSeparator . $personLabel . ', ' . $unitLabel;
                 }
                 break;
             case 13:

@@ -87,19 +87,19 @@ return array(
                 'default' => 0,
             ]
         ],
-        'l10n_parent' => array(
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
-                'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
-                'foreign_table' => 'tx_academy_domain_model_units',
-                'foreign_table_where' => 'AND tx_academy_domain_model_units.pid=###CURRENT_PID### AND tx_academy_domain_model_units.sys_language_uid IN (-1,0)',
-            ),
-        ),
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_units',
+                'size' => 1,
+                'maxitems' => 1,
+                'minitems' => 0,
+                'default' => 0,
+            ],
+        ],
         'l10n_diffsource' => array(
             'config' => array(
                 'type' => 'passthrough',
@@ -246,6 +246,8 @@ return array(
         'relations' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_units.relations',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'inline',
                 'foreign_table' => 'tx_academy_domain_model_relations',
@@ -256,14 +258,13 @@ return array(
                 'maxitems' => 9999,
                 'behaviour' => array(
                     'disableMovingChildrenWithParent' => 1,
+//                    'allowLanguageSynchronization' => true,
                 ),
                 'appearance' => array(
                     'collapseAll' => 1,
                     'expandSingle' => 1,
+                    'useSortable' => true,
                     'levelLinksPosition' => 'bottom',
-                    'showSynchronizationLink' => 1,
-                    'showPossibleLocalizationRecords' => 1,
-                    'showAllLocalizationLink' => 1,
                 ),
                 'overrideChildTca' => [
                     'columns' => [
@@ -316,7 +317,7 @@ return array(
                                     ],
                                 ]
                             ]
-                        ]
+                        ],
                     ],
                 ],
             ),

@@ -41,7 +41,8 @@ CREATE TABLE tx_academy_domain_model_projects (
 
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
-	l10n_diffsource mediumblob NOT NULL,
+	l10n_diffsource mediumtext,
+	l10n_source int(11) DEFAULT '0' NOT NULL,
 
 	PRIMARY KEY (uid),
 	KEY pid (pid),

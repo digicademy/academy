@@ -151,19 +151,19 @@ return array(
                 'default' => 0,
             ]
         ],
-        'l10n_parent' => array(
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'exclude' => 1,
-            'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
-                'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
-                'foreign_table' => 'tx_academy_domain_model_relations',
-                'foreign_table_where' => 'AND tx_academy_domain_model_relations.pid=###CURRENT_PID### AND tx_academy_domain_model_relations.sys_language_uid IN (-1,0)',
-            ),
-        ),
+            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l10n_parent',
+            'config' => [
+                'type' => 'group',
+                'internal_type' => 'db',
+                'allowed' => 'tx_academy_domain_model_relations',
+                'size' => 1,
+                'maxitems' => 1,
+                'minitems' => 0,
+                'default' => 0,
+            ],
+        ],
         'l10n_diffsource' => array(
             'config' => array(
                 'type' => 'passthrough',
@@ -232,6 +232,8 @@ return array(
         'type' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.type',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
@@ -244,11 +246,13 @@ return array(
         'role' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.role',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'tx_academy_domain_model_roles',
-                'foreign_table_where' => 'AND tx_academy_domain_model_roles.pid IN (###PAGE_TSCONFIG_IDLIST###)AND tx_academy_domain_model_roles.sys_language_uid IN (-1,###REC_FIELD_sys_language_uid###) ORDER BY tx_academy_domain_model_roles.title',
+//                'foreign_table_where' => 'AND tx_academy_domain_model_roles.pid IN (#) AND tx_academy_domain_model_roles.sys_language_uid IN (-1,###REC_FIELD_sys_language_uid###) ORDER BY tx_academy_domain_model_roles.title',
                 'items' => array(
                     array('', 0),
                 ),
@@ -268,6 +272,8 @@ return array(
         'date_range' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_relations.date_range',
+            'l10n_mode' => 'exclude',
+            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'inline',
                 'foreign_table' => 'tx_chftime_domain_model_dateranges',
@@ -284,15 +290,14 @@ return array(
                     'newRecordLinkAddTitle' => 1,
                     'newRecordLinkPosition' => 'bottom',
                     'levelLinksPosition' => 'bottom',
-                    'showSynchronizationLink' => 1,
-                    'showPossibleLocalizationRecords' => 1,
-                    'showAllLocalizationLink' => 1
                 ),
             ),
         ),
         'project' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.project',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -300,11 +305,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_projects',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'project_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.project',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -312,11 +322,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_projects',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'event' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.event',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -324,11 +339,16 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'event_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.event',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -336,11 +356,16 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'person' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.person',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -348,11 +373,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_persons',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'person_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.person',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -360,11 +390,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_persons',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'medium' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.medium',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -372,11 +407,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_media',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'medium_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.medium',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -384,11 +424,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_media',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'news' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.news',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -396,11 +441,16 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'news_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.news',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -408,11 +458,16 @@ return array(
                 'foreign_table' => 'tx_news_domain_model_news',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'unit' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.unit',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -420,11 +475,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_units',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'unit_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.unit',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -432,11 +492,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_units',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'product' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.product',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -444,11 +509,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_products',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'product_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.product_symmetric',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -456,11 +526,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_products',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'service' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.service',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -468,11 +543,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_services',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'service_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.service_symmetric',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -480,11 +560,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_services',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'publication' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.publication',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -492,11 +577,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_publications',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'publication_symmetric' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.publication_symmetric',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -504,11 +594,16 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_publications',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'hcard' => array(
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_relations.hcard',
+//            'l10n_mode' => 'exclude',
+//            'l10n_display' => 'defaultAsReadonly',
             'config' => array(
                 'type' => 'group',
                 'internal_type' => 'db',
@@ -516,6 +611,9 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_hcards',
                 'maxitems' => 1,
                 'size' => 1,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
             ),
         ),
         'freetext' => array(

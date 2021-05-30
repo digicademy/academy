@@ -282,6 +282,8 @@ return array(
         'relations' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_services.relations',
+            'l10n_display' => 'defaultAsReadonly',
+            'l10n_mode' => 'exclude',
             'config' => array(
                 'type' => 'inline',
                 'foreign_table' => 'tx_academy_domain_model_relations',
@@ -292,14 +294,13 @@ return array(
                 'maxitems' => 9999,
                 'behaviour' => array(
                     'disableMovingChildrenWithParent' => 1,
+//                    'allowLanguageSynchronization' => true,
                 ),
                 'appearance' => array(
                     'collapseAll' => 1,
                     'expandSingle' => 1,
+                    'useSortable' => true,
                     'levelLinksPosition' => 'bottom',
-                    'showSynchronizationLink' => 1,
-                    'showPossibleLocalizationRecords' => 1,
-                    'showAllLocalizationLink' => 1
                 ),
                 'overrideChildTca' => [
                     'columns' => [
