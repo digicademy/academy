@@ -97,6 +97,17 @@ class UnitsController extends ActionController
     }
 
     /**
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $units = $this->unitsRepository->findBySelection($this->settings['selectedUnits']);
+        $this->view->assign('units', $units);
+    }
+
+    /**
      * Displays a unit by uid
      *
      * @param \Digicademy\Academy\Domain\Model\Units $unit
