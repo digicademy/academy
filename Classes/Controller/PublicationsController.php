@@ -98,6 +98,17 @@ class PublicationsController extends ActionController
     }
 
     /**
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $publications = $this->publicationsRepository->findBySelection($this->settings['selectedPublications']);
+        $this->view->assign('publications', $publications);
+    }
+
+    /**
      * Displays a publication by uid
      *
      * @param \Digicademy\Academy\Domain\Model\Publications $publication

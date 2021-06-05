@@ -308,7 +308,7 @@ return array(
                 'foreign_table' => 'tx_academy_domain_model_relations',
                 'foreign_field' => 'medium',
                 'foreign_sortby' => 'sorting',
-                'symmetric_field' => 'media_symmetric',
+                'symmetric_field' => 'medium_symmetric',
                 'symmetric_sortby' => 'sorting_symmetric',
                 'maxitems' => 9999,
                 'behaviour' => array(

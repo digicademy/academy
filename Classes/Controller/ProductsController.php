@@ -98,6 +98,17 @@ class ProductsController extends ActionController
     }
 
     /**
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $products = $this->productsRepository->findBySelection($this->settings['selectedProducts']);
+        $this->view->assign('products', $products);
+    }
+
+    /**
      * Displays a product by uid
      *
      * @param \Digicademy\Academy\Domain\Model\Products $product

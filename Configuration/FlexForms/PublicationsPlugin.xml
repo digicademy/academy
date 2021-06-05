@@ -41,9 +41,9 @@
 						</TCEforms>
 					</switchableControllerActions>
 
-					<settings.selectedUnits>
+					<settings.selectedPublications>
 						<TCEforms>
-							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:publicationsPlugin.selectedUnits</label>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:publicationsPlugin.selectedPublications</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -65,7 +65,7 @@
 								</or>
 								</displayCond>
 						</TCEforms>
-					</settings.selectedUnits>
+					</settings.selectedPublications>
 
 					<settings.selectedCategories>
 						<TCEforms>

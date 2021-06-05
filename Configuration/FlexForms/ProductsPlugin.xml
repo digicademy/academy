@@ -41,9 +41,9 @@
 						</TCEforms>
 					</switchableControllerActions>
 
-					<settings.selectedUnits>
+					<settings.selectedProducts>
 						<TCEforms>
-							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:productsPlugin.selectedUnits</label>
+							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:productsPlugin.selectedProducts</label>
 							<config>
 								<type>group</type>
 								<internal_type>db</internal_type>
@@ -65,7 +65,7 @@
 								</or>
 								</displayCond>
 						</TCEforms>
-					</settings.selectedUnits>
+					</settings.selectedProducts>
 
 					<settings.selectedCategories>
 						<TCEforms>
