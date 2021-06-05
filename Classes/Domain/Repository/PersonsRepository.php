@@ -31,10 +31,9 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 class PersonsRepository extends CommonRepository
 {
-
     protected $defaultOrderings = array(
+        'sorting' => QueryInterface::ORDER_ASCENDING,
         'familyName' => QueryInterface::ORDER_ASCENDING,
         'givenName' => QueryInterface::ORDER_ASCENDING
     );
-
 }

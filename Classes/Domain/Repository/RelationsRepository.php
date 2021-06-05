@@ -31,7 +31,6 @@ use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 
 class RelationsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
 {
-
     protected $defaultOrderings = array(
         'type' => QueryInterface::ORDER_ASCENDING,
         'role' => QueryInterface::ORDER_ASCENDING,

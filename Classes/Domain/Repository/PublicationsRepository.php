@@ -30,7 +30,8 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 class PublicationsRepository extends CommonRepository
 {
-
-    protected $defaultOrderings = array('title' => QueryInterface::ORDER_ASCENDING);
-
+    protected $defaultOrderings = array(
+        'sorting' => QueryInterface::ORDER_ASCENDING,
+        'title' => QueryInterface::ORDER_ASCENDING
+    );
 }

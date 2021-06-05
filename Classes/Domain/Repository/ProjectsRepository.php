@@ -30,10 +30,8 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 class ProjectsRepository extends CommonRepository
 {
-
     protected $defaultOrderings = array(
         'sorting' => QueryInterface::ORDER_ASCENDING,
         'title' => QueryInterface::ORDER_ASCENDING
     );
-
 }
