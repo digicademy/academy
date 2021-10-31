@@ -64,10 +64,10 @@ if (!defined('TYPO3_MODE')) {
     'Digicademy.' . 'academy',
     'Search',
     array(
-        'Search' => 'searchAll, searchSingle, searchForm',
+        'Search' => 'searchForm, searchAll, searchSingle',
     ),
     array(
-        'Search' => 'searchAll, searchSingle, searchForm',
+        'Search' => 'searchForm, searchAll, searchSingle',
     )
 );
 
