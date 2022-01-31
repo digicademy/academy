@@ -30,5 +30,10 @@
     "psr-4": {
       "Digicademy\\Academy\\": "Classes/"
     }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "academy"
+    }
   }
 }
