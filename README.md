@@ -26,7 +26,9 @@ Author (2011-2022): <a href="https://orcid.org/0000-0002-0953-2818">Torsten Schr
 
 List of contributors (ideas and codewise): 
 
+* [Aline Deicke](https://github.com/orgs/digicademy/people/alinedeicke)
+* [Anna Neovesky](https://github.com/annaneo)
 * [Frederic von Vlahovits](https://github.com/vonvlaho)
-* [Sebastian Lange](https://github.com/Slange-Mhath)
-* [Julius Peinelt](https://github.com/jpeinelt)
 * [Frodo Podschwadek](https://github.com/fpodschwadek)
+* [Julius Peinelt](https://github.com/jpeinelt)
+* [Sebastian Lange](https://github.com/Slange-Mhath)
