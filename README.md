@@ -2,7 +2,7 @@
 
 ## About
 
-The "Academy" extension implements a framework for creating Current Research Information Systems (CRIS) with TYPO3. At its core it features a data model closely aligned to the [CERIF standard])(https://eurocris.org/eurocris_archive/cerifsupport.org/cerif-in-brief/index.html) and the [OpenAIRE Guidelines for CRIS Managers](https://openaire-guidelines-for-cris-managers.readthedocs.io/en/v1.1.1/). The extension can be used as a foundation for creating web based research information portals and databases with projects, persons, organizations, research products, news, events etc.
+The "Academy" extension implements a framework for creating Current Research Information Systems (CRIS) with TYPO3. At its core it features a data model closely aligned to the [CERIF standard](https://eurocris.org/eurocris_archive/cerifsupport.org/cerif-in-brief/index.html) and the [OpenAIRE Guidelines for CRIS Managers](https://openaire-guidelines-for-cris-managers.readthedocs.io/en/v1.1.1/). The extension can be used as a foundation for creating web based research information portals and databases with projects, persons, organizations, research products, news, events etc.
 
 The extension has been in development by @digicademy since 2011 and is actively used as a basis for several CRIS projects of the Academy of Sciences and Literature | Mainz in cooperation with many partners:
 
