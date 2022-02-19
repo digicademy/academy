@@ -49,8 +49,6 @@ class LabelUtility
             $role = htmlspecialchars($parameters['row']['role_freetext']);
         }
 
-#\TYPO3\CMS\Extbase\Utility\DebuggerUtility::var_dump($parameters['row'], NULL, 5, FALSE, TRUE, FALSE, array(), array());
-
         // get the records for the related objects
         ($parameters['row']['person'] > 0) ? $person = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person']) : $person = '';
         ($parameters['row']['person_symmetric'] > 0) ? $person_symmetric = BackendUtility::getRecord('tx_academy_domain_model_persons', $parameters['row']['person_symmetric']) : $person_symmetric = '';
@@ -61,8 +59,8 @@ class LabelUtility
         ($parameters['row']['unit'] > 0) ? $unit = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit']) : $unit = '';
         ($parameters['row']['unit_symmetric'] > 0) ? $unit_symmetric = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit_symmetric']) : $unit_symmetric = '';
 
-        ($parameters['row']['news'] > 0) ? $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news']) : $news = '';
-        ($parameters['row']['news_symmetric'] > 0) ? $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']) : $news_symmetric = '';
+        (is_array($parameters['row']['news'])) ? $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news'][0]['uid']) : $news = '';
+        (is_array($parameters['row']['news_symmetric'])) ? $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric'][0]['uid']) : $news_symmetric = '';
 
         ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event']) : $event = '';
         ($parameters['row']['event_symmetric'] > 0) ? $event_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event_symmetric']) : $event_symmetric = '';
