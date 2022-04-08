@@ -1,7 +1,5 @@
 BEGIN:VCALENDAR
 
-    {namespace n=Tx_News_ViewHelpers}
-
     VERSION:2.0
     PRODID:-//XYZ Corp//My Product//EN
 
