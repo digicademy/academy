@@ -98,6 +98,17 @@ class ServicesController extends ActionController
     }
 
     /**
+     * @throws \TYPO3\CMS\Extbase\Mvc\Exception\StopActionException
+     */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $services = $this->servicesRepository->findBySelection($this->settings['selectedServices']);
+        $this->view->assign('services', $services);
+    }
+
+    /**
      * Displays a service by uid
      *
      * @param \Digicademy\Academy\Domain\Model\Services $service
