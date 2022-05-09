@@ -1,7 +1,4 @@
-BEGIN:VCALENDAR<e:format.trim replaceDoubleSpaces="FALSE">
-
-    {namespace n=Tx_News_ViewHelpers}
-    {namespace e=Tx_RoqNewsevent_ViewHelpers}
+BEGIN:VCALENDAR
 
     VERSION:2.0
     PRODID:-//XYZ Corp//My Product//EN
@@ -13,4 +10,4 @@ BEGIN:VCALENDAR<e:format.trim replaceDoubleSpaces="FALSE">
 
         </f:for>
     </f:if>
-END:VCALENDAR</e:format.trim>
+END:VCALENDAR

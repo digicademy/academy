@@ -1,0 +1,8 @@
+BEGIN:VCALENDAR
+
+    VERSION:2.0
+    PRODID:-//XYZ Corp//My Product//EN
+
+    <f:render partial="Events/Item" arguments="{newsItem: newsItem, settings: settings}"/>
+
+END:VCALENDAR
