@@ -1,9 +1,10 @@
 <f:variable name="dateTimeFormat" value="Ymd\THis\Z"/>
 BEGIN:VEVENT
+UID:<f:format.date format="{dateTimeFormat}">{newsItem.datetime}</f:format.date>-{newsItem.uid}-{newsItem.pathSegment}
 SUMMARY:{newsItem.title}
 DESCRIPTION:{newsItem.teaser}
 DTSTAMP:<f:format.date format="{dateTimeFormat}">{newsItem.datetime}</f:format.date>
-DTSTART:<f:format.date format="{dateTimeFormat}">{newsItem.datetime}</f:format.date>
-<f:if condition="{newsItem.eventEnd}"><f:then>DTEND:<f:format.date format="{dateTimeFormat}">{newsItem.eventEnd}</f:format.date></f:then></f:if>
-<f:if condition="{newsItem.location}">LOCATION:{newsItem.location}</f:if>
+DTSTART:<f:format.date format="{dateTimeFormat}">{newsItem.datetime}</f:format.date><f:if condition="{newsItem.eventEnd}"><f:then><f:format.raw>
+DTEND:<f:format.date format="{dateTimeFormat}">{newsItem.eventEnd}</f:format.date></f:format.raw></f:then></f:if><f:if condition="{newsItem.location}"><f:format.raw>
+LOCATION:{newsItem.location}</f:format.raw></f:if>
 END:VEVENT

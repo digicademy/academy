@@ -1,13 +1,7 @@
 BEGIN:VCALENDAR
-
-    VERSION:2.0
-    PRODID:-//XYZ Corp//My Product//EN
-
-    <f:if condition="{news}">
-        <f:for each="{news}" as="newsItem">
-
-           <f:render partial="Events/Item" arguments="{newsItem: newsItem, settings: settings}"/>
-
-        </f:for>
-    </f:if>
-END:VCALENDAR
+VERSION:2.0
+PRODID:-//XYZ Corp//My Product//EN<f:if condition="{news}">
+    <f:for each="{news}" as="newsItem">
+       <f:render partial="Events/Item" arguments="{newsItem: newsItem, settings: settings}"/>
+    </f:for>
+</f:if>END:VCALENDAR
