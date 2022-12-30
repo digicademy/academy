@@ -59,8 +59,17 @@ class LabelUtility
         ($parameters['row']['unit'] > 0) ? $unit = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit']) : $unit = '';
         ($parameters['row']['unit_symmetric'] > 0) ? $unit_symmetric = BackendUtility::getRecord('tx_academy_domain_model_units', $parameters['row']['unit_symmetric']) : $unit_symmetric = '';
 
-        (is_array($parameters['row']['news'])) ? $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news'][0]['uid']) : $news = '';
-        (is_array($parameters['row']['news_symmetric'])) ? $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric'][0]['uid']) : $news_symmetric = '';
+        if (is_array($parameters['row']['news'])) {
+            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news'][0]['uid']);
+        } elseif ($parameters['row']['news'] > 0) {
+            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news']);
+        }
+
+        if (is_array($parameters['row']['news_symmetric'])) {
+            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric'][0]['uid']);
+        } elseif ($parameters['row']['news_symmetric'] > 0) {
+            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']);
+        }
 
         ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event']) : $event = '';
         ($parameters['row']['event_symmetric'] > 0) ? $event_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event_symmetric']) : $event_symmetric = '';
