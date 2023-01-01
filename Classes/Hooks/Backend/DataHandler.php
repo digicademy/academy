@@ -112,8 +112,12 @@ class DataHandler
                     if ($localizationParentRelation[$fieldName] > 0) {
 
                         // determine the parent table name for the entity
-                        (strpos($fieldName, '_')) ? $entity = substr($fieldName, 0, strpos($fieldName, '_')) : $entity = $fieldName;
-                        $tableName = 'tx_academy_domain_model_' . $entity . 's';
+                        if (strpos('fields: news, news_symmetric, event, event_symmetric', $fieldName)) {
+                            $tableName = 'tx_news_domain_model_news';
+                        } else {
+                            (strpos($fieldName, '_')) ? $entity = substr($fieldName, 0, strpos($fieldName, '_')) : $entity = $fieldName;
+                            $tableName = 'tx_academy_domain_model_' . $entity . 's';
+                        }
 
                         // and check if there exists a localization
                         $localizedForeignRecord = BackendUtility::getRecordLocalization(
