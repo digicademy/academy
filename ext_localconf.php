@@ -118,6 +118,17 @@ if (!defined('TYPO3_MODE')) {
 // BACKEND RELATED
 
 if (TYPO3_MODE == 'BE') {
+
     // hook for generating XML conformat UUIDs on new and update szenarios
+    // also patches an IRRE bug with localization handling @see: https://forge.typo3.org/issues/80944
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'Digicademy\Academy\Hooks\Backend\DataHandler';
+
+    // XClasses to patch core bug with IRRE localization handing (@see Digicademy\Academy\Hooks\Backend\DataHandler 89ff)
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline::class] = [
+       'className' => Digicademy\Academy\Xclass\Backend\Form\FormDataProvider\AcademyTcaInline::class
+    ];
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\DataHandling\DataHandler::class] = [
+       'className' => Digicademy\Academy\Xclass\Core\DataHandling\AcademyDataHandler::class
+    ];
+
 }

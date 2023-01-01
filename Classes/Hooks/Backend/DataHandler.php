@@ -89,82 +89,51 @@ class DataHandler
         if ($status == 'update' && $table == 'tx_academy_domain_model_relations') {
 
             // get the relation record from DB for checking if it is a localized relation
-            $relation = BackendUtility::getRecord($table, $id, 'uid,sys_language_uid');
+            $relation = BackendUtility::getRecord($table, $id);
 
             // only trigger the next steps if we are dealing with a localized relation
+            // we will always override an existing localized relation to take care of all six relation scenarios:
+            // localized <> localized, localized symmetric <> localized symmetric, not localized <> localized
+            // not localized symmetric <> localized symmetric, not localized <> not localized, not localized symmetric <> not localized symmetric
             if ($relation['sys_language_uid'] > 0) {
 
-                // walk through each field in the incoming field array ...
-                foreach ($fieldArray as $fieldName => $fieldValue) {
+                // get the localization parent
+                $localizationParentRelation = BackendUtility::getRecord($table, $relation['l10n_parent']);
 
-                    // ... and test if it is one of the defined IRRE parent fields in tx_academy_domain_model_relations
-                    if (strpos(
-                        'Fields:role,medium,medium_symmetric,person,person_symmetric,product,product_symmetric,project,project_symmetric,publication,publication_symmetric,service,service_symmetric,unit,unit_symmetric,news,news_symmetric,event,event_symmetric',
-                        $fieldName)
-                    ) {
+                // relation field names
+                $relationFields = [
+                    'medium', 'medium_symmetric','person','person_symmetric','product','product_symmetric','project','project_symmetric','publication','publication_symmetric','service','service_symmetric','unit','unit_symmetric','news','news_symmetric','event','event_symmetric'
+                ];
 
-                        // if yes assign the name of the parent table for the current field
-                        switch ($fieldName) {
-                            case 'medium':
-                            case 'medium_symmetric':
-                                $tableName = 'tx_academy_domain_model_media';
-                                break;
-                            case 'person':
-                            case 'person_symmetric':
-                                $tableName = 'tx_academy_domain_model_persons';
-                                break;
-                            case 'product':
-                            case 'product_symmetric':
-                                $tableName = 'tx_academy_domain_model_products';
-                                break;
-                            case 'project':
-                            case 'project_symmetric':
-                                $tableName = 'tx_academy_domain_model_projects';
-                                break;
-                            case 'publication':
-                            case 'publication_symmetric':
-                                $tableName = 'tx_academy_domain_model_publications';
-                                break;
-                            case 'role':
-                                $tableName = 'tx_academy_domain_model_roles';
-                                break;
-                            case 'service':
-                            case 'service_symmetric':
-                                $tableName = 'tx_academy_domain_model_services';
-                                break;
-                            case 'unit':
-                            case 'unit_symmetric':
-                                $tableName = 'tx_academy_domain_model_units';
-                                break;
-                            case 'event':
-                            case 'event_symmetric':
-                            case 'news':
-                            case 'news_symmetric':
-                                $tableName = 'tx_news_domain_model_news';
-                                break;
-                        }
+                // walk through all fields of a relation ...
+                foreach ($relationFields as $fieldName) {
 
-                        // if we have a correct table name...
-                        if ($tableName) {
+                    // ... if the parent relation contains a value for a given field
+                    if ($localizationParentRelation[$fieldName] > 0) {
 
-                            // try to fetch the localization of the record by the id that we have in the current field
-                            $localizedForeignRecord = BackendUtility::getRecordLocalization(
-                                $tableName,
-                                $fieldValue,
-                                (int)$relation['sys_language_uid']
-                            );
+                        // determine the parent table name for the entity
+                        (strpos($fieldName, '_')) ? $entity = substr($fieldName, 0, strpos($fieldName, '_')) : $entity = $fieldName;
+                        $tableName = 'tx_academy_domain_model_' . $entity . 's';
 
-                            // if a localized record exists swap the current id for the current field in the $field array
-                            // with the fetched id of the localized records; this forces the id of any record always to
-                            // be the right localization - in case there is no $localizedForeignRecord we are either in
-                            // a localized record (and do not need to change anything) or the table has no translations
-                            // (which means that nothing needs to be changed as well)
-                            if (is_array($localizedForeignRecord)
-                                && $localizedForeignRecord[0]['uid'] > 0
-                                && $localizedForeignRecord[0]['sys_language_uid'] == $relation['sys_language_uid']
-                            ) {
-                                $fieldArray[$fieldName] = $localizedForeignRecord[0]['uid'];
-                            }
+                        // and check if there exists a localization
+                        $localizedForeignRecord = BackendUtility::getRecordLocalization(
+                            $tableName,
+                            $localizationParentRelation[$fieldName],
+                            (int)$relation['sys_language_uid']
+                        );
+
+                        // if so we force the correct uid of the localization into the incoming fieldArray
+                        // this also takes symmetrical relations into account
+                        if (is_array($localizedForeignRecord)
+                            && $localizedForeignRecord[0]['uid'] > 0
+                            && $localizedForeignRecord[0]['l10n_parent'] == $localizationParentRelation[$fieldName]
+                            && $localizedForeignRecord[0]['sys_language_uid'] == $relation['sys_language_uid']
+                        ) {
+                            $fieldArray[$fieldName] = $localizedForeignRecord[0]['uid'];
+                        // if not we force the original entity id (this caters for scenarios where only one side
+                        // of a relation is translated
+                        } else {
+                            $fieldArray[$fieldName] = $localizationParentRelation[$fieldName];
                         }
                     }
                 }
