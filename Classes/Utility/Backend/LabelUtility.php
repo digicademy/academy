@@ -66,9 +66,9 @@ class LabelUtility
         }
 
         if (is_array($parameters['row']['news_symmetric'])) {
-            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric'][0]['uid']);
+            $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric'][0]['uid']);
         } elseif ($parameters['row']['news_symmetric'] > 0) {
-            $news = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']);
+            $news_symmetric = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['news_symmetric']);
         }
 
         ($parameters['row']['event'] > 0) ? $event = BackendUtility::getRecord('tx_news_domain_model_news', $parameters['row']['event']) : $event = '';

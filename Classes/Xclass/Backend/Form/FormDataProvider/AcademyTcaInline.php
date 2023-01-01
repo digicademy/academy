@@ -48,20 +48,22 @@ class AcademyTcaInline extends TcaInline
         // all existing IRRE children (also those from other languages) are shown in the entity that is
         // not yet localized; this is quite confusing behaviour - localized IRRE children should
         // always only be shown in the respective language of their respective parent record
-        $languageAwareConnectedUids = [];
-        foreach ($connectedUidsOfDefaultLanguageRecord as $uid) {
-            // fetch the relation to get its language id
-            $record = BackendUtility::getRecord(
-                $childTableName,
-                $uid,
-                'sys_language_uid'
-            );
-            // only relations that match the default language
-            if ($record['sys_language_uid'] == '0') {
-                $languageAwareConnectedUids[] = $uid;
+        if ($fieldName == 'relations') {
+            $languageAwareConnectedUids = [];
+            foreach ($connectedUidsOfDefaultLanguageRecord as $uid) {
+                // fetch the relation to get its language id
+                $relation = BackendUtility::getRecord(
+                    'tx_academy_domain_model_relations',
+                    $uid,
+                    'sys_language_uid'
+                );
+                // only relations that match the default language
+                if ($relation['sys_language_uid'] == '0') {
+                    $languageAwareConnectedUids[] = $uid;
+                }
             }
+            $connectedUidsOfDefaultLanguageRecord = $languageAwareConnectedUids;
         }
-        $connectedUidsOfDefaultLanguageRecord = $languageAwareConnectedUids;
 
         $result['databaseRow'][$fieldName] = implode(',', $connectedUidsOfDefaultLanguageRecord);
         $connectedUidsOfDefaultLanguageRecord = $this->getWorkspacedUids($connectedUidsOfDefaultLanguageRecord, $childTableName);
