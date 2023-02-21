@@ -1,4 +1,4 @@
-[globalVar = GP : type = 1122]
+[getTSFE().type == 1122]
 
 # set the view directories
 plugin.tx_academy.view {
