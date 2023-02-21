@@ -12,7 +12,7 @@ plugin.tx_news {
 	}
 }
 
-[PIDinRootline = 1305]
+[1305 in tree.rootLineIds]
 plugin.tx_news {
 	settings {
 		dateField = tx_roqnewsevent_startdate
