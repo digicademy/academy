@@ -48,7 +48,7 @@ rss {
 	}
 }
 
-[globalVar = TSFE:type = 9818]
+[getTSFE().type == 9818]
 
 	lib.stdheader >
 	tt_content.stdWrap.innerWrap >

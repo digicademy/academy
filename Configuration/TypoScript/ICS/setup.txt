@@ -37,7 +37,7 @@ ics {
 	}
 }
 
-[globalVar = TSFE:type = 9828]
+[getTSFE().type == 9828]
 
 	lib.stdheader >
 	tt_content.stdWrap.innerWrap >
@@ -46,7 +46,7 @@ ics {
 
 [global]
 
-[globalVar = TSFE:id = 2121]
+[getTSFE().id == 2121]
 
 ics.10.switchableControllerActions.News.1 = eventDetail
 
