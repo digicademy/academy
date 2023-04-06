@@ -90,6 +90,11 @@ class Persons extends AbstractEntity
     protected $honorificSuffix;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * gender
      *
      * @var \string $sorting
@@ -314,6 +319,28 @@ class Persons extends AbstractEntity
     public function setHonorificSuffix($honorificSuffix)
     {
         $this->honorificSuffix = $honorificSuffix;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
