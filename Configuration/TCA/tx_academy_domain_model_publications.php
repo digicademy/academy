@@ -71,6 +71,7 @@ return array(
                 start_page,
                 total_pages,
                 end_page,
+                slug,
                 isbn,
                 issn,
                 date_range,
@@ -298,7 +299,7 @@ return array(
             'config' => [
                 'type' => 'slug',
                 'generatorOptions' => [
-                    'fields' => ['title'],
+                    'fields' => ['persistent_identifier'],
                     'prefixParentPageSlug' => true,
                     'replacements' => [
                         '/' => '-',

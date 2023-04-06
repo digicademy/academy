@@ -192,6 +192,15 @@ return array(
                 'eval' => 'trim'
             ),
         ),
+        'version' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_products.version',
+            'config' => array(
+                'type' => 'input',
+                'size' => 30,
+                'eval' => 'trim'
+            ),
+        ),
         'slug' => [
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_products.slug',
             'exclude' => 1,
@@ -209,15 +218,6 @@ return array(
                 'default' => ''
             ],
         ],
-        'version' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_products.version',
-            'config' => array(
-                'type' => 'input',
-                'size' => 30,
-                'eval' => 'trim'
-            ),
-        ),
         'sorting' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_products.sorting',
