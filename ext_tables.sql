@@ -9,6 +9,9 @@ CREATE TABLE tx_academy_domain_model_projects (
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
 
@@ -67,6 +70,9 @@ CREATE TABLE tx_academy_domain_model_units (
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
 
@@ -121,6 +127,9 @@ CREATE TABLE tx_academy_domain_model_persons (
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
@@ -174,6 +183,9 @@ CREATE TABLE tx_academy_domain_model_media (
 	type int(11) DEFAULT '0' NOT NULL,
 	title varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
+
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -248,6 +260,9 @@ CREATE TABLE tx_academy_domain_model_products (
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
+
+	# slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
 
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
@@ -333,6 +348,9 @@ CREATE TABLE tx_academy_domain_model_publications (
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
@@ -397,6 +415,9 @@ CREATE TABLE tx_academy_domain_model_services (
 
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
+
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
 
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
@@ -590,6 +611,9 @@ CREATE TABLE tx_academy_domain_model_hcards (
 	label varchar(255) DEFAULT '' NOT NULL,
 	type int(11) unsigned DEFAULT '0' NOT NULL,
 	geo varchar(255) DEFAULT '' NOT NULL,
+
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
 
 	# tx_academy_domain_model_hcards_adr (1:n)
 	adr int(11) unsigned DEFAULT '0' NOT NULL,

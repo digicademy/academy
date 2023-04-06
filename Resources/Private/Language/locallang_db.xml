@@ -99,6 +99,7 @@
 			<label index="tx_academy_domain_model_projects.title">Title</label>
 			<label index="tx_academy_domain_model_projects.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_projects.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_projects.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_projects.date_range">Date range</label>
 			<label index="tx_academy_domain_model_projects.page">Page with information</label>
 			<label index="tx_academy_domain_model_projects.image">Images</label>
@@ -120,6 +121,7 @@
 			<label index="tx_academy_domain_model_persons.gender.type.I.0">male</label>
 			<label index="tx_academy_domain_model_persons.gender.type.I.1">female</label>
 			<label index="tx_academy_domain_model_persons.gender.type.I.2">non binary</label>
+			<label index="tx_academy_domain_model_persons.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_persons.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_persons.date_range">Life dates</label>
 			<label index="tx_academy_domain_model_persons.page">Page with person information</label>
@@ -137,6 +139,7 @@
 			<label index="tx_academy_domain_model_products.title">Title</label>
 			<label index="tx_academy_domain_model_products.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_products.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_products.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_products.version">Version</label>
 			<label index="tx_academy_domain_model_products.date_range">Date range</label>
 			<label index="tx_academy_domain_model_products.page">Page with information</label>
@@ -155,6 +158,7 @@
 			<label index="tx_academy_domain_model_services.title">Title</label>
 			<label index="tx_academy_domain_model_services.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_services.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_services.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_services.version">Version</label>
 			<label index="tx_academy_domain_model_services.date_range">Date range</label>
 			<label index="tx_academy_domain_model_services.page">Page with information</label>
@@ -178,6 +182,7 @@
 			<label index="tx_academy_domain_model_publications.issue">Issue</label>
 			<label index="tx_academy_domain_model_publications.edition">Edition</label>
 			<label index="tx_academy_domain_model_publications.series">Series</label>
+			<label index="tx_academy_domain_model_publications.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_publications.start_page">Start page</label>
 			<label index="tx_academy_domain_model_publications.end_page">End page</label>
 			<label index="tx_academy_domain_model_publications.total_pages">Total pages</label>
@@ -199,6 +204,7 @@
 			<label index="tx_academy_domain_model_hcards.email">Email</label>
 			<label index="tx_academy_domain_model_hcards.url">Websites</label>
 			<label index="tx_academy_domain_model_hcards.geo">Coordinates (Latitude; Longitude)</label>
+			<label index="tx_academy_domain_model_hcards.slug">URL Path Segment</label>
 
 			<label index="tx_academy_domain_model_hcards_adr">Postal addresses</label>
 			<label index="tx_academy_domain_model_hcards_adr.type">Type of address</label>
@@ -353,6 +359,7 @@
 			<label index="tx_academy_domain_model_units.persistent_identifier">Persistent identifier</label>
 			<label index="tx_academy_domain_model_units.title">Title</label>
 			<label index="tx_academy_domain_model_units.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_units.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_units.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_units.page">Page with information for the unit</label>
 			<label index="tx_academy_domain_model_units.image">Images</label>
@@ -379,6 +386,7 @@
 			<label index="tx_academy_domain_model_media.type.I.30">Document</label>
 			<label index="tx_academy_domain_model_media.type.I.40">Video</label>
 			<label index="tx_academy_domain_model_media.title">title</label>
+			<label index="tx_academy_domain_model_media.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_media.description">Description</label>
 			<label index="tx_academy_domain_model_media.image">Teaser image</label>
 			<label index="tx_academy_domain_model_media.view_count">View count</label>
@@ -455,6 +463,7 @@
 			<label index="tx_academy_domain_model_projects.title">Projektname</label>
 			<label index="tx_academy_domain_model_projects.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_projects.acronym">Akronym</label>
+			<label index="tx_academy_domain_model_projects.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_projects.date_range">Laufzeit</label>
 			<label index="tx_academy_domain_model_projects.page">Seite mit Projektinformationen</label>
 			<label index="tx_academy_domain_model_projects.image">Bild</label>
@@ -476,6 +485,7 @@
 			<label index="tx_academy_domain_model_persons.gender.type.I.0">männlich</label>
 			<label index="tx_academy_domain_model_persons.gender.type.I.1">weiblich</label>
 			<label index="tx_academy_domain_model_persons.gender.type.I.2">nicht binär</label>
+			<label index="tx_academy_domain_model_persons.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_persons.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_persons.date_range">Lebensdaten</label>
 			<label index="tx_academy_domain_model_persons.page">Seite mit Personeninformationen</label>
@@ -493,6 +503,7 @@
 			<label index="tx_academy_domain_model_products.title">Titel</label>
 			<label index="tx_academy_domain_model_products.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_products.acronym">Akronym</label>
+			<label index="tx_academy_domain_model_products.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_products.version">Version</label>
 			<label index="tx_academy_domain_model_products.date_range">Zeitraum</label>
 			<label index="tx_academy_domain_model_products.page">Seite mit Informationen</label>
@@ -511,6 +522,7 @@
 			<label index="tx_academy_domain_model_services.title">Titel</label>
 			<label index="tx_academy_domain_model_services.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_services.acronym">Akronym</label>
+			<label index="tx_academy_domain_model_services.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_services.version">Version</label>
 			<label index="tx_academy_domain_model_services.date_range">Zeitraum</label>
 			<label index="tx_academy_domain_model_services.page">Seite mit Informationen</label>
@@ -534,6 +546,7 @@
 			<label index="tx_academy_domain_model_publications.issue">Heft</label>
 			<label index="tx_academy_domain_model_publications.edition">Ausgabe</label>
 			<label index="tx_academy_domain_model_publications.series">Reihe</label>
+			<label index="tx_academy_domain_model_publications.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_publications.start_page">Seite (von)</label>
 			<label index="tx_academy_domain_model_publications.end_page">Seite (bis))</label>
 			<label index="tx_academy_domain_model_publications.total_pages">Seiten (gesamt)</label>
@@ -555,6 +568,7 @@
 			<label index="tx_academy_domain_model_hcards.email">E-Mail Adressen</label>
 			<label index="tx_academy_domain_model_hcards.url">Webadressen</label>
 			<label index="tx_academy_domain_model_hcards.geo">Geokoordinaten (Breite; Länge)</label>
+			<label index="tx_academy_domain_model_hcards.slug">URL Pfadsegment</label>
 
 			<label index="tx_academy_domain_model_hcards_adr">Postanschriften</label>
 			<label index="tx_academy_domain_model_hcards_adr.type">Art der Anschrift</label>
@@ -710,6 +724,7 @@
 			<label index="tx_academy_domain_model_units.persistent_identifier">Persistenter Identifikator</label>
 			<label index="tx_academy_domain_model_units.title">Bezeichnung</label>
 			<label index="tx_academy_domain_model_units.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_units.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_units.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_units.page">Seite mit Informationen zur Organisationseinheit</label>
 			<label index="tx_academy_domain_model_units.image">Bild</label>
@@ -736,6 +751,7 @@
 			<label index="tx_academy_domain_model_media.type.I.30">Dokumente</label>
 			<label index="tx_academy_domain_model_media.type.I.40">Video</label>
 			<label index="tx_academy_domain_model_media.title">Titel</label>
+			<label index="tx_academy_domain_model_media.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_media.description">Beschreibung</label>
 			<label index="tx_academy_domain_model_media.image">Teaserbild</label>
 			<label index="tx_academy_domain_model_media.view_count">Wie oft angesehen</label>

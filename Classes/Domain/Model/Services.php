@@ -69,6 +69,11 @@ class Services extends AbstractEntity
     protected $acronym;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * The internal sorting for project list (if not alphabetic)
      *
      * @var \string $sorting
@@ -206,6 +211,28 @@ class Services extends AbstractEntity
     public function setAcronym($acronym)
     {
         $this->acronym = $acronym;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**

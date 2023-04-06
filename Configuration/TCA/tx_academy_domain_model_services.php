@@ -51,6 +51,7 @@ return array(
                 identifier,
                 title,
                 acronym,
+                slug,
                 sorting,
                 date_range,
                 page,
@@ -189,6 +190,23 @@ return array(
                 'eval' => 'trim'
             ),
         ),
+        'slug' => [
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_services.slug',
+            'exclude' => 1,
+            'config' => [
+                'type' => 'slug',
+                'generatorOptions' => [
+                    'fields' => ['title'],
+                    'prefixParentPageSlug' => true,
+                    'replacements' => [
+                        '/' => '-',
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ],
+        ],
         'sorting' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_services.sorting',

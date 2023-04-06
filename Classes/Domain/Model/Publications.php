@@ -132,6 +132,11 @@ class Publications extends AbstractEntity
     protected $totalPages;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * A description of the projects scientific activities
      *
      * @var \string $description
@@ -467,6 +472,28 @@ class Publications extends AbstractEntity
     public function setTotalPages($totalPages)
     {
         $this->totalPages = $totalPages;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**

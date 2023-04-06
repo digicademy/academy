@@ -53,6 +53,7 @@ return array(
                 email,
                 url,
                 geo,
+                slug,
                 sys_language_uid,
                 l10n_parent,
                 l10n_diffsource
@@ -307,5 +308,22 @@ return array(
                 'eval' => 'trim'
             ),
         ),
+        'slug' => [
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards.slug',
+            'exclude' => 1,
+            'config' => [
+                'type' => 'slug',
+                'generatorOptions' => [
+                    'fields' => ['persistent_identifier'],
+                    'prefixParentPageSlug' => true,
+                    'replacements' => [
+                        '/' => '-',
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ],
+        ],
     ),
 );

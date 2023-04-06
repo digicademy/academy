@@ -44,6 +44,7 @@ return array(
             start_page,
             total_pages,
             end_page,
+            slug,
             date_range,
             page, 
             image,
@@ -70,6 +71,7 @@ return array(
                 start_page,
                 total_pages,
                 end_page,
+                slug,
                 isbn,
                 issn,
                 date_range,
@@ -291,6 +293,23 @@ return array(
                 'eval' => 'trim'
             ),
         ),
+        'slug' => [
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_publications.slug',
+            'exclude' => 1,
+            'config' => [
+                'type' => 'slug',
+                'generatorOptions' => [
+                    'fields' => ['persistent_identifier'],
+                    'prefixParentPageSlug' => true,
+                    'replacements' => [
+                        '/' => '-',
+                    ],
+                ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => ''
+            ],
+        ],
         'date_range' => array(
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_publications.date_range',
