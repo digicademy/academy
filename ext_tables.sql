@@ -398,6 +398,9 @@ CREATE TABLE tx_academy_domain_model_services (
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 

@@ -155,6 +155,7 @@
 			<label index="tx_academy_domain_model_services.title">Title</label>
 			<label index="tx_academy_domain_model_services.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_services.acronym">Acronym</label>
+			<label index="tx_academy_domain_model_services.slug">Speaking URL Path Segment</label>
 			<label index="tx_academy_domain_model_services.version">Version</label>
 			<label index="tx_academy_domain_model_services.date_range">Date range</label>
 			<label index="tx_academy_domain_model_services.page">Page with information</label>
@@ -511,6 +512,7 @@
 			<label index="tx_academy_domain_model_services.title">Titel</label>
 			<label index="tx_academy_domain_model_services.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_services.acronym">Akronym</label>
+			<label index="tx_academy_domain_model_services.slug">Sprechendes URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_services.version">Version</label>
 			<label index="tx_academy_domain_model_services.date_range">Zeitraum</label>
 			<label index="tx_academy_domain_model_services.page">Seite mit Informationen</label>
