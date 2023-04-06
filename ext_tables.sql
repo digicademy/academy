@@ -9,6 +9,9 @@ CREATE TABLE tx_academy_domain_model_projects (
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# pages (1:n)
 	page int(11) DEFAULT '0' NOT NULL,
 
