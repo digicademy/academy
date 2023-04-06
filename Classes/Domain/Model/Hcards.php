@@ -96,6 +96,11 @@ class Hcards extends AbstractEntity
     protected $geo;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * Returns the persistentIdentifier
      *
      * @return \string $persistentIdentifier
@@ -269,5 +274,27 @@ class Hcards extends AbstractEntity
     public function setGeo($geo)
     {
         $this->geo = $geo;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 }

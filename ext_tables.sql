@@ -612,6 +612,9 @@ CREATE TABLE tx_academy_domain_model_hcards (
 	type int(11) unsigned DEFAULT '0' NOT NULL,
 	geo varchar(255) DEFAULT '' NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# tx_academy_domain_model_hcards_adr (1:n)
 	adr int(11) unsigned DEFAULT '0' NOT NULL,
 
