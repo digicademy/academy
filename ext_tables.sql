@@ -121,6 +121,9 @@ CREATE TABLE tx_academy_domain_model_persons (
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
 
+    # slug
+    slug varchar(2048) DEFAULT '' NOT NULL,
+
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
