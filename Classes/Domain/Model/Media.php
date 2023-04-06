@@ -75,6 +75,11 @@ class Media extends AbstractEntity
     protected $description;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * Images
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
@@ -222,6 +227,28 @@ class Media extends AbstractEntity
     public function setDescription($description)
     {
         $this->description = $description;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
