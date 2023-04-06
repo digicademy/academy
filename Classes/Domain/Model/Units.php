@@ -60,6 +60,11 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $acronym;
 
     /**
+     * @var \string $slug
+     */
+    protected $slug;
+
+    /**
      * The internal sorting for unit list (if not alphabetic)
      *
      * @var \string $sorting
@@ -168,6 +173,28 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setAcronym($acronym)
     {
         $this->acronym = $acronym;
+    }
+
+    /**
+     * Returns the slug
+     *
+     * @return \string $slug
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Sets the slug
+     *
+     * @param \string $slug
+     *
+     * @return void
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     /**
