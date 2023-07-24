@@ -200,7 +200,7 @@ return array(
             'config' => array(
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim,required'
+                'eval' => 'trim'
             ),
         ),
         'subtitle' => array(
@@ -209,7 +209,7 @@ return array(
             'config' => array(
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim,required'
+                'eval' => 'trim'
             ),
         ),
         'abbreviation' => array(
@@ -218,7 +218,7 @@ return array(
             'config' => array(
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim, required'
             ),
         ),
         'volume' => array(
@@ -411,9 +411,9 @@ return array(
             'config' => array(
                 'type' => 'inline',
                 'foreign_table' => 'tx_academy_domain_model_relations',
-                'foreign_field' => 'publications',
+                'foreign_field' => 'publication',
                 'foreign_sortby' => 'sorting',
-                'symmetric_field' => 'publications_symmetric',
+                'symmetric_field' => 'publication_symmetric',
                 'symmetric_sortby' => 'sorting_symmetric',
                 'maxitems' => 9999,
                 'behaviour' => array(
