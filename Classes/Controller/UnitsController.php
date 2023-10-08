@@ -118,7 +118,6 @@ class UnitsController extends ActionController
     {
         $arguments = $this->request->getArguments();
         $this->view->assign('arguments', $arguments);
-
         $this->view->assign('unit', $unit);
     }
 

@@ -36,12 +36,10 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 class Products extends AbstractEntity
 {
-
     /**
      * persistentIdentifier
      *
      * @var \string
-     *
      * @Extbase\Validate("NotEmpty")
      */
     protected $persistentIdentifier;

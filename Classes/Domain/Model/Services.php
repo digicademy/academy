@@ -96,9 +96,10 @@ class Services extends AbstractEntity
     protected $image = null;
 
     /**
-     * Duration of the project
+     * Duration of the service
      *
      * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     * @Extbase\ORM\Lazy
      */
     protected $dateRange = null;
 

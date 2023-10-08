@@ -170,6 +170,56 @@ class Relations extends AbstractEntity
     protected $mediumSymmetric = null;
 
     /**
+     * Related Service
+     *
+     * @var \Digicademy\Academy\Domain\Model\Services $service
+     * @Extbase\ORM\Lazy
+     */
+    protected $service = null;
+
+    /**
+     * Related Service
+     *
+     * @var \Digicademy\Academy\Domain\Model\Services $serviceSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $serviceSymmetric = null;
+
+    /**
+     * Related Products
+     *
+     * @var \Digicademy\Academy\Domain\Model\Products $product
+     * @Extbase\ORM\Lazy
+     *
+     */
+    protected $product = null;
+
+    /**
+     * Related symmetric products
+     *
+     * @var \Digicademy\Academy\Domain\Model\Products $productSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $productSymmetric = null;
+
+    /**
+     * Related Publications
+     *
+     * @var \Digicademy\Academy\Domain\Model\Publications $publication
+     * @Extbase\ORM\Lazy
+     *
+     */
+    protected $publication = null;
+
+    /**
+     * Related symmetric publication
+     *
+     * @var \Digicademy\Academy\Domain\Model\Publications $publicationSymmetric
+     * @Extbase\ORM\Lazy
+     */
+    protected $publicationSymmetric = null;
+
+    /**
      * Freetext relation
      *
      * @var string $freetext
@@ -234,9 +284,6 @@ class Relations extends AbstractEntity
      */
     public function getRole()
     {
-        if ($this->role instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->role->_loadRealInstance();
-        }
         return $this->role;
     }
 
@@ -281,9 +328,6 @@ class Relations extends AbstractEntity
      */
     public function getProject()
     {
-        if ($this->project instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->project->_loadRealInstance();
-        }
         return $this->project;
     }
 
@@ -306,9 +350,6 @@ class Relations extends AbstractEntity
      */
     public function getProjectSymmetric()
     {
-        if ($this->projectSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->projectSymmetric->_loadRealInstance();
-        }
         return $this->projectSymmetric;
     }
 
@@ -331,9 +372,6 @@ class Relations extends AbstractEntity
      */
     public function getPerson()
     {
-        if ($this->person instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->person->_loadRealInstance();
-        }
         return $this->person;
     }
 
@@ -356,9 +394,6 @@ class Relations extends AbstractEntity
      */
     public function getPersonSymmetric()
     {
-        if ($this->personSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->personSymmetric->_loadRealInstance();
-        }
         return $this->personSymmetric;
     }
 
@@ -381,9 +416,6 @@ class Relations extends AbstractEntity
      */
     public function getHcard()
     {
-        if ($this->hcard instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->hcard->_loadRealInstance();
-        }
         return $this->hcard;
     }
 
@@ -406,9 +438,6 @@ class Relations extends AbstractEntity
      */
     public function getUnit()
     {
-        if ($this->unit instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->unit->_loadRealInstance();
-        }
         return $this->unit;
     }
 
@@ -431,9 +460,6 @@ class Relations extends AbstractEntity
      */
     public function getUnitSymmetric()
     {
-        if ($this->unitSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->unitSymmetric->_loadRealInstance();
-        }
         return $this->unitSymmetric;
     }
 
@@ -456,9 +482,6 @@ class Relations extends AbstractEntity
      */
     public function getNews()
     {
-        if ($this->news instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->news->_loadRealInstance();
-        }
         return $this->news;
     }
 
@@ -481,9 +504,6 @@ class Relations extends AbstractEntity
      */
     public function getNewsSymmetric()
     {
-        if ($this->newsSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->newsSymmetric->_loadRealInstance();
-        }
         return $this->newsSymmetric;
     }
 
@@ -506,9 +526,6 @@ class Relations extends AbstractEntity
      */
     public function getEvent()
     {
-        if ($this->event instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->event->_loadRealInstance();
-        }
         return $this->event;
     }
 
@@ -531,9 +548,6 @@ class Relations extends AbstractEntity
      */
     public function getEventSymmetric()
     {
-        if ($this->eventSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->eventSymmetric->_loadRealInstance();
-        }
         return $this->eventSymmetric;
     }
 
@@ -556,9 +570,6 @@ class Relations extends AbstractEntity
      */
     public function getMedium()
     {
-        if ($this->medium instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->medium->_loadRealInstance();
-        }
         return $this->medium;
     }
 
@@ -581,9 +592,6 @@ class Relations extends AbstractEntity
      */
     public function getMediumSymmetric()
     {
-        if ($this->mediumSymmetric instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->mediumSymmetric->_loadRealInstance();
-        }
         return $this->mediumSymmetric;
     }
 
@@ -597,6 +605,138 @@ class Relations extends AbstractEntity
     public function setMediumSymmetric(Media $mediumSymmetric)
     {
         $this->mediumSymmetric = $mediumSymmetric;
+    }
+
+    /**
+     * Returns the service
+     *
+     * @return \Digicademy\Academy\Domain\Model\Services $service
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * Sets the service
+     *
+     * @param \Digicademy\Academy\Domain\Model\Services $service
+     *
+     * @return void
+     */
+    public function setService(Services $service)
+    {
+        $this->service = $service;
+    }
+
+    /**
+     * Returns the serviceSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\Services $serviceSymmetric
+     */
+    public function getServiceSymmetric()
+    {
+        return $this->serviceSymmetric;
+    }
+
+    /**
+     * Sets the serviceSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\Services $serviceSymmetric
+     *
+     * @return void
+     */
+    public function setServiceSymmetric(Services $serviceSymmetric)
+    {
+        $this->serviceSymmetric = $serviceSymmetric;
+    }
+
+    /**
+     * Returns the product
+     *
+     * @return \Digicademy\Academy\Domain\Model\Products $product
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * Sets the product
+     *
+     * @param \Digicademy\Academy\Domain\Model\Products $product
+     *
+     * @return void
+     */
+    public function setProduct(Products $product)
+    {
+        $this->product = $product;
+    }
+
+    /**
+     * Returns the productSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\Products $productSymmetric
+     */
+    public function getProductSymmetric()
+    {
+        return $this->productSymmetric;
+    }
+
+    /**
+     * Sets the productSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\Products $productSymmetric
+     *
+     * @return void
+     */
+    public function setProductSymmetric(Products $productSymmetric)
+    {
+        $this->productSymmetric = $productSymmetric;
+    }
+
+    /**
+     * Returns the publication
+     *
+     * @return \Digicademy\Academy\Domain\Model\Publications $publication
+     */
+    public function getPublication()
+    {
+        return $this->publication;
+    }
+
+    /**
+     * Sets the publication
+     *
+     * @param \Digicademy\Academy\Domain\Model\Publications $publication
+     *
+     * @return void
+     */
+    public function setPublication(Publications $publication)
+    {
+        $this->publication = $publication;
+    }
+
+    /**
+     * Returns the publicationSymmetric
+     *
+     * @return \Digicademy\Academy\Domain\Model\Publications $publicationSymmetric
+     */
+    public function getPublicationSymmetric()
+    {
+        return $this->publicationSymmetric;
+    }
+
+    /**
+     * Sets the publicationSymmetric
+     *
+     * @param \Digicademy\Academy\Domain\Model\Publications $publicationSymmetric
+     *
+     * @return void
+     */
+    public function setPublicationSymmetric(Publications $publicationSymmetric)
+    {
+        $this->publicationSymmetric = $publicationSymmetric;
     }
 
     /**
@@ -628,9 +768,6 @@ class Relations extends AbstractEntity
      */
     public function getDateRange()
     {
-        if ($this->dateRange instanceof \TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy) {
-            $this->dateRange->_loadRealInstance();
-        }
         return $this->dateRange;
     }
 
