@@ -18,9 +18,9 @@
   },
   "version": "3.0.0",
   "require": {
-    "typo3/cms-core": ">=9.5.0 || <=10.4.99",
-    "georgringer/news": "^8.5",
-    "georgringer/eventnews": "^4.0",
+    "typo3/cms-core": "^11.5",
+    "georgringer/news": "^11.2",
+    "georgringer/eventnews": "^6.0",
     "digicademy/chf_time": "dev-master"
   },
   "replace": {
