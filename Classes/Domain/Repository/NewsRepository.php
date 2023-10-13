@@ -41,7 +41,7 @@ class NewsRepository extends GeorgRingerNewsRepository
      *
      * @return array
      */
-    public function countByDate(DemandInterface $demand)
+    public function countByDate(DemandInterface $demand): array
     {
         $data = array();
 
