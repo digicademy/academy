@@ -1,117 +1,117 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied!');
 }
 
 // PLUGIN CONFIGURATION
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Projects',
     array(
-        'Projects' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\ProjectsController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Projects' => '',
+        \Digicademy\Academy\Controller\ProjectsController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Units',
     array(
-        'Units' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\UnitsController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Units' => '',
+        \Digicademy\Academy\Controller\UnitsController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Persons',
     array(
-        'Persons' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\PersonsController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Persons' => '',
+        \Digicademy\Academy\Controller\PersonsController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Media',
     array(
-        'Media' => 'list, listBySelection, listByCategories, listByRoles, listByGroups, listByTypes, listByRecent, show',
+        \Digicademy\Academy\Controller\MediaController::class => 'list, listBySelection, listByCategories, listByRoles, listByGroups, listByTypes, listByRecent, show',
     ),
     array(
-        'Media' => '',
+        \Digicademy\Academy\Controller\MediaController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Mediaviewer',
     array(
-        'Media' => 'viewer',
+        \Digicademy\Academy\Controller\MediaController::class => 'viewer',
     ),
     array(
-        'Media' => '',
+        \Digicademy\Academy\Controller\MediaController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Search',
     array(
-        'Search' => 'searchForm, searchAll, searchSingle',
+        \Digicademy\Academy\Controller\SearchController::class => 'searchForm, searchAll, searchSingle',
     ),
     array(
-        'Search' => 'searchForm, searchAll, searchSingle',
+        \Digicademy\Academy\Controller\SearchController::class => 'searchForm, searchAll, searchSingle',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Hcards',
     array(
-        'Hcards' => 'list, listBySelection, show',
+        \Digicademy\Academy\Controller\HcardsController::class => 'list, listBySelection, show',
     ),
     array(
-        'Media' => '',
+        \Digicademy\Academy\Controller\MediaController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Products',
     array(
-        'Products' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\ProductsController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Products' => '',
+        \Digicademy\Academy\Controller\ProductsController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Services',
     array(
-        'Services' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\ServicesController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Services' => '',
+        \Digicademy\Academy\Controller\ServicesController::class => '',
     )
 );
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Digicademy.' . 'academy',
+    'Academy',
     'Publications',
     array(
-        'Publications' => 'list, listBySelection, listByCategories, listByRoles, show',
+        \Digicademy\Academy\Controller\PublicationsController::class => 'list, listBySelection, listByCategories, listByRoles, show',
     ),
     array(
-        'Publications' => '',
+        \Digicademy\Academy\Controller\PublicationsController::class => '',
     )
 );
 
