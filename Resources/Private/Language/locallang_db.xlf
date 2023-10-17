@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:academy/Resources/Private/Language/locallang.xlf" date="2023-10-17T15:27:15Z" product-name="academy">
+		<header/>
+		<body>
+			<trans-unit id="general.language" resname="general.language" >
+				<source>Language</source>
+			</trans-unit>
+			<trans-unit id="plugin.sheet.general" resname="plugin.sheet.general" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions" resname="projectsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions.show" resname="projectsPlugin.switchableControllerActions.show" >
+				<source>Project detail view</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions.list" resname="projectsPlugin.switchableControllerActions.list" >
+				<source>List of all projects</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions.listByCategories" resname="projectsPlugin.switchableControllerActions.listByCategories" >
+				<source>List of projects with selected categories</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions.listByRoles" resname="projectsPlugin.switchableControllerActions.listByRoles" >
+				<source>List of projects with selected roles</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.switchableControllerActions.listBySelection" resname="projectsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected projects</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.selectedProjects" resname="projectsPlugin.selectedProjects" >
+				<source>Choose projects</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.selectedCategories" resname="projectsPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="projectsPlugin.selectedRoles" resname="projectsPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions" resname="unitsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions.show" resname="unitsPlugin.switchableControllerActions.show" >
+				<source>Unit detail view</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions.list" resname="unitsPlugin.switchableControllerActions.list" >
+				<source>List of all units</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions.listByCategories" resname="unitsPlugin.switchableControllerActions.listByCategories" >
+				<source>List of units with selected categories</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions.listByRoles" resname="unitsPlugin.switchableControllerActions.listByRoles" >
+				<source>List of units with selected roles</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.switchableControllerActions.listBySelection" resname="unitsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected units</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.selectedUnits" resname="unitsPlugin.selectedUnits" >
+				<source>Choose units</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.selectedCategories" resname="unitsPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="unitsPlugin.selectedRoles" resname="unitsPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions" resname="personsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions.show" resname="personsPlugin.switchableControllerActions.show" >
+				<source>Profile page</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions.list" resname="personsPlugin.switchableControllerActions.list" >
+				<source>Liste aller Personen</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions.listByCategories" resname="personsPlugin.switchableControllerActions.listByCategories" >
+				<source>List of persons with selected categories</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions.listByRoles" resname="personsPlugin.switchableControllerActions.listByRoles" >
+				<source>List of persons with selected roles</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.switchableControllerActions.listBySelection" resname="personsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected persons</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.selectedProjects" resname="personsPlugin.selectedProjects" >
+				<source>Choose persons</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.selectedCategories" resname="personsPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="personsPlugin.selectedRoles" resname="personsPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions" resname="mediaPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.list" resname="mediaPlugin.switchableControllerActions.list" >
+				<source>List of all media</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.listByCategories" resname="mediaPlugin.switchableControllerActions.listByCategories" >
+				<source>List of media with selected categories</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.listByRoles" resname="mediaPlugin.switchableControllerActions.listByRoles" >
+				<source>List of media with selected roles</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.listBySelection" resname="mediaPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected media</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.listByGroups" resname="mediaPlugin.switchableControllerActions.listByGroups" >
+				<source>List with media types</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.listByRecent" resname="mediaPlugin.switchableControllerActions.listByRecent" >
+				<source>List of newest media</source>
+			</trans-unit>
+			<trans-unit id="mediaPlugin.switchableControllerActions.show" resname="mediaPlugin.switchableControllerActions.show" >
+				<source>Media detail view</source>
+			</trans-unit>
+			<trans-unit id="mediaviewerPlugin.medium" resname="mediaviewerPlugin.medium" >
+				<source>Selected medium for display</source>
+			</trans-unit>
+			<trans-unit id="hcardsPlugin.switchableControllerActions" resname="hcardsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="hcardsPlugin.switchableControllerActions.list" resname="hcardsPlugin.switchableControllerActions.list" >
+				<source>List of all contacts</source>
+			</trans-unit>
+			<trans-unit id="hcardsPlugin.switchableControllerActions.listBySelection" resname="hcardsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected contacts</source>
+			</trans-unit>
+			<trans-unit id="hcardsPlugin.selectedHcards" resname="hcardsPlugin.selectedHcards" >
+				<source>Choose contacts</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions" resname="productsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions.show" resname="productsPlugin.switchableControllerActions.show" >
+				<source>Product detail view</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions.list" resname="productsPlugin.switchableControllerActions.list" >
+				<source>List of all products</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions.listByCategories" resname="productsPlugin.switchableControllerActions.listByCategories" >
+				<source>List of products with selected categories</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions.listByRoles" resname="productsPlugin.switchableControllerActions.listByRoles" >
+				<source>List of products with selected roles</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.switchableControllerActions.listBySelection" resname="productsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected products</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.selectedUnits" resname="productsPlugin.selectedUnits" >
+				<source>Choose products</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.selectedCategories" resname="productsPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="productsPlugin.selectedRoles" resname="productsPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions" resname="servicesPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions.show" resname="servicesPlugin.switchableControllerActions.show" >
+				<source>Service detail view</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions.list" resname="servicesPlugin.switchableControllerActions.list" >
+				<source>List of all services</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions.listByCategories" resname="servicesPlugin.switchableControllerActions.listByCategories" >
+				<source>List of services with selected categories</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions.listByRoles" resname="servicesPlugin.switchableControllerActions.listByRoles" >
+				<source>List of services with selected roles</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.switchableControllerActions.listBySelection" resname="servicesPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected services</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.selectedUnits" resname="servicesPlugin.selectedUnits" >
+				<source>Choose service</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.selectedCategories" resname="servicesPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="servicesPlugin.selectedRoles" resname="servicesPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions" resname="publicationsPlugin.switchableControllerActions" >
+				<source>Display</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions.show" resname="publicationsPlugin.switchableControllerActions.show" >
+				<source>Publication detail view</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions.list" resname="publicationsPlugin.switchableControllerActions.list" >
+				<source>List of all publications</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions.listByCategories" resname="publicationsPlugin.switchableControllerActions.listByCategories" >
+				<source>List of publications with selected categories</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions.listByRoles" resname="publicationsPlugin.switchableControllerActions.listByRoles" >
+				<source>List of publications with selected roles</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.switchableControllerActions.listBySelection" resname="publicationsPlugin.switchableControllerActions.listBySelection" >
+				<source>List of selected publications</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.selectedUnits" resname="publicationsPlugin.selectedUnits" >
+				<source>Choose publications</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.selectedCategories" resname="publicationsPlugin.selectedCategories" >
+				<source>Choose categories</source>
+			</trans-unit>
+			<trans-unit id="publicationsPlugin.selectedRoles" resname="publicationsPlugin.selectedRoles" >
+				<source>Choose roles</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects" resname="tx_academy_domain_model_projects" >
+				<source>Projects</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.div1" resname="tx_academy_domain_model_projects.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.div2" resname="tx_academy_domain_model_projects.div2" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.div3" resname="tx_academy_domain_model_projects.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.div4" resname="tx_academy_domain_model_projects.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.div5" resname="tx_academy_domain_model_projects.div5" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.persistent_identifier" resname="tx_academy_domain_model_projects.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.identifier" resname="tx_academy_domain_model_projects.identifier" >
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.title" resname="tx_academy_domain_model_projects.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.sorting" resname="tx_academy_domain_model_projects.sorting" >
+				<source>Sorting (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.acronym" resname="tx_academy_domain_model_projects.acronym" >
+				<source>Acronym</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.slug" resname="tx_academy_domain_model_projects.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.date_range" resname="tx_academy_domain_model_projects.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.page" resname="tx_academy_domain_model_projects.page" >
+				<source>Page with information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.image" resname="tx_academy_domain_model_projects.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.description" resname="tx_academy_domain_model_projects.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.relations" resname="tx_academy_domain_model_projects.relations" >
+				<source>Relations (project)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons" resname="tx_academy_domain_model_persons" >
+				<source>Persons</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.div1" resname="tx_academy_domain_model_persons.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.div2" resname="tx_academy_domain_model_persons.div2" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.div6" resname="tx_academy_domain_model_persons.div6" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.div7" resname="tx_academy_domain_model_persons.div7" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.persistent_identifier" resname="tx_academy_domain_model_persons.persistent_identifier" >
+				<source>Persistent identifer</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.given_name" resname="tx_academy_domain_model_persons.given_name" >
+				<source>First name</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.additional_name" resname="tx_academy_domain_model_persons.additional_name" >
+				<source>Additional names</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.family_name" resname="tx_academy_domain_model_persons.family_name" >
+				<source>Family name</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.honorific_prefix" resname="tx_academy_domain_model_persons.honorific_prefix" >
+				<source>Honorific prefix</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.honorific_suffix" resname="tx_academy_domain_model_persons.honorific_suffix" >
+				<source>Honorific suffix</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.gender" resname="tx_academy_domain_model_persons.gender" >
+				<source>Gender</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.0" resname="tx_academy_domain_model_persons.gender.type.I.0" >
+				<source>male</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.1" resname="tx_academy_domain_model_persons.gender.type.I.1" >
+				<source>female</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.2" resname="tx_academy_domain_model_persons.gender.type.I.2" >
+				<source>non binary</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.slug" resname="tx_academy_domain_model_persons.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.sorting" resname="tx_academy_domain_model_persons.sorting" >
+				<source>Sorting (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.date_range" resname="tx_academy_domain_model_persons.date_range" >
+				<source>Life dates</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.page" resname="tx_academy_domain_model_persons.page" >
+				<source>Page with person information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.image" resname="tx_academy_domain_model_persons.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.relations" resname="tx_academy_domain_model_persons.relations" >
+				<source>Relations (person)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products" resname="tx_academy_domain_model_products" >
+				<source>Products</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.div1" resname="tx_academy_domain_model_products.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.div2" resname="tx_academy_domain_model_products.div2" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.div3" resname="tx_academy_domain_model_products.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.div4" resname="tx_academy_domain_model_products.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.div5" resname="tx_academy_domain_model_products.div5" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.persistent_identifier" resname="tx_academy_domain_model_products.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.identifier" resname="tx_academy_domain_model_products.identifier" >
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.title" resname="tx_academy_domain_model_products.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.sorting" resname="tx_academy_domain_model_products.sorting" >
+				<source>Sorting (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.acronym" resname="tx_academy_domain_model_products.acronym" >
+				<source>Acronym</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.slug" resname="tx_academy_domain_model_products.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.version" resname="tx_academy_domain_model_products.version" >
+				<source>Version</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.date_range" resname="tx_academy_domain_model_products.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.page" resname="tx_academy_domain_model_products.page" >
+				<source>Page with information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.image" resname="tx_academy_domain_model_products.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.description" resname="tx_academy_domain_model_products.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.relations" resname="tx_academy_domain_model_products.relations" >
+				<source>Relations (product)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services" resname="tx_academy_domain_model_services" >
+				<source>Services</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.div1" resname="tx_academy_domain_model_services.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.div2" resname="tx_academy_domain_model_services.div2" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.div3" resname="tx_academy_domain_model_services.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.div4" resname="tx_academy_domain_model_services.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.div5" resname="tx_academy_domain_model_services.div5" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.persistent_identifier" resname="tx_academy_domain_model_services.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.identifier" resname="tx_academy_domain_model_services.identifier" >
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.title" resname="tx_academy_domain_model_services.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.sorting" resname="tx_academy_domain_model_services.sorting" >
+				<source>Sorting (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.acronym" resname="tx_academy_domain_model_services.acronym" >
+				<source>Acronym</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.slug" resname="tx_academy_domain_model_services.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.version" resname="tx_academy_domain_model_services.version" >
+				<source>Version</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.date_range" resname="tx_academy_domain_model_services.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.page" resname="tx_academy_domain_model_services.page" >
+				<source>Page with information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.image" resname="tx_academy_domain_model_services.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.description" resname="tx_academy_domain_model_services.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.relations" resname="tx_academy_domain_model_services.relations" >
+				<source>Relations (service)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications" resname="tx_academy_domain_model_publications" >
+				<source>Publications</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.div1" resname="tx_academy_domain_model_publications.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.div2" resname="tx_academy_domain_model_publications.div2" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.div3" resname="tx_academy_domain_model_publications.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.div4" resname="tx_academy_domain_model_publications.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.div5" resname="tx_academy_domain_model_publications.div5" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.persistent_identifier" resname="tx_academy_domain_model_publications.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.identifier" resname="tx_academy_domain_model_publications.identifier" >
+				<source>Identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.title" resname="tx_academy_domain_model_publications.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.subtitle" resname="tx_academy_domain_model_publications.subtitle" >
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.abbreviation" resname="tx_academy_domain_model_publications.abbreviation" >
+				<source>Abbreviation</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.volume" resname="tx_academy_domain_model_publications.volume" >
+				<source>Volume</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.number" resname="tx_academy_domain_model_publications.number" >
+				<source>Number</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.issue" resname="tx_academy_domain_model_publications.issue" >
+				<source>Issue</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.edition" resname="tx_academy_domain_model_publications.edition" >
+				<source>Edition</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.series" resname="tx_academy_domain_model_publications.series" >
+				<source>Series</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.slug" resname="tx_academy_domain_model_publications.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.start_page" resname="tx_academy_domain_model_publications.start_page" >
+				<source>Start page</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.end_page" resname="tx_academy_domain_model_publications.end_page" >
+				<source>End page</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.total_pages" resname="tx_academy_domain_model_publications.total_pages" >
+				<source>Total pages</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.description" resname="tx_academy_domain_model_publications.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.bibliographic_note" resname="tx_academy_domain_model_publications.bibliographic_note" >
+				<source>Bibliographic note</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.image" resname="tx_academy_domain_model_publications.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.page" resname="tx_academy_domain_model_publications.page" >
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.relations" resname="tx_academy_domain_model_publications.relations" >
+				<source>Relations (publication)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.date_range" resname="tx_academy_domain_model_publications.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards" resname="tx_academy_domain_model_hcards" >
+				<source>Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.persistent_identifier" resname="tx_academy_domain_model_hcards.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.type" resname="tx_academy_domain_model_hcards.type" >
+				<source>Type of contact record</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.type.I.1" resname="tx_academy_domain_model_hcards.type.I.1" >
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.type.I.2" resname="tx_academy_domain_model_hcards.type.I.2" >
+				<source>Organization</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.label" resname="tx_academy_domain_model_hcards.label" >
+				<source>Label (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.adr" resname="tx_academy_domain_model_hcards.adr" >
+				<source>Postal addresses</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.tel" resname="tx_academy_domain_model_hcards.tel" >
+				<source>Phone &amp; Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.email" resname="tx_academy_domain_model_hcards.email" >
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.url" resname="tx_academy_domain_model_hcards.url" >
+				<source>Websites</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.geo" resname="tx_academy_domain_model_hcards.geo" >
+				<source>Coordinates (Latitude; Longitude)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards.slug" resname="tx_academy_domain_model_hcards.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr" resname="tx_academy_domain_model_hcards_adr" >
+				<source>Postal addresses</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type" resname="tx_academy_domain_model_hcards_adr.type" >
+				<source>Type of address</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.label" resname="tx_academy_domain_model_hcards_adr.label" >
+				<source>Label (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.org" resname="tx_academy_domain_model_hcards_adr.org" >
+				<source>Name of organization (multiline; Order: project - department - institute - university - etc.)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.1" resname="tx_academy_domain_model_hcards_adr.type.I.1" >
+				<source>International</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.2" resname="tx_academy_domain_model_hcards_adr.type.I.2" >
+				<source>Postal</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.3" resname="tx_academy_domain_model_hcards_adr.type.I.3" >
+				<source>Parcel</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.4" resname="tx_academy_domain_model_hcards_adr.type.I.4" >
+				<source>Work</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.5" resname="tx_academy_domain_model_hcards_adr.type.I.5" >
+				<source>dom</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.6" resname="tx_academy_domain_model_hcards_adr.type.I.6" >
+				<source>Private</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.type.I.7" resname="tx_academy_domain_model_hcards_adr.type.I.7" >
+				<source>Preferred address</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adr.adrcomponents" resname="tx_academy_domain_model_hcards_adr.adrcomponents" >
+				<source>Address components</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents" resname="tx_academy_domain_model_hcards_adrcomponents" >
+				<source>Address components</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type" resname="tx_academy_domain_model_hcards_adrcomponents.type" >
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.1" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.1" >
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.2" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.2" >
+				<source>ZIP</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.3" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.3" >
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.4" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.4" >
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.5" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.5" >
+				<source>Postbox</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.6" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.6" >
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.7" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.7" >
+				<source>Locality</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.type.I.8" resname="tx_academy_domain_model_hcards_adrcomponents.type.I.8" >
+				<source>Region</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.value" resname="tx_academy_domain_model_hcards_adrcomponents.value" >
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_adrcomponents.parent" resname="tx_academy_domain_model_hcards_adrcomponents.parent" >
+				<source>Parent record</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel" resname="tx_academy_domain_model_hcards_tel" >
+				<source>Phone numbers</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.type" resname="tx_academy_domain_model_hcards_tel.type" >
+				<source>Type of phone number</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.type.I.21" resname="tx_academy_domain_model_hcards_tel.type.I.21" >
+				<source>Work</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.type.I.22" resname="tx_academy_domain_model_hcards_tel.type.I.22" >
+				<source>Mobile</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.type.I.23" resname="tx_academy_domain_model_hcards_tel.type.I.23" >
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.type.I.24" resname="tx_academy_domain_model_hcards_tel.type.I.24" >
+				<source>Private</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.value" resname="tx_academy_domain_model_hcards_tel.value" >
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.freetext" resname="tx_academy_domain_model_hcards_tel.freetext" >
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_tel.parent" resname="tx_academy_domain_model_hcards_tel.parent" >
+				<source>Parent record</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email" resname="tx_academy_domain_model_hcards_email" >
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email.type" resname="tx_academy_domain_model_hcards_email.type" >
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email.type.I.31" resname="tx_academy_domain_model_hcards_email.type.I.31" >
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email.value" resname="tx_academy_domain_model_hcards_email.value" >
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email.freetext" resname="tx_academy_domain_model_hcards_email.freetext" >
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_email.parent" resname="tx_academy_domain_model_hcards_email.parent" >
+				<source>Parent record</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url" resname="tx_academy_domain_model_hcards_url" >
+				<source>URLs</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url.type" resname="tx_academy_domain_model_hcards_url.type" >
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url.type.I.41" resname="tx_academy_domain_model_hcards_url.type.I.41" >
+				<source>URL</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url.value" resname="tx_academy_domain_model_hcards_url.value" >
+				<source>Value</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url.freetext" resname="tx_academy_domain_model_hcards_url.freetext" >
+				<source>Additional information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_hcards_url.parent" resname="tx_academy_domain_model_hcards_url.parent" >
+				<source>Parent record</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations" resname="tx_academy_domain_model_relations" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.persistent_identifier" resname="tx_academy_domain_model_relations.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type" resname="tx_academy_domain_model_relations.type" >
+				<source>Type of relation</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.10" resname="tx_academy_domain_model_relations.type.I.10" >
+				<source>Person &lt;&gt; Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.11" resname="tx_academy_domain_model_relations.type.I.11" >
+				<source>Person &lt;&gt; Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.12" resname="tx_academy_domain_model_relations.type.I.12" >
+				<source>Person &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.13" resname="tx_academy_domain_model_relations.type.I.13" >
+				<source>Person &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.14" resname="tx_academy_domain_model_relations.type.I.14" >
+				<source>Person &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.15" resname="tx_academy_domain_model_relations.type.I.15" >
+				<source>Person &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.16" resname="tx_academy_domain_model_relations.type.I.16" >
+				<source>Person &lt;&gt; Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.20" resname="tx_academy_domain_model_relations.type.I.20" >
+				<source>Project &lt;&gt; Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.21" resname="tx_academy_domain_model_relations.type.I.21" >
+				<source>Project &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.22" resname="tx_academy_domain_model_relations.type.I.22" >
+				<source>Project &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.23" resname="tx_academy_domain_model_relations.type.I.23" >
+				<source>Project &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.24" resname="tx_academy_domain_model_relations.type.I.24" >
+				<source>Project &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.25" resname="tx_academy_domain_model_relations.type.I.25" >
+				<source>Project &lt;&gt; Freetext</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.26" resname="tx_academy_domain_model_relations.type.I.26" >
+				<source>Project &lt;&gt; Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.30" resname="tx_academy_domain_model_relations.type.I.30" >
+				<source>Unit &lt;&gt; Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.31" resname="tx_academy_domain_model_relations.type.I.31" >
+				<source>Unit &lt;&gt; Freetext</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.32" resname="tx_academy_domain_model_relations.type.I.32" >
+				<source>Unit &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.33" resname="tx_academy_domain_model_relations.type.I.33" >
+				<source>Unit &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.34" resname="tx_academy_domain_model_relations.type.I.34" >
+				<source>Unit &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.35" resname="tx_academy_domain_model_relations.type.I.35" >
+				<source>Unit &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.40" resname="tx_academy_domain_model_relations.type.I.40" >
+				<source>News &lt;&gt; Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.41" resname="tx_academy_domain_model_relations.type.I.41" >
+				<source>News &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.42" resname="tx_academy_domain_model_relations.type.I.42" >
+				<source>News &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.43" resname="tx_academy_domain_model_relations.type.I.43" >
+				<source>News &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.50" resname="tx_academy_domain_model_relations.type.I.50" >
+				<source>Event &lt;&gt; Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.51" resname="tx_academy_domain_model_relations.type.I.51" >
+				<source>Event &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.52" resname="tx_academy_domain_model_relations.type.I.52" >
+				<source>Event &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.60" resname="tx_academy_domain_model_relations.type.I.60" >
+				<source>Medium &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.70" resname="tx_academy_domain_model_relations.type.I.70" >
+				<source>Product &lt;&gt; Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.71" resname="tx_academy_domain_model_relations.type.I.71" >
+				<source>Product &lt;&gt; Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.72" resname="tx_academy_domain_model_relations.type.I.72" >
+				<source>Product &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.73" resname="tx_academy_domain_model_relations.type.I.73" >
+				<source>Product &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.74" resname="tx_academy_domain_model_relations.type.I.74" >
+				<source>Product &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.75" resname="tx_academy_domain_model_relations.type.I.75" >
+				<source>Product &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.76" resname="tx_academy_domain_model_relations.type.I.76" >
+				<source>Product &lt;&gt; Service</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.77" resname="tx_academy_domain_model_relations.type.I.77" >
+				<source>Product &lt;&gt; Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.78" resname="tx_academy_domain_model_relations.type.I.78" >
+				<source>Product &lt;&gt; Product</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.80" resname="tx_academy_domain_model_relations.type.I.80" >
+				<source>Service &lt;&gt; Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.81" resname="tx_academy_domain_model_relations.type.I.81" >
+				<source>Service &lt;&gt; Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.82" resname="tx_academy_domain_model_relations.type.I.82" >
+				<source>Service &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.83" resname="tx_academy_domain_model_relations.type.I.83" >
+				<source>Service &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.84" resname="tx_academy_domain_model_relations.type.I.84" >
+				<source>Service &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.85" resname="tx_academy_domain_model_relations.type.I.85" >
+				<source>Service &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.86" resname="tx_academy_domain_model_relations.type.I.86" >
+				<source>Service &lt;&gt; Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.87" resname="tx_academy_domain_model_relations.type.I.87" >
+				<source>Service &lt;&gt; Service</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.90" resname="tx_academy_domain_model_relations.type.I.90" >
+				<source>Publication &lt;&gt; Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.91" resname="tx_academy_domain_model_relations.type.I.91" >
+				<source>Publication &lt;&gt; Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.92" resname="tx_academy_domain_model_relations.type.I.92" >
+				<source>Publication &lt;&gt; Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.93" resname="tx_academy_domain_model_relations.type.I.93" >
+				<source>Publication &lt;&gt; Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.94" resname="tx_academy_domain_model_relations.type.I.94" >
+				<source>Publication &lt;&gt; News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.95" resname="tx_academy_domain_model_relations.type.I.95" >
+				<source>Publication &lt;&gt; Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.type.I.96" resname="tx_academy_domain_model_relations.type.I.96" >
+				<source>Publication &lt;&gt; Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.role" resname="tx_academy_domain_model_relations.role" >
+				<source>Role</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.role_freetext" resname="tx_academy_domain_model_relations.role_freetext" >
+				<source>Role (Freetext)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.project" resname="tx_academy_domain_model_relations.project" >
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.project_symmetric" resname="tx_academy_domain_model_relations.project_symmetric" >
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.event" resname="tx_academy_domain_model_relations.event" >
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.event_symmetric" resname="tx_academy_domain_model_relations.event_symmetric" >
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.person" resname="tx_academy_domain_model_relations.person" >
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.person_symmetric" resname="tx_academy_domain_model_relations.person_symmetric" >
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.medium" resname="tx_academy_domain_model_relations.medium" >
+				<source>Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.medium_symmetric" resname="tx_academy_domain_model_relations.medium_symmetric" >
+				<source>Medium</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.news" resname="tx_academy_domain_model_relations.news" >
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.news_symmetric" resname="tx_academy_domain_model_relations.news_symmetric" >
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.unit" resname="tx_academy_domain_model_relations.unit" >
+				<source>Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.unit_symmetric" resname="tx_academy_domain_model_relations.unit_symmetric" >
+				<source>Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.hcard" resname="tx_academy_domain_model_relations.hcard" >
+				<source>Contact information</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.freetext" resname="tx_academy_domain_model_relations.freetext" >
+				<source>Freetext</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.date_range" resname="tx_academy_domain_model_relations.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.product" resname="tx_academy_domain_model_relations.product" >
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.product_symmetric" resname="tx_academy_domain_model_relations.product_symmetric" >
+				<source>Product</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.service" resname="tx_academy_domain_model_relations.service" >
+				<source>Service</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.service_symmetric" resname="tx_academy_domain_model_relations.service_symmetric" >
+				<source>Service</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.publication" resname="tx_academy_domain_model_relations.publication" >
+				<source>Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_relations.publication_symmetric" resname="tx_academy_domain_model_relations.publication_symmetric" >
+				<source>Publication</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles" resname="tx_academy_domain_model_roles" >
+				<source>Role</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles.div1" resname="tx_academy_domain_model_roles.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles.persistent_identifier" resname="tx_academy_domain_model_roles.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles.title" resname="tx_academy_domain_model_roles.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units" resname="tx_academy_domain_model_units" >
+				<source>Unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.div1" resname="tx_academy_domain_model_units.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.div2" resname="tx_academy_domain_model_units.div2" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.div3" resname="tx_academy_domain_model_units.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.div4" resname="tx_academy_domain_model_units.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.div5" resname="tx_academy_domain_model_units.div5" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.persistent_identifier" resname="tx_academy_domain_model_units.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.title" resname="tx_academy_domain_model_units.title" >
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.acronym" resname="tx_academy_domain_model_units.acronym" >
+				<source>Acronym</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.slug" resname="tx_academy_domain_model_units.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.sorting" resname="tx_academy_domain_model_units.sorting" >
+				<source>Sorting (not displayed)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.page" resname="tx_academy_domain_model_units.page" >
+				<source>Page with information for the unit</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.image" resname="tx_academy_domain_model_units.image" >
+				<source>Images</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.description" resname="tx_academy_domain_model_units.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.relations" resname="tx_academy_domain_model_units.relations" >
+				<source>Relations (unit)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.categories" resname="tx_academy_domain_model_units.categories" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_events" resname="tx_academy_domain_model_events" >
+				<source>Events</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_news" resname="tx_academy_domain_model_news" >
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_news.news_relations" resname="tx_academy_domain_model_news.news_relations" >
+				<source>Relations (news)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_news.event_relations" resname="tx_academy_domain_model_news.event_relations" >
+				<source>Relations (event)</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media" resname="tx_academy_domain_model_media" >
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div1" resname="tx_academy_domain_model_media.div1" >
+				<source>General</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div2" resname="tx_academy_domain_model_media.div2" >
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div3" resname="tx_academy_domain_model_media.div3" >
+				<source>Relations</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div4" resname="tx_academy_domain_model_media.div4" >
+				<source>Metadata</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.persistent_identifier" resname="tx_academy_domain_model_media.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type" resname="tx_academy_domain_model_media.type" >
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type.I.0" resname="tx_academy_domain_model_media.type.I.0" >
+				<source>Please select...</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type.I.10" resname="tx_academy_domain_model_media.type.I.10" >
+				<source>Audio</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type.I.20" resname="tx_academy_domain_model_media.type.I.20" >
+				<source>Image</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type.I.30" resname="tx_academy_domain_model_media.type.I.30" >
+				<source>Document</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.type.I.40" resname="tx_academy_domain_model_media.type.I.40" >
+				<source>Video</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.title" resname="tx_academy_domain_model_media.title" >
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug" >
+				<source>URL Path Segment</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.description" resname="tx_academy_domain_model_media.description" >
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.image" resname="tx_academy_domain_model_media.image" >
+				<source>Teaser image</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.view_count" resname="tx_academy_domain_model_media.view_count" >
+				<source>View count</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.files" resname="tx_academy_domain_model_media.files" >
+				<source>Files</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.collections" resname="tx_academy_domain_model_media.collections" >
+				<source>Collections</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.relations" resname="tx_academy_domain_model_media.relations" >
+				<source>Relations (medium)</source>
+			</trans-unit>
+			<trans-unit id="sys_category.persistent_identifier" resname="sys_category.persistent_identifier" >
+				<source>Persistent identifier</source>
+			</trans-unit>
+			<trans-unit id="tx_news_domain_model_news.type.I.3" resname="tx_news_domain_model_news.type.I.3" >
+				<source>Event</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

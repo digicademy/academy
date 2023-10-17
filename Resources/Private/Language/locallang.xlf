@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:academy/Resources/Private/Language/locallang.xlf" date="2023-10-17T15:27:44Z" product-name="academy">
+		<header/>
+		<body>
+			<trans-unit id="general.backToList" resname="general.backToList" >
+				<source>Back to list</source>
+			</trans-unit>
+			<trans-unit id="general.backLink" resname="general.backLink" >
+				<source>Back</source>
+			</trans-unit>
+			<trans-unit id="general.furtherInformation" resname="general.furtherInformation" >
+				<source>Further information</source>
+			</trans-unit>
+			<trans-unit id="general.showAll" resname="general.showAll" >
+				<source>Show all</source>
+			</trans-unit>
+			<trans-unit id="general.currentSelection" resname="general.currentSelection" >
+				<source>Current Selection</source>
+			</trans-unit>
+			<trans-unit id="general.details" resname="general.details" >
+				<source>Details</source>
+			</trans-unit>
+			<trans-unit id="general.more" resname="general.more" >
+				<source>More</source>
+			</trans-unit>
+			<trans-unit id="general.readOn" resname="general.readOn" >
+				<source>Continue reading</source>
+			</trans-unit>
+			<trans-unit id="general.pleaseSelectRecords" resname="general.pleaseSelectRecords" >
+				<source>Please select a record</source>
+			</trans-unit>
+			<trans-unit id="general.onlyOrgs" resname="general.onlyOrgs" >
+				<source>Currently only ORG addresses are supported</source>
+			</trans-unit>
+			<trans-unit id="projects" resname="projects" >
+				<source>Projects</source>
+			</trans-unit>
+			<trans-unit id="project" resname="project" >
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="persons" resname="persons" >
+				<source>Persons</source>
+			</trans-unit>
+			<trans-unit id="person" resname="person" >
+				<source>Person</source>
+			</trans-unit>
+			<trans-unit id="persons.contact" resname="persons.contact" >
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="persons.allContactDetails" resname="persons.allContactDetails" >
+				<source>All contact data</source>
+			</trans-unit>
+			<trans-unit id="persons.news4person" resname="persons.news4person" >
+				<source>News about this person</source>
+			</trans-unit>
+			<trans-unit id="persons.events4person" resname="persons.events4person" >
+				<source>Events with this person</source>
+			</trans-unit>
+			<trans-unit id="persons.media4person" resname="persons.media4person" >
+				<source>Media content about this person</source>
+			</trans-unit>
+			<trans-unit id="persons.profileLink" resname="persons.profileLink" >
+				<source>Profile</source>
+			</trans-unit>
+			<trans-unit id="persons.vcardLink" resname="persons.vcardLink" >
+				<source>Vcard</source>
+			</trans-unit>
+			<trans-unit id="persons.units" resname="persons.units" >
+				<source>In the academy</source>
+			</trans-unit>
+			<trans-unit id="persons.projects" resname="persons.projects" >
+				<source>In projects</source>
+			</trans-unit>
+			<trans-unit id="persons.seeAlso" resname="persons.seeAlso" >
+				<source>More about this person</source>
+			</trans-unit>
+			<trans-unit id="hcards" resname="hcards" >
+				<source>Contact information</source>
+			</trans-unit>
+			<trans-unit id="hcard" resname="hcard" >
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.3" resname="hcards.address.type.3" >
+				<source>Parcel post</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.6" resname="hcards.address.type.6" >
+				<source>Private</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.1" resname="hcards.address.type.I.1" >
+				<source>INTL</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.2" resname="hcards.address.type.I.2" >
+				<source>POSTAL</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.3" resname="hcards.address.type.I.3" >
+				<source>PARCEL</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.4" resname="hcards.address.type.I.4" >
+				<source>WORK</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.5" resname="hcards.address.type.I.5" >
+				<source>dom</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.6" resname="hcards.address.type.I.6" >
+				<source>home</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.7" resname="hcards.address.type.I.7" >
+				<source>pref</source>
+			</trans-unit>
+			<trans-unit id="hcards.address.pobox" resname="hcards.address.pobox" >
+				<source>PO Box</source>
+			</trans-unit>
+			<trans-unit id="units" resname="units" >
+				<source>Organisational units</source>
+			</trans-unit>
+			<trans-unit id="unit" resname="unit" >
+				<source>Organisational unit</source>
+			</trans-unit>
+			<trans-unit id="units.basicInformation" resname="units.basicInformation" >
+				<source>Basic Information</source>
+			</trans-unit>
+			<trans-unit id="units.relatedProjects" resname="units.relatedProjects" >
+				<source>Related projects</source>
+			</trans-unit>
+			<trans-unit id="categories.selectedCategories.label" resname="categories.selectedCategories.label" >
+				<source>Current selection</source>
+			</trans-unit>
+			<trans-unit id="categories.clearSelection" resname="categories.clearSelection" >
+				<source>Discard selection</source>
+			</trans-unit>
+			<trans-unit id="categories.nothingFoundForSelection" resname="categories.nothingFoundForSelection" >
+				<source>No objects match your selection</source>
+			</trans-unit>
+			<trans-unit id="roles" resname="roles" >
+				<source>Roles</source>
+			</trans-unit>
+			<trans-unit id="role" resname="role" >
+				<source>Role</source>
+			</trans-unit>
+			<trans-unit id="news" resname="news" >
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="news.homepageHeader" resname="news.homepageHeader" >
+				<source>Academy news</source>
+			</trans-unit>
+			<trans-unit id="news.nothingFound" resname="news.nothingFound" >
+				<source>No news found</source>
+			</trans-unit>
+			<trans-unit id="events" resname="events" >
+				<source>Events</source>
+			</trans-unit>
+			<trans-unit id="event" resname="event" >
+				<source>Event</source>
+			</trans-unit>
+			<trans-unit id="events.detail" resname="events.detail" >
+				<source>Event details</source>
+			</trans-unit>
+			<trans-unit id="events.time" resname="events.time" >
+				<source>Time</source>
+			</trans-unit>
+			<trans-unit id="events.place" resname="events.place" >
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="events.export" resname="events.export" >
+				<source>Export</source>
+			</trans-unit>
+			<trans-unit id="events.nothingFound" resname="events.nothingFound" >
+				<source>No events found</source>
+			</trans-unit>
+			<trans-unit id="media" resname="media" >
+				<source>Media</source>
+			</trans-unit>
+			<trans-unit id="media.documents" resname="media.documents" >
+				<source>Documents</source>
+			</trans-unit>
+			<trans-unit id="media.audios" resname="media.audios" >
+				<source>Audios</source>
+			</trans-unit>
+			<trans-unit id="media.videos" resname="media.videos" >
+				<source>Videos</source>
+			</trans-unit>
+			<trans-unit id="media.galleries" resname="media.galleries" >
+				<source>Galleries</source>
+			</trans-unit>
+			<trans-unit id="media.newest" resname="media.newest" >
+				<source>Newest</source>
+			</trans-unit>
+			<trans-unit id="media.total" resname="media.total" >
+				<source>total</source>
+			</trans-unit>
+			<trans-unit id="medium" resname="medium" >
+				<source>Medium</source>
+			</trans-unit>
+			<trans-unit id="media.listGroups" resname="media.listGroups" >
+				<source>Media overview</source>
+			</trans-unit>
+			<trans-unit id="media.noVideoSupport" resname="media.noVideoSupport" >
+				<source>Your browser is not supported by the media player</source>
+			</trans-unit>
+			<trans-unit id="media.showAllDocuments" resname="media.showAllDocuments" >
+				<source>Show all documents</source>
+			</trans-unit>
+			<trans-unit id="media.showAllGalleries" resname="media.showAllGalleries" >
+				<source>Show all galleries</source>
+			</trans-unit>
+			<trans-unit id="media.showAllAudios" resname="media.showAllAudios" >
+				<source>Show all audio files</source>
+			</trans-unit>
+			<trans-unit id="media.showAllVideos" resname="media.showAllVideos" >
+				<source>Show all videos</source>
+			</trans-unit>
+			<trans-unit id="media.crdate" resname="media.crdate" >
+				<source>Created</source>
+			</trans-unit>
+			<trans-unit id="categories" resname="categories" >
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="category" resname="category" >
+				<source>Category</source>
+			</trans-unit>
+			<trans-unit id="pages" resname="pages" >
+				<source>Pages</source>
+			</trans-unit>
+			<trans-unit id="page" resname="page" >
+				<source>Page</source>
+			</trans-unit>
+			<trans-unit id="search" resname="search" >
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="search.media" resname="search.media" >
+				<source>Find media</source>
+			</trans-unit>
+			<trans-unit id="search.persons" resname="search.persons" >
+				<source>Find persons</source>
+			</trans-unit>
+			<trans-unit id="search.projects" resname="search.projects" >
+				<source>Find projects</source>
+			</trans-unit>
+			<trans-unit id="search.keywords" resname="search.keywords" >
+				<source>Keywords</source>
+			</trans-unit>
+			<trans-unit id="search.search" resname="search.search" >
+				<source>Search</source>
+			</trans-unit>
+			<trans-unit id="search.website" resname="search.website" >
+				<source>Website search</source>
+			</trans-unit>
+			<trans-unit id="search.thisWebsite" resname="search.thisWebsite" >
+				<source>Search this website</source>
+			</trans-unit>
+			<trans-unit id="search.find" resname="search.find" >
+				<source>find</source>
+			</trans-unit>
+			<trans-unit id="search.noMatches" resname="search.noMatches" >
+				<source>No results</source>
+			</trans-unit>
+			<trans-unit id="search.matches" resname="search.matches" >
+				<source>Result</source>
+			</trans-unit>
+			<trans-unit id="search.searchedFor" resname="search.searchedFor" >
+				<source>You searched for</source>
+			</trans-unit>
+			<trans-unit id="search.AND" resname="search.AND" >
+				<source>AND</source>
+			</trans-unit>
+			<trans-unit id="search.personSearch" resname="search.personSearch" >
+				<source>Person search</source>
+			</trans-unit>
+			<trans-unit id="search.projectsSearch" resname="search.projectsSearch" >
+				<source>Project search</source>
+			</trans-unit>
+			<trans-unit id="search.newsSearch" resname="search.newsSearch" >
+				<source>News search</source>
+			</trans-unit>
+			<trans-unit id="search.eventsSearch" resname="search.eventsSearch" >
+				<source>Event search</source>
+			</trans-unit>
+			<trans-unit id="search.pagesSearch" resname="search.pagesSearch" >
+				<source>Pages search</source>
+			</trans-unit>
+			<trans-unit id="search.mediaSearch" resname="search.mediaSearch" >
+				<source>Media search</source>
+			</trans-unit>
+			<trans-unit id="search.noPersonsFound" resname="search.noPersonsFound" >
+				<source>No persons found</source>
+			</trans-unit>
+			<trans-unit id="search.noProjectsFound" resname="search.noProjectsFound" >
+				<source>No projects found</source>
+			</trans-unit>
+			<trans-unit id="search.noNewsFound" resname="search.noNewsFound" >
+				<source>No news found</source>
+			</trans-unit>
+			<trans-unit id="search.noEventsFound" resname="search.noEventsFound" >
+				<source>No events found</source>
+			</trans-unit>
+			<trans-unit id="search.noPagesFound" resname="search.noPagesFound" >
+				<source>No pages found</source>
+			</trans-unit>
+			<trans-unit id="search.noMediaFound" resname="search.noMediaFound" >
+				<source>No media found</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

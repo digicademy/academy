@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:academy/Resources/Private/Language/locallang.xlf" date="2023-10-17T15:27:44Z" product-name="academy">
+		<header/>
+		<body>
+			<trans-unit id="general.backToList" resname="general.backToList"  approved="yes">
+				<source>Back to list</source>
+				<target>Zurück zur Übersicht</target>
+			</trans-unit>
+			<trans-unit id="general.backLink" resname="general.backLink"  approved="yes">
+				<source>Back</source>
+				<target>Zurück</target>
+			</trans-unit>
+			<trans-unit id="general.furtherInformation" resname="general.furtherInformation"  approved="yes">
+				<source>Further information</source>
+				<target>Weiterführende Informationen</target>
+			</trans-unit>
+			<trans-unit id="general.showAll" resname="general.showAll"  approved="yes">
+				<source>Show all</source>
+				<target>Alle anzeigen</target>
+			</trans-unit>
+			<trans-unit id="general.currentSelection" resname="general.currentSelection"  approved="yes">
+				<source>Current Selection</source>
+				<target>Aktuelle Auswahl</target>
+			</trans-unit>
+			<trans-unit id="general.details" resname="general.details"  approved="yes">
+				<source>Details</source>
+				<target>Details</target>
+			</trans-unit>
+			<trans-unit id="general.more" resname="general.more"  approved="yes">
+				<source>More</source>
+				<target>Mehr</target>
+			</trans-unit>
+			<trans-unit id="general.readOn" resname="general.readOn"  approved="yes">
+				<source>Continue reading</source>
+				<target>Weiterlesen</target>
+			</trans-unit>
+			<trans-unit id="general.pleaseSelectRecords" resname="general.pleaseSelectRecords"  approved="yes">
+				<source>Please select a record</source>
+				<target>Bitte wählen Sie Datensätze aus</target>
+			</trans-unit>
+			<trans-unit id="general.onlyOrgs" resname="general.onlyOrgs"  approved="yes">
+				<source>Currently only ORG addresses are supported</source>
+				<target>Momentan werden nur Institutionsadressen und keine Personenadressen unterstützt</target>
+			</trans-unit>
+			<trans-unit id="projects" resname="projects"  approved="yes">
+				<source>Projects</source>
+				<target>Projekte</target>
+			</trans-unit>
+			<trans-unit id="project" resname="project"  approved="yes">
+				<source>Project</source>
+				<target>Projekt</target>
+			</trans-unit>
+			<trans-unit id="persons" resname="persons"  approved="yes">
+				<source>Persons</source>
+				<target>Personen</target>
+			</trans-unit>
+			<trans-unit id="person" resname="person"  approved="yes">
+				<source>Person</source>
+				<target>Person</target>
+			</trans-unit>
+			<trans-unit id="persons.contact" resname="persons.contact"  approved="yes">
+				<source>Contact</source>
+				<target>Kontakt</target>
+			</trans-unit>
+			<trans-unit id="persons.allContactDetails" resname="persons.allContactDetails"  approved="yes">
+				<source>All contact data</source>
+				<target>Alle Kontaktdaten</target>
+			</trans-unit>
+			<trans-unit id="persons.news4person" resname="persons.news4person"  approved="yes">
+				<source>News about this person</source>
+				<target>Pressemeldungen zu dieser Person</target>
+			</trans-unit>
+			<trans-unit id="persons.events4person" resname="persons.events4person"  approved="yes">
+				<source>Events with this person</source>
+				<target>Termine mit dieser Person</target>
+			</trans-unit>
+			<trans-unit id="persons.media4person" resname="persons.media4person"  approved="yes">
+				<source>Media content about this person</source>
+				<target>Inhalte in der Mediathek zu dieser Person</target>
+			</trans-unit>
+			<trans-unit id="persons.profileLink" resname="persons.profileLink"  approved="yes">
+				<source>Profile</source>
+				<target>Profil</target>
+			</trans-unit>
+			<trans-unit id="persons.vcardLink" resname="persons.vcardLink"  approved="yes">
+				<source>Vcard</source>
+				<target>Visitenkarte</target>
+			</trans-unit>
+			<trans-unit id="persons.units" resname="persons.units"  approved="yes">
+				<source>In the academy</source>
+				<target>In der Akademie</target>
+			</trans-unit>
+			<trans-unit id="persons.projects" resname="persons.projects"  approved="yes">
+				<source>In projects</source>
+				<target>In Projekten</target>
+			</trans-unit>
+			<trans-unit id="persons.seeAlso" resname="persons.seeAlso"  approved="yes">
+				<source>More about this person</source>
+				<target>Mehr zur Person</target>
+			</trans-unit>
+			<trans-unit id="hcards" resname="hcards"  approved="yes">
+				<source>Contact information</source>
+				<target>Kontaktinformationen</target>
+			</trans-unit>
+			<trans-unit id="hcard" resname="hcard"  approved="yes">
+				<source>Contact</source>
+				<target>Kontakt</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.3" resname="hcards.address.type.3"  approved="yes">
+				<source>Parcel post</source>
+				<target>Paketpost</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.6" resname="hcards.address.type.6"  approved="yes">
+				<source>Private</source>
+				<target>Privat</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.1" resname="hcards.address.type.I.1"  approved="yes">
+				<source>INTL</source>
+				<target>INTL</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.2" resname="hcards.address.type.I.2"  approved="yes">
+				<source>POSTAL</source>
+				<target>POSTAL</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.3" resname="hcards.address.type.I.3"  approved="yes">
+				<source>PARCEL</source>
+				<target>PARCEL</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.4" resname="hcards.address.type.I.4"  approved="yes">
+				<source>WORK</source>
+				<target>WORK</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.5" resname="hcards.address.type.I.5"  approved="yes">
+				<source>dom</source>
+				<target>dom</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.6" resname="hcards.address.type.I.6"  approved="yes">
+				<source>home</source>
+				<target>home</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.type.I.7" resname="hcards.address.type.I.7"  approved="yes">
+				<source>pref</source>
+				<target>pref</target>
+			</trans-unit>
+			<trans-unit id="hcards.address.pobox" resname="hcards.address.pobox"  approved="yes">
+				<source>PO Box</source>
+				<target>Postfach</target>
+			</trans-unit>
+			<trans-unit id="units" resname="units"  approved="yes">
+				<source>Organisational units</source>
+				<target>Organisationseinheiten</target>
+			</trans-unit>
+			<trans-unit id="unit" resname="unit"  approved="yes">
+				<source>Organisational unit</source>
+				<target>Organisationseinheit</target>
+			</trans-unit>
+			<trans-unit id="units.basicInformation" resname="units.basicInformation"  approved="yes">
+				<source>Basic Information</source>
+				<target>Basisinformationen</target>
+			</trans-unit>
+			<trans-unit id="units.relatedProjects" resname="units.relatedProjects"  approved="yes">
+				<source>Related projects</source>
+				<target>Zugehörige Projekte</target>
+			</trans-unit>
+			<trans-unit id="categories.selectedCategories.label" resname="categories.selectedCategories.label"  approved="yes">
+				<source>Current selection</source>
+				<target>Aktuelle Auswahl</target>
+			</trans-unit>
+			<trans-unit id="categories.clearSelection" resname="categories.clearSelection"  approved="yes">
+				<source>Discard selection</source>
+				<target>Auswahl aufheben</target>
+			</trans-unit>
+			<trans-unit id="categories.nothingFoundForSelection" resname="categories.nothingFoundForSelection"  approved="yes">
+				<source>No objects match your selection</source>
+				<target>Keine Objekte entsprechen Ihren Auswahlkriterien</target>
+			</trans-unit>
+			<trans-unit id="roles" resname="roles"  approved="yes">
+				<source>Roles</source>
+				<target>Funktionen</target>
+			</trans-unit>
+			<trans-unit id="role" resname="role"  approved="yes">
+				<source>Role</source>
+				<target>Funktion</target>
+			</trans-unit>
+			<trans-unit id="news" resname="news"  approved="yes">
+				<source>News</source>
+				<target>Nachrichten</target>
+			</trans-unit>
+			<trans-unit id="news.homepageHeader" resname="news.homepageHeader"  approved="yes">
+				<source>Academy news</source>
+				<target>Nachrichten aus der Akademie</target>
+			</trans-unit>
+			<trans-unit id="news.nothingFound" resname="news.nothingFound"  approved="yes">
+				<source>No news found</source>
+				<target>Keine Nachrichten gefunden</target>
+			</trans-unit>
+			<trans-unit id="events" resname="events"  approved="yes">
+				<source>Events</source>
+				<target>Termine</target>
+			</trans-unit>
+			<trans-unit id="event" resname="event"  approved="yes">
+				<source>Event</source>
+				<target>Termin</target>
+			</trans-unit>
+			<trans-unit id="events.detail" resname="events.detail"  approved="yes">
+				<source>Event details</source>
+				<target>Veranstaltungsdetails</target>
+			</trans-unit>
+			<trans-unit id="events.time" resname="events.time"  approved="yes">
+				<source>Time</source>
+				<target>Zeit</target>
+			</trans-unit>
+			<trans-unit id="events.place" resname="events.place"  approved="yes">
+				<source>Location</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="events.export" resname="events.export"  approved="yes">
+				<source>Export</source>
+				<target>Exportieren</target>
+			</trans-unit>
+			<trans-unit id="events.nothingFound" resname="events.nothingFound"  approved="yes">
+				<source>No events found</source>
+				<target>Keine Termine gefunden</target>
+			</trans-unit>
+			<trans-unit id="media" resname="media"  approved="yes">
+				<source>Media</source>
+				<target>Medien</target>
+			</trans-unit>
+			<trans-unit id="media.documents" resname="media.documents"  approved="yes">
+				<source>Documents</source>
+				<target>Dokumente</target>
+			</trans-unit>
+			<trans-unit id="media.audios" resname="media.audios"  approved="yes">
+				<source>Audios</source>
+				<target>Audios</target>
+			</trans-unit>
+			<trans-unit id="media.videos" resname="media.videos"  approved="yes">
+				<source>Videos</source>
+				<target>Videos</target>
+			</trans-unit>
+			<trans-unit id="media.galleries" resname="media.galleries"  approved="yes">
+				<source>Galleries</source>
+				<target>Bildergalerien</target>
+			</trans-unit>
+			<trans-unit id="media.newest" resname="media.newest"  approved="yes">
+				<source>Newest</source>
+				<target>Neueste</target>
+			</trans-unit>
+			<trans-unit id="media.total" resname="media.total"  approved="yes">
+				<source>total</source>
+				<target>insgesamt</target>
+			</trans-unit>
+			<trans-unit id="medium" resname="medium"  approved="yes">
+				<source>Medium</source>
+				<target>Medium</target>
+			</trans-unit>
+			<trans-unit id="media.listGroups" resname="media.listGroups"  approved="yes">
+				<source>Media overview</source>
+				<target>Übersicht nach Medientypen</target>
+			</trans-unit>
+			<trans-unit id="media.noVideoSupport" resname="media.noVideoSupport"  approved="yes">
+				<source>Your browser is not supported by the media player</source>
+				<target>Leider unterstützt Ihr Browser die Videodarstellung nicht</target>
+			</trans-unit>
+			<trans-unit id="media.showAllDocuments" resname="media.showAllDocuments"  approved="yes">
+				<source>Show all documents</source>
+				<target>Alle Dokumente anzeigen</target>
+			</trans-unit>
+			<trans-unit id="media.showAllGalleries" resname="media.showAllGalleries"  approved="yes">
+				<source>Show all galleries</source>
+				<target>Alle Galerien anzeigen</target>
+			</trans-unit>
+			<trans-unit id="media.showAllAudios" resname="media.showAllAudios"  approved="yes">
+				<source>Show all audio files</source>
+				<target>Alle Audiodateien anzeigen</target>
+			</trans-unit>
+			<trans-unit id="media.showAllVideos" resname="media.showAllVideos"  approved="yes">
+				<source>Show all videos</source>
+				<target>Alle Videos anzeigen</target>
+			</trans-unit>
+			<trans-unit id="media.crdate" resname="media.crdate"  approved="yes">
+				<source>Created</source>
+				<target>Eingestellt am</target>
+			</trans-unit>
+			<trans-unit id="categories" resname="categories"  approved="yes">
+				<source>Categories</source>
+				<target>Rubriken</target>
+			</trans-unit>
+			<trans-unit id="category" resname="category"  approved="yes">
+				<source>Category</source>
+				<target>Rubrik</target>
+			</trans-unit>
+			<trans-unit id="pages" resname="pages"  approved="yes">
+				<source>Pages</source>
+				<target>Seiten</target>
+			</trans-unit>
+			<trans-unit id="page" resname="page"  approved="yes">
+				<source>Page</source>
+				<target>Seite</target>
+			</trans-unit>
+			<trans-unit id="search" resname="search"  approved="yes">
+				<source>Search</source>
+				<target>Suche</target>
+			</trans-unit>
+			<trans-unit id="search.media" resname="search.media"  approved="yes">
+				<source>Find media</source>
+				<target>Medien finden</target>
+			</trans-unit>
+			<trans-unit id="search.persons" resname="search.persons"  approved="yes">
+				<source>Find persons</source>
+				<target>Personen finden</target>
+			</trans-unit>
+			<trans-unit id="search.projects" resname="search.projects"  approved="yes">
+				<source>Find projects</source>
+				<target>Projekte finden</target>
+			</trans-unit>
+			<trans-unit id="search.keywords" resname="search.keywords"  approved="yes">
+				<source>Keywords</source>
+				<target>Suchbegriffe</target>
+			</trans-unit>
+			<trans-unit id="search.search" resname="search.search"  approved="yes">
+				<source>Search</source>
+				<target>Suchen</target>
+			</trans-unit>
+			<trans-unit id="search.website" resname="search.website"  approved="yes">
+				<source>Website search</source>
+				<target>Website durchsuchen</target>
+			</trans-unit>
+			<trans-unit id="search.thisWebsite" resname="search.thisWebsite"  approved="yes">
+				<source>Search this website</source>
+				<target>Diese Website durchsuchen</target>
+			</trans-unit>
+			<trans-unit id="search.find" resname="search.find"  approved="yes">
+				<source>find</source>
+				<target>finden</target>
+			</trans-unit>
+			<trans-unit id="search.noMatches" resname="search.noMatches"  approved="yes">
+				<source>No results</source>
+				<target>Keine Treffer gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.matches" resname="search.matches"  approved="yes">
+				<source>Result</source>
+				<target>Treffer</target>
+			</trans-unit>
+			<trans-unit id="search.searchedFor" resname="search.searchedFor"  approved="yes">
+				<source>You searched for</source>
+				<target>Sie suchten nach</target>
+			</trans-unit>
+			<trans-unit id="search.AND" resname="search.AND"  approved="yes">
+				<source>AND</source>
+				<target>UND</target>
+			</trans-unit>
+			<trans-unit id="search.personSearch" resname="search.personSearch"  approved="yes">
+				<source>Person search</source>
+				<target>Personensuche</target>
+			</trans-unit>
+			<trans-unit id="search.projectsSearch" resname="search.projectsSearch"  approved="yes">
+				<source>Project search</source>
+				<target>Projektsuche</target>
+			</trans-unit>
+			<trans-unit id="search.newsSearch" resname="search.newsSearch"  approved="yes">
+				<source>News search</source>
+				<target>Nachrichtensuche</target>
+			</trans-unit>
+			<trans-unit id="search.eventsSearch" resname="search.eventsSearch"  approved="yes">
+				<source>Event search</source>
+				<target>Veranstaltungssuche</target>
+			</trans-unit>
+			<trans-unit id="search.pagesSearch" resname="search.pagesSearch"  approved="yes">
+				<source>Pages search</source>
+				<target>Seitensuche</target>
+			</trans-unit>
+			<trans-unit id="search.mediaSearch" resname="search.mediaSearch"  approved="yes">
+				<source>Media search</source>
+				<target>Mediensuche</target>
+			</trans-unit>
+			<trans-unit id="search.noPersonsFound" resname="search.noPersonsFound"  approved="yes">
+				<source>No persons found</source>
+				<target>Keine Personen gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.noProjectsFound" resname="search.noProjectsFound"  approved="yes">
+				<source>No projects found</source>
+				<target>Keine Projekte gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.noNewsFound" resname="search.noNewsFound"  approved="yes">
+				<source>No news found</source>
+				<target>Keine Nachrichten gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.noEventsFound" resname="search.noEventsFound"  approved="yes">
+				<source>No events found</source>
+				<target>Keine Events gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.noPagesFound" resname="search.noPagesFound"  approved="yes">
+				<source>No pages found</source>
+				<target>Keine Seiten gefunden</target>
+			</trans-unit>
+			<trans-unit id="search.noMediaFound" resname="search.noMediaFound"  approved="yes">
+				<source>No media found</source>
+				<target>Keine Medien gefunden</target>
+			</trans-unit>
+			<trans-unit id="general.noData" resname="general.noData"  approved="yes">
+				<source>Keine Datensätze gefunden</source>
+				<target>Keine Datensätze gefunden</target>
+			</trans-unit>
+			<trans-unit id="events.homepageHeader" resname="events.homepageHeader"  approved="yes">
+				<source>Aktuelle Termine</source>
+				<target>Aktuelle Termine</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
