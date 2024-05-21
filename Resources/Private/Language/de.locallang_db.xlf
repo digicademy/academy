@@ -391,22 +391,6 @@
 				<source>Honorific suffix</source>
 				<target>Nachgestellte Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender" resname="tx_academy_domain_model_persons.gender"  approved="yes">
-				<source>Gender</source>
-				<target>Geschlecht</target>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.0" resname="tx_academy_domain_model_persons.gender.type.I.0"  approved="yes">
-				<source>male</source>
-				<target>männlich</target>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.1" resname="tx_academy_domain_model_persons.gender.type.I.1"  approved="yes">
-				<source>female</source>
-				<target>weiblich</target>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.2" resname="tx_academy_domain_model_persons.gender.type.I.2"  approved="yes">
-				<source>non binary</source>
-				<target>nicht binär</target>
-			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_persons.slug" resname="tx_academy_domain_model_persons.slug"  approved="yes">
 				<source>URL Path Segment</source>
 				<target>URL Pfadsegment</target>

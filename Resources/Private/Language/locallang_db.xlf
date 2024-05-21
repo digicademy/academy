@@ -294,18 +294,6 @@
 			<trans-unit id="tx_academy_domain_model_persons.honorific_suffix" resname="tx_academy_domain_model_persons.honorific_suffix" >
 				<source>Honorific suffix</source>
 			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender" resname="tx_academy_domain_model_persons.gender" >
-				<source>Gender</source>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.0" resname="tx_academy_domain_model_persons.gender.type.I.0" >
-				<source>male</source>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.1" resname="tx_academy_domain_model_persons.gender.type.I.1" >
-				<source>female</source>
-			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_persons.gender.type.I.2" resname="tx_academy_domain_model_persons.gender.type.I.2" >
-				<source>non binary</source>
-			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_persons.slug" resname="tx_academy_domain_model_persons.slug" >
 				<source>URL Path Segment</source>
 			</trans-unit>
