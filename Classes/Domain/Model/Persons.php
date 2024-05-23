@@ -47,13 +47,6 @@ class Persons extends AbstractEntity
     protected $persistentIdentifier;
 
     /**
-     * gender
-     *
-     * @var \integer $gender
-     */
-    protected $gender;
-
-    /**
      * Given name of the person
      *
      * @var \string $givenName
@@ -95,7 +88,7 @@ class Persons extends AbstractEntity
     protected $slug;
 
     /**
-     * gender
+     * sorting
      *
      * @var \string $sorting
      */
@@ -188,29 +181,7 @@ class Persons extends AbstractEntity
     {
         $this->persistentIdentifier = $persistentIdentifier;
     }
-
-    /**
-     * Returns the gender
-     *
-     * @return \integer $gender
-     */
-    public function getGender()
-    {
-        return $this->gender;
-    }
-
-    /**
-     * Sets the gender
-     *
-     * @param \integer $gender
-     *
-     * @return void
-     */
-    public function setGender($gender)
-    {
-        $this->gender = $gender;
-    }
-
+    
     /**
      * Returns the given name
      *

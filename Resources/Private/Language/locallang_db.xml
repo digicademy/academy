@@ -117,10 +117,6 @@
 			<label index="tx_academy_domain_model_persons.family_name">Family name</label>
 			<label index="tx_academy_domain_model_persons.honorific_prefix">Honorific prefix</label>
 			<label index="tx_academy_domain_model_persons.honorific_suffix">Honorific suffix</label>
-			<label index="tx_academy_domain_model_persons.gender">Gender</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.0">male</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.1">female</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.2">non binary</label>
 			<label index="tx_academy_domain_model_persons.slug">URL Path Segment</label>
 			<label index="tx_academy_domain_model_persons.sorting">Sorting (not displayed)</label>
 			<label index="tx_academy_domain_model_persons.date_range">Life dates</label>
@@ -481,10 +477,6 @@
 			<label index="tx_academy_domain_model_persons.family_name">Nachname</label>
 			<label index="tx_academy_domain_model_persons.honorific_prefix">Vorangestellte Titel</label>
 			<label index="tx_academy_domain_model_persons.honorific_suffix">Nachgestellte Titel</label>
-			<label index="tx_academy_domain_model_persons.gender">Geschlecht</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.0">männlich</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.1">weiblich</label>
-			<label index="tx_academy_domain_model_persons.gender.type.I.2">nicht binär</label>
 			<label index="tx_academy_domain_model_persons.slug">URL Pfadsegment</label>
 			<label index="tx_academy_domain_model_persons.sorting">Sortierung (intern)</label>
 			<label index="tx_academy_domain_model_persons.date_range">Lebensdaten</label>
