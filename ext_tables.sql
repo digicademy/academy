@@ -119,7 +119,6 @@ CREATE TABLE tx_academy_domain_model_persons (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
-	gender tinyint(4) unsigned DEFAULT '0' NOT NULL,
 	given_name varchar(80) DEFAULT '' NOT NULL,
 	additional_name varchar(80) DEFAULT '' NOT NULL,
 	family_name varchar(80) DEFAULT '' NOT NULL,

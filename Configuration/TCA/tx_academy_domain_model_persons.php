@@ -34,7 +34,6 @@ return array(
             l10n_diffsource, 
             hidden, 
             persistent_identifier,
-            gender, 
             honorific_prefix, 
             given_name, 
             additional_name, 
@@ -56,7 +55,6 @@ return array(
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div1,
                     hidden,
                     persistent_identifier,
-                    gender,
                     honorific_prefix,
                     given_name,
                     additional_name,
@@ -168,27 +166,6 @@ return array(
                 'size' => 30,
                 'eval' => 'trim',
                 'readOnly' => 1
-            ),
-        ),
-        'gender' => array(
-            'exclude' => 1,
-            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.gender',
-            'config' => array(
-                'type' => 'radio',
-                'items' => array(
-                    array(
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.gender.type.I.0',
-                        0
-                    ),
-                    array(
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.gender.type.I.1',
-                        1
-                    ),
-                    array(
-                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.gender.type.I.2',
-                        2
-                    ),
-                ),
             ),
         ),
         'given_name' => array(
