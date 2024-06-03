@@ -40,7 +40,7 @@ class ProjectsController extends ActionController
     protected $projectsRepository;
 
     /**
-     * Use constructor DI and not @inject
+     * Use constructor DI and not (a)inject
      * @see: https://gist.github.com/NamelessCoder/3b2e5931a6c1af19f9c3f8b46e74f837
      *
      * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface    $configurationManager
