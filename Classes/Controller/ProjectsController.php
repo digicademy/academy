@@ -82,6 +82,21 @@ class ProjectsController extends ActionController
     }
 
     /**
+     * Displays a selected list of projects
+     *
+     * @param \Digicademy\Academy\Domain\Model\Projects $project
+     *
+     * @return void
+     */
+    public function listBySelectionAction()
+    {
+        $arguments = $this->request->getArguments();
+        $this->view->assign('arguments', $arguments);
+        $projects = $this->projectsRepository->findBySelection($this->settings['selectedProjects']);
+        $this->view->assign('projects', $projects);
+    }
+
+    /**
      * Displays a project by uid
      *
      * @param \Digicademy\Academy\Domain\Model\Projects $project
