@@ -37,7 +37,7 @@ class Events extends EventNews
 {
 
     /**
-     * Relations of the news with persons, projects, events, news, media etc.
+     * Relations of the event with persons, projects, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
      */

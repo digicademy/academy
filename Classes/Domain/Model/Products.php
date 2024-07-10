@@ -45,14 +45,14 @@ class Products extends AbstractEntity
     protected $persistentIdentifier;
 
     /**
-     * The identifier of the project
+     * The identifier of the product
      *
      * @var \string $identifier
      */
     protected $identifier;
 
     /**
-     * The title of the project
+     * The title of the product
      *
      * @var \string $title
      * @Extbase\Validate("NotEmpty")
@@ -60,7 +60,7 @@ class Products extends AbstractEntity
     protected $title;
 
     /**
-     * An acronym for the project
+     * An acronym for the product
      *
      * @var \string $acronym
      */
@@ -72,14 +72,14 @@ class Products extends AbstractEntity
     protected $slug;
 
     /**
-     * The internal sorting for project list (if not alphabetic)
+     * The internal sorting for product list (if not alphabetic)
      *
      * @var \string $sorting
      */
     protected $sorting;
 
     /**
-     * A description of the projects scientific activities
+     * A description of the product
      *
      * @var \string $description
      */
@@ -101,21 +101,21 @@ class Products extends AbstractEntity
     protected $image = null;
 
     /**
-     * Duration of the project
+     * Duration of the product
      *
      * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
      */
     protected $dateRange = null;
 
     /**
-     * The page where the project details are listed
+     * The page where the product details are listed
      *
      * @var \integer $page
      */
     protected $page;
 
     /**
-     * Relations of the project with persons, events, news, media etc.
+     * Relations of the product with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
      * @Extbase\ORM\Lazy
@@ -123,7 +123,7 @@ class Products extends AbstractEntity
     protected $relations = null;
 
     /**
-     * Selected categories for the project
+     * Selected categories for the product
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
      * @Extbase\ORM\Lazy
