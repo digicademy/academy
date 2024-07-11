@@ -1,10 +1,11 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
-return array(
-    'ctrl' => array(
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
+
+return [
+    'ctrl' => [
         'title' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_roles',
         'label' => 'title',
         'default_sortby' => 'ORDER BY title ASC',
@@ -17,15 +18,15 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
+        ],
         'searchFields' => 'title',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_roles.svg'
-    ),
-    'interface' => array(
+        'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_roles.svg'
+    ],
+    'interface' => [
         'showRecordFieldList' => '
             sys_language_uid, 
             l10n_parent, 
@@ -34,9 +35,9 @@ return array(
             persistent_identifier,
             title
         ',
-    ),
-    'types' => array(
-        '1' => array(
+    ],
+    'types' => [
+        '1' => [
             'showitem' => '
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_roles.div1,
                 hidden,
@@ -47,12 +48,12 @@ return array(
                 l10n_parent,
                 l10n_diffsource
         '
-        ),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
-    'columns' => array(
+        ],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => ''],
+    ],
+    'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -70,87 +71,87 @@ return array(
                 'default' => 0,
             ]
         ],
-        'l10n_parent' => array(
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_academy_domain_model_roles',
                 'foreign_table_where' => 'AND tx_academy_domain_model_roles.pid=###CURRENT_PID### AND tx_academy_domain_model_roles.sys_language_uid IN (-1,0)',
-            ),
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ],
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        't3ver_label' => array(
+            ],
+        ],
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'max' => '255',
-            )
-        ),
-        'hidden' => array(
+            ]
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
+            ],
+        ],
+        'starttime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '10',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-            ),
-        ),
-        'endtime' => array(
+            ],
+        ],
+        'endtime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '8',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-                'range' => array(
+                'range' => [
                     'upper' => mktime(0, 0, 0, 12, 31, date('Y') + 10),
                     'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'persistent_identifier' => array(
+                ],
+            ],
+        ],
+        'persistent_identifier' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_roles.persistent_identifier',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
                 'readOnly' => 1
-            ),
-        ),
-        'title' => array(
+            ],
+        ],
+        'title' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_roles.title',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim,required'
-            ),
-        )
-    ),
-);
+            ],
+        ]
+    ],
+];

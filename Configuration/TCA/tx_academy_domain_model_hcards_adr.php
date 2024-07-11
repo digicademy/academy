@@ -1,10 +1,11 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
-return array(
-    'ctrl' => array(
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
+
+return [
+    'ctrl' => [
         'title' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr',
         'label' => 'label',
         'label_alt' => 'org',
@@ -19,15 +20,15 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
+        ],
         'searchFields' => 'label,org',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adr.svg'
-    ),
-    'interface' => array(
+        'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_hcards_adr.svg'
+    ],
+    'interface' => [
         'showRecordFieldList' => '
             hidden, 
             type, 
@@ -39,9 +40,9 @@ return array(
             l10n_diffsource, 
             sorting
         ',
-    ),
-    'types' => array(
-        '1' => array(
+    ],
+    'types' => [
+        '1' => [
             'showitem' => '
                 hidden,
                 type,
@@ -53,12 +54,12 @@ return array(
                 l10n_diffsource,
                 sorting
         '
-        ),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
-    'columns' => array(
+        ],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => ''],
+    ],
+    'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -76,146 +77,146 @@ return array(
                 'default' => 0,
             ]
         ],
-        'l10n_parent' => array(
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_academy_domain_model_hcards_adr',
                 'foreign_table_where' => 'AND tx_academy_domain_model_hcards_adr.pid=###CURRENT_PID### AND tx_academy_domain_model_hcards_adr.sys_language_uid IN (-1,0)',
-            ),
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ],
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        't3ver_label' => array(
+            ],
+        ],
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'max' => '255',
-            )
-        ),
-        'sorting' => array(
-            'config' => array(
+            ]
+        ],
+        'sorting' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        'hidden' => array(
+            ],
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
+            ],
+        ],
+        'starttime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '10',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-            ),
-        ),
-        'endtime' => array(
+            ],
+        ],
+        'endtime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '8',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-                'range' => array(
+                'range' => [
                     'upper' => mktime(0, 0, 0, 12, 31, date('Y') + 10),
                     'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'label' => array(
+                ],
+            ],
+        ],
+        'label' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.label',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 50,
                 'eval' => 'trim'
-            ),
-        ),
-        'org' => array(
+            ],
+        ],
+        'org' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.org',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'rows' => 5,
                 'cols' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'type' => array(
+            ],
+        ],
+        'type' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
-                'items' => array(
-                    array(
+                'items' => [
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.1',
                         '1'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.2',
                         '2'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.3',
                         '3'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.4',
                         '4'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.5',
                         '5'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.6',
                         '6'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.type.I.7',
                         '7'
-                    ),
-                ),
+                    ],
+                ],
                 'size' => 1,
                 'maxitems' => 1,
                 'eval' => 'required'
-            ),
-        ),
-        'adrcomponents' => array(
+            ],
+        ],
+        'adrcomponents' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_hcards_adr.adrcomponents',
-            'config' => array(
+            'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_academy_domain_model_hcards_adrcomponents',
                 'foreign_field' => 'parent',
                 'foreign_sortby' => 'sorting',
                 'maxitems' => 9999,
-                'behaviour' => array(
+                'behaviour' => [
                     'disableMovingChildrenWithParent' => 1,
-                ),
-                'appearance' => array(
+                ],
+                'appearance' => [
                     'collapseAll' => 1,
                     'expandSingle' => 1,
                     'newRecordLinkAddTitle' => 1,
@@ -224,8 +225,8 @@ return array(
                     'showSynchronizationLink' => 1,
                     'showPossibleLocalizationRecords' => 1,
                     'showAllLocalizationLink' => 1,
-                ),
-            ),
-        ),
-    ),
-);
+                ],
+            ],
+        ],
+    ],
+];
