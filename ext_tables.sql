@@ -9,6 +9,9 @@ CREATE TABLE tx_academy_domain_model_projects (
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
+
     # slug
     slug varchar(2048) DEFAULT '' NOT NULL,
 
@@ -70,6 +73,9 @@ CREATE TABLE tx_academy_domain_model_units (
 	sorting varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
+
     # slug
     slug varchar(2048) DEFAULT '' NOT NULL,
 
@@ -128,6 +134,9 @@ CREATE TABLE tx_academy_domain_model_persons (
 	honorific_prefix varchar(80) DEFAULT '' NOT NULL,
 	honorific_suffix varchar(80) DEFAULT '' NOT NULL,
 	sorting varchar(255) DEFAULT '' NOT NULL,
+
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
 
     # slug
     slug varchar(2048) DEFAULT '' NOT NULL,
@@ -257,6 +266,9 @@ CREATE TABLE tx_academy_domain_model_products (
 	# cfVersInfo
 	version varchar(40) DEFAULT '' NOT NULL,
 
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
+
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
@@ -344,6 +356,9 @@ CREATE TABLE tx_academy_domain_model_publications (
 	# cfBiblNote
 	bibliographic_note varchar(255) DEFAULT '' NOT NULL,
 
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
+
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
 
@@ -411,6 +426,9 @@ CREATE TABLE tx_academy_domain_model_services (
 	acronym varchar(40) DEFAULT '' NOT NULL,
 	# cfDescr
 	description text NOT NULL,
+
+    # tt_content (1:n)
+    content_elements int(11) DEFAULT '0' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,
@@ -894,4 +912,10 @@ CREATE TABLE sys_category (
 	persistent_identifier varchar(255) DEFAULT '' NOT NULL,
 
 	KEY persistent_identifier (persistent_identifier)
+);
+
+CREATE TABLE tt_content (
+    tx_academy_parent int(11) DEFAULT '0' NOT NULL,
+    tx_academy_tablename varchar(255) DEFAULT '' NOT NULL,
+    KEY tx_academy_parent (tx_academy_parent)
 );
