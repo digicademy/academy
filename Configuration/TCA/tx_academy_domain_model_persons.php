@@ -1,10 +1,12 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
-return array(
-    'ctrl' => array(
+use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
+
+return [
+    'ctrl' => [
         'title' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons',
         'label' => 'family_name',
         'label_alt' => 'given_name, honorific_prefix, honorific_suffix',
@@ -19,15 +21,15 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
+        ],
         'searchFields' => 'persistent_identifier,given_name,honorific_prefix,additional_name,family_name,honorific_suffix',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_persons.svg'
-    ),
-    'interface' => array(
+        'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_persons.svg'
+    ],
+    'interface' => [
         'showRecordFieldList' => '
             sys_language_uid, 
             l10n_parent, 
@@ -41,16 +43,17 @@ return array(
             honorific_suffix, 
             sorting, 
             date_range,
-            image, 
+            image,
+            content_elements,
             expertise, 
             cv, 
             awards, 
             publications, 
             relations
         ',
-    ),
-    'types' => array(
-        '1' => array(
+    ],
+    'types' => [
+        '1' => [
             'showitem' => '
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div1,
                     hidden,
@@ -64,6 +67,7 @@ return array(
                     sorting,
                     date_range,
                     image,
+                    content_elements,
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div2,
                     relations,
                 --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.div7,
@@ -73,12 +77,12 @@ return array(
                     l10n_parent,
                     l10n_diffsource,
         '
-        ),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
-    'columns' => array(
+        ],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => ''],
+    ],
+    'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
@@ -96,123 +100,123 @@ return array(
                 'default' => 0,
             ]
         ],
-        'l10n_parent' => array(
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_academy_domain_model_persons',
                 'foreign_table_where' => 'AND tx_academy_domain_model_persons.pid=###CURRENT_PID### AND tx_academy_domain_model_persons.sys_language_uid IN (-1,0)',
-            ),
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ],
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
-        't3ver_label' => array(
+            ],
+        ],
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xml:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '30',
                 'max' => '255',
-            )
-        ),
-        'hidden' => array(
+            ]
+        ],
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
+            ],
+        ],
+        'starttime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.starttime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '10',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-            ),
-        ),
-        'endtime' => array(
+            ],
+        ],
+        'endtime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.php:LGL.endtime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => '8',
                 'max' => '20',
                 'eval' => 'datetime',
                 'checkbox' => '0',
                 'default' => '0',
-                'range' => array(
+                'range' => [
                     'upper' => mktime(0, 0, 0, 12, 31, date('Y') + 10),
                     'lower' => mktime(0, 0, 0, date('m') - 1, date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'persistent_identifier' => array(
+                ],
+            ],
+        ],
+        'persistent_identifier' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_persons.persistent_identifier',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim',
                 'readOnly' => 1
-            ),
-        ),
-        'given_name' => array(
+            ],
+        ],
+        'given_name' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.given_name',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'additional_name' => array(
+            ],
+        ],
+        'additional_name' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.additional_name',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'family_name' => array(
+            ],
+        ],
+        'family_name' => [
             'exclude' => 0,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.family_name',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim,required'
-            ),
-        ),
-        'honorific_prefix' => array(
+            ],
+        ],
+        'honorific_prefix' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.honorific_prefix',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'honorific_suffix' => array(
+            ],
+        ],
+        'honorific_suffix' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.honorific_suffix',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
+            ],
+        ],
         'slug' => [
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.slug',
             'exclude' => 1,
@@ -230,29 +234,29 @@ return array(
                 'default' => ''
             ],
         ],
-        'sorting' => array(
+        'sorting' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.sorting',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'date_range' => array(
+            ],
+        ],
+        'date_range' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_persons.date_range',
-            'config' => array(
+            'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_chftime_domain_model_dateranges',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'tablename',
                 'minitems' => 0,
                 'maxitems' => 1,
-                'behaviour' => array(
+                'behaviour' => [
                     'disableMovingChildrenWithParent' => 1,
-                ),
-                'appearance' => array(
+                ],
+                'appearance' => [
                     'collapseAll' => 1,
                     'expandSingle' => 1,
                     'newRecordLinkAddTitle' => 1,
@@ -261,37 +265,37 @@ return array(
                     'showSynchronizationLink' => 1,
                     'showPossibleLocalizationRecords' => 1,
                     'showAllLocalizationLink' => 1
-                ),
-            ),
-        ),
-        'image' => array(
+                ],
+            ],
+        ],
+        'image' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', array(
-                'appearance' => array(
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig('image', [
+                'appearance' => [
                     'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
-                ),
+                ],
                 'minitems' => 0,
                 'maxitems' => 1,
-                'foreign_types' => array(
-                    '0' => array(
+                'foreign_types' => [
+                    '0' => [
                         'showitem' => '
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'
-                    ),
-                    \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => array(
+                    ],
+                    File::FILETYPE_IMAGE => [
                         'showitem' => '
                             --palette--;LLL:EXT:lang/locallang_tca.xlf:sys_file_reference.imageoverlayPalette;imageoverlayPalette,
                             --palette--;;filePalette'
-                    ),
-                )
-            ),
+                    ],
+                ]
+            ],
             $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
-        ),
-        'page' => array(
+        ],
+        'page' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.page',
-            'config' => array(
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'pages',
@@ -299,19 +303,45 @@ return array(
                 'maxitems' => '1',
                 'minitems' => '0',
                 'show_thumbs' => '1',
-                'wizards' => array(
-                    'suggest' => array(
+                'wizards' => [
+                    'suggest' => [
                         'type' => 'suggest',
-                    ),
-                ),
-            ),
-        ),
-        'relations' => array(
+                    ],
+                ],
+            ],
+        ],
+        'content_elements' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_persons.content_elements',
+            'config' => [
+                'type' => 'inline',
+                'allowed' => 'tt_content',
+                'foreign_table' => 'tt_content',
+                'foreign_sortby' => 'sorting',
+                'foreign_field' => 'tx_academy_parent',
+                'foreign_table_field' => 'tx_academy_tablename',
+                'minitems' => 0,
+                'maxitems' => 99,
+                'appearance' => [
+                    'collapseAll' => true,
+                    'expandSingle' => true,
+                    'levelLinksPosition' => 'bottom',
+                    'useSortable' => true,
+                    'enabledControls' => [
+                        'info' => false,
+                    ]
+                ],
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
+        ],
+        'relations' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_persons.relations',
             'l10n_display' => 'defaultAsReadonly',
             'l10n_mode' => 'exclude',
-            'config' => array(
+            'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_academy_domain_model_relations',
                 'foreign_field' => 'person',
@@ -319,16 +349,16 @@ return array(
                 'symmetric_field' => 'person_symmetric',
                 'symmetric_sortby' => 'sorting_symmetric',
                 'maxitems' => 9999,
-                'behaviour' => array(
+                'behaviour' => [
                     'disableMovingChildrenWithParent' => 1,
 //                    'allowLanguageSynchronization' => true,
-                ),
-                'appearance' => array(
+                ],
+                'appearance' => [
                     'collapseAll' => 1,
                     'expandSingle' => 1,
                     'useSortable' => true,
                     'levelLinksPosition' => 'bottom',
-                ),
+                ],
                 'overrideChildTca' => [
                     'columns' => [
                         'type' => [
@@ -379,7 +409,7 @@ return array(
                         ]
                     ],
                 ],
-            ),
-        ),
-    ),
-);
+            ],
+        ],
+    ],
+];
