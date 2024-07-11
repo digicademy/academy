@@ -27,6 +27,7 @@ namespace Digicademy\Academy\Domain\Model;
  ***************************************************************/
 
 use Digicademy\Academy\Domain\Repository\RelationsRepository;
+use Digicademy\ChfTime\Domain\Model\DateRanges;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
@@ -92,6 +93,13 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
      * @Extbase\ORM\Lazy
      */
     protected $image = null;
+
+    /**
+     * Temporal existence of the unit
+     *
+     * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     */
+    protected $dateRange = null;
 
     /**
      * Relations of the unit with persons, events, news, media etc.
@@ -283,6 +291,28 @@ class Units extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * Returns the dateRange
+     *
+     * @return \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     */
+    public function getDateRange()
+    {
+        return $this->dateRange;
+    }
+
+    /**
+     * Sets the dateRange
+     *
+     * @param \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
+     *
+     * @return void
+     */
+    public function setDateRange(DateRanges $dateRange)
+    {
+        $this->dateRange = $dateRange;
     }
 
     /**

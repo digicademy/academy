@@ -82,6 +82,9 @@ CREATE TABLE tx_academy_domain_model_units (
 	# tx_academy_domain_model_relations (1:n)
 	relations int(11) unsigned DEFAULT '0' NOT NULL,
 
+    # tx_chftime_domain_model_dateranges (1:1)
+    date_range int(11) unsigned DEFAULT '0',
+
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
 	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,

@@ -52,6 +52,7 @@ return array(
                 acronym,
                 slug,
                 sorting,
+                date_range,
                 page,
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_units.div2,
                 image,
@@ -203,6 +204,31 @@ return array(
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
+            ),
+        ),
+        'date_range' => array(
+            'exclude' => 1,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_products.date_range',
+            'config' => array(
+                'type' => 'inline',
+                'foreign_table' => 'tx_chftime_domain_model_dateranges',
+                'foreign_field' => 'parent',
+                'foreign_table_field' => 'tablename',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'behaviour' => array(
+                    'disableMovingChildrenWithParent' => 1,
+                ),
+                'appearance' => array(
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'newRecordLinkAddTitle' => 1,
+                    'newRecordLinkPosition' => 'bottom',
+                    'levelLinksPosition' => 'bottom',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'showAllLocalizationLink' => 1
+                ),
             ),
         ),
         'page' => array(

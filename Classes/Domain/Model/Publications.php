@@ -47,14 +47,14 @@ class Publications extends AbstractEntity
     protected $persistentIdentifier;
 
     /**
-     * The identifier of the project
+     * The identifier of the publication
      *
      * @var \string $identifier
      */
     protected $identifier;
 
     /**
-     * The title of the project
+     * The title of the publication
      *
      * @var \string $title
      * @Extbase\Validate("NotEmpty")
@@ -137,7 +137,7 @@ class Publications extends AbstractEntity
     protected $slug;
 
     /**
-     * A description of the projects scientific activities
+     * A description of the publication
      *
      * @var \string $description
      */
@@ -159,21 +159,21 @@ class Publications extends AbstractEntity
     protected $image = null;
 
     /**
-     * Duration of the project
+     * Publication date of the publication
      *
      * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
      */
     protected $dateRange = null;
 
     /**
-     * The page where the project details are listed
+     * The page where the publication details are listed
      *
      * @var \integer $page
      */
     protected $page;
 
     /**
-     * Relations of the project with persons, events, news, media etc.
+     * Relations of the publication with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
      * @Extbase\ORM\Lazy
@@ -181,7 +181,7 @@ class Publications extends AbstractEntity
     protected $relations = null;
 
     /**
-     * Selected categories for the project
+     * Selected categories for the publication
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
      * @Extbase\ORM\Lazy

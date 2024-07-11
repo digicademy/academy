@@ -47,14 +47,14 @@ class Services extends AbstractEntity
     protected $persistentIdentifier;
 
     /**
-     * The identifier of the project
+     * The identifier of the service
      *
      * @var \string $identifier
      */
     protected $identifier;
 
     /**
-     * The title of the project
+     * The title of the service
      *
      * @var \string $title
      * @Extbase\Validate("NotEmpty")
@@ -62,7 +62,7 @@ class Services extends AbstractEntity
     protected $title;
 
     /**
-     * An acronym for the project
+     * An acronym for the service
      *
      * @var \string $acronym
      */
@@ -74,14 +74,14 @@ class Services extends AbstractEntity
     protected $slug;
 
     /**
-     * The internal sorting for project list (if not alphabetic)
+     * The internal sorting for service list (if not alphabetic)
      *
      * @var \string $sorting
      */
     protected $sorting;
 
     /**
-     * A description of the projects scientific activities
+     * A description of the services scientific activities
      *
      * @var \string $description
      */
@@ -104,14 +104,14 @@ class Services extends AbstractEntity
     protected $dateRange = null;
 
     /**
-     * The page where the project details are listed
+     * The page where the service details are listed
      *
      * @var \integer $page
      */
     protected $page;
 
     /**
-     * Relations of the project with persons, events, news, media etc.
+     * Relations of the service with persons, events, news, media etc.
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
      * @Extbase\ORM\Lazy
@@ -119,7 +119,7 @@ class Services extends AbstractEntity
     protected $relations = null;
 
     /**
-     * Selected categories for the project
+     * Selected categories for the service
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
      * @Extbase\ORM\Lazy
