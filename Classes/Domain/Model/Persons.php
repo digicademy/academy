@@ -26,6 +26,7 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+use GeorgRinger\News\Domain\Model\TtContent;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -108,6 +109,13 @@ class Persons extends AbstractEntity
      * @var \Digicademy\ChfTime\Domain\Model\DateRanges $dateRange
      */
     protected $dateRange = null;
+
+    /**
+     * Additional free text information about a person
+     *
+     * @var ObjectStorage<TtContent>
+     */
+    protected $contentElements;
 
     /**
      * A page where details about the person can be found
@@ -356,6 +364,27 @@ class Persons extends AbstractEntity
     public function setDateRange(DateRanges $dateRange)
     {
         $this->dateRange = $dateRange;
+    }
+
+    /**
+     * Get content elements
+     *
+     * @return ObjectStorage
+     */
+    public function getContentElements(): ObjectStorage
+    {
+        return $this->contentElements;
+    }
+
+    /**
+     * Set content element list
+     *
+     * @param ObjectStorage $contentElements content elements
+     * @return void
+     */
+    public function setContentElements(ObjectStorage $contentElements): void
+    {
+        $this->contentElements = $contentElements;
     }
 
     /**

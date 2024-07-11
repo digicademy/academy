@@ -27,6 +27,7 @@ namespace Digicademy\Academy\Domain\Model;
  ***************************************************************/
 
 use Digicademy\Academy\Domain\Repository\RelationsRepository;
+use GeorgRinger\News\Domain\Model\TtContent;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -149,6 +150,13 @@ class Publications extends AbstractEntity
      * @var \string $bibliographicNote
      */
     protected $bibliographicNote;
+
+    /**
+     * Additional free text information about a publication
+     *
+     * @var ObjectStorage<TtContent>
+     */
+    protected $contentElements;
 
     /**
      * Image
@@ -538,6 +546,27 @@ class Publications extends AbstractEntity
     public function setBibliographicNote($bibliographicNote)
     {
         $this->bibliographicNote = $bibliographicNote;
+    }
+
+    /**
+     * Get content elements
+     *
+     * @return ObjectStorage
+     */
+    public function getContentElements(): ObjectStorage
+    {
+        return $this->contentElements;
+    }
+
+    /**
+     * Set content element list
+     *
+     * @param ObjectStorage $contentElements content elements
+     * @return void
+     */
+    public function setContentElements(ObjectStorage $contentElements): void
+    {
+        $this->contentElements = $contentElements;
     }
 
     /**
