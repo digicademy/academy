@@ -1,7 +1,26 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
+
+$tca = [
+    'tx_academy_parent' => [
+        'config' => [
+            'type' => 'passthrough',
+        ],
+    ],
+    'tx_academy_tablename' => [
+        'config' => [
+            'type' => 'passthrough',
+        ],
+    ],
+];
+
+ExtensionManagementUtility::addTCAcolumns(
+    'tt_content',
+    $tca,
+);
 
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_projects'] = 'pi_flexform';
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('academy_projects', 'FILE:EXT:academy/Configuration/FlexForms/ProjectsPlugin.xml');

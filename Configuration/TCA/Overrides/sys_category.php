@@ -1,11 +1,12 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
 
 // add field: persistent_identifier
 
-$tca = array(
+$tca = [
     'persistent_identifier' => [
         'exclude' => 1,
         'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:sys_category.persistent_identifier',
@@ -16,10 +17,10 @@ $tca = array(
             'readOnly' => 1
         ],
     ],
-);
+];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('sys_category', $tca);
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+ExtensionManagementUtility::addTCAcolumns('sys_category', $tca);
+ExtensionManagementUtility::addToAllTCAtypes(
     'sys_category',
     'persistent_identifier',
     '',

@@ -1,9 +1,10 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
-}
 
-$tca = array(
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
+
+$tca = [
     'type' => [
         'exclude' => false,
         'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.doktype_formlabel',
@@ -25,12 +26,12 @@ $tca = array(
             'maxitems' => 1,
         ]
     ],
-    'news_relations' => array(
+    'news_relations' => [
         'exclude' => 1,
         'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_news.news_relations',
         'l10n_display' => 'defaultAsReadonly',
         'l10n_mode' => 'exclude',
-        'config' => array(
+        'config' => [
             'type' => 'inline',
             'foreign_table' => 'tx_academy_domain_model_relations',
             'foreign_field' => 'news',
@@ -39,16 +40,16 @@ $tca = array(
             'symmetric_field' => 'news_symmetric',
             'symmetric_sortby' => 'sorting_symmetric',
             'maxitems' => 9999,
-            'behaviour' => array(
+            'behaviour' => [
                 'disableMovingChildrenWithParent' => 1,
 //                    'allowLanguageSynchronization' => true,
-            ),
-            'appearance' => array(
+            ],
+            'appearance' => [
                 'collapseAll' => 1,
                 'expandSingle' => 1,
                 'useSortable' => true,
                 'levelLinksPosition' => 'bottom',
-            ),
+            ],
             'overrideChildTca' => [
                 'columns' => [
                     'type' => [
@@ -99,14 +100,14 @@ $tca = array(
                     ]
                 ],
             ],
-        ),
-    ),
-    'event_relations' => array(
+        ],
+    ],
+    'event_relations' => [
         'exclude' => 1,
         'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_news.event_relations',
         'l10n_display' => 'defaultAsReadonly',
         'l10n_mode' => 'exclude',
-        'config' => array(
+        'config' => [
             'type' => 'inline',
             'foreign_table' => 'tx_academy_domain_model_relations',
             'foreign_field' => 'event',
@@ -115,16 +116,16 @@ $tca = array(
             'symmetric_field' => 'event_symmetric',
             'symmetric_sortby' => 'sorting_symmetric',
             'maxitems' => 9999,
-            'behaviour' => array(
+            'behaviour' => [
                 'disableMovingChildrenWithParent' => 1,
 //                    'allowLanguageSynchronization' => true,
-            ),
-            'appearance' => array(
+            ],
+            'appearance' => [
                 'collapseAll' => 1,
                 'expandSingle' => 1,
                 'useSortable' => true,
                 'levelLinksPosition' => 'bottom',
-            ),
+            ],
             'overrideChildTca' => [
                 'columns' => [
                     'type' => [
@@ -175,22 +176,22 @@ $tca = array(
                     ]
                 ],
             ],
-        ),
-    ),
-);
+        ],
+    ],
+];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tx_news_domain_model_news', $tca);
+ExtensionManagementUtility::addTCAcolumns('tx_news_domain_model_news', $tca);
 
 $GLOBALS['TCA']['tx_news_domain_model_news']['types']['3']['showitem'] = $GLOBALS['TCA']['tx_news_domain_model_news']['types']['0']['showitem'];
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+ExtensionManagementUtility::addToAllTCAtypes(
     'tx_news_domain_model_news',
     'news_relations',
     '0',
     ''
 );
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(
+ExtensionManagementUtility::addToAllTCAtypes(
     'tx_news_domain_model_news',
     'event_relations',
     '3',

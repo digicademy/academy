@@ -258,6 +258,9 @@
 			<trans-unit id="tx_academy_domain_model_projects.description" resname="tx_academy_domain_model_projects.description" >
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.content_elements" resname="tx_academy_domain_model_projects.content_elements" >
+				<source>Content Elements</source>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_projects.relations" resname="tx_academy_domain_model_projects.relations" >
 				<source>Relations (project)</source>
 			</trans-unit>
@@ -306,6 +309,9 @@
 			<trans-unit id="tx_academy_domain_model_persons.page" resname="tx_academy_domain_model_persons.page" >
 				<source>Page with person information</source>
 			</trans-unit>
+            <trans-unit id="tx_academy_domain_model_persons.content_elements" resname="tx_academy_domain_model_persons.content_elements" >
+                <source>Content Elements</source>
+            </trans-unit>
 			<trans-unit id="tx_academy_domain_model_persons.image" resname="tx_academy_domain_model_persons.image" >
 				<source>Images</source>
 			</trans-unit>
@@ -363,6 +369,9 @@
 			<trans-unit id="tx_academy_domain_model_products.description" resname="tx_academy_domain_model_products.description" >
 				<source>Description</source>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.content_elements" resname="tx_academy_domain_model_products.content_elements" >
+				<source>Content Elements</source>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_products.relations" resname="tx_academy_domain_model_products.relations" >
 				<source>Relations (product)</source>
 			</trans-unit>
@@ -416,6 +425,9 @@
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_services.description" resname="tx_academy_domain_model_services.description" >
 				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.content_elements" resname="tx_academy_domain_model_services.content_elements" >
+				<source>Content Elements</source>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_services.relations" resname="tx_academy_domain_model_services.relations" >
 				<source>Relations (service)</source>
@@ -485,6 +497,9 @@
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_publications.bibliographic_note" resname="tx_academy_domain_model_publications.bibliographic_note" >
 				<source>Bibliographic note</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.content_elements" resname="tx_academy_domain_model_publications.content_elements" >
+				<source>Content Elements</source>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_publications.image" resname="tx_academy_domain_model_publications.image" >
 				<source>Images</source>
@@ -956,6 +971,9 @@
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_units.description" resname="tx_academy_domain_model_units.description" >
 				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.content_elements" resname="tx_academy_domain_model_units.content_elements" >
+				<source>Content Elements</source>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_units.relations" resname="tx_academy_domain_model_units.relations" >
 				<source>Relations (unit)</source>

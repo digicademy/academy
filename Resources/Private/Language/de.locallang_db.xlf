@@ -343,6 +343,10 @@
 				<source>Description</source>
 				<target>Beschreibung</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_projects.content_elements" resname="tx_academy_domain_model_projects.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_projects.relations" resname="tx_academy_domain_model_projects.relations"  approved="yes">
 				<source>Relations (project)</source>
 				<target>Verknüpfungen (Projekt)</target>
@@ -406,6 +410,10 @@
 			<trans-unit id="tx_academy_domain_model_persons.page" resname="tx_academy_domain_model_persons.page"  approved="yes">
 				<source>Page with person information</source>
 				<target>Seite mit Personeninformationen</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_persons.content_elements" resname="tx_academy_domain_model_persons.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_persons.image" resname="tx_academy_domain_model_persons.image"  approved="yes">
 				<source>Images</source>
@@ -483,6 +491,10 @@
 				<source>Description</source>
 				<target>Beschreibung</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_products.content_elements" resname="tx_academy_domain_model_products.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_products.relations" resname="tx_academy_domain_model_products.relations"  approved="yes">
 				<source>Relations (product)</source>
 				<target>Verknüpfungen (Produkt)</target>
@@ -554,6 +566,10 @@
 			<trans-unit id="tx_academy_domain_model_services.description" resname="tx_academy_domain_model_services.description"  approved="yes">
 				<source>Description</source>
 				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_services.content_elements" resname="tx_academy_domain_model_services.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_services.relations" resname="tx_academy_domain_model_services.relations"  approved="yes">
 				<source>Relations (service)</source>
@@ -646,6 +662,10 @@
 			<trans-unit id="tx_academy_domain_model_publications.bibliographic_note" resname="tx_academy_domain_model_publications.bibliographic_note"  approved="yes">
 				<source>Bibliographic note</source>
 				<target>Bibliographische Angaben</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_publications.content_elements" resname="tx_academy_domain_model_publications.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_publications.image" resname="tx_academy_domain_model_publications.image"  approved="yes">
 				<source>Images</source>
@@ -1274,6 +1294,10 @@
 			<trans-unit id="tx_academy_domain_model_units.description" resname="tx_academy_domain_model_units.description"  approved="yes">
 				<source>Description</source>
 				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_units.content_elements" resname="tx_academy_domain_model_units.content_elements"  approved="yes">
+				<source>Content Elements</source>
+				<target>Inhaltselemente</target>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_units.relations" resname="tx_academy_domain_model_units.relations"  approved="yes">
 				<source>Relations (unit)</source>
