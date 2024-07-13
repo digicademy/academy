@@ -1343,6 +1343,10 @@
 				<source>Metadata</source>
 				<target>Metadaten</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div5" resname="tx_academy_domain_model_media.div5"  approved="yes">
+				<source>Categories</source>
+				<target>Kategorien</target>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.persistent_identifier" resname="tx_academy_domain_model_media.persistent_identifier"  approved="yes">
 				<source>Persistent identifier</source>
 				<target>Persistenter Identifikator</target>
