@@ -409,5 +409,10 @@ return [
                 ],
             ],
         ],
+        'categories' => [
+            'config' => [
+                'type' => 'category'
+            ]
+        ]
     ],
 ];

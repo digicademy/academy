@@ -1,4 +1,7 @@
 <?php
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3') or die();
 
 return [
@@ -21,7 +24,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'persistent_identifier,identifier,title,acronym,description',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_services.svg'
+        'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_services.svg'
     ],
     'interface' => [
         'showRecordFieldList' => '
@@ -264,7 +267,7 @@ return [
         'image' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_services.image',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('image', [
+            'config' => ExtensionManagementUtility::getFileFieldTCAConfig('image', [
                 'appearance' => [
                     'createNewRelationLinkTitle' => 'LLL:EXT:cms/locallang_ttc.xlf:images.addFileReference'
                 ],
@@ -394,5 +397,10 @@ return [
                 ],
             ],
         ],
+        'categories' => [
+            'config' => [
+                'type' => 'category'
+            ]
+        ]
     ],
 ];
