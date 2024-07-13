@@ -1,69 +1,71 @@
 <?php
-if (!defined ('TYPO3_MODE')){
-    die ('Access denied.');
-}
+
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+defined('TYPO3') or die();
 
 // TYPOSCRIPT
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile('academy', 'Configuration/TypoScript', 'Academy');
+ExtensionManagementUtility::addStaticFile('academy', 'Configuration/TypoScript', 'Academy');
 
 // PLUGIN DEFINITIONS
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Projects',
     'Academy: Projects'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Units',
     'Academy: Units'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Persons',
     'Academy: Persons'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Media',
     'Academy: Media'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Mediaviewer',
     'Academy: Mediaviewer'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Search',
     'Academy: Search'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Hcards',
     'Academy: Hcards'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Products',
     'Academy: Products'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Services',
     'Academy: Services'
 );
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
+ExtensionUtility::registerPlugin(
     'academy',
     'Publications',
     'Academy: Publications'
@@ -71,48 +73,48 @@ if (!defined ('TYPO3_MODE')){
 
 // TABLES
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_projects', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_projects.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_projects');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_projects', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_projects.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_projects');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_units', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_units.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_units');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_units', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_units.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_units');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_persons', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_persons.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_persons');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_persons', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_persons.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_persons');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_adr', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_adr.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_adr');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_adr', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_adr.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_adr');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_adrcomponents', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_adrcomponents.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_adrcomponents');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_adrcomponents', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_adrcomponents.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_adrcomponents');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_tel', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_tel.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_tel');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_tel', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_tel.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_tel');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_email', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_email.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_email');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_email', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_email.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_email');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_url', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_url.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_url');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_hcards_url', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_hcards_url.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_hcards_url');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_relations', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_relations.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_relations');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_relations', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_relations.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_relations');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_roles', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_roles.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_roles');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_roles', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_roles.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_roles');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_media', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_media.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_media');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_media', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_media.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_media');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_products', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_products.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_products');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_products', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_products.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_products');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_publications', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_publications.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_publications');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_publications', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_publications.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_publications');
 
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_services', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_services.xml');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_services');
+ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_services', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_services.xml');
+ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_services');
 
