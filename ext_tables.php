@@ -116,39 +116,3 @@ if (!defined ('TYPO3_MODE')){
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addLLrefForTCAdescr('tx_academy_domain_model_services', 'EXT:academy/Resources/Private/Language/locallang_csh_tx_academy_domain_model_services.xml');
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_academy_domain_model_services');
 
-// MAKE CATEGORIZABLE
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_projects'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_persons'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_units'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_media'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_products'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_publications'
-);
-
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
-    'academy',
-    'tx_academy_domain_model_services'
-);
