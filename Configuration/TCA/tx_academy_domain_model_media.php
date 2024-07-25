@@ -61,6 +61,8 @@ return [
                 collections,
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_media.div3,
                 relations,
+            --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_media.div5,
+                categories,
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:general.language,
                 sys_language_uid,
                 l10n_parent,
@@ -389,5 +391,10 @@ return [
                 ],
             ],
         ],
+        'categories' => [
+            'config' => [
+                'type' => 'category'
+            ]
+        ]
     ],
 ];

@@ -1008,6 +1008,9 @@
 			<trans-unit id="tx_academy_domain_model_media.div4" resname="tx_academy_domain_model_media.div4" >
 				<source>Metadata</source>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.div5" resname="tx_academy_domain_model_media.div5" >
+				<source>Categories</source>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.persistent_identifier" resname="tx_academy_domain_model_media.persistent_identifier" >
 				<source>Persistent identifier</source>
 			</trans-unit>
