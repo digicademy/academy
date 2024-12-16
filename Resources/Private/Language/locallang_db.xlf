@@ -930,6 +930,9 @@
 			<trans-unit id="tx_academy_domain_model_roles.title" resname="tx_academy_domain_model_roles.title" >
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles.description" resname="tx_academy_domain_model_roles.description" >
+				<source>Description</source>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_units" resname="tx_academy_domain_model_units" >
 				<source>Unit</source>
 			</trans-unit>

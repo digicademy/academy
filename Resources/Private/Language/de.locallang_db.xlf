@@ -1239,6 +1239,10 @@
 				<source>Title</source>
 				<target>Bezeichnung</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_roles.description" resname="tx_academy_domain_model_roles.description" >
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_units" resname="tx_academy_domain_model_units"  approved="yes">
 				<source>Unit</source>
 				<target>Organisationseinheiten</target>

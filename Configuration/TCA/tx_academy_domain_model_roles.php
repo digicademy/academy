@@ -28,12 +28,13 @@ return [
     ],
     'interface' => [
         'showRecordFieldList' => '
-            sys_language_uid, 
-            l10n_parent, 
-            l10n_diffsource, 
-            hidden, 
+            sys_language_uid,
+            l10n_parent,
+            l10n_diffsource,
+            hidden,
             persistent_identifier,
-            title
+            title,
+            description,
         ',
     ],
     'types' => [
@@ -43,6 +44,7 @@ return [
                 hidden,
                 persistent_identifier,
                 title,
+                description,
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:general.language,
                 sys_language_uid,
                 l10n_parent,
@@ -152,6 +154,18 @@ return [
                 'size' => 30,
                 'eval' => 'trim,required'
             ],
-        ]
+        ],
+        'description' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_roles.description',
+            'config' => [
+                'type' => 'text',
+                'cols' => 40,
+                'rows' => 15,
+                'eval' => 'trim',
+                'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+            ],
+        ],
     ],
 ];
