@@ -26,8 +26,8 @@ namespace Digicademy\Academy\Domain\Model;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 
 class Roles extends AbstractEntity
 {
@@ -35,7 +35,7 @@ class Roles extends AbstractEntity
     /**
      * persistentIdentifier
      *
-     * @var \string
+     * @var string
      *
      * @Extbase\Validate("NotEmpty")
      */
@@ -44,15 +44,22 @@ class Roles extends AbstractEntity
     /**
      * The title of the role
      *
-     * @var \string $title
+     * @var string $title
      * @Extbase\Validate("NotEmpty")
      */
     protected $title;
 
     /**
+     * A description of the role
+     *
+     * @var string $description
+     */
+    protected $description;
+
+    /**
      * Returns the persistentIdentifier
      *
-     * @return \string $persistentIdentifier
+     * @return string $persistentIdentifier
      */
     public function getPersistentIdentifier()
     {
@@ -62,7 +69,7 @@ class Roles extends AbstractEntity
     /**
      * Sets the persistentIdentifier
      *
-     * @param \string $persistentIdentifier
+     * @param string $persistentIdentifier
      *
      * @return void
      */
@@ -72,11 +79,21 @@ class Roles extends AbstractEntity
     }
 
     /**
+     * Returns the title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Sets the title
      *
+     * @param $title
      * @return void
      *
-     * @param $title
      */
     public function setTitle($title)
     {
@@ -84,13 +101,25 @@ class Roles extends AbstractEntity
     }
 
     /**
-     * Returns the title
+     * Returns the description
      *
-     * @return \string
+     * @return string $description
      */
-    public function getTitle()
+    public function getDescription()
     {
-        return $this->title;
+        return $this->description;
+    }
+
+    /**
+     * Sets the description
+     *
+     * @param string $description
+     *
+     * @return void
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
 }
