@@ -27,6 +27,7 @@ namespace Digicademy\Academy\Domain\Model;
  ***************************************************************/
 
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 
 class Roles extends AbstractEntity
 {
