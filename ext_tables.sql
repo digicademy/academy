@@ -195,8 +195,10 @@ CREATE TABLE tx_academy_domain_model_media (
 	title varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
 
-    # slug
-    slug varchar(2048) DEFAULT '' NOT NULL,
+	# tx_chftime_domain_model_dateranges (1:1)
+	date_range int(11) unsigned DEFAULT '0',
+	# slug
+	slug varchar(2048) DEFAULT '' NOT NULL,
 
 	# sys_file (1:n)
 	image int(11) DEFAULT '0' NOT NULL,

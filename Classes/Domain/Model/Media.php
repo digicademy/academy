@@ -27,8 +27,10 @@ namespace Digicademy\Academy\Domain\Model;
  ***************************************************************/
 
 use Digicademy\Academy\Domain\Repository\RelationsRepository;
+use Digicademy\ChfTime\Domain\Model\DateRanges;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -39,7 +41,7 @@ class Media extends AbstractEntity
     /**
      * persistentIdentifier
      *
-     * @var \string
+     * @var string
      *
      * @Extbase\Validate("NotEmpty")
      */
@@ -48,21 +50,21 @@ class Media extends AbstractEntity
     /**
      * Display type of the media object
      *
-     * @var \integer $type
+     * @var integer $type
      */
     protected $type;
 
     /**
-     * Creation date of the media object
+     * Creation date of the typo3 record
      *
-     * @var \integer $crdate
+     * @var integer $crdate
      */
     protected $crdate;
 
     /**
      * The title of the medium
      *
-     * @var \string $title
+     * @var string $title
      * @Extbase\Validate("NotEmpty")
      */
     protected $title;
@@ -70,19 +72,26 @@ class Media extends AbstractEntity
     /**
      * A description of the mediums scientific activities
      *
-     * @var \string $description
+     * @var string $description
      */
     protected $description;
 
     /**
-     * @var \string $slug
+     * Creation date of the medium
+     *
+     * @var DateRanges $dateRange
+     */
+    protected $dateRange = null;
+
+    /**
+     * @var string $slug
      */
     protected $slug;
 
     /**
      * Images
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var ObjectStorage<FileReference>
      * @Extbase\ORM\Lazy
      */
     protected $image = null;
@@ -90,7 +99,7 @@ class Media extends AbstractEntity
     /**
      * Files
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var ObjectStorage<FileReference>
      * @Extbase\ORM\Lazy
      */
     protected $files = null;
@@ -98,7 +107,7 @@ class Media extends AbstractEntity
     /**
      * File collections
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\FileCollection>
+     * @var ObjectStorage<FileCollection>
      * @Extbase\ORM\Lazy
      */
     protected $collections = null;
@@ -106,7 +115,7 @@ class Media extends AbstractEntity
     /**
      * Relations of the medium with persons, events, news, media etc.
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations>
+     * @var ObjectStorage<Relations>
      * @Extbase\ORM\Lazy
      */
     protected $relations = null;
@@ -114,7 +123,7 @@ class Media extends AbstractEntity
     /**
      * Selected categories for the medium
      *
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories>
+     * @var ObjectStorage<Categories>
      * @Extbase\ORM\Lazy
      */
     protected $categories = null;
@@ -122,7 +131,7 @@ class Media extends AbstractEntity
     /**
      * Returns the persistentIdentifier
      *
-     * @return \string $persistentIdentifier
+     * @return string $persistentIdentifier
      */
     public function getPersistentIdentifier()
     {
@@ -132,7 +141,7 @@ class Media extends AbstractEntity
     /**
      * Sets the persistentIdentifier
      *
-     * @param \string $persistentIdentifier
+     * @param string $persistentIdentifier
      *
      * @return void
      */
@@ -144,7 +153,7 @@ class Media extends AbstractEntity
     /**
      * Returns the type
      *
-     * @return \integer $type
+     * @return integer $type
      */
     public function getType()
     {
@@ -154,7 +163,7 @@ class Media extends AbstractEntity
     /**
      * Sets the type
      *
-     * @param \integer $type
+     * @param integer $type
      *
      * @return void
      */
@@ -166,7 +175,7 @@ class Media extends AbstractEntity
     /**
      * Returns the crdate
      *
-     * @return \integer $crdate
+     * @return integer $crdate
      */
     public function getCrdate()
     {
@@ -176,7 +185,7 @@ class Media extends AbstractEntity
     /**
      * Sets the crdate
      *
-     * @param \integer $crdate
+     * @param integer $crdate
      *
      * @return void
      */
@@ -188,7 +197,7 @@ class Media extends AbstractEntity
     /**
      * Returns the title
      *
-     * @return \string $title
+     * @return string $title
      */
     public function getTitle()
     {
@@ -198,7 +207,7 @@ class Media extends AbstractEntity
     /**
      * Sets the title
      *
-     * @param \string $title
+     * @param string $title
      *
      * @return void
      */
@@ -210,7 +219,7 @@ class Media extends AbstractEntity
     /**
      * Returns the description
      *
-     * @return \string $description
+     * @return string $description
      */
     public function getDescription()
     {
@@ -220,7 +229,7 @@ class Media extends AbstractEntity
     /**
      * Sets the description
      *
-     * @param \string $description
+     * @param string $description
      *
      * @return void
      */
@@ -230,9 +239,31 @@ class Media extends AbstractEntity
     }
 
     /**
+     * Returns the dateRange
+     *
+     * @return DateRanges $dateRange
+     */
+    public function getDateRange()
+    {
+        return $this->dateRange;
+    }
+
+    /**
+     * Sets the dateRange
+     *
+     * @param DateRanges $dateRange
+     *
+     * @return void
+     */
+    public function setDateRange(DateRanges $dateRange)
+    {
+        $this->dateRange = $dateRange;
+    }
+
+    /**
      * Returns the slug
      *
-     * @return \string $slug
+     * @return string $slug
      */
     public function getSlug()
     {
@@ -242,7 +273,7 @@ class Media extends AbstractEntity
     /**
      * Sets the slug
      *
-     * @param \string $slug
+     * @param string $slug
      *
      * @return void
      */
@@ -254,7 +285,7 @@ class Media extends AbstractEntity
     /**
      * Returns the image
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $image
+     * @return ObjectStorage<FileReference> $image
      */
     public function getImage()
     {
@@ -264,7 +295,7 @@ class Media extends AbstractEntity
     /**
      * Sets the image
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $image
+     * @param ObjectStorage<FileReference> $image
      *
      * @return void
      */
@@ -276,7 +307,7 @@ class Media extends AbstractEntity
     /**
      * Returns the files
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $files
+     * @return ObjectStorage<FileReference> $files
      */
     public function getFiles()
     {
@@ -286,7 +317,7 @@ class Media extends AbstractEntity
     /**
      * Sets the files
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference> $files
+     * @param ObjectStorage<FileReference> $files
      *
      * @return void
      */
@@ -298,7 +329,7 @@ class Media extends AbstractEntity
     /**
      * Returns the collections
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\FileCollection> $collections
+     * @return ObjectStorage<FileCollection> $collections
      */
     public function getCollections()
     {
@@ -308,7 +339,7 @@ class Media extends AbstractEntity
     /**
      * Sets the collections
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\FileCollection> $collections
+     * @param ObjectStorage<FileCollection> $collections
      *
      * @return void
      */
@@ -320,7 +351,7 @@ class Media extends AbstractEntity
     /**
      * Returns the relations
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $relations
+     * @return ObjectStorage<Relations> $relations
      */
     public function getRelations()
     {
@@ -339,7 +370,7 @@ class Media extends AbstractEntity
     /**
      * Sets the relations
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Relations> $relations
+     * @param ObjectStorage<Relations> $relations
      *
      * @return void
      */
@@ -351,7 +382,7 @@ class Media extends AbstractEntity
     /**
      * Returns the categories
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories> $categories
+     * @return ObjectStorage<Categories> $categories
      */
     public function getCategories()
     {
@@ -361,7 +392,7 @@ class Media extends AbstractEntity
     /**
      * Sets the categories
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\Digicademy\Academy\Domain\Model\Categories> $categories
+     * @param ObjectStorage<Categories> $categories
      *
      * @return void
      */

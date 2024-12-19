@@ -1383,13 +1383,17 @@
 				<source>title</source>
 				<target>Titel</target>
 			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug"  approved="yes">
-				<source>URL Path Segment</source>
-				<target>URL Pfadsegment</target>
-			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.description" resname="tx_academy_domain_model_media.description"  approved="yes">
 				<source>Description</source>
 				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.date_range" resname="tx_academy_domain_model_media.date_range" >
+				<source>Date range</source>
+				<target>Zeitraum</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug"  approved="yes">
+				<source>URL Path Segment</source>
+				<target>URL Pfadsegment</target>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.image" resname="tx_academy_domain_model_media.image"  approved="yes">
 				<source>Teaser image</source>
