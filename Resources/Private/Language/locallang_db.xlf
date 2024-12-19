@@ -1038,11 +1038,14 @@
 			<trans-unit id="tx_academy_domain_model_media.title" resname="tx_academy_domain_model_media.title" >
 				<source>title</source>
 			</trans-unit>
-			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug" >
-				<source>URL Path Segment</source>
-			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.description" resname="tx_academy_domain_model_media.description" >
 				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.date_range" resname="tx_academy_domain_model_media.date_range" >
+				<source>Date range</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug" >
+				<source>URL Path Segment</source>
 			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.image" resname="tx_academy_domain_model_media.image" >
 				<source>Teaser image</source>

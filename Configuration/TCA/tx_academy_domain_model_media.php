@@ -30,18 +30,18 @@ return [
     ],
     'interface' => [
         'showRecordFieldList' => '
-            sys_language_uid, 
-            l10n_parent, 
-            l10n_diffsource, 
-            hidden, 
-            crdate, 
+            sys_language_uid,
+            l10n_parent,
+            l10n_diffsource,
+            hidden,
+            crdate,
             persistent_identifier,
-            type, 
-            title, 
-            description, 
-            image, 
-            files, 
-            collections, 
+            type,
+            title,
+            description,
+            image,
+            files,
+            collections,
             relations
         ',
     ],
@@ -54,6 +54,7 @@ return [
                 type,
                 title,
                 description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_academy/],
+                date_range,
                 slug,
                 image,
             --div--;LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_media.div2,
@@ -222,6 +223,31 @@ return [
                 'enableRichtext' => true,
             ],
         ],
+        'date_range' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_media.date_range',
+            'config' => [
+                'type' => 'inline',
+                'foreign_table' => 'tx_chftime_domain_model_dateranges',
+                'foreign_field' => 'parent',
+                'foreign_table_field' => 'tablename',
+                'minitems' => 0,
+                'maxitems' => 1,
+                'behaviour' => [
+                    'disableMovingChildrenWithParent' => 1,
+                ],
+                'appearance' => [
+                    'collapseAll' => 1,
+                    'expandSingle' => 1,
+                    'newRecordLinkAddTitle' => 1,
+                    'newRecordLinkPosition' => 'bottom',
+                    'levelLinksPosition' => 'bottom',
+                    'showSynchronizationLink' => 1,
+                    'showPossibleLocalizationRecords' => 1,
+                    'showAllLocalizationLink' => 1
+                ],
+            ],
+        ],
         'slug' => [
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:tx_academy_domain_model_media.slug',
             'exclude' => 1,
@@ -261,7 +287,7 @@ return [
                     ],
                 ]
             ],
-            $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']),
         ],
         'files' => [
             'exclude' => 1,
