@@ -70,7 +70,7 @@ class FuseRelationsViewHelper extends AbstractViewHelper
 
         $fusedRelations = array();
 
-        if (count($relations) > 1) {
+        if (count($relations) >= 1) {
 
             foreach ($relations as $relation) {
 
