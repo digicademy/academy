@@ -1391,6 +1391,10 @@
 				<source>Date range</source>
 				<target>Zeitraum</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_media.page" resname="tx_academy_domain_model_media.page"  approved="yes">
+				<source>Page with information</source>
+				<target>Seite mit Informationen</target>
+			</trans-unit>
 			<trans-unit id="tx_academy_domain_model_media.slug" resname="tx_academy_domain_model_media.slug"  approved="yes">
 				<source>URL Path Segment</source>
 				<target>URL Pfadsegment</target>
