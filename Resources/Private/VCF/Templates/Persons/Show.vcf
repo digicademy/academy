@@ -2,9 +2,6 @@
 VERSION:3.0
 N;CHARSET=utf-8:{person.familyName};{person.givenName};{person.additionalNames};{person.honorificPrefix};{person.honorificSuffix}
 FN;CHARSET=utf-8:{person.honorificPrefix} {person.givenName} {person.additionalNames} {person.familyName} {person.honorificSuffix}
-<f:if condition="{person.expertise}">
-NOTE;CHARSET=utf-8:{person.expertise}
-</f:if>
 <f:for each="{person.relations}" as="relation">
 	<f:if condition="{relation.type} == 10">
 		<f:for each="{relation.hcard.adr}" as="adr">

@@ -43,6 +43,7 @@ return [
                 title,
                 description;;;richtext[cut|copy|paste|formatblock|textcolor|bold|italic|underline|left|center|right|orderedlist|unorderedlist|outdent|indent|link|table|image|line|chMode]:rte_transform[mode=ts_css|imgpath=uploads/tx_academy/],
                 date_range,
+                page,
                 slug,
                 sorting,
                 image,
@@ -233,6 +234,25 @@ return [
                     'showSynchronizationLink' => 1,
                     'showPossibleLocalizationRecords' => 1,
                     'showAllLocalizationLink' => 1
+                ],
+            ],
+        ],
+        'page' => [
+            'exclude' => 1,
+            'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_media.page',
+            'config' => [
+                'type' => 'group',
+                'allowed' => 'pages',
+                'size' => '1',
+                'maxitems' => '1',
+                'minitems' => '0',
+                'show_thumbs' => '1',
+                'eval' => 'int',
+                'default' => 0,
+                'wizards' => [
+                    'suggest' => [
+                        'type' => 'suggest',
+                    ],
                 ],
             ],
         ],

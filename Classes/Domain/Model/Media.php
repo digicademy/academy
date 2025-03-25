@@ -29,6 +29,7 @@ namespace Digicademy\Academy\Domain\Model;
 use Digicademy\Academy\Domain\Model\Traits\{CategoriesTrait,
     DescriptionTrait,
     ImageTrait,
+    PageTrait,
     PersistentIdentifierTrait,
     RelationsTrait,
     SlugTrait,
@@ -53,6 +54,7 @@ class Media extends AbstractEntity
     use CategoriesTrait;
     use DescriptionTrait;
     use ImageTrait;
+    use PageTrait;
     use PersistentIdentifierTrait;
     use RelationsTrait;
     use TitleTrait;

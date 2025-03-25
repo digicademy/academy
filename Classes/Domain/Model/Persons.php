@@ -102,34 +102,6 @@ class Persons extends AbstractEntity
     protected $honorificSuffix;
 
     /**
-     * cv
-     *
-     * @var string $cv
-     */
-    protected $cv;
-
-    /**
-     * expertise
-     *
-     * @var string $expertise
-     */
-    protected $expertise;
-
-    /**
-     * awards
-     *
-     * @var string $awards
-     */
-    protected $awards;
-
-    /**
-     * publications
-     *
-     * @var string $publications
-     */
-    protected $publications;
-
-    /**
      * Returns the given name
      *
      * @return string $givenName
@@ -227,85 +199,5 @@ class Persons extends AbstractEntity
     public function setHonorificSuffix(string $honorificSuffix): void
     {
         $this->honorificSuffix = $honorificSuffix;
-    }
-
-    /**
-     * Returns the CV
-     *
-     * @return string $cv
-     */
-    public function getCv(): string
-    {
-        return $this->cv;
-    }
-
-    /**
-     * Sets the CV
-     *
-     * @param string $cv
-     */
-    public function setCv(string $cv): void
-    {
-        $this->cv = $cv;
-    }
-
-    /**
-     * Returns the expertise
-     *
-     * @return string $expertise
-     */
-    public function getExpertise(): string
-    {
-        return $this->expertise;
-    }
-
-    /**
-     * Sets the expertise
-     *
-     * @param string $expertise
-     */
-    public function setExpertise(string $expertise): void
-    {
-        $this->expertise = $expertise;
-    }
-
-    /**
-     * Returns the awards
-     *
-     * @return string $awards
-     */
-    public function getAwards(): string
-    {
-        return $this->awards;
-    }
-
-    /**
-     * Sets the awards
-     *
-     * @param string $awards
-     */
-    public function setAwards(string $awards): void
-    {
-        $this->awards = $awards;
-    }
-
-    /**
-     * Returns the publications
-     *
-     * @return string $publications
-     */
-    public function getPublications(): string
-    {
-        return $this->publications;
-    }
-
-    /**
-     * Sets the publications
-     *
-     * @param string $publications
-     */
-    public function setPublications(string $publications): void
-    {
-        $this->publications = $publications;
     }
 }
