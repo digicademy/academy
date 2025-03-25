@@ -20,7 +20,6 @@
 
 <f:section name="Item">
 	<f:render partial="Hcards/VcardPerson" arguments="{person : person, nameWrap : 'h2'}" />
-	<p><strong><f:translate key="persons.expertise" />:</strong> {person.expertise}</p>
 	<p>
 		<f:link.action class="box icon more" controller="Persons" action="show" pageUid="1827" arguments="{person : person.uid}">
 			<f:translate key="persons.profileLink" />
