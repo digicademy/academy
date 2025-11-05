@@ -19,8 +19,8 @@
   "version": "dev-12.4-compatibility",
   "require": {
     "typo3/cms-core": "^12.4",
-    "georgringer/news": "^11.4",
-    "georgringer/eventnews": "^6.0",
+    "georgringer/news": "^12.3",
+    "georgringer/eventnews": "^7.0",
     "digicademy/chf_time": "dev-12.4-compatibility"
   },
   "replace": {
