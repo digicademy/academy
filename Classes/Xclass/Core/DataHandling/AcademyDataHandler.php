@@ -1,5 +1,4 @@
 <?php
-// @TODO: check with 12.4 core
 namespace Digicademy\Academy\Xclass\Core\DataHandling;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
@@ -24,7 +23,7 @@ class AcademyDataHandler extends DataHandler
      * @param array $workspaceOptions
      * @return string
      */
-    protected function copyRecord_processInline(
+    protected function copyRecord_processRelation(
         $table,
         $uid,
         $field,
