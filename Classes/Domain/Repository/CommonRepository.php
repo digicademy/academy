@@ -195,9 +195,15 @@ class CommonRepository extends Repository
             }
         }
 
-        $query->matching(
-            $query->logicalAnd(...array_values($outerConstraints))
-        );
+        // Note: PID filtering is handled via QuerySettings (setStoragePageIds) in the middleware,
+        // not as a query constraint here
+
+        // Only apply matching constraints if we have any
+        if (count($outerConstraints) > 0) {
+            $query->matching(
+                $query->logicalAnd(...array_values($outerConstraints))
+            );
+        }
 
         $result = $query->execute();
 
