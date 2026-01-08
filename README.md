@@ -17,6 +17,160 @@ The extension has been in development by @digicademy since 2011 and is actively 
 | ----------- |------------------|-----|---------------------------------------- |
 | current     | 12.4.0 - 12.4.99 | 8.3 | Features, Bugfixes, Security Updates    |
 
+## JSON API
+
+The Academy extension provides a REST API for accessing entity data in JSON format. The API is implemented as a PSR-15 middleware for optimal performance and bypasses the TYPO3 frontend rendering pipeline.
+
+### Available Endpoints
+
+The API provides endpoints for the following entity types:
+
+- `/api/persons` - Person entities
+- `/api/products` - Product entities
+- `/api/projects` - Project entities
+- `/api/publications` - Publication entities
+- `/api/services` - Service entities
+- `/api/units` - Unit entities
+
+All endpoints support multilingual URLs (e.g., `/en/api/persons`, `/es/api/persons`).
+
+### Request Parameters
+
+The API accepts the following GET parameters:
+
+**Filtering:**
+- `selectedCategories` - Comma-separated category UIDs (AND logic)
+- `selectedRoles` - Comma-separated role UIDs (AND logic)
+- `selectedPids` - Comma-separated page UIDs (OR logic, filters entities by storage page)
+- `searchQuery` - Full-text search across entity-specific fields
+
+**Pagination:**
+- `currentPage` - Page number (default: 1)
+- `itemsPerPage` - Items per page (default: 10)
+
+**Example requests:**
+
+```bash
+# Get all persons (first 10)
+curl https://adwmainz.local/api/persons
+
+# Search for persons
+curl "https://adwmainz.local/api/persons?searchQuery=Smith"
+
+# Filter by categories
+curl "https://adwmainz.local/api/persons?selectedCategories=1,2,3"
+
+# Filter by page UIDs (show only entities from specific pages)
+curl "https://adwmainz.local/api/persons?selectedPids=123,456"
+
+# Combine filters
+curl "https://adwmainz.local/api/persons?selectedPids=123&selectedCategories=1&searchQuery=Smith"
+
+# Filter and paginate
+curl "https://adwmainz.local/api/persons?selectedCategories=1&currentPage=2&itemsPerPage=20"
+```
+
+### Response Format
+
+The API returns JSON with the following structure:
+
+```json
+{
+  "data": [
+    {
+      "uid": 123,
+      "pid": 45,
+      "givenName": "John",
+      "familyName": "Smith",
+      "persistentIdentifier": "uuid-here",
+      "slug": "john-smith",
+      "image": [
+        "/fileadmin/user_upload/image.jpg"
+      ]
+    }
+  ],
+  "pagination": {
+    "currentPage": 1,
+    "itemsPerPage": 10,
+    "totalItems": 42,
+    "totalPages": 5,
+    "hasNextPage": true,
+    "hasPreviousPage": false
+  },
+  "filters": {
+    "selectedCategories": "1,2",
+    "selectedRoles": "",
+    "selectedPids": "",
+    "searchQuery": ""
+  }
+}
+```
+
+**Response fields:**
+- `data` - Array of entity objects with all scalar properties and image URLs
+- `pagination` - Pagination metadata
+- `filters` - Echo of applied filters for debugging
+
+### Configuration
+
+#### Filtering vs Excluding by Page UID
+
+The API provides two complementary ways to control which entities are returned based on their storage page (PID):
+
+1. **`selectedPids` parameter** (inclusive filter): Show ONLY entities from specified pages
+2. **Exclusion configuration** (exclusive filter): Hide entities from specified pages
+
+These work together: first the `selectedPids` filter is applied (if provided), then the exclusion configuration removes any remaining entities from excluded pages.
+
+**Example:**
+```bash
+# Request: ?selectedPids=100,200 with exclusion config: [100, 300]
+# Result: Only entities from PID 200 (100 is filtered by selectedPids but then excluded)
+```
+
+#### Excluding Entries by Page UID
+
+You can exclude entities stored on specific pages from ALL API responses using one of two methods:
+
+**Method 1: Site Configuration (Recommended)**
+
+Add to `config/sites/main/config.yaml`:
+
+```yaml
+settings:
+  academy:
+    json:
+      exclude: '123,456,789'
+```
+
+Or as an array:
+
+```yaml
+settings:
+  academy:
+    json:
+      exclude:
+        - 123
+        - 456
+        - 789
+```
+
+**Method 2: Extension Configuration**
+
+Add to `config/system/additional.php`:
+
+```php
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['academy']['jsonApiExclude'] = '123,456,789';
+```
+
+Or as an array:
+
+```php
+$GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['academy']['jsonApiExclude'] = [123, 456, 789];
+```
+
+Note: Site configuration takes precedence over extension configuration.
+
 ## Research Software Engineering
 
 This software is licensed under the terms of the GNU General Public License v2
