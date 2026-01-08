@@ -1,0 +1,38 @@
+# Example configuration for excluding entries from JSON API by page UID
+#
+# The JSON API exclusion can be configured in two ways:
+#
+# METHOD 1: Site Configuration (RECOMMENDED)
+# ==========================================
+# Add to: config/sites/main/config.yaml
+#
+# settings:
+#   academy:
+#     json:
+#       exclude: '123,456,789'
+#
+# OR as an array:
+#
+# settings:
+#   academy:
+#     json:
+#       exclude:
+#         - 123
+#         - 456
+#         - 789
+#
+# This will exclude all Academy entities (persons, products, projects, etc.)
+# that are stored on pages with UIDs 123, 456, or 789 from the JSON API responses.
+#
+#
+# METHOD 2: Extension Configuration (PHP)
+# ========================================
+# Add to: config/system/additional.php or ext_localconf.php
+#
+# $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['academy']['jsonApiExclude'] = '123,456,789';
+#
+# OR as an array:
+#
+# $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['academy']['jsonApiExclude'] = [123, 456, 789];
+#
+# Note: Site configuration (METHOD 1) takes precedence over extension configuration (METHOD 2)
