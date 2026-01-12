@@ -28,6 +28,14 @@ namespace Digicademy\Academy\Middleware;
 
 use Digicademy\Academy\Service\JsonSerializerService;
 use Digicademy\Academy\Service\PaginationService;
+use Digicademy\Academy\Domain\Repository\{
+    PersonsRepository,
+    ProductsRepository,
+    ProjectsRepository,
+    PublicationsRepository,
+    ServicesRepository,
+    UnitsRepository
+};
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
@@ -159,12 +167,12 @@ class ApiMiddleware implements MiddlewareInterface
     private function getRepositoryForEntity(string $entityType): object
     {
         $repositoryClass = match($entityType) {
-            'persons' => \Digicademy\Academy\Domain\Repository\PersonsRepository::class,
-            'products' => \Digicademy\Academy\Domain\Repository\ProductsRepository::class,
-            'projects' => \Digicademy\Academy\Domain\Repository\ProjectsRepository::class,
-            'publications' => \Digicademy\Academy\Domain\Repository\PublicationsRepository::class,
-            'services' => \Digicademy\Academy\Domain\Repository\ServicesRepository::class,
-            'units' => \Digicademy\Academy\Domain\Repository\UnitsRepository::class,
+            'persons' => PersonsRepository::class,
+            'products' => ProductsRepository::class,
+            'projects' => ProjectsRepository::class,
+            'publications' => PublicationsRepository::class,
+            'services' => ServicesRepository::class,
+            'units' => UnitsRepository::class,
         };
 
         return GeneralUtility::makeInstance($repositoryClass);
