@@ -45,7 +45,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  * PSR-15 Middleware that provides REST API endpoints for Academy entities.
  * Bypasses TYPO3 frontend rendering for maximum performance.
  *
- * @author Torsten Schrade <torsten.schrade@adwmainz.de>
+ * @author Frodo Podschwadek <frodo.podschwadek@adwmainz.de>
  */
 class ApiMiddleware implements MiddlewareInterface
 {
