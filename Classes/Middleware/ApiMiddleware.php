@@ -26,12 +26,6 @@
 
 namespace Digicademy\Academy\Middleware;
 
-use Digicademy\Academy\Domain\Repository\PersonsRepository;
-use Digicademy\Academy\Domain\Repository\ProductsRepository;
-use Digicademy\Academy\Domain\Repository\ProjectsRepository;
-use Digicademy\Academy\Domain\Repository\PublicationsRepository;
-use Digicademy\Academy\Domain\Repository\ServicesRepository;
-use Digicademy\Academy\Domain\Repository\UnitsRepository;
 use Digicademy\Academy\Service\JsonSerializerService;
 use Digicademy\Academy\Service\PaginationService;
 use Psr\Http\Message\ResponseInterface;
@@ -50,12 +44,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class ApiMiddleware implements MiddlewareInterface
 {
     public function __construct(
-        protected readonly PersonsRepository $personsRepository,
-        protected readonly ProductsRepository $productsRepository,
-        protected readonly ProjectsRepository $projectsRepository,
-        protected readonly PublicationsRepository $publicationsRepository,
-        protected readonly ServicesRepository $servicesRepository,
-        protected readonly UnitsRepository $unitsRepository,
         protected readonly PaginationService $paginationService,
         protected readonly JsonSerializerService $jsonSerializerService
     ) {}
@@ -163,20 +151,23 @@ class ApiMiddleware implements MiddlewareInterface
 
     /**
      * Get the repository instance for the given entity type.
+     * Instantiates repositories on-demand to avoid unnecessary initialization.
      *
      * @param string $entityType
      * @return object
      */
     private function getRepositoryForEntity(string $entityType): object
     {
-        return match($entityType) {
-            'persons' => $this->personsRepository,
-            'products' => $this->productsRepository,
-            'projects' => $this->projectsRepository,
-            'publications' => $this->publicationsRepository,
-            'services' => $this->servicesRepository,
-            'units' => $this->unitsRepository,
+        $repositoryClass = match($entityType) {
+            'persons' => \Digicademy\Academy\Domain\Repository\PersonsRepository::class,
+            'products' => \Digicademy\Academy\Domain\Repository\ProductsRepository::class,
+            'projects' => \Digicademy\Academy\Domain\Repository\ProjectsRepository::class,
+            'publications' => \Digicademy\Academy\Domain\Repository\PublicationsRepository::class,
+            'services' => \Digicademy\Academy\Domain\Repository\ServicesRepository::class,
+            'units' => \Digicademy\Academy\Domain\Repository\UnitsRepository::class,
         };
+
+        return GeneralUtility::makeInstance($repositoryClass);
     }
 
     /**
