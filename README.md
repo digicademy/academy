@@ -52,22 +52,22 @@ The API accepts the following GET parameters:
 
 ```bash
 # Get all persons (first 10)
-curl https://adwmainz.local/api/persons
+curl https://example.com/api/persons
 
 # Search for persons
-curl "https://adwmainz.local/api/persons?searchQuery=Smith"
+curl "https://example.com/api/persons?searchQuery=Smith"
 
 # Filter by categories
-curl "https://adwmainz.local/api/persons?selectedCategories=1,2,3"
+curl "https://example.com/api/persons?selectedCategories=1,2,3"
 
 # Filter by page UIDs (show only entities from specific pages)
-curl "https://adwmainz.local/api/persons?selectedPids=123,456"
+curl "https://example.com/api/persons?selectedPids=123,456"
 
 # Combine filters
-curl "https://adwmainz.local/api/persons?selectedPids=123&selectedCategories=1&searchQuery=Smith"
+curl "https://example.com/api/persons?selectedPids=123&selectedCategories=1&searchQuery=Smith"
 
 # Filter and paginate
-curl "https://adwmainz.local/api/persons?selectedCategories=1&currentPage=2&itemsPerPage=20"
+curl "https://example.com/api/persons?selectedCategories=1&currentPage=2&itemsPerPage=20"
 ```
 
 ### Response Format
