@@ -18,7 +18,7 @@ ExtensionUtility::registerPlugin(
 );
 
 ExtensionUtility::registerPlugin(
-    'academy',
+    'Academy',
     'Search',
     'Academy: Search entities'
 );
