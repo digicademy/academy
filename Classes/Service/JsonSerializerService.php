@@ -29,7 +29,7 @@ namespace Digicademy\Academy\Service;
 /**
  * Service for serializing Academy entities to JSON-ready arrays.
  * Uses reflection to call all getter methods and includes scalar values,
- * with special handling for image URLs.
+ * with special handling for image URLs and media paths.
  *
  * @author Frodo Podschwadek <frodo.podschwadek@adwmainz.de>
  */
@@ -62,6 +62,26 @@ class JsonSerializerService
                             $originalResource = $fileReference->getOriginalResource();
                             if ($originalResource && method_exists($originalResource, 'getPublicUrl')) {
                                 $jsonValues['image'][] = $originalResource->getPublicUrl();
+                            }
+                        }
+                    }
+                }
+            } elseif ($getter === 'getMedia' || $getter === 'getFalMedia') {
+                // Extract first media URL from FileReference objects for news/events
+                $jsonValues['mediaPath'] = null;
+
+                if ($entityPropertyValue && method_exists($entityPropertyValue, 'toArray')) {
+                    $fileReferences = $entityPropertyValue->toArray();
+
+                    // Get the FIRST media item only
+                    if (!empty($fileReferences)) {
+                        $firstFileReference = reset($fileReferences);
+
+                        if (method_exists($firstFileReference, 'getOriginalResource')) {
+                            $originalResource = $firstFileReference->getOriginalResource();
+
+                            if ($originalResource && method_exists($originalResource, 'getPublicUrl')) {
+                                $jsonValues['mediaPath'] = $originalResource->getPublicUrl();
                             }
                         }
                     }
