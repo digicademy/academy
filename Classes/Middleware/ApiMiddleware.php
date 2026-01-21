@@ -29,6 +29,8 @@ namespace Digicademy\Academy\Middleware;
 use Digicademy\Academy\Service\JsonSerializerService;
 use Digicademy\Academy\Service\PaginationService;
 use Digicademy\Academy\Domain\Repository\{
+    EventsRepository,
+    NewsRepository,
     PersonsRepository,
     ProductsRepository,
     ProjectsRepository,
@@ -69,7 +71,7 @@ class ApiMiddleware implements MiddlewareInterface
 
         // Match pattern: /api/{entityType} or /{lang}/api/{entityType}
         // Support multilingual URLs (/, /en/, /es/)
-        if (preg_match('#^(/[a-z]{2})?/api/(persons|products|projects|publications|services|units)/?$#', $path, $matches)) {
+        if (preg_match('#^(/[a-z]{2})?/api/(events|news|persons|products|projects|publications|services|units)/?$#', $path, $matches)) {
             try {
                 $entityType = $matches[2]; // Entity type is in second capture group
                 $queryParams = $request->getQueryParams();
@@ -80,6 +82,8 @@ class ApiMiddleware implements MiddlewareInterface
                     'selectedRoles' => $queryParams['selectedRoles'] ?? '',
                     'searchQuery' => $queryParams['searchQuery'] ?? '',
                     'selectedPids' => $queryParams['selectedPids'] ?? '',
+                    'startDate' => $queryParams['startDate'] ?? '',
+                    'endDate' => $queryParams['endDate'] ?? '',
                 ];
 
                 // Get repository and configure it to query all records
@@ -98,7 +102,7 @@ class ApiMiddleware implements MiddlewareInterface
                 $this->configureRepositoryForApi($repository, $excludedPids, $selectedPids);
 
                 // Execute query
-                $hasFilters = $filters['selectedCategories'] || $filters['selectedRoles'] || $filters['searchQuery'] || $filters['selectedPids'];
+                $hasFilters = $filters['selectedCategories'] || $filters['selectedRoles'] || $filters['searchQuery'] || $filters['selectedPids'] || $filters['startDate'] || $filters['endDate'];
                 $queryResult = $hasFilters ? $repository->findByFilters($filters) : $repository->findAll();
 
                 // Filter out excluded PIDs if configured
@@ -167,6 +171,8 @@ class ApiMiddleware implements MiddlewareInterface
     private function getRepositoryForEntity(string $entityType): object
     {
         $repositoryClass = match($entityType) {
+            'events' => EventsRepository::class,
+            'news' => NewsRepository::class,
             'persons' => PersonsRepository::class,
             'products' => ProductsRepository::class,
             'projects' => ProjectsRepository::class,
