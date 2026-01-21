@@ -84,6 +84,7 @@ class ApiMiddleware implements MiddlewareInterface
                     'selectedPids' => $queryParams['selectedPids'] ?? '',
                     'startDate' => $queryParams['startDate'] ?? '',
                     'endDate' => $queryParams['endDate'] ?? '',
+                    'relatedTo' => $queryParams['relatedTo'] ?? '',
                 ];
 
                 // Get repository and configure it to query all records
@@ -102,7 +103,7 @@ class ApiMiddleware implements MiddlewareInterface
                 $this->configureRepositoryForApi($repository, $excludedPids, $selectedPids);
 
                 // Execute query
-                $hasFilters = $filters['selectedCategories'] || $filters['selectedRoles'] || $filters['searchQuery'] || $filters['selectedPids'] || $filters['startDate'] || $filters['endDate'];
+                $hasFilters = $filters['selectedCategories'] || $filters['selectedRoles'] || $filters['searchQuery'] || $filters['selectedPids'] || $filters['startDate'] || $filters['endDate'] || $filters['relatedTo'];
                 $queryResult = $hasFilters ? $repository->findByFilters($filters) : $repository->findAll();
 
                 // Filter out excluded PIDs if configured
