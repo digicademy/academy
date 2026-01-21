@@ -171,8 +171,17 @@ class CommonRepository extends Repository
         if (array_key_exists('selectedRoles', $filters) && !empty($filters['selectedRoles'])) {
             $innerConstraints = [];
             $roles = GeneralUtility::trimExplode(',', $filters['selectedRoles']);
+
+            // Determine the correct relation property name based on repository class
+            // News and Events use different property names (newsRelations, eventRelations)
+            $relationPropertyPrefix = match (static::class) {
+                NewsRepository::class => 'newsRelations',
+                EventsRepository::class => 'eventRelations',
+                default => 'relations',
+            };
+
             foreach ($roles as $role) {
-                $innerConstraints[] = $query->equals('relations.role', $role);
+                $innerConstraints[] = $query->equals($relationPropertyPrefix . '.role', $role);
             }
             // for multiple selected roles: AND
             (count($innerConstraints) > 1) ?
@@ -212,6 +221,55 @@ class CommonRepository extends Repository
                     $outerConstraints[] = $query->lessThanOrEqual('datetime', $endDateTime);
                 } catch (\Exception $e) {
                     // Invalid date format - skip this filter
+                }
+            }
+        }
+
+        # relation filtering - filter entities by their relations to other entities
+        if (array_key_exists('relatedTo', $filters) && !empty($filters['relatedTo'])) {
+            // Expected format: entityType:uid (e.g., "person:123", "project:456")
+            if (strpos($filters['relatedTo'], ':') !== false) {
+                [$entityType, $entityUid] = explode(':', $filters['relatedTo'], 2);
+                $entityUid = (int)$entityUid;
+
+                // Map entity type to relation property names
+                $propertyMap = [
+                    'person' => 'person',
+                    'project' => 'project',
+                    'product' => 'product',
+                    'publication' => 'publication',
+                    'service' => 'service',
+                    'unit' => 'unit',
+                    'news' => 'news',
+                    'event' => 'event',
+                    'medium' => 'medium',
+                    'hcard' => 'hcard',
+                ];
+
+                if ($entityUid > 0 && isset($propertyMap[$entityType])) {
+                    $property = $propertyMap[$entityType];
+                    $relationConstraints = [];
+
+                    // Determine the correct relation property name based on repository class
+                    // News and Events use different property names (newsRelations, eventRelations)
+                    // due to sharing the same base table
+                    $relationPropertyPrefix = match (static::class) {
+                        NewsRepository::class => 'newsRelations',
+                        EventsRepository::class => 'eventRelations',
+                        default => 'relations',
+                    };
+
+                    // Check asymmetric relation (e.g., relations.person = 123)
+                    $relationConstraints[] = $query->equals($relationPropertyPrefix . '.' . $property, $entityUid);
+
+                    // Also check symmetric relation if applicable (e.g., relations.personSymmetric = 123)
+                    // Hcard does not have a symmetric variant
+                    if ($entityType !== 'hcard') {
+                        $relationConstraints[] = $query->equals($relationPropertyPrefix . '.' . $property . 'Symmetric', $entityUid);
+                    }
+
+                    // Use OR logic: entity is related if found in either asymmetric or symmetric relation
+                    $outerConstraints[] = $query->logicalOr(...$relationConstraints);
                 }
             }
         }
