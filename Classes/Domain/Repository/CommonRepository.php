@@ -195,6 +195,27 @@ class CommonRepository extends Repository
             }
         }
 
+        # date filtering for News and Events entities
+        if (static::class === NewsRepository::class || static::class === EventsRepository::class) {
+            if (array_key_exists('startDate', $filters) && !empty($filters['startDate'])) {
+                try {
+                    $startDateTime = new \DateTime($filters['startDate'] . ' 00:00:00');
+                    $outerConstraints[] = $query->greaterThanOrEqual('datetime', $startDateTime);
+                } catch (\Exception $e) {
+                    // Invalid date format - skip this filter
+                }
+            }
+
+            if (array_key_exists('endDate', $filters) && !empty($filters['endDate'])) {
+                try {
+                    $endDateTime = new \DateTime($filters['endDate'] . ' 23:59:59');
+                    $outerConstraints[] = $query->lessThanOrEqual('datetime', $endDateTime);
+                } catch (\Exception $e) {
+                    // Invalid date format - skip this filter
+                }
+            }
+        }
+
         // Note: PID filtering is handled via QuerySettings (setStoragePageIds) in the middleware,
         // not as a query constraint here
 
