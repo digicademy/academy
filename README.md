@@ -47,6 +47,7 @@ The API accepts the following GET parameters:
 - `searchQuery` - Full-text search across entity-specific fields
 - `startDate` - Date filter (YYYY-MM-DD format, News and Events only) - returns items on or after this date
 - `endDate` - Date filter (YYYY-MM-DD format, News and Events only) - returns items on or before this date
+- `relatedTo` - Filter entities by their relations to other entities (format: `entityType:uid`, e.g., `person:123`, `project:456`). Supported entity types: `person`, `project`, `product`, `publication`, `service`, `unit`, `news`, `event`, `medium`, `hcard`. Can be combined with `selectedRoles` to filter by relationship type.
 
 **Pagination:**
 - `currentPage` - Page number (default: 1)
@@ -84,6 +85,24 @@ curl "https://example.com/api/news?startDate=2023-01-01&endDate=2023-06-30"
 
 # Combine date filters with other filters
 curl "https://example.com/api/events?startDate=2023-01-01&selectedCategories=5&searchQuery=conference"
+
+# Get all projects related to person 123
+curl "https://example.com/api/projects?relatedTo=person:123"
+
+# Get all persons related to project 456
+curl "https://example.com/api/persons?relatedTo=project:456"
+
+# Get all publications related to person 789 with a specific role (e.g., author)
+curl "https://example.com/api/publications?relatedTo=person:789&selectedRoles=10"
+
+# Get all events related to unit 321
+curl "https://example.com/api/events?relatedTo=unit:321"
+
+# Get all news related to project 456 within a date range
+curl "https://example.com/api/news?relatedTo=project:456&startDate=2023-01-01&endDate=2023-12-31"
+
+# Combine relation filtering with other filters
+curl "https://example.com/api/persons?relatedTo=project:123&selectedCategories=5&searchQuery=researcher"
 ```
 
 ### Response Format
@@ -119,7 +138,8 @@ The API returns JSON with the following structure:
     "selectedPids": "",
     "searchQuery": "",
     "startDate": "",
-    "endDate": ""
+    "endDate": "",
+    "relatedTo": ""
   }
 }
 ```
