@@ -25,6 +25,8 @@ The Academy extension provides a REST API for accessing entity data in JSON form
 
 The API provides endpoints for the following entity types:
 
+- `/api/events` - Event entities
+- `/api/news` - News entities
 - `/api/persons` - Person entities
 - `/api/products` - Product entities
 - `/api/projects` - Project entities
@@ -43,6 +45,8 @@ The API accepts the following GET parameters:
 - `selectedRoles` - Comma-separated role UIDs (AND logic)
 - `selectedPids` - Comma-separated page UIDs (OR logic, filters entities by storage page)
 - `searchQuery` - Full-text search across entity-specific fields
+- `startDate` - Date filter (YYYY-MM-DD format, News and Events only) - returns items on or after this date
+- `endDate` - Date filter (YYYY-MM-DD format, News and Events only) - returns items on or before this date
 
 **Pagination:**
 - `currentPage` - Page number (default: 1)
@@ -68,6 +72,18 @@ curl "https://example.com/api/persons?selectedPids=123&selectedCategories=1&sear
 
 # Filter and paginate
 curl "https://example.com/api/persons?selectedCategories=1&currentPage=2&itemsPerPage=20"
+
+# Get news from a specific date onwards
+curl "https://example.com/api/news?startDate=2023-01-01"
+
+# Get events up to a specific date
+curl "https://example.com/api/events?endDate=2023-12-31"
+
+# Get news within a date range
+curl "https://example.com/api/news?startDate=2023-01-01&endDate=2023-06-30"
+
+# Combine date filters with other filters
+curl "https://example.com/api/events?startDate=2023-01-01&selectedCategories=5&searchQuery=conference"
 ```
 
 ### Response Format
@@ -101,7 +117,9 @@ The API returns JSON with the following structure:
     "selectedCategories": "1,2",
     "selectedRoles": "",
     "selectedPids": "",
-    "searchQuery": ""
+    "searchQuery": "",
+    "startDate": "",
+    "endDate": ""
   }
 }
 ```
