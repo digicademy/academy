@@ -121,6 +121,18 @@ The API returns JSON with the following structure:
       "slug": "john-smith",
       "image": [
         "/fileadmin/user_upload/image.jpg"
+      ],
+      "categories": [
+        {
+          "uid": 5,
+          "title": "Researcher",
+          "parentUid": null
+        },
+        {
+          "uid": 12,
+          "title": "Active Member",
+          "parentUid": 5
+        }
       ]
     }
   ],
@@ -145,7 +157,8 @@ The API returns JSON with the following structure:
 ```
 
 **Response fields:**
-- `data` - Array of entity objects with all scalar properties and image URLs
+- `data` - Array of entity objects with all scalar properties, image URLs, and categories
+- `categories` - Array of category objects (each with `uid`, `title`, and `parentUid`). The `parentUid` is null for top-level categories. Empty array if entity has no categories. Available for all entity types including News and Events
 - `pagination` - Pagination metadata
 - `filters` - Echo of applied filters for debugging
 

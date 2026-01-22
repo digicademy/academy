@@ -26,6 +26,11 @@
 
 namespace Digicademy\Academy\Service;
 
+use Digicademy\Academy\Domain\Model\Categories;
+use GeorgRinger\News\Domain\Model\Category as NewsCategory;
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+
 /**
  * Service for serializing Academy entities to JSON-ready arrays.
  * Uses reflection to call all getter methods and includes scalar values,
@@ -86,6 +91,9 @@ class JsonSerializerService
                         }
                     }
                 }
+            } elseif ($getter === 'getCategories') {
+                // Extract categories as array of simple objects with uid and title
+                $jsonValues['categories'] = $this->serializeCategories($entityPropertyValue);
             } elseif (gettype($entityPropertyValue) !== 'object') {
                 // Include scalar values (string, int, bool, null, etc.)
                 $propertyName = lcfirst(substr($getter, 3));
@@ -94,5 +102,47 @@ class JsonSerializerService
         }
 
         return $jsonValues;
+    }
+
+    /**
+     * Serialize categories from ObjectStorage to array of simple objects.
+     * Extracts uid, title, and parent uid from each category.
+     * Supports both TYPO3 Category model and News extension Category model.
+     *
+     * @param ObjectStorage|null $categories
+     * @return array
+     */
+    private function serializeCategories(?ObjectStorage $categories): array
+    {
+        // Handle null or empty ObjectStorage
+        if ($categories === null || $categories->count() === 0) {
+            return [];
+        }
+
+        $categoriesArray = [];
+
+        // Iterate through ObjectStorage and extract category data
+        foreach ($categories as $category) {
+            // Handle TYPO3 Category (used by Academy entities)
+            if ($category instanceof Category) {
+                $parent = $category->getParent();
+                $categoriesArray[] = [
+                    'uid' => $category->getUid(),
+                    'title' => $category->getTitle() ?? '',
+                    'parentUid' => $parent ? $parent->getUid() : null,
+                ];
+            }
+            // Handle News extension Category (used by News/Events)
+            elseif ($category instanceof NewsCategory) {
+                $parent = $category->getParentcategory();
+                $categoriesArray[] = [
+                    'uid' => $category->getUid(),
+                    'title' => $category->getTitle() ?? '',
+                    'parentUid' => $parent ? $parent->getUid() : null,
+                ];
+            }
+        }
+
+        return $categoriesArray;
     }
 }
