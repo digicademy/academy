@@ -27,8 +27,11 @@
 namespace Digicademy\Academy\Domain\Repository;
 
 use GeorgRinger\News\Domain\Repository\NewsRepository as GeorgRingerNewsRepository;
+use TYPO3\CMS\Extbase\Persistence\{
+    QueryInterface,
+    QueryResultInterface
+};
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * The repository for news related to CRIS entities or events
@@ -38,6 +41,18 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class NewsRepository extends CommonRepository
 {
+    /**
+     * Find all news items ordered by datetime (most recent first)
+     *
+     * @return QueryResultInterface
+     */
+    public function findAll(): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->setOrderings(['datetime' => QueryInterface::ORDER_DESCENDING]);
+        return $query->execute();
+    }
+
     /**
      * @param array $arguments
      *

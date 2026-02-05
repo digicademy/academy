@@ -27,9 +27,12 @@
 namespace Digicademy\Academy\Domain\Repository;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\{
+    QueryInterface,
+    QueryResultInterface,
+    Repository
+};
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
-use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * A repository with common find methods for all CRIS entities
@@ -282,6 +285,11 @@ class CommonRepository extends Repository
             $query->matching(
                 $query->logicalAnd(...array_values($outerConstraints))
             );
+        }
+
+        // Apply default ordering for News and Events entities (most recent first)
+        if (static::class === NewsRepository::class || static::class === EventsRepository::class) {
+            $query->setOrderings(['datetime' => QueryInterface::ORDER_DESCENDING]);
         }
 
         $result = $query->execute();

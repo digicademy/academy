@@ -27,7 +27,10 @@
 namespace Digicademy\Academy\Domain\Repository;
 
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Persistence\{
+    QueryInterface,
+    QueryResultInterface
+};
 
 /**
  * The repository for events in the research domain
@@ -37,6 +40,17 @@ use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 class EventsRepository extends CommonRepository
 {
+    /**
+     * Find all events ordered by datetime (most recent first)
+     *
+     * @return QueryResultInterface
+     */
+    public function findAll(): QueryResultInterface
+    {
+        $query = $this->createQuery();
+        $query->setOrderings(['datetime' => QueryInterface::ORDER_DESCENDING]);
+        return $query->execute();
+    }
 
     /**
      * @param array $arguments
