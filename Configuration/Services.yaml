@@ -5,7 +5,7 @@ services:
     public: false
 
   Digicademy\Academy\:
-    resource: '../../academy/Classes/*'
+    resource: '../Classes/*'
 
   # We need the to inject the container instance for some dependency fetching,
   # so we need to autowire the container itself.
