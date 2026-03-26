@@ -49,6 +49,23 @@ The API accepts the following GET parameters:
 - `endDate` - Date filter (YYYY-MM-DD format, News and Events only) - returns items on or before this date
 - `relatedTo` - Filter entities by their relations to other entities (format: `entityType:uid`, e.g., `person:123`, `project:456`). Supported entity types: `person`, `project`, `product`, `publication`, `service`, `unit`, `news`, `event`, `medium`, `hcard`. Can be combined with `selectedRoles` to filter by relationship type.
 
+**Sorting:**
+- `sortBy` - Field name to sort by (see table below for allowed fields per entity type)
+- `sortOrder` - Sort direction: `asc` (default) or `desc`
+
+When no sort parameters are provided, entity-specific defaults apply (e.g., persons are sorted by `sorting`, `familyName`, `givenName`; news and events by `datetime` descending). If an invalid `sortBy` value is provided, the default ordering is used.
+
+| Entity Type  | Sortable Fields                                        |
+|--------------|--------------------------------------------------------|
+| persons      | `sorting`, `familyName`, `givenName`, `additionalName` |
+| projects     | `sorting`, `title`, `persistentIdentifier`             |
+| products     | `sorting`, `title`, `persistentIdentifier`             |
+| publications | `title`, `persistentIdentifier`                        |
+| services     | `sorting`, `title`, `persistentIdentifier`             |
+| units        | `sorting`, `title`, `persistentIdentifier`             |
+| news         | `datetime`, `title`                                    |
+| events       | `datetime`, `title`                                    |
+
 **Pagination:**
 - `currentPage` - Page number (default: 1)
 - `itemsPerPage` - Items per page (default: 10)
@@ -103,6 +120,18 @@ curl "https://example.com/api/news?relatedTo=project:456&startDate=2023-01-01&en
 
 # Combine relation filtering with other filters
 curl "https://example.com/api/persons?relatedTo=project:123&selectedCategories=5&searchQuery=researcher"
+
+# Sort persons by family name descending
+curl "https://example.com/api/persons?sortBy=familyName&sortOrder=desc"
+
+# Sort projects by title ascending (default direction)
+curl "https://example.com/api/projects?sortBy=title"
+
+# Sort events by date ascending (oldest first, overriding the default newest-first)
+curl "https://example.com/api/events?sortBy=datetime&sortOrder=asc"
+
+# Combine sorting with filters and pagination
+curl "https://example.com/api/persons?selectedCategories=5&sortBy=familyName&sortOrder=asc&currentPage=1&itemsPerPage=20"
 ```
 
 ### Response Format
@@ -152,6 +181,10 @@ The API returns JSON with the following structure:
     "startDate": "",
     "endDate": "",
     "relatedTo": ""
+  },
+  "sort": {
+    "sortBy": "familyName",
+    "sortOrder": "desc"
   }
 }
 ```
@@ -161,6 +194,7 @@ The API returns JSON with the following structure:
 - `categories` - Array of category objects (each with `uid`, `title`, and `parentUid`). The `parentUid` is null for top-level categories. Empty array if entity has no categories. Available for all entity types including News and Events
 - `pagination` - Pagination metadata
 - `filters` - Echo of applied filters for debugging
+- `sort` - Echo of applied sort parameters (`sortBy` and `sortOrder`)
 
 ### Configuration
 

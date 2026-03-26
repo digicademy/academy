@@ -44,6 +44,7 @@ use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
  * PSR-15 Middleware that provides REST API endpoints for Academy entities.
@@ -87,6 +88,20 @@ class ApiMiddleware implements MiddlewareInterface
                     'relatedTo' => $queryParams['relatedTo'] ?? '',
                 ];
 
+                // Parse and validate sort parameters
+                $sortBy = $queryParams['sortBy'] ?? '';
+                $sortOrder = strtolower($queryParams['sortOrder'] ?? 'asc');
+                $orderings = [];
+                if (!empty($sortBy)) {
+                    $sortableFields = $this->getSortableFields($entityType);
+                    if (in_array($sortBy, $sortableFields, true)) {
+                        $direction = $sortOrder === 'desc'
+                            ? QueryInterface::ORDER_DESCENDING
+                            : QueryInterface::ORDER_ASCENDING;
+                        $orderings = [$sortBy => $direction];
+                    }
+                }
+
                 // Get repository and configure it to query all records
                 $repository = $this->getRepositoryForEntity($entityType);
 
@@ -102,9 +117,14 @@ class ApiMiddleware implements MiddlewareInterface
                 // Configure repository with selected PIDs or disable storage page constraint
                 $this->configureRepositoryForApi($repository, $excludedPids, $selectedPids);
 
+                // Apply custom orderings to repository (affects findAll via defaultOrderings)
+                if (!empty($orderings)) {
+                    $repository->setDefaultOrderings($orderings);
+                }
+
                 // Execute query
                 $hasFilters = $filters['selectedCategories'] || $filters['selectedRoles'] || $filters['searchQuery'] || $filters['selectedPids'] || $filters['startDate'] || $filters['endDate'] || $filters['relatedTo'];
-                $queryResult = $hasFilters ? $repository->findByFilters($filters) : $repository->findAll();
+                $queryResult = $hasFilters ? $repository->findByFilters($filters, $orderings) : $repository->findAll();
 
                 // Filter out excluded PIDs if configured
                 if (!empty($excludedPids)) {
@@ -144,6 +164,10 @@ class ApiMiddleware implements MiddlewareInterface
                         'hasPreviousPage' => $pagination['hasPreviousPage'],
                     ],
                     'filters' => $filters, // Echo applied filters
+                    'sort' => [
+                        'sortBy' => $sortBy,
+                        'sortOrder' => $sortOrder,
+                    ],
                 ];
 
                 return new JsonResponse($response);
@@ -255,6 +279,27 @@ class ApiMiddleware implements MiddlewareInterface
         }
 
         return [];
+    }
+
+    /**
+     * Get the list of fields that are allowed for sorting per entity type.
+     * Prevents arbitrary column access and ensures only meaningful fields are sortable.
+     *
+     * @param string $entityType
+     * @return array
+     */
+    private function getSortableFields(string $entityType): array
+    {
+        return match($entityType) {
+            'persons' => ['sorting', 'familyName', 'givenName', 'additionalName'],
+            'projects' => ['sorting', 'title', 'persistentIdentifier'],
+            'products' => ['sorting', 'title', 'persistentIdentifier'],
+            'publications' => ['title', 'persistentIdentifier'],
+            'services' => ['sorting', 'title', 'persistentIdentifier'],
+            'units' => ['sorting', 'title', 'persistentIdentifier'],
+            'news' => ['datetime', 'title'],
+            'events' => ['datetime', 'title'],
+        };
     }
 
     /**

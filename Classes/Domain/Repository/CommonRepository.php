@@ -137,11 +137,12 @@ class CommonRepository extends Repository
      * @see FilterService on how the configuration should look like
      *
      * @param array $filters
+     * @param array $orderings Optional custom orderings (e.g. ['title' => QueryInterface::ORDER_ASCENDING])
      *
      * @return object
      * @throws InvalidQueryException
      */
-    public function findByFilters(array $filters): object
+    public function findByFilters(array $filters, array $orderings = []): object
     {
         $query = $this->createQuery();
         $outerConstraints = [];
@@ -287,8 +288,10 @@ class CommonRepository extends Repository
             );
         }
 
-        // Apply default ordering for News and Events entities (most recent first)
-        if (static::class === NewsRepository::class || static::class === EventsRepository::class) {
+        // Apply custom orderings if provided, otherwise use defaults for News/Events
+        if (!empty($orderings)) {
+            $query->setOrderings($orderings);
+        } elseif (static::class === NewsRepository::class || static::class === EventsRepository::class) {
             $query->setOrderings(['datetime' => QueryInterface::ORDER_DESCENDING]);
         }
 
