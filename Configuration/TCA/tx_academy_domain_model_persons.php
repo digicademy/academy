@@ -358,11 +358,11 @@ return [
                                         'value' => '70'
                                     ],
                                     [
-                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_relations.type.I.80',
+                                        'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_relations.type.I.80',
                                         'value' => '80'
                                     ],
                                     [
-                                        'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_relations.type.I.90',
+                                        'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_relations.type.I.90',
                                         'value' => '90'
                                     ],
                                 ]
