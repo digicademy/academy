@@ -37,7 +37,7 @@ class AcademyTcaInline extends TcaInline
         // all existing IRRE children (also those from other languages) are shown in the entity that is
         // not yet localized; this is quite confusing behaviour - localized IRRE children should
         // always only be shown in the respective language of their respective parent record
-        if ($fieldName == 'relations') {
+        if ($fieldName == 'relations' || $fieldName == 'news_relations' || $fieldName == 'event_relations') {
             $languageAwareConnectedUids = [];
             foreach ($connectedUidsOfDefaultLanguageRecord as $uid) {
                 // fetch the relation to get its language id
