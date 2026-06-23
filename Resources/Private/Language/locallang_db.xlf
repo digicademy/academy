@@ -68,6 +68,16 @@
 				<source>Amount of pagination pages to show (sliding window)</source>
 			</trans-unit>
 
+			<trans-unit id="plugin.sheet.template" resname="plugin.sheet.template" >
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="plugin.template.listTemplateLayout" resname="plugin.template.listTemplateLayout" >
+				<source>List Template Layout</source>
+			</trans-unit>
+			<trans-unit id="plugin.template.showTemplateLayout" resname="plugin.template.showTemplateLayout" >
+				<source>Show Template Layout</source>
+			</trans-unit>
+
 			<trans-unit id="projectsPlugin.switchableControllerActions" resname="projectsPlugin.switchableControllerActions" >
 				<source>Display</source>
 			</trans-unit>

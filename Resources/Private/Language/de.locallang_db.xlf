@@ -11,6 +11,20 @@
 				<source>General</source>
 				<target>Allgemein</target>
 			</trans-unit>
+
+			<trans-unit id="plugin.sheet.template" resname="plugin.sheet.template" approved="yes">
+				<source>Template</source>
+				<target>Template</target>
+			</trans-unit>
+			<trans-unit id="plugin.template.listTemplateLayout" resname="plugin.template.listTemplateLayout" approved="yes">
+				<source>List Template Layout</source>
+				<target>Layout des List Templates</target>
+			</trans-unit>
+			<trans-unit id="plugin.template.showTemplateLayout" resname="plugin.template.showTemplateLayout" approved="yes">
+				<source>Show Template Layout</source>
+				<target>Layout des Show Templates</target>
+			</trans-unit>
+
 			<trans-unit id="projectsPlugin.switchableControllerActions" resname="projectsPlugin.switchableControllerActions"  approved="yes">
 				<source>Display</source>
 				<target>Anzeige</target>

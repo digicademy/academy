@@ -11,7 +11,8 @@
 					<settings.entityType>
 						<TCEforms>
 							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:plugin.entityType</label>
-							<config>
+                            <onChange>reload</onChange>
+                            <config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
@@ -71,8 +72,22 @@
 							</config>
 						</TCEforms>
 					</settings.filters.selectedEntities>
+                    <settings.template.layout>
+                        <label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:plugin.template.showTemplateLayout</label>
+                        <config>
+                            <type>select</type>
+                            <itemsProcFunc>Digicademy\Academy\UserFunction\FormEngine\ItemsProcFunc->getTemplateLayoutItems</itemsProcFunc>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label/>
+                                    <value/>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.template.layout>
 				</el>
 			</ROOT>
 		</sDEF>
 	</sheets>
-</T3DataStructure> 
+</T3DataStructure>
