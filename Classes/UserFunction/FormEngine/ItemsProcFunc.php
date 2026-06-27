@@ -77,8 +77,10 @@ class ItemsProcFunc
         $templateLayouts = [];
         if ($params['flexParentDatabaseRow']['list_type'] === 'academy_list') {
             $templateLayouts = $pageTsConfig['tx_academy.']['templateLayouts.']['list.'] ?? [];
+            $pluginType = 'list';
         } elseif ($params['flexParentDatabaseRow']['list_type'] === 'academy_show') {
             $templateLayouts = $pageTsConfig['tx_academy.']['templateLayouts.']['show.'] ?? [];
+            $pluginType = 'show';
         }
 
         if (empty($templateLayouts)) {
@@ -86,7 +88,7 @@ class ItemsProcFunc
         }
 
         // Determine entity type
-        $entityType = strtolower($this->getEntityType($params));
+        $entityType = strtolower($this->getEntityType($params, $pluginType));
 
         foreach ($templateLayouts as $key => $value) {
             $key = rtrim($key, '.');
@@ -119,19 +121,26 @@ class ItemsProcFunc
      * @param array $params Parameters passed by the itemsProcFunc callback
      * @return string The entity type identifier, or an empty string if not set
      */
-    private function getEntityType(array $params): string
+    private function getEntityType(array $params, string $pluginType = ''): string
     {
         $flexRow = $params['flexParentDatabaseRow'] ?? [];
 
         $flexData = $flexRow['pi_flexform'] ?? [];
-        if (is_array($flexData)) {
+        if (is_array($flexData) && $pluginType != '') {
             // Returns the selected entity type. Defaults to 'persons' to avoid returning NULL when unsaved.
-            return (string)(
-                $flexData['data']['sDEF']['lDEF']['settings.entityType']['vDEF'][0]
-                ?? 'persons'
-            );
+            if ($pluginType === 'list') {
+                return (string)(
+                    $flexData['data']['sDEF']['lDEF']['settings.entityType']['vDEF'][0]
+                    ?? 'persons'
+                );
+            } elseif ($pluginType === 'show') {
+                return (string)(
+                    $flexData['data']['sDEF']['lDEF']['settings.entityType']['vDEF']
+                    ?? 'persons'
+                );
+            }
         }
 
-        return '';
+        return 'persons';
     }
 }
