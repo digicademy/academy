@@ -9,7 +9,7 @@
 					</f:then>
 					<f:else>
 						<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1827" arguments="{
-							person : record.uid
+							uid : record.uid
 						}">
 						<f:render section="Name" arguments="{_all}" />
 						</f:link.action><br/>
@@ -26,7 +26,7 @@
 							</f:then>
 							<f:else>
 								<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1826" arguments="{
-									person : record.uid
+									uid : record.uid
 								}">
 								<f:render section="Name" arguments="{_all}" />
 								</f:link.action><br/>

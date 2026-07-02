@@ -4,7 +4,7 @@
 
 <div class="list item unit" id="unit-{unit.uid}">
     <h2>
-        <f:link.action action="show" arguments="{unit : unit}">
+        <f:link.action action="show" arguments="{uid : unit.uid}">
             {unit.title}
             <f:if condition="{unit.acronym}">({unit.acronym})</f:if>
         </f:link.action>
@@ -16,7 +16,7 @@
         {unit.description -> f:format.crop(maxCharacters: '200', respectWordBoundaries:'1') -> f:format.html()}
     </f:if>
     <p>
-        <f:link.action action="show" arguments="{unit : unit}">
+        <f:link.action action="show" arguments="{uid : unit.uid}">
             <f:translate key="general.details"/>
         </f:link.action>
     </p>

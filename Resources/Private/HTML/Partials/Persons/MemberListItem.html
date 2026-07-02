@@ -2,7 +2,7 @@
 
 <div class="listing clearfix">
 	<figure class="grid_4 alpha">
-		<f:link.action controller="Persons" action="show" pageUid="1827" arguments="{person : person.uid}">
+		<f:link.action controller="Persons" action="show" pageUid="1827" arguments="{uid : person.uid}">
 			<f:cObject typoscriptObjectPath="lib.image" data="{
 				table : 'tx_academy_domain_model_persons',
 				uid : person.uid,
@@ -21,9 +21,9 @@
 <f:section name="Item">
 	<f:render partial="Hcards/VcardPerson" arguments="{person : person, nameWrap : 'h2'}" />
 	<p>
-		<f:link.action class="box icon more" controller="Persons" action="show" pageUid="1827" arguments="{person : person.uid}">
+		<f:link.action class="box icon more" controller="Persons" action="show" pageUid="1827" arguments="{uid : person.uid}">
 			<f:translate key="persons.profileLink" />
 		</f:link.action>
-		<f:link.action class="box icon card" action="show" format="vcf" arguments="{person : person}" additionalParams="{type : 1122}"><f:translate key="persons.vcardLink" /></f:link.action>
+		<f:link.action class="box icon card" action="show" format="vcf" arguments="{uid : person.uid}" additionalParams="{type : 1122}"><f:translate key="persons.vcardLink" /></f:link.action>
 	</p>
 </f:section>
