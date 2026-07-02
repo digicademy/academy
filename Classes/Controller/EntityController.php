@@ -289,6 +289,12 @@ class EntityController extends ActionController
         $varName = strtolower(end($entityClass));
         $this->view->assign($varName, $entity);
 
+        // Also expose the entity under its singular name, which the detail (show)
+        // templates use (e.g. {project}, {unit}, {medium}), while $varName above
+        // matches the plural model class name (projects, units, media).
+        $singularName = $varName === 'media' ? 'medium' : rtrim($varName, 's');
+        $this->view->assign($singularName, $entity);
+
         return $this->htmlResponse();
     }
 
