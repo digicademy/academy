@@ -39,7 +39,7 @@ class AlphabetViewHelper extends AbstractViewHelper
      *
      * @throws Exception
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'string',
@@ -69,7 +69,7 @@ class AlphabetViewHelper extends AbstractViewHelper
      * different, signals the start of a new group. Uses a character normalization table for taking accented letters into account.
      * Used in conjunction with the Alphabet.html template/partial (https://gist.github.com/tesselation/5888003)
      */
-    public function render()
+    public function render(): void
     {
         $string = $this->arguments['string'];
         $length = $this->arguments['length'];

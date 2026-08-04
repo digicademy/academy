@@ -40,6 +40,7 @@ ExtensionUtility::configurePlugin(
         PublicationsController::class => 'filter',
         HcardsController::class => 'filter',
     ],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );
 
 ExtensionUtility::configurePlugin(
@@ -57,6 +58,7 @@ ExtensionUtility::configurePlugin(
         HcardsController::class => 'show',
     ],
     [],
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );
 
 ExtensionUtility::configurePlugin(
@@ -67,7 +69,8 @@ ExtensionUtility::configurePlugin(
     ),
     array(
         SearchController::class => 'searchForm,searchAll,searchSingle',
-    )
+    ),
+    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
 );
 
 // BACKEND RELATED

@@ -34,6 +34,9 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\Exception;
 class GroupRelationsViewHelper extends AbstractViewHelper
 {
 
+    public function __construct(private readonly \TYPO3\CMS\Core\Context\Context $context)
+    {
+    }
     /**
      * Initialize arguments
      *
@@ -41,7 +44,7 @@ class GroupRelationsViewHelper extends AbstractViewHelper
      *
      * @throws Exception
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'relations',
@@ -68,7 +71,7 @@ class GroupRelationsViewHelper extends AbstractViewHelper
     /**
      * @return void
      */
-    public function render()
+    public function render(): void
     {
         $relations = $this->arguments['relations'];
         $property = $this->arguments['property'];
@@ -86,7 +89,7 @@ class GroupRelationsViewHelper extends AbstractViewHelper
                 // (which unfortunately will result in all relations for all languages
                 // being returned for the object from the side that is not translated)
                 // example: person (not translated) < > projects (translated)
-                $context = GeneralUtility::makeInstance(Context::class);
+                $context = $this->context;
                 $currentLanguageUid = $context->getPropertyFromAspect('language', 'id');
                 if ($relation->getSysLanguageUid() !== $currentLanguageUid) continue;
 

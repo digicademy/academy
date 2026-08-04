@@ -47,7 +47,7 @@ class RelationsRepository extends \TYPO3\CMS\Extbase\Persistence\Repository
         'persistent_identifier' => QueryInterface::ORDER_ASCENDING
     );
 
-    public function initializeObject() {
+    public function initializeObject(): void {
       /** @var Typo3QuerySettings $querySettings */
       $querySettings= GeneralUtility::makeInstance(Typo3QuerySettings::class);
       $querySettings->setRespectStoragePage(false);

@@ -55,8 +55,8 @@ trait RelationsTrait
      * Relations with other entities.
      *
      * @var ObjectStorage<Relations>|null
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage|null $relations;
 
     /**

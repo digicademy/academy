@@ -43,8 +43,8 @@ trait ImageTrait
      * Images
      *
      * @var ObjectStorage<FileReference>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $image;
 
     /**

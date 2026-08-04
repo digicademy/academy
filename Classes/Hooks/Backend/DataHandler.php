@@ -32,6 +32,9 @@ use TYPO3\CMS\Backend\Utility\BackendUtility;
 class DataHandler
 {
 
+    public function __construct(private readonly \TYPO3\CMS\Core\Database\ConnectionPool $connectionPool)
+    {
+    }
     /**
      * Generates a persistent identifier (uuid) on new and save for this extension's tables
      *
@@ -43,7 +46,7 @@ class DataHandler
      *
      * @throws Exception
      */
-    public function processDatamap_postProcessFieldArray($status, $table, $id, &$fieldArray, &$pObj)
+    public function processDatamap_postProcessFieldArray($status, $table, $id, &$fieldArray, &$pObj): void
     {
 
         // generate xml conformant uuids as persistent identifiers
@@ -66,7 +69,7 @@ class DataHandler
                     break;
                 case 'update':
                 default:
-                    $record = GeneralUtility::makeInstance(ConnectionPool::class)
+                    $record = $this->connectionPool
                         ->getConnectionForTable($table)
                         ->select(['persistent_identifier'], $table, ['uid' => (int)$id]
                         )->fetch();

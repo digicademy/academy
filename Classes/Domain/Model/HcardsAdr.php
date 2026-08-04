@@ -58,8 +58,8 @@ class HcardsAdr extends AbstractValueObject
      * Address components
      *
      * @var ObjectStorage<HcardsAdrcomponents>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $adrcomponents;
 
     /**

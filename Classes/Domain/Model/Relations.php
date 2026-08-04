@@ -54,8 +54,8 @@ class Relations extends AbstractEntity
      * The role of the relation
      *
      * @var Roles $role
-     * @Lazy
      */
+    #[Lazy]
     protected $role;
 
     /**
@@ -69,152 +69,152 @@ class Relations extends AbstractEntity
      * Related project
      *
      * @var Projects $project
-     * @Lazy
      */
+    #[Lazy]
     protected $project;
 
     /**
      * Related project
      *
      * @var Projects $projectSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $projectSymmetric;
 
     /**
      * Related Person
      *
      * @var Persons $person
-     * @Lazy
      */
+    #[Lazy]
     protected $person;
 
     /**
      * Related Person
      *
      * @var Persons $personSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $personSymmetric;
 
     /**
      * Related Hcard
      *
      * @var Hcards $hcard
-     * @Lazy
      */
+    #[Lazy]
     protected $hcard;
 
     /**
      * Related Unit
      *
      * @var Units $unit
-     * @Lazy
      */
+    #[Lazy]
     protected $unit;
 
     /**
      * Related Unit
      *
      * @var Units $unitSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $unitSymmetric;
 
     /**
      * Related News
      *
      * @var News $news
-     * @Lazy
      */
+    #[Lazy]
     protected $news;
 
     /**
      * Related News
      *
      * @var News $newsSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $newsSymmetric;
 
     /**
      * Related Event
      *
      * @var Events $event
-     * @Lazy
      */
+    #[Lazy]
     protected $event;
 
     /**
      * Related Event
      *
      * @var Events $eventSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $eventSymmetric;
 
     /**
      * Related medium
      *
      * @var Media $medium
-     * @Lazy
      */
+    #[Lazy]
     protected $medium;
 
     /**
      * Related medium
      *
      * @var Media $mediumSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $mediumSymmetric;
 
     /**
      * Related Service
      *
      * @var Services $service
-     * @Lazy
      */
+    #[Lazy]
     protected $service;
 
     /**
      * Related Service
      *
      * @var Services $serviceSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $serviceSymmetric;
 
     /**
      * Related Products
      *
      * @var Products $product
-     * @Lazy
      */
+    #[Lazy]
     protected $product;
 
     /**
      * Related symmetric products
      *
      * @var Products $productSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $productSymmetric;
 
     /**
      * Related Publications
      *
      * @var Publications $publication
-     * @Lazy
      */
+    #[Lazy]
     protected $publication;
 
     /**
      * Related symmetric publication
      *
      * @var Publications $publicationSymmetric
-     * @Lazy
      */
+    #[Lazy]
     protected $publicationSymmetric;
 
     /**

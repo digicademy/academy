@@ -43,8 +43,8 @@ trait CategoriesTrait
      * Selected categories for the medium
      *
      * @var ObjectStorage<Categories>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $categories;
 
     /**

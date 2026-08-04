@@ -36,6 +36,9 @@ use TYPO3\CMS\Core\Resource\Collection\StaticFileCollection;
 class FileCollectionViewHelper extends AbstractViewHelper
 {
 
+    public function __construct(private readonly \TYPO3\CMS\Core\Database\ConnectionPool $connectionPool)
+    {
+    }
     /**
      * Initialize arguments
      *
@@ -43,7 +46,7 @@ class FileCollectionViewHelper extends AbstractViewHelper
      *
      * @throws Exception
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'uid',
@@ -60,7 +63,7 @@ class FileCollectionViewHelper extends AbstractViewHelper
     {
         $uid = (int)$this->arguments['uid'];
 
-        $collectionRecord = GeneralUtility::makeInstance(ConnectionPool::class)
+        $collectionRecord = $this->connectionPool
             ->getConnectionForTable('sys_file_collection')
             ->select(['*'], 'sys_file_collection', ['uid' => $uid]
             )->fetch();

@@ -41,8 +41,8 @@ trait TitleTrait
      * The title of the object
      *
      * @var string $title
-     * @Validate("NotEmpty")
      */
+    #[Validate(['validator' => 'NotEmpty'])]
     protected string $title;
 
     /**

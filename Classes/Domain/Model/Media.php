@@ -78,16 +78,16 @@ class Media extends AbstractEntity
      * Files
      *
      * @var ObjectStorage<FileReference>
-     * @Extbase\ORM\Lazy
      */
+    #[Extbase\ORM\Lazy]
     protected $files;
 
     /**
      * File collections
      *
      * @var ObjectStorage<FileCollection>
-     * @Extbase\ORM\Lazy
      */
+    #[Extbase\ORM\Lazy]
     protected $collections;
 
     /**

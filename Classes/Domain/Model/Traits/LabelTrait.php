@@ -41,8 +41,8 @@ trait LabelTrait
      * The label of the hcard
      *
      * @var string $label
-     * @Validate("NotEmpty")
      */
+    #[Validate(['validator' => 'NotEmpty'])]
     protected string $label;
 
     /**

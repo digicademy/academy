@@ -31,8 +31,6 @@ return [
         'searchFields' => 'title,description',
         'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_media.svg'
     ],
-    'interface' => [
-    ],
     'types' => [
         '1' => [
             'showitem' => '

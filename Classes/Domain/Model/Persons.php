@@ -83,8 +83,8 @@ class Persons extends AbstractEntity
      * Family name of the person
      *
      * @var string $familyName
-     * @Validate("NotEmpty")
      */
+    #[Validate(['validator' => 'NotEmpty'])]
     protected $familyName;
 
     /**

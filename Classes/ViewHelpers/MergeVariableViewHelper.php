@@ -39,7 +39,7 @@ class MergeVariableViewHelper extends AbstractViewHelper
      *
      * @throws Exception
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'array1',
@@ -76,7 +76,7 @@ class MergeVariableViewHelper extends AbstractViewHelper
      *
      * @return void
      */
-    public function render()
+    public function render(): void
     {
         $array1 = $this->arguments['array1'];
         $array2 = $this->arguments['array2'];

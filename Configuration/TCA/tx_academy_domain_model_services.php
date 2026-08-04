@@ -29,8 +29,6 @@ return [
         'searchFields' => 'persistent_identifier,identifier,title,acronym,description',
         'iconfile' => ExtensionManagementUtility::extPath('academy') . 'Resources/Public/Icons/tx_academy_domain_model_services.svg'
     ],
-    'interface' => [
-    ],
     'types' => [
         '1' => [
             'showitem' => '

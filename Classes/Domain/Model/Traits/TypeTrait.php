@@ -41,8 +41,8 @@ trait TypeTrait
      * Type of the object
      *
      * @var int $type
-     * @Validate("NotEmpty")
      */
+    #[Validate(['validator' => 'NotEmpty'])]
     protected int $type;
 
     /**

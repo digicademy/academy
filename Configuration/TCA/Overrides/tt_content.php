@@ -22,8 +22,14 @@ ExtensionManagementUtility::addTCAcolumns(
     $tca
 );
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_list'] = 'pi_flexform';
-ExtensionManagementUtility::addPiFlexFormValue('academy_list', 'FILE:EXT:academy/Configuration/FlexForms/ListPlugin.xml');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--div--;Configuration,pi_flexform,', 'academy_list', 'after:subheader');
+ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:academy/Configuration/FlexForms/ListPlugin.xml', 'academy_list');
 
-$GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['academy_show'] = 'pi_flexform';
-ExtensionManagementUtility::addPiFlexFormValue('academy_show', 'FILE:EXT:academy/Configuration/FlexForms/ShowPlugin.xml');
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes('tt_content', '--div--;Configuration,pi_flexform,', 'academy_show', 'after:subheader');
+ExtensionManagementUtility::addPiFlexFormValue('*', 'FILE:EXT:academy/Configuration/FlexForms/ShowPlugin.xml', 'academy_show');
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Academy', 'List', 'Academy: List entities');
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Academy', 'Show', 'Academy: Show entity');
+
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin('Academy', 'Search', 'Academy: Search entities');

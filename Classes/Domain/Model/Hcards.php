@@ -56,32 +56,32 @@ class Hcards extends AbstractEntity
      * Addresses
      *
      * @var ObjectStorage<HcardsAdr>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $adr;
 
     /**
      * Telefone numbers
      *
      * @var ObjectStorage<HcardsTel>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $tel;
 
     /**
      * Email Addresses
      *
      * @var ObjectStorage<HcardsEmail>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $email;
 
     /**
      * URLs
      *
      * @var ObjectStorage<HcardsUrl>
-     * @Lazy
      */
+    #[Lazy]
     protected ObjectStorage $url;
 
     /**
