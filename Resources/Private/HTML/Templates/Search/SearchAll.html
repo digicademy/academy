@@ -29,7 +29,7 @@
 							<f:if condition="{match.attrs.pid} == 1836">
 								<f:then>
 									<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1827" arguments="{
-										person : match.attrs.uid
+										uid : match.attrs.uid
 									}">
 									<f:render partial="Search/Name" arguments="{match : match}" />
 									</f:link.action>
@@ -38,7 +38,7 @@
 									<f:if condition="{match.attrs.pid} == 1837">
 										<f:then>
 											<f:link.action extensionName="Academy" pluginName="Persons" controller="Persons" action="show" pageUid="1826" arguments="{
-												person : match.attrs.uid
+												uid : match.attrs.uid
 											}">
 											<f:render partial="Search/Name" arguments="{match : match}" />
 											</f:link.action>
@@ -171,7 +171,7 @@
 							<f:if condition="{match.attrs.page}">
 								<f:then>
 									<f:link.action extensionName="Academy" pluginName="Units" controller="Units" action="show" pageUid="{match.attrs.page}" arguments="{
-										unit : match.attrs.uid}">
+										uid : match.attrs.uid}">
 										{match.attrs.title}
 									</f:link.action>
 								</f:then>
@@ -209,7 +209,7 @@
 				<ul>
 					<f:for each="{mediaResult.matches}" as="match">
 						<li class="row">
-							<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{medium : match.attrs.uid}" pageUid="2141" class="icon after {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : match.attrs.type})}">
+							<f:link.action extensionName="Academy" pluginName="media" controller="Media" action="show" arguments="{uid : match.attrs.uid}" pageUid="2141" class="icon after {f:cObject(typoscriptObjectPath: 'lib.mediaicon', data: {type : match.attrs.type})}">
 								{match.attrs.title}
 							</f:link.action>
 						</li>

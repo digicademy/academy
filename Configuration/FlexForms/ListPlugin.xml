@@ -11,7 +11,8 @@
 					<settings.entityType>
 						<TCEforms>
 							<label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xml:plugin.entityType</label>
-							<config>
+                            <onChange>reload</onChange>
+                            <config>
 								<type>select</type>
 								<renderType>selectSingle</renderType>
 								<items>
@@ -198,6 +199,30 @@
 				</el>
 			</ROOT>
 		</sPagination>
+        <sTemplate>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:plugin.sheet.template</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.template.layout>
+                        <label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:plugin.template.listTemplateLayout</label>
+                        <config>
+                            <type>select</type>
+                            <itemsProcFunc>Digicademy\Academy\UserFunction\FormEngine\ItemsProcFunc->getTemplateLayoutItems</itemsProcFunc>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label/>
+                                    <value/>
+                                </numIndex>
+                            </items>
+                        </config>
+                    </settings.template.layout>
+                </el>
+            </ROOT>
+        </sTemplate>
 
 	</sheets>
-</T3DataStructure> 
+</T3DataStructure>
