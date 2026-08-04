@@ -64,9 +64,7 @@ class FileCollectionViewHelper extends AbstractViewHelper
         $uid = (int)$this->arguments['uid'];
 
         $collectionRecord = $this->connectionPool
-            ->getConnectionForTable('sys_file_collection')
-            ->select(['*'], 'sys_file_collection', ['uid' => $uid]
-            )->fetch();
+            ->getConnectionForTable('sys_file_collection')->select(['*'], 'sys_file_collection', ['uid' => $uid])->fetchAssociative();
 
         switch ($collectionRecord['type']) {
             case 'folder':

@@ -70,9 +70,7 @@ class DataHandler
                 case 'update':
                 default:
                     $record = $this->connectionPool
-                        ->getConnectionForTable($table)
-                        ->select(['persistent_identifier'], $table, ['uid' => (int)$id]
-                        )->fetch();
+                        ->getConnectionForTable($table)->select(['persistent_identifier'], $table, ['uid' => (int)$id])->fetchAssociative();
 
                     if (is_array($record) && (!array_key_exists('persistent_identifier', $record) || $record['persistent_identifier'] == '')) {
                         $generate = true;
