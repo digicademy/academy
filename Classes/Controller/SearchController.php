@@ -81,7 +81,7 @@ class SearchController extends ActionController
      *
      * @return ResponseInterface
      */
-    #[Extbase\Validate(['validator' => 'regularExpression', 'options' => ['regularExpression' => '/^[\,\.\*\-']])]
+    #[Extbase\Validate(['validator' => 'regularExpression', 'options' => ['regularExpression' => '/^[\,\.\*\-"\p{L}\p{M}\p{N}\p{Sk}\s]*$/u'], 'param' => 'query'])]
     public function searchAllAction(
         string $query = ''
     ): ResponseInterface
