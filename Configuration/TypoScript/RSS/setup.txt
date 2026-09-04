@@ -14,7 +14,11 @@ rss {
 		absRefPrefix = http://www.adwmainz.de/
 	}
 
-	10 < tt_content.list.20.news_pi1
+	# EXT:news registers its plugins as content elements since news 12, so the object
+	# path moved from "tt_content.list.20.news_pi1" to "tt_content.news_pi1". Copy the
+	# ".20" sub-object (the bare EXTBASEPLUGIN) so the feed is not wrapped in the
+	# "lib.contentElement" FLUIDTEMPLATE markup.
+	10 < tt_content.news_pi1.20
 	10 {
 		switchableControllerActions {
 			News {

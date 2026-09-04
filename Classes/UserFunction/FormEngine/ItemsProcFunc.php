@@ -74,11 +74,17 @@ class ItemsProcFunc
 
         $pageTsConfig = BackendUtility::getPagesTSconfig($pageId);
 
+        // The plugins are registered as content elements, so the plugin signature is held
+        // in "CType". Up to TYPO3 12 they were registered as the "list_type" sub type of
+        // CType "list" and this switch read "list_type" instead; that sub type was
+        // deprecated in TYPO3 13.4 (#105076) and will be removed in TYPO3 v14.
+        $contentElementType = $params['flexParentDatabaseRow']['CType'] ?? '';
+
         $templateLayouts = [];
-        if ($params['flexParentDatabaseRow']['list_type'] === 'academy_list') {
+        if ($contentElementType === 'academy_list') {
             $templateLayouts = $pageTsConfig['tx_academy.']['templateLayouts.']['list.'] ?? [];
             $pluginType = 'list';
-        } elseif ($params['flexParentDatabaseRow']['list_type'] === 'academy_show') {
+        } elseif ($contentElementType === 'academy_show') {
             $templateLayouts = $pageTsConfig['tx_academy.']['templateLayouts.']['show.'] ?? [];
             $pluginType = 'show';
         }
