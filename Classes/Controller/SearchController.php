@@ -97,7 +97,7 @@ class SearchController extends ActionController
         $limit = $arguments['limit'] ?? $settings['searchAll']['limit'] ?? 5;
 
         $cleanArguments = [
-            'action' => $arguments['action'],
+            'action' => $this->request->getControllerActionName(),
             'query' => $query,
             'type' => $type,
             'limit' => (int)$limit
