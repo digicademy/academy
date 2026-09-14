@@ -13,3 +13,6 @@ services:
 
   GeorgRinger\News\Domain\Model\News: '@Digicademy\Academy\Domain\Model\News'
   GeorgRinger\Eventnews\Domain\Model\News: '@Digicademy\Academy\Domain\Model\Events'
+
+  Digicademy\Academy\Hooks\Backend\DataHandler:
+    public: true

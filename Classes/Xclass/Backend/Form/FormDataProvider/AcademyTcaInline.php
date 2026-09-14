@@ -28,7 +28,7 @@ class AcademyTcaInline extends TcaInline
         $connectedUidsOfDefaultLanguageRecord = $this->resolveConnectedRecordUids(
             $result['processedTca']['columns'][$fieldName]['config'],
             $result['tableName'],
-            $result['databaseRow']['uid'],
+            $result['databaseRow'],
             $result['databaseRow'][$fieldName]
         );
 
