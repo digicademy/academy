@@ -1,6 +1,0 @@
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_list.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_show.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_search.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_media.txt">
-<INCLUDE_TYPOSCRIPT: source="FILE:EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_mediaviewer.txt">

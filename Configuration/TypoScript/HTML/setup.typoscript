@@ -1,0 +1,6 @@
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy.typoscript'
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_list.typoscript'
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_show.typoscript'
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_search.typoscript'
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_media.typoscript'
+@import 'EXT:academy/Configuration/TypoScript/HTML/Plugins/academy_mediaviewer.typoscript'

@@ -1,0 +1,17 @@
+# Entry point of the static template "Academy" (see Configuration/TCA/Overrides/sys_template.php).
+#
+# Since TYPO3 13, "@import" only loads files ending in ".typoscript" and silently skips any
+# other file ending, which is why every file in this tree carries that ending. The imports are
+# listed file by file, not by directory, to keep the loading order explicit.
+
+# HTML libraries
+@import 'EXT:academy/Configuration/TypoScript/HTML/setup.typoscript'
+
+# VCF libraries
+@import 'EXT:academy/Configuration/TypoScript/VCF/setup.typoscript'
+
+# RSS libraries
+@import 'EXT:academy/Configuration/TypoScript/RSS/setup.typoscript'
+
+# ICS libraries
+@import 'EXT:academy/Configuration/TypoScript/ICS/setup.typoscript'
