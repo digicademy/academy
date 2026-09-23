@@ -25,10 +25,13 @@ class AcademyTcaInline extends TcaInline
         }
 
         $childTableName = $result['processedTca']['columns'][$fieldName]['config']['foreign_table'];
+        // as of TYPO3 13, resolveConnectedRecordUids() expects the full parent row rather
+        // than its uid, because it resolves the live version from the row's own t3ver_oid
+        // instead of querying for it; keep this in sync with the core method it mirrors
         $connectedUidsOfDefaultLanguageRecord = $this->resolveConnectedRecordUids(
             $result['processedTca']['columns'][$fieldName]['config'],
             $result['tableName'],
-            $result['databaseRow']['uid'],
+            $result['databaseRow'],
             $result['databaseRow'][$fieldName]
         );
 
@@ -48,8 +51,9 @@ class AcademyTcaInline extends TcaInline
                     $uid,
                     'sys_language_uid'
                 );
-                // only relations that match the default language
-                if ($relation['sys_language_uid'] == '0') {
+                // only relations that match the default language; a relation that no longer
+                // resolves to a record is skipped rather than accessed as an array on null
+                if (is_array($relation) && (int)($relation['sys_language_uid'] ?? 0) === 0) {
                     $languageAwareConnectedUids[] = $uid;
                 }
             }
