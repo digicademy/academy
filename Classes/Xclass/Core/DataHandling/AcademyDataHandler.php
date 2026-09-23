@@ -19,7 +19,7 @@ class AcademyDataHandler extends DataHandler
      * @param array $row
      * @param array $conf
      * @param int $realDestPid
-     * @param string $language
+     * @param int $language
      * @param array $workspaceOptions
      * @return string
      */
