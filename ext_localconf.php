@@ -11,6 +11,9 @@ use Digicademy\Academy\Controller\HcardsController;
 use Digicademy\Academy\Controller\ProductsController;
 use Digicademy\Academy\Controller\ServicesController;
 use Digicademy\Academy\Controller\PublicationsController;
+use Digicademy\Academy\Backend\Form\FormDataProvider\LanguageAwareInlineRelations;
+use TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline;
+use TYPO3\CMS\Backend\Form\FormDataProvider\TcaRecordTitle;
 
 defined('TYPO3') or die();
 
@@ -78,11 +81,21 @@ ExtensionUtility::configurePlugin(
 // hook for generating CERIF-XML compliant UUIDs for CRIS entities
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][] = 'Digicademy\Academy\Hooks\Backend\DataHandler';
 
-// XClasses to patch core bug with IRRE localization handing (@see Digicademy\Academy\Hooks\Backend\DataHandler 89ff)
-$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Backend\Form\FormDataProvider\TcaInline::class] = [
-   'className' => Digicademy\Academy\Xclass\Backend\Form\FormDataProvider\AcademyTcaInline::class
-];
-// XClasses to patch an IRRE bug with localization handling @see: https://forge.typo3.org/issues/80944
+// Restricts the IRRE children of an academy relations field to the parent's own language.
+// Runs after core's TcaInline has compiled them, in every form data group that also runs
+// TcaInline, which is where the XCLASS this replaces used to take effect. It has to run
+// before TcaRecordTitle, which composes a record title out of an inline field's children
+// when that field is the label field: the filter used to happen inside TcaInline, so
+// everything downstream only ever saw the filtered children, and that stays true here.
+foreach (['tcaDatabaseRecord', 'flexFormSegment', 'tcaInputPlaceholderRecord'] as $formDataGroup) {
+    $GLOBALS['TYPO3_CONF_VARS']['SYS']['formEngine']['formDataGroup'][$formDataGroup][LanguageAwareInlineRelations::class] = [
+        'depends' => [TcaInline::class],
+        'before' => [TcaRecordTitle::class],
+    ];
+}
+
+// XClass to patch an IRRE bug with localization handling, @see: https://forge.typo3.org/issues/80944
+// and Digicademy\Academy\Hooks\Backend\DataHandler 89ff
 $GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][TYPO3\CMS\Core\DataHandling\DataHandler::class] = [
    'className' => Digicademy\Academy\Xclass\Core\DataHandling\AcademyDataHandler::class
 ];
