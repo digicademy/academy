@@ -11,5 +11,16 @@ services:
   # so we need to autowire the container itself.
   TYPO3\CMS\Extbase\Object\Container\Container:
 
+  # Hooks
+  #
+  # Instantiated by class name from $TYPO3_CONF_VARS['SC_OPTIONS'][...]['processDatamapClass']
+  # (ext_localconf.php), which TYPO3 resolves through GeneralUtility::makeInstance(). That only
+  # asks the DI container for services it actually has, and a private service nothing else
+  # references is removed at compile time -- so without "public: true" the class is built with a
+  # bare "new" and the promoted ConnectionPool argument is missing. Same registration as
+  # EXT:lod's identical hook.
+  Digicademy\Academy\Hooks\Backend\DataHandler:
+    public: true
+
   GeorgRinger\News\Domain\Model\News: '@Digicademy\Academy\Domain\Model\News'
   GeorgRinger\Eventnews\Domain\Model\News: '@Digicademy\Academy\Domain\Model\Events'
