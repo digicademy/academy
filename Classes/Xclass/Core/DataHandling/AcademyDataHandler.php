@@ -52,16 +52,18 @@ class AcademyDataHandler extends DataHandler
                 // a correct localization might already exist; in case a not localized record with an existing relation gets
                 // localized later on just executing a localization will lead to errors / duplicated localizations; therefore we
                 // need to check first if a valid localization already exists at this point
+                // getRecordLocalization() returns the localization row, [] if there is none yet and false if the table is
+                // not localizable; its query already matches the child's translation pointer, so the row needs no check
                 $possibleExistingLocalization = BackendUtility::getRecordLocalization(
                     $v['table'],
                     $v['id'],
                     $language
                 );
 
-                // if a valid localization already exists we return immediately with its uid
-                if (is_array($possibleExistingLocalization) && $possibleExistingLocalization[0]['l10n_parent'] == $v['id']) {
-                    return $possibleExistingLocalization[0]['uid'];
-                // and only if not we start the localization of the inline child
+                // if a localization already exists use it for this child, otherwise localize the child; in both cases go
+                // on with the remaining children, so all of them are mapped and registerDBList is written below
+                if (!empty($possibleExistingLocalization[0]['uid'])) {
+                    $newId = (int)$possibleExistingLocalization[0]['uid'];
                 } else {
                     $newId = $this->localize($v['table'], $v['id'], $language);
                 }
