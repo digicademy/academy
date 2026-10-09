@@ -86,19 +86,6 @@ class EntityController extends ActionController
     }
 
     /**
-     * Answers detail requests without a (resolvable) record with the site's 404 page.
-     *
-     * Injected by method rather than by constructor, so that subclasses with constructors of their own
-     * (here and in other projects) need no change.
-     */
-    protected ErrorController $errorController;
-
-    public function injectErrorController(ErrorController $errorController): void
-    {
-        $this->errorController = $errorController;
-    }
-
-    /**
      * @return void
      */
     protected function getRepository()
@@ -298,8 +285,10 @@ class EntityController extends ActionController
     {
         $entity = $uid > 0 ? $this->getRepository()->findByUid($uid) : null;
         if (!is_object($entity)) {
+            // fetched where needed, as Extbase's own ActionController does, so that neither the constructors of
+            // the subclasses nor the compiled DI container have to change
             throw new PropagateResponseException(
-                $this->errorController->pageNotFoundAction(
+                GeneralUtility::makeInstance(ErrorController::class)->pageNotFoundAction(
                     $this->request,
                     'The requested record does not exist',
                     ['code' => PageAccessFailureReasons::PAGE_NOT_FOUND]

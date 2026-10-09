@@ -47,13 +47,12 @@ Found by the NFDI4Culture frontend sweep, on pages whose plugin is called withou
 
 - `entityType` is read guarded, so a misconfigured plugin reports the intended exception.
 - The record selected in the plugin configuration is used only if there is one; otherwise the request's `uid` is kept.
-- `showAction(?int $uid = null)` answers a request without uid, or with a uid that does not resolve, with the site's 404 page (`ErrorController::pageNotFoundAction()`, thrown as `PropagateResponseException`, code `1760004701`). `ErrorController` is injected with `injectErrorController()`, so subclasses' constructors need no change.
+- `showAction(?int $uid = null)` answers a request without uid, or with a uid that does not resolve, with the site's 404 page (`ErrorController::pageNotFoundAction()`, thrown as `PropagateResponseException`, code `1760004701`). The `ErrorController` is fetched with `GeneralUtility::makeInstance()` where it is needed, as Extbase's own `ActionController` does, so neither the subclasses' constructors nor the compiled DI container change. (A first version injected it with an `inject*()` method; the 404 path then failed with "Typed property … $errorController must not be accessed before initialization".)
 
 ### Required changes in consuming projects
 
-- Flush the caches (the DI container) after updating, so that `injectErrorController()` is called; before that, the 404 path fails with "Typed property … $errorController must not be accessed before initialization".
 - Detail pages without a (resolvable) record now answer 404 instead of throwing. Subclasses overriding `showAction()` must accept `?int $uid = null` (none in this extension does).
 
 ### Verification
 
-`php -l` clean; PHPStan level 5: 9 errors in the file before and after, 41 for `Classes/`, unchanged. In the NFDI4Culture portal, the plugins without configuration now report exception `1735538304`; the detail pages without record reach the 404 path, which awaits a cache flush (see above).
+`php -l` clean; PHPStan level 5: 9 errors in the file before and after, 41 for `Classes/`, unchanged. In the NFDI4Culture portal, the plugins without configuration now report exception `1735538304`; the detail pages without record (`/services/details.html`, `/about-us/partners/details.html` and their German pages) answer 404 with the site's 404 page, and detail pages with a record (e.g. `/services/details/barcamps.html`) still show it.
