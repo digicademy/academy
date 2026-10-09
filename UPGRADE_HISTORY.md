@@ -32,3 +32,28 @@ None. Behaviour changes only where a child of a record being localized already h
 ### Verification
 
 `php -l` clean; PHPStan level 5 reports no error in the file and 41 for `Classes/`, unchanged. The real method was run old against new with stubs for `BackendUtility`, `RelationHandler` and `localize()`. One untranslated child (the reported case) and three untranslated children: the old code raised the warning twice per child, the new none, both produce the same result. Three children with the first already translated: old returned `501`, did not write `registerDBList` and localized nothing else; new returns and registers `501,9002,9003` and localizes children 2 and 3. All three already translated: old `501`, new `501,502,503`, no localization in either.
+
+## 2026-10-09 — `EntityController`: detail pages keep the requested record; missing records answer 404
+
+Found by the NFDI4Culture frontend sweep, on pages whose plugin is called without arguments.
+
+### Causes
+
+- `routeAction()` read `$this->settings['entityType']` unguarded (`Undefined array key "entityType"`) for a plugin whose FlexForm holds no fields. The deliberate exception right below it ("You need to set an entity type in the plugin configuration", `1735538304`) was never reached.
+- For a show plugin, `routeAction()` took the record from `settings.filters.selectedEntities` whenever that setting was not `null`. A detail page leaves it empty (`''`), meaning "take the record from the request"; `sanitizeFilterData()` turns `''` into `[]`, and reading `[0]` raised `Undefined array key 0`. Without the warning, the branch would have overwritten the request's `uid` with `null`.
+- `showAction(int $uid)` required a uid, so a detail page without one failed with Extbase's missing argument exception, and a uid of a missing, deleted or hidden record failed with a `TypeError` in `get_class(null)`.
+
+### Changes made
+
+- `entityType` is read guarded, so a misconfigured plugin reports the intended exception.
+- The record selected in the plugin configuration is used only if there is one; otherwise the request's `uid` is kept.
+- `showAction(?int $uid = null)` answers a request without uid, or with a uid that does not resolve, with the site's 404 page (`ErrorController::pageNotFoundAction()`, thrown as `PropagateResponseException`, code `1760004701`). `ErrorController` is injected with `injectErrorController()`, so subclasses' constructors need no change.
+
+### Required changes in consuming projects
+
+- Flush the caches (the DI container) after updating, so that `injectErrorController()` is called; before that, the 404 path fails with "Typed property … $errorController must not be accessed before initialization".
+- Detail pages without a (resolvable) record now answer 404 instead of throwing. Subclasses overriding `showAction()` must accept `?int $uid = null` (none in this extension does).
+
+### Verification
+
+`php -l` clean; PHPStan level 5: 9 errors in the file before and after, 41 for `Classes/`, unchanged. In the NFDI4Culture portal, the plugins without configuration now report exception `1735538304`; the detail pages without record reach the 404 path, which awaits a cache flush (see above).

@@ -36,8 +36,11 @@ use TYPO3\CMS\Extbase\Http\ForwardResponse;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Core\Http\PropagateResponseException;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+use TYPO3\CMS\Frontend\Controller\ErrorController;
 use TYPO3\CMS\Frontend\Exception;
+use TYPO3\CMS\Frontend\Page\PageAccessFailureReasons;
 
 /**
  * A controller of the academy_list and academy_show plugin with actions
@@ -83,6 +86,19 @@ class EntityController extends ActionController
     }
 
     /**
+     * Answers detail requests without a (resolvable) record with the site's 404 page.
+     *
+     * Injected by method rather than by constructor, so that subclasses with constructors of their own
+     * (here and in other projects) need no change.
+     */
+    protected ErrorController $errorController;
+
+    public function injectErrorController(ErrorController $errorController): void
+    {
+        $this->errorController = $errorController;
+    }
+
+    /**
      * @return void
      */
     protected function getRepository()
@@ -110,7 +126,8 @@ class EntityController extends ActionController
      */
     public function routeAction(): ResponseInterface
     {
-        $controllerName = $this->settings['entityType'];
+        // missing for a plugin whose FlexForm was saved without its fields; reported by the exception below
+        $controllerName = $this->settings['entityType'] ?? '';
         if (!$controllerName) {
             throw new Exception('You need to set an entity type in the plugin configuration', 1735538304);
         }
@@ -118,16 +135,17 @@ class EntityController extends ActionController
 
         $arguments = $this->request->getArguments();
 
-        if ($actionName == 'show' && array_key_exists('filters', $this->settings) &&
-            array_key_exists('selectedEntities', $this->settings['filters']) &&
-            $this->settings['filters']['selectedEntities'] !== null
-        ) {
-            $this->settings['filters'] = $this->filterService->sanitizeFilterData(
+        // A show plugin displays the record selected in its configuration, if there is one. Without one it is a
+        // detail page and displays the record passed in the request, which must then not be overwritten.
+        if ($actionName == 'show' && is_array($this->settings['filters'] ?? null)) {
+            $selectedEntities = $this->filterService->sanitizeFilterData(
                 $this->settings['filters'],
                 ['selectedEntities']
-            );
+            )['selectedEntities'] ?? [];
 
-            $arguments['uid'] = $this->settings['filters']['selectedEntities'][0];
+            if ($selectedEntities !== []) {
+                $arguments['uid'] = $selectedEntities[0];
+            }
         }
 
         return (new ForwardResponse($actionName))
@@ -266,12 +284,30 @@ class EntityController extends ActionController
     }
 
     /**
-     * @param int $uid
+     * Displays one entity.
+     *
+     * A request without a uid (e.g. a detail page called without record) or with the uid of a record that does
+     * not exist, is deleted, hidden or out of its start/end time, is answered with the site's 404 page.
+     *
+     * @param int|null $uid
      *
      * @return ResponseInterface
+     * @throws PropagateResponseException
      */
-    public function showAction(int $uid): ResponseInterface
+    public function showAction(?int $uid = null): ResponseInterface
     {
+        $entity = $uid > 0 ? $this->getRepository()->findByUid($uid) : null;
+        if (!is_object($entity)) {
+            throw new PropagateResponseException(
+                $this->errorController->pageNotFoundAction(
+                    $this->request,
+                    'The requested record does not exist',
+                    ['code' => PageAccessFailureReasons::PAGE_NOT_FOUND]
+                ),
+                1760004701
+            );
+        }
+
         $arguments = $this->request->getArguments();
         $this->view->assign('arguments', $arguments);
 
@@ -281,9 +317,6 @@ class EntityController extends ActionController
         /** @var ContentObjectRenderer $contentObject */
         $plugin = $this->request->getAttribute('currentContentObject')->data;
         $this->view->assign('plugin', $plugin);
-
-        // Dynamically fetch the entity using the generic repository
-        $entity = $this->getRepository()->findByUid($uid);
 
         $entityClass = GeneralUtility::trimExplode('\\', get_class($entity));
         $varName = strtolower(end($entityClass));
