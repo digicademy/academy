@@ -33,6 +33,7 @@ use Digicademy\Academy\Domain\Model\Traits\{DateRangeTrait,
     TypeTrait};
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * Represents a relation between CRIS entities
@@ -478,12 +479,16 @@ class Relations extends AbstractEntity
     }
 
     /**
-     * Returns the medium
+     * Returns the medium, resolving the lazy loading proxy if necessary
      *
-     * @return Media $medium
+     * @return Media|null $medium
      */
     public function getMedium()
     {
+        if ($this->medium instanceof LazyLoadingProxy) {
+            $medium = $this->medium->_loadRealInstance();
+            $this->medium = $medium instanceof Media ? $medium : null;
+        }
         return $this->medium;
     }
 
