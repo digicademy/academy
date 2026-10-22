@@ -162,7 +162,8 @@ class EntityController extends ActionController
         $this->view->assign('plugin', $plugin);
 
         $facets = [];
-        if ($settings['facets']['categoryFacets']['facetParents']) {
+        // missing for a list plugin whose FlexForm was saved without the facets sheet
+        if (!empty($settings['facets']['categoryFacets']['facetParents'])) {
             $settings['facets']['categoryFacets']['facetTable'] = 'sys_category';
             $settings['facets']['categoryFacets']['facetParents'] =
                 array_map(fn($uid) => ['uid' => $uid], explode(',', $settings['facets']['categoryFacets']['facetParents']));;
@@ -190,8 +191,8 @@ class EntityController extends ActionController
             $currentPage = $this->request->hasArgument('currentPage')
                 ? (int)$this->request->getArgument('currentPage')
                 : 1;
-            $itemsPerPage = (int)$this->settings['pagination']['itemsPerPage'] ? : 10;
-            $maximumPages = (int)$this->settings['pagination']['maximumPages'] ? : 10;
+            $itemsPerPage = (int)($this->settings['pagination']['itemsPerPage'] ?? 0) ? : 10;
+            $maximumPages = (int)($this->settings['pagination']['maximumPages'] ?? 0) ? : 10;
             $pagination = $this->paginationService->paginate($allEntities, $currentPage, $itemsPerPage, $maximumPages);
             $this->view->assign('pagination', $pagination);
             $entities = $pagination['paginatedItems'];
@@ -200,7 +201,7 @@ class EntityController extends ActionController
         }
 
         // assign result
-        $this->view->assign(strtolower($this->settings['entityType']), $entities);
+        $this->view->assign(strtolower($this->settings['entityType'] ?? ''), $entities);
 
         return $this->htmlResponse();
     }
