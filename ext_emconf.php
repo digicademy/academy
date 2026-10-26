@@ -14,7 +14,6 @@ $EM_CONF[$_EXTKEY] = array(
             'typo3' => '13.4.0-13.4.99',
             'news' => '',
             'eventnews' => '',
-            'chf_time' => '',
         ),
         'conflicts' => array(),
         'suggests' => array(),

@@ -1173,6 +1173,22 @@
 				<source>Event</source>
 				<target>Ereignis</target>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges" resname="tx_academy_domain_model_dateranges"  approved="yes">
+				<source>Date ranges</source>
+				<target>Datierungen</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.label" resname="tx_academy_domain_model_dateranges.label"  approved="yes">
+				<source>Label</source>
+				<target>Bezeichnung</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.dating_from" resname="tx_academy_domain_model_dateranges.dating_from"  approved="yes">
+				<source>Start date</source>
+				<target>Normdatum Anfang</target>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.dating_to" resname="tx_academy_domain_model_dateranges.dating_to"  approved="yes">
+				<source>End date</source>
+				<target>Normdatum Ende</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

@@ -199,7 +199,7 @@ return [
             'label' => 'LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:tx_academy_domain_model_services.date_range',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chftime_domain_model_dateranges',
+                'foreign_table' => 'tx_academy_domain_model_dateranges',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'tablename',
                 'minitems' => 0,

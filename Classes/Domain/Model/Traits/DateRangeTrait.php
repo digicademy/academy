@@ -26,7 +26,7 @@
 
 namespace Digicademy\Academy\Domain\Model\Traits;
 
-use Digicademy\ChfTime\Domain\Model\DateRanges;
+use Digicademy\Academy\Domain\Model\DateRanges;
 
 /**
  * Provides all necessary variables and methods for handling date ranges

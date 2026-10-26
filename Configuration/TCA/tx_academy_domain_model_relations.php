@@ -300,7 +300,7 @@ return [
             'l10n_display' => 'defaultAsReadonly',
             'config' => [
                 'type' => 'inline',
-                'foreign_table' => 'tx_chftime_domain_model_dateranges',
+                'foreign_table' => 'tx_academy_domain_model_dateranges',
                 'foreign_field' => 'parent',
                 'foreign_table_field' => 'tablename',
                 'minitems' => 0,

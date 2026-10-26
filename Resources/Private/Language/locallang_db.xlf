@@ -942,6 +942,18 @@
 			<trans-unit id="tx_news_domain_model_news.type.I.3" resname="tx_news_domain_model_news.type.I.3" >
 				<source>Event</source>
 			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges" resname="tx_academy_domain_model_dateranges" >
+				<source>Date ranges</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.label" resname="tx_academy_domain_model_dateranges.label" >
+				<source>Label</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.dating_from" resname="tx_academy_domain_model_dateranges.dating_from" >
+				<source>Start date</source>
+			</trans-unit>
+			<trans-unit id="tx_academy_domain_model_dateranges.dating_to" resname="tx_academy_domain_model_dateranges.dating_to" >
+				<source>End date</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
