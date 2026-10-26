@@ -56,3 +56,34 @@ Found by the NFDI4Culture frontend sweep, on pages whose plugin is called withou
 ### Verification
 
 `php -l` clean; PHPStan level 5: 9 errors in the file before and after, 41 for `Classes/`, unchanged. In the NFDI4Culture portal, the plugins without configuration now report exception `1735538304`; the detail pages without record (`/services/details.html`, `/about-us/partners/details.html` and their German pages) answer 404 with the site's 404 page, and detail pages with a record (e.g. `/services/details/barcamps.html`) still show it.
+
+## 2026-10-26 — Date ranges stored in EXT:academy instead of EXT:chf_time
+
+EXT:academy no longer depends on EXT:chf_time (and through it on EXT:chf_geo). Date ranges of academy records are stored in the new table `tx_academy_domain_model_dateranges` and mapped to the new model `Digicademy\Academy\Domain\Model\DateRanges`.
+
+### Cause
+
+The `date_range` fields of eight academy tables (persons, projects, units, services, products, publications, relations, media) were inline relations to `tx_chftime_domain_model_dateranges`, and `DateRangeTrait` typed `$dateRange` with `Digicademy\ChfTime\Domain\Model\DateRanges`. EXT:chf_time and EXT:chf_geo have no TYPO3 13 release; their `typo3/cms-core` constraint (`>=12.4.0 || <=12.4.99`) only lets Composer install them because it matches every version. Without EXT:chf_time, Extbase fails with `UnknownClassException` as soon as it maps an academy model.
+
+Checked in the three applications using EXT:academy (ADW Mainz website, NFDI4Culture portal, WissKomm): only label, start and end date of the date ranges hold data. Precision, dating point, method, certainty, duration, calendar and temporal entity are empty and disabled in every application's TSconfig; the calendar and temporal entity tables and all EXT:chf_geo tables are empty. All date ranges belong to academy tables.
+
+### Changes made
+
+- New table `tx_academy_domain_model_dateranges` (`ext_tables.sql`) with `label`, `dating_from`, `dating_to` (`varchar(50)` as before, so partial or historical dates stay possible), the generic parent relation `parent`/`tablename`, and the usual hidden, deleted, workspace and language fields.
+- New TCA `Configuration/TCA/tx_academy_domain_model_dateranges.php`: label, start and end date, translatable, workspace-aware, hidden from the list module (`hideTable`), core icon `actions-calendar`. Labels in `locallang_db.xlf` / `de.locallang_db.xlf` with the wording EXT:chf_time used.
+- New model `Digicademy\Academy\Domain\Model\DateRanges` (an `AbstractValueObject`, as in EXT:chf_time) with `label`, `datingFrom`, `datingTo` and the same getters and setters, now typed `string`.
+- `DateRangeTrait` uses the new model. The `date_range` field of all eight TCA tables points to the new table; the inline configuration is otherwise unchanged.
+- `chf_time` removed from the dependencies in `ext_emconf.php`.
+- New upgrade wizard `academyDateRangesMigration` (`Classes/Updates/DateRangesMigration.php`). It copies every row of `tx_chftime_domain_model_dateranges` whose `tablename` is an academy table into the new table, keeping the uid. Parent records' `date_range` values, translations (`l10n_parent`) and workspace versions therefore stay valid without further changes. Deleted rows are copied too, so restoring a parent from the recycler restores its date range. Only columns both tables have are copied. The source table is only read. Rows already copied (same uid, parent and table) are skipped, so the wizard can be run again; if a uid it needs is already taken by a different record in the new table, it reports the uids and copies nothing.
+
+### Required changes in consuming projects
+
+- Run the database analyzer (create `tx_academy_domain_model_dateranges`), flush all caches (the wizard is registered through the DI container), then run `vendor/bin/typo3 upgrade:run academyDateRangesMigration`. Run the wizard before editors create date ranges in the new table, otherwise new records can take uids the wizard needs.
+- Templates reading `{….dateRange.label}`, `.datingFrom` and `.datingTo` keep working unchanged. Code referring to `Digicademy\ChfTime\Domain\Model\DateRanges` by class name, and templates using any other date range property (precision, method, calendar, temporal entity …), must be adapted.
+- SQL that joins `tx_chftime_domain_model_dateranges` directly (e.g. Manticore search sources) must use `tx_academy_domain_model_dateranges`.
+- TSconfig and TCA overrides for `tx_chftime_domain_model_dateranges` (`TCEFORM`, `TCAdefaults`, `Configuration/TCA/Overrides/…`) must be moved to `tx_academy_domain_model_dateranges`. Fields that existed only in EXT:chf_time no longer need disabling.
+- Extbase persistence mappings and TypoScript imports of EXT:chf_time / EXT:chf_geo can be removed once nothing else uses them; EXT:chf_time and EXT:chf_geo can then be removed from `composer.json`. The table `tx_chftime_domain_model_dateranges` can be dropped after the wizard has run.
+
+### Verification
+
+`php -l` clean for all changed PHP files; PHPStan level 5 (no extension config, run with an empty config) reports no error in the new model, the wizard and `DateRangeTrait`. The wizard was run against a scratch copy of the NFDI4Culture database (2,203 date ranges, 300 deleted, 770 with `l10n_parent`), with the new table created from `ext_tables.sql`: all 2,203 rows copied, source and target identical across all copied columns (same MD5 over all rows), `AUTO_INCREMENT` continues at 2204, all 770 `l10n_parent` links resolve in the new table. A second run reports nothing to do; after deleting three copied rows exactly those three are copied again; with a uid taken by a different record the wizard copies nothing and returns `false`. An exception during the copy rolls back all inserts.
