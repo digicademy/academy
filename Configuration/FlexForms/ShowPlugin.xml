@@ -86,6 +86,14 @@
                             </items>
                         </config>
                     </settings.template.layout>
+                    <settings.listPid>
+                        <label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:plugin.template.listPid</label>
+                        <config>
+                            <type>group</type>
+                            <allowed>pages</allowed>
+                            <maxitems>1</maxitems>
+                        </config>
+                    </settings.listPid>
 				</el>
 			</ROOT>
 		</sDEF>
