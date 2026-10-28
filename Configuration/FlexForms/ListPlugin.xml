@@ -220,6 +220,14 @@
                             </items>
                         </config>
                     </settings.template.layout>
+                    <settings.detailPid>
+                        <label>LLL:EXT:academy/Resources/Private/Language/locallang_db.xlf:plugin.template.detailPid</label>
+                        <config>
+                            <type>group</type>
+                            <allowed>pages</allowed>
+                            <maxitems>1</maxitems>
+                        </config>
+                    </settings.detailPid>
                 </el>
             </ROOT>
         </sTemplate>

@@ -77,6 +77,12 @@
 			<trans-unit id="plugin.template.showTemplateLayout" resname="plugin.template.showTemplateLayout" >
 				<source>Show Template Layout</source>
 			</trans-unit>
+			<trans-unit id="plugin.template.detailPid" resname="plugin.template.detailPid" >
+				<source>Detail Page</source>
+			</trans-unit>
+			<trans-unit id="plugin.template.listPid" resname="plugin.template.listPid" >
+				<source>List Page</source>
+			</trans-unit>
 
 			<trans-unit id="tx_academy_domain_model_projects" resname="tx_academy_domain_model_projects" >
 				<source>Projects</source>
