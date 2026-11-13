@@ -217,28 +217,31 @@ These work together: first the `selectedPids` filter is applied (if provided), t
 
 You can exclude entities stored on specific pages from ALL API responses using one of two methods:
 
-**Method 1: Site Configuration (Recommended)**
+**Method 1: Site Settings (Recommended)**
 
-Add to `config/sites/main/config.yaml`:
+Add to the site settings in `config/sites/main/settings.yaml`:
 
 ```yaml
-settings:
-  academy:
-    json:
-      exclude: '123,456,789'
+academy:
+  json:
+    exclude: '123,456,789'
 ```
 
 Or as an array:
 
 ```yaml
-settings:
-  academy:
-    json:
-      exclude:
-        - 123
-        - 456
-        - 789
+academy:
+  json:
+    exclude:
+      - 123
+      - 456
+      - 789
 ```
+
+If the site has no `settings.yaml`, the same can go into the `settings` block of
+`config/sites/main/config.yaml` (`settings: academy: json: exclude: …`). As soon as a
+`settings.yaml` exists, TYPO3 13 ignores that block. The TYPO3 backend creates
+`settings.yaml` when site settings are saved there.
 
 **Method 2: Extension Configuration**
 

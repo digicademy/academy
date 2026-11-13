@@ -43,6 +43,7 @@ use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 use TYPO3\CMS\Core\Http\JsonResponse;
+use TYPO3\CMS\Core\Site\Entity\Site;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
@@ -240,7 +241,9 @@ class ApiMiddleware implements MiddlewareInterface
      * Reads from site configuration or extension configuration.
      *
      * Configuration hierarchy (in order of precedence):
-     * 1. Site configuration: settings.academy.json.exclude
+     * 1. Site settings: academy.json.exclude, in config/sites/<site>/settings.yaml
+     *    or, if the site has no settings.yaml, in the "settings" block of its
+     *    config.yaml
      * 2. Extension configuration: $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['academy']['jsonApiExclude']
      *
      * @param ServerRequestInterface $request
@@ -251,9 +254,13 @@ class ApiMiddleware implements MiddlewareInterface
         try {
             // Try to get from site configuration first
             $site = $request->getAttribute('site');
-            if ($site) {
-                $siteConfig = $site->getConfiguration();
-                $excludeConfig = $siteConfig['settings']['academy']['json']['exclude'] ?? '';
+            if ($site instanceof Site) {
+                // Since TYPO3 13, site settings live in settings.yaml if the site has
+                // one (the backend writes it when site settings are saved), and the
+                // "settings" block of config.yaml is ignored then. getSettings() takes
+                // care of that; getConfiguration()['settings'] only reads config.yaml.
+                // getAll() returns the settings as a tree, which keeps the list intact.
+                $excludeConfig = $site->getSettings()->getAll()['academy']['json']['exclude'] ?? '';
 
                 if (!empty($excludeConfig)) {
                     if (is_array($excludeConfig)) {

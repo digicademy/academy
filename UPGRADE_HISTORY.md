@@ -100,3 +100,16 @@ Checked in the three applications using EXT:academy (ADW Mainz website, NFDI4Cul
 ### Required changes in consuming projects
 
 None. A project that points `plugin.tx_news` view paths at `EXT:academy/Resources/Private/HTML/` or `RSS/` would need its own templates, but none of the projects using EXT:academy does: on TYPO3 13.4 those templates would already have failed.
+
+## 2026-11-13 — JSON API: excluded PIDs read from the site settings, including `settings.yaml`
+
+`ApiMiddleware::getExcludedPids()` read `academy.json.exclude` through `$site->getConfiguration()['settings']`. That array only contains the `settings` block of the site's `config.yaml`. Since TYPO3 13, a site's settings are taken from `config/sites/<site>/settings.yaml` as soon as that file exists, and the `settings` block of `config.yaml` is ignored. The TYPO3 backend creates `settings.yaml` when site settings are saved there. A project whose exclusions were in `settings.yaml` only, or whose `config.yaml` block differed from it, got the wrong list.
+
+### Changes made
+
+- The exclusions are read with `$site->getSettings()->getAll()['academy']['json']['exclude']`. `getSettings()` uses `settings.yaml` if it exists and the `settings` block of `config.yaml` otherwise, the same way the rest of TYPO3 does. The settings tree (`getAll()`) is used rather than `get('academy.json.exclude')` so that a list value stays a list.
+- README: the recommended place is now `settings.yaml`, with a note on the `config.yaml` block.
+
+### Required changes in consuming projects
+
+None. Projects that keep the exclusions in the `settings` block of `config.yaml` and have no `settings.yaml` behave as before. Projects that have a `settings.yaml` must have the exclusions there; TYPO3 already ignored the `config.yaml` block for everything else.
