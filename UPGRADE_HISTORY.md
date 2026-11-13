@@ -87,3 +87,16 @@ Checked in the three applications using EXT:academy (ADW Mainz website, NFDI4Cul
 ### Verification
 
 `php -l` clean for all changed PHP files; PHPStan level 5 (no extension config, run with an empty config) reports no error in the new model, the wizard and `DateRangeTrait`. The wizard was run against a scratch copy of the NFDI4Culture database (2,203 date ranges, 300 deleted, 770 with `l10n_parent`), with the new table created from `ext_tables.sql`: all 2,203 rows copied, source and target identical across all copied columns (same MD5 over all rows), `AUTO_INCREMENT` continues at 2204, all 770 `l10n_parent` links resolve in the new table. A second run reports nothing to do; after deleting three copied rows exactly those three are copied again; with a uid taken by a different record the wizard copies nothing and returns `false`. An exception during the copy rolls back all inserts.
+
+## 2026-11-13 — Unused EXT:news templates removed
+
+`Resources/Private/HTML/Templates/News/` (6 templates), `Resources/Private/HTML/Partials/News/` and `Partials/Events/` (2 partials each) and `Resources/Private/RSS/Templates/News/List.xml` were left over from before the move to GitHub in 2017 and were never rendered. Most declared ViewHelper namespaces in the old class-prefix form (`{namespace n=Tx_News_ViewHelpers}`, `{namespace e=Tx_RoqNewsevent_ViewHelpers}`), which Fluid 4 cannot resolve, so any of them that used `n:` or `e:` would have failed if rendered.
+
+### Why they were never rendered
+
+- The HTML templates and partials are only on the view paths of `plugin.tx_academy`, and EXT:academy has no `News` controller. EXT:news renders the templates of the site package.
+- The RSS feed (typeNum 9818) set the singular `templateRootPath`, `layoutRootPath` and `partialRootPath`. The plural paths inherited from `plugin.tx_news` take precedence, so the feed already used EXT:news's own `List.xml`. The `view` block in `Configuration/TypoScript/RSS/setup.typoscript` was removed along with the template.
+
+### Required changes in consuming projects
+
+None. A project that points `plugin.tx_news` view paths at `EXT:academy/Resources/Private/HTML/` or `RSS/` would need its own templates, but none of the projects using EXT:academy does: on TYPO3 13.4 those templates would already have failed.

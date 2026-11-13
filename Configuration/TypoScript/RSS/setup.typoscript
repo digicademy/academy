@@ -44,11 +44,6 @@ rss {
 			category = Wissenschaften, Literatur, Musik
 			generator = TYPO3 EXT:news
 		}
-		view {
-			templateRootPath = EXT:academy/Resources/Private/RSS/Templates/
-			layoutRootPath = EXT:academy/Resources/Private/RSS/Layouts/
-			partialRootPath = EXT:academy/Resources/Private/RSS/Partials/
-		}
 	}
 }
 
